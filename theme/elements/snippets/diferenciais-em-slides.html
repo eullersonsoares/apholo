@@ -1,0 +1,39 @@
+{% if settings.show_diferenciais_slides %}
+    <!--slide de Diferenciais Competitivos:-->
+    <div class="dif">
+        <div class="container-custom">
+            <div class="diferenciais_topo">
+                {% if settings.dif_slide_01 %}
+                    <div class="diff_item">
+                        <div>{{ settings.dif_slide_01 }}</div>
+                    </div>      
+                {% endif %}    
+                {% if settings.dif_slide_02 %}
+                    <div class="diff_item">
+                        <div>{{ settings.dif_slide_02 }}</div>
+                    </div>
+                {% endif %}    
+                {% if settings.dif_slide_03 %}
+                    <div class="diff_item">
+                        <div>{{ settings.dif_slide_03 }}</div>
+                    </div>
+                {% endif %}    
+                {% if settings.dif_slide_04 %}
+                    <div class="diff_item">
+                        <div>{{ settings.dif_slide_04 }}</div>
+                    </div> 
+                {% endif %}    
+                {% if settings.dif_slide_05 %}
+                    <div class="diff_item">
+                        <div>{{ settings.dif_slide_05 }}</div>
+                    </div> 
+                {% endif %}    
+                {% if settings.dif_slide_06 %}
+                    <div class="diff_item">
+                        <div>{{ settings.dif_slide_06 }}</div>
+                    </div> 
+                {% endif %}    
+            </div>
+        </div>        
+    </div>
+{% endif %}

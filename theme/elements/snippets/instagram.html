@@ -1,0 +1,24 @@
+{% if settings.show_instagram %}
+    <div class="instagram"  style="background-color: #FF89DF4D;">
+        <section class="section">
+            <div class="content">
+                <div class="insta-head">
+                    <div class="text">
+                        {% if settings.instagram_title %}
+                        <h2 class="title" style="color: var(--c_general_text1);">{{ settings.instagram_title }}</h2>
+                        {% endif %}
+                        {% if settings.instagram_id %}
+                            <p style="font-size: 20px; font-weight: 400;">{{ settings.instagram_id }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                {% if settings.instagram_script %}
+                    <div class="script-instagram">
+                        {{ settings.instagram_script }}
+                    </div>
+                {% endif %}
+            </div>
+        </section>
+    </div>
+{% endif %}

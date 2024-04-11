@@ -1,0 +1,72 @@
+<header data-header="scroll" class="header">
+    {% element 'snippets/diferenciais-em-slides' %}
+    
+    <div class="header-top">
+        <div class="header-content">
+            <button class="header-button mobile" data-toggle="closed" data-target="#menu-mobile" title="Abrir Menu" aria-label="Abrir o menu">
+                <div class="button-line"></div>
+                <div class="button-line"></div>
+                <div class="button-line"></div>
+            </button>
+
+            <a class="header-logo" href="{{ store.url }}" title="Logo da loja" aria-label="logo da {{ store.name }}">
+                {% if settings.logo %}
+                    <img class="header-image" src="{{ asset(settings.logo) }}"
+                        alt="{{ store.name }}"
+                        {% if not utils.is_mobile and settings.width_logo_desktop or height_logo_desktop %}
+                            width='{{ (settings.width_logo_desktop) ? settings.width_logo_desktop : "222px" }}' 
+                            height='{{ (settings.height_logo_desktop) ? settings.height_logo_desktop: "55px" }}'
+                        {% else %}
+                            width='{{ (settings.width_logo_mobile) ? settings.width_logo_mobile: "222px" }}' 
+                            height='{{ (settings.height_logo_mobile) ? settings.height_logo_mobile: "55px" }}'
+                        {% endif %}
+                        width="222" height="55"
+                    />
+                {% endif %} 
+                {% if 'home' in pages.current %}
+                    <h1 class="header-title">{{ store.name }}</h1>
+                {% else %}
+                    <h6 class="header-title">{{ store.name }}</h6>
+                {% endif %}
+            </a>
+
+            {% element 'snippets/header-search' %}
+
+            <div class="header-account">
+                <a href="https://amoserboana.com.br/" class="button2" id="revededora" target="_blank">
+                    Seja Revendedora
+                </a>
+                <a class="account-link" href="{{ links.central }}" title="Minha Conta">
+                    <span class="icon-account" aria-hidden="true"></span>
+                </a>
+
+                {# Comentado 
+                    <div class="tray-hide logged" data-logged-user="true">
+                        <span class="account-text">Ol&aacute;, <span data-customer="name"></span></span>
+                        <div class="account-access">
+                            <a class="account-link" href="{{ links.central }}" title="Minha Conta">Minha conta</a>
+                            <span class="account-separator">/</span>
+                            <a class="account-link" href="{{ links.logout }}" title="Sair">Sair</a>
+                        </div>
+                    </div>
+                    <div class="tray-hide loggedout" data-logged-user="false">
+                        <span class="account-text">Minha Conta</span>
+                        <div class="account-access">
+                            <a class="account-link" href="{{ links.login }}" title="Entrar">Entrar</a>
+                            <span class="account-separator">/</span>
+                            <a class="account-link" href="{{ links.register }}" title="Cadastrar">Cadastrar</a>
+                        </div>
+                    </div>
+                #}
+            </div>
+
+            <a class="header-cart" title="Carrinho" onclick="createList()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 7h-4v-3c0-2.209-1.791-4-4-4s-4 1.791-4 4v3h-4l-2 17h20l-2-17zm-11-3c0-1.654 1.346-3 3-3s3 1.346 3 3v3h-6v-3zm-4.751 18l1.529-13h2.222v1.5c0 .276.224.5.5.5s.5-.224.5-.5v-1.5h6v1.5c0 .276.224.5.5.5s.5-.224.5-.5v-1.5h2.222l1.529 13h-15.502z"/></svg>
+                <span class="cart-quantity" data-cart="amount">0</span>
+            </a>
+            {% element 'snippets/cart-data' %}
+        </div>
+    </div>
+
+    <nav data-menu="scroll" class="header-menu">{% element 'snippets/menu' %}</nav>
+</header>

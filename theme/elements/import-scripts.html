@@ -1,0 +1,64 @@
+{% set extensionJs = minified ? '.min.js' : '.js' %} 
+
+{# Tray scripts #} 
+{{ tray.scripts }} 
+
+<script>
+    window.theme = {
+        themePath: '{{ themePath }}',
+    };
+</script>
+
+<script src="{{ asset('js/libs.min.js')    }}"></script>
+<script src="{{ asset('js/main' ~ extensionJs) }}"></script>
+
+{{ html.script({ 
+    '0' : tray.paths.js ~ 'dist/application.min.js?' ~ utils.assets_version 
+}) }}
+
+{% if 'product' in pages.current %}
+    <script src="{{ asset('js/zoom.min.js') }}"></script>
+{% endif %}
+
+{% if settings.show_diferenciais_slides %}
+  <script>
+    //Intera&ccedil;&atilde;o de Diferenciais Competitivos:
+    var sheet = document.createElement('style'), rep=0, qnt = document.querySelectorAll('.diferenciais_topo .diff_item');
+    sheet.innerHTML = "";
+    document.body.appendChild(sheet);      
+
+    interval = setInterval(function() {
+      if(rep > qnt.length - 2){
+        rep=0;
+        sheet.innerHTML = `transition: 0s}`;
+        sheet.innerHTML = `.diferenciais_topo .diff_item{transform: translatex(0%);transition: 0s}`;
+      } else{
+          rep++
+          sheet.innerHTML = `.diferenciais_topo .diff_item{transform: translatex(-${rep}00%);`;
+        }
+      }, 4000);
+  </script>
+{% endif %}
+
+<script>
+    (() => {
+      let texto_newsletter = document.querySelectorAll("html.page-newsletter form#formulario-newsletter p");
+      
+      if(texto_newsletter.length == 1 ) {
+        texto_newsletter[0].innerHTML = texto_newsletter[0].innerHTML.replace("newsletter", "novidades e ofertas");
+      }
+    })();
+
+    (() => {
+      let tobrigado = document.querySelectorAll(".page-newsletter .board:last-child p");
+
+      if(tobrigado.length == 1) {
+        tobrigado[0].innerHTML = tobrigado[0].innerHTML.replace("Prezado", "Prezado(a)");
+        tobrigado[0].innerHTML = tobrigado[0].innerHTML.replace("," , "");
+        tobrigado[0].innerHTML = tobrigado[0].innerHTML.replace("Sr(a)" , "Sr(a),");
+        tobrigado[0].innerHTML = tobrigado[0].innerHTML.replace("newsletter", "novidades e ofertas");
+        tobrigado[0].innerHTML = tobrigado[0].innerHTML.replace("agradece.", "agradece!");
+      }
+      
+    })();
+</script>

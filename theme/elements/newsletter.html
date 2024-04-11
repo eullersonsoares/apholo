@@ -1,0 +1,30 @@
+<div class="revendedor">
+    <section class="section" style="margin-top: 0 !important;">
+        <div class="content">
+            <div class="revendedor-text">
+                <div class="text">
+                    <h2 class="title">Cadastre-se</h2>
+                    <p>e receba nossas ofertas e
+                        novidades exclusivas</p>
+                </div>
+            </div>
+
+            <form class="revendedor-email" action="/mvc/store/newsletter/" method="post">
+                <input type="hidden" name="loja" value="{{ store.id }}" />
+                <input name="name" type="text" placeholder="Nome" required>
+                <input
+                    class="email-field"
+                    type="email"
+                    name="email"
+                    placeholder="{{ settings.newsletter_placeholder ? settings.newsletter_placeholder : 'E-mail' }}"
+                    required
+                    spellcheck="false"
+                    autocomplete="off"
+                />
+                <button type="submit" class="revendedor-button button2" style="margin: 0;">
+                    Cadastrar
+                </button>
+            </form>
+        </div>
+    </section>
+</div>

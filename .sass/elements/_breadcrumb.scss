@@ -1,0 +1,40 @@
+.breadcrumb {
+    @extend %flex-start-center;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+    width: 100%;
+
+    &-item {
+        display: contents;
+
+        &:first-child .breadcrumb-link {
+            font-weight: 500;
+        }
+
+        &:not(:first-child)::before {
+            @extend .icon-config;
+            content: "\/";
+            color: #AEAEAE;
+            font-size: 1.5rem !important;
+            position: relative;
+            top: -0.15em;
+            padding: 0 0.25em;
+        }
+    }
+
+    &-link,
+    &-item {
+        @include fontInsert(0.875, 300, #AEAEAE, lowercase);
+        transition: $transit_default;
+
+        a, span {
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}

@@ -1,0 +1,48 @@
+.differentials {
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        li.differential {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+
+
+            .text-differential {
+                strong {
+                    @include fontInsert(1.125, 550, var(--c_general_text1), var(--font_family));
+                }
+    
+                p {
+                    @include fontInsert(1, 350, var(--c_general_text1), var(--font_family));
+                }
+            }
+
+            @include small {
+                text-align: center;
+                width: 36vw;
+                flex-direction: column;
+
+                .image {
+                    display: flex;
+                    min-height: 60px;
+                    align-items: center;
+
+                    img {
+                        max-height: 70px;
+                        object-fit: contain;
+                    }
+                }
+                
+            }
+        }
+
+        @include small {
+            gap: 1em 2em;
+            justify-content: space-around;
+        }
+    }
+}

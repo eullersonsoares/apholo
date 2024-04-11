@@ -1,0 +1,119 @@
+<div class="product">
+    {% if pages.current == 'catalog' and settings.compare %}
+        <div class="product-compare">
+            <a href="{{ links.compare_delete ~ product.id }}"
+                class="compare-button {{ not product.compare ? 'compare-hidden' }}"
+                data-compare="remove"
+                aria-describedby="{{ product.name }}"
+            >
+                <span class="compare-checkbox checked"></span>
+                {{ Translation("remover_comparar") }}
+            </a>
+
+            <a href="{{ links.compare_add ~ product.id }}"
+                class="compare-button {{ product.compare ? 'compare-hidden' }}"
+                data-compare="add"
+                aria-describedby="{{ product.name }}"
+            >
+                <span class="compare-checkbox"></span>
+                {{ Translation("comparar_produto") }}
+            </a>
+        </div>
+    {% endif %}
+
+    <div class="product-image{% if settings.showcase_image_view == "1x1" %} aspect-ratio1x1{% endif %}" style="position: relative;">
+        {% element 'snippets/product-tags' { 'product': product } %}
+        
+        {% if product.ProgressiveDiscounts %} 
+            {% set position = position + 1 %}
+            {% set discount = product.ProgressiveDiscounts | last %}
+            <div class="progressive_Discount_seal" title="Produto com desconto progressivo">
+                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12.434 22.586l7.859-7.858.707.707-8.565 8.565-.001-.001v.001l-12.434-12.434.707-.707 11.727 11.727zm-.033-1.7l-12.401-12.405v-8.481h8.441l12.445 12.401-8.485 8.485zm-4.373-19.886h-7.028v7.067l11.401 11.405 7.07-7.07s-7.534-7.506-11.443-11.402zm-1.598 2.594c.78.78.78 2.048 0 2.828-.781.781-2.048.781-2.829 0-.78-.78-.78-2.048 0-2.828.781-.781 2.048-.781 2.829 0zm-.707.707c.39.39.39 1.024 0 1.414-.391.39-1.024.39-1.414 0-.391-.39-.391-1.024 0-1.414.39-.39 1.023-.39 1.414 0z"/></svg>
+            </div>
+        {% endif %}
+        
+        <a href="{{ product.link }}" class='product-link {{ product.images[1].large ? "hover-images" }}'>
+            {% if product.images[1].large %}
+                <img
+                    class="product-img lazyload"
+                    src="{{ product.images[0].full }}"
+                    alt="{{ product.name }}"
+                    width="450"
+                    height="450"
+                />
+                <img
+                    class="product-img lazyload"
+                    src="{{ product.images[1].full }}"
+                    alt="{{ product.name }}"
+                    width="450"
+                    height="450"
+                />
+            {% else %} 
+                <img
+                    class="product-img lazyload"
+                    src="{{ product.images[0].full }}"
+                    alt="{{ product.name }}"
+                    width="450"
+                    height="450"
+                />
+            {% endif %}
+        </a>
+
+        <button class="
+            product-button
+            {% if product.available and (product.stock > 0 or settings.without_stock_sale) and not product.upon_request %}
+                add-cart-fast
+            {% endif %}
+            " type="button" aria-label="Ver Produto">
+            
+            {% if product.available and (product.stock > 0 or settings.without_stock_sale) and not product.upon_request %}
+            <div class="product-buy">
+                <div class="variations">
+                    <p style="text-align: center; padding: 0.5rem 0;">Carregando...</p>
+                </div>
+                <div class="add-cart">
+                    <input type="number" name="quantity" class="quantity" placeholder="1" min="1" value="1">
+                    <a class="button2" data-id="{{ product.id }}"> Incluir na Sacola </a>
+                </div>
+                <div class="alert-client"></div>
+            </div>                
+
+            {% else %}
+                <a class="button2" href="{{ product.link }}"> Ver produto </a>
+            {% endif %}
+        </button>
+        
+    </div>
+
+    <a class="product-info" href="{{ product.link }}">
+        {% if pages.current == 'catalog' %}
+            <h2 class="product-name">{{ product.name }}</h2>
+        {% else %}
+            <h4 class="product-name">{{ product.name }}</h4>
+        {% endif %} 
+        
+        {# COMENTADO 
+            {% element 'snippets/product-rating' { 'review': product.ranking } %}
+        #}
+
+        <div class="product-price">
+            {% if product.available and (product.stock > 0 or settings.without_stock_sale) and not product.upon_request %} 
+                {% element 'snippets/product-price' { 
+                    'product': product 
+                } %} 
+            {% elseif product.upon_request %} 
+                {% element 'snippets/product-message' { 
+                    'product_message': 'Produto sob consulta' 
+                } %} 
+            {% elseif product.stock <= 0 %} 
+                {% element 'snippets/product-message' { 
+                    'product_message': 'Produto indispon&iacute;vel' 
+                } %} 
+            {% else %} 
+                {% element 'snippets/product-message' { 
+                    'product_message': 'Produto indispon&iacute;vel, avise-me quando chegar' 
+                } %}
+            {% endif %}
+        </div>
+    </a>
+</div>

@@ -1,0 +1,748 @@
+.footer {
+    background: var(--c_footer_bg);
+    color: var(--c_footer_text);
+    margin-top: 3rem;
+    padding: 0;
+
+    .footer {
+        &-newsletter {
+            @extend %flex-center-center;
+            max-width: $v_width_content_page;
+
+            @include small {
+                flex-wrap: wrap;
+                padding: 0;
+                margin: 2.5rem 1.2rem 0 1.2rem;
+                border-bottom: 1px solid var(--c_general_main);
+            }
+
+            @include medium {
+                margin: 0 auto;
+                padding: 2.2rem 2rem;
+                border-bottom: 1px solid var(--c_general_main);
+            }
+
+            @include large {
+                margin: 0 auto;
+                padding: 2.2rem 2rem;
+                border-bottom: 1px solid var(--c_general_main);
+            }
+
+            .newsletter {
+                &-text {
+                    @extend %flex-center-center;
+                    display: block;
+
+                    @include small {
+                        padding-bottom: 2rem;
+                        text-align: center;
+                        width: 100%;
+                    }
+
+                    @include medium {
+                        padding-bottom: 0;
+                        text-align: center;
+                        width: 40%;
+                    }
+
+                    @include large {
+                        padding-bottom: 0;
+                        text-align: center;
+                        width: 40%;
+                    }
+
+                    .text {
+                        &-emphasis {
+                            font-size: 1.5rem;
+                            font-weight: 700;
+                            color: var(--c_footer_title);
+                        }
+
+                        &-paragraph {
+                            font-weight: 600;
+                            color: var(--c_general_text1);
+                        }
+                    }
+                }
+
+                &-email {
+                    @extend %flex-center-center;
+                    position: relative;
+
+                    @include small {
+                        width: 100%;
+                        flex-wrap: wrap;
+                        padding-left: 0;
+                    }
+
+                    @include medium {
+                        padding-left: 1.25em;
+                        width: 60%;
+                    }
+
+                    @include large {
+                        padding-left: 1.25em;
+                        width: 60%;
+                    }
+
+                    .email-field {
+                        height: 2em;
+                        background-color: var(--c_footer_details_bg);
+                        color: var(--c_footer_text);
+                        font-weight: 600;
+                        padding: 1em 1em;
+                        border-radius: 4px;
+                        font-size: 0.875rem;
+
+                        &:focus {
+                            box-shadow: inset 0 0 4px var(--c_footer_text);
+                        }
+                        &::placeholder {
+                            color: var(--c_footer_text);
+                        }
+
+                        @include small {
+                            max-width: unset;
+                            margin-right: 0;
+                            margin-bottom: 1rem;
+                            width: 100%;
+                        }
+
+                        @include medium {
+                            max-width: unset;
+                            margin-right: 1em;
+                            width: 50%;
+                        }
+
+                        @include large {
+                            max-width: 420px;
+                            margin-right: 1em;
+                            width: 50%;
+                        }
+                    }
+
+                    .button1.newsletter-button {
+                        min-height: 56px;
+                        flex-shrink: 0;
+
+                        @include small {
+                            width: 100%;
+                            margin-bottom: 2.5rem;
+                        }
+
+                        @include medium {
+                        }
+                    }
+                }
+            }
+        }
+
+        &-info {
+            max-width: $v_width_content_page;
+            display: grid;
+
+            @include small {
+                margin: 4rem 1.2rem 2rem 1.2rem;
+                grid-template-areas:
+                    'contact'
+                    'pages'
+                    'social'
+                    'security';
+                grid-template-columns: 100%;
+                grid-template-rows: auto;
+                grid-gap: 2.5rem;
+            }
+
+            @include medium {
+                margin: 4rem 2rem;
+                grid-template-areas:
+                    'contact pages social'
+                    'contact pages security';
+                grid-template-columns: calc((100% - 7.5rem) / 3) calc((100% - 7.5rem) / 3) calc((100% - 7.5rem) / 3);
+                grid-template-rows: auto;
+                grid-gap: 2.5rem;
+            }
+
+            @include large {
+                margin: 4rem auto;
+                grid-template-areas: 'contact pages social security';
+                grid-template-columns: calc(100% / 4) 1fr 1fr 1fr;
+                grid-template-rows: auto;
+                grid-gap: 2.5rem;
+            }
+
+            .info {
+                &-contact {
+                    grid-area: contact;
+                }
+                &-pages {
+                    grid-area: pages;
+                }
+                &-social {
+                    grid-area: social;
+                }
+                &-security {
+                    grid-area: security;
+                }
+
+                &-contact {
+                    border: 2px solid var(--c_general_main);
+                    border-radius: 0.5rem;
+
+                    @include small {
+                        padding: 1.3rem 1.5rem;
+                    }
+                    @include medium {
+                        padding: 1.3rem 1.5rem;
+                    }
+                    @include large {
+                        padding: 1.5rem;
+                    }
+
+                    .icon.icon-phone,
+                    .icon.icon-email {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        fill: var(--c_footer_icon);
+                        padding-right: 0.4rem;
+                    }
+                }
+
+                &-title {
+                    @include fontInsert(1, 700, var(--c_footer_title));
+                    margin-bottom: 0.92rem;
+                }
+
+                &-list {
+                    padding-bottom: 1rem;
+                    word-break: break-word;
+
+                    .contact-item {
+                        @extend %flex-start-center;
+                        padding-bottom: 0.8rem;
+                        opacity: 1;
+                        transition: $transit_default;
+                        color: var(--c_footer_text);
+
+                        &:hover {
+                            color: var(--c_footer_text);
+                            opacity: 0.8;
+                        }
+
+                        .icon-phone,
+                        .icon-email,
+                        .icon-whatsapp {
+                            margin-right: 0.5rem;
+                        }
+                    }
+
+                    .info-link {
+                        @include fontInsert(0.9, 400, var(--c_footer_text));
+                        padding-bottom: 0.6rem;
+                        display: block;
+                        opacity: 1;
+                        transition: $transit_default;
+
+                        &:hover {
+                            color: var(--c_footer_title);
+                            opacity: 0.8;
+                        }
+                    }
+                }
+
+                &-social {
+                    .social {
+                        &-list {
+                            width: 100%;
+                            max-width: 192px;
+                        }
+                        &-text {
+                            @include fontInsert(0.9, 400, var(--c_footer_text));
+                            padding-bottom: 0.5rem;
+                        }
+
+                        &-debt,
+                        &-credit {
+                            @extend %flex-start-center;
+                            flex-wrap: wrap;
+                            margin-bottom: 0.9rem;
+                        }
+
+                        &-item {
+                            margin: 0 0.3rem 0.3rem 0;
+                        }
+                    }
+                }
+
+                &-media {
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    .media-link {
+                        margin-right: 1rem;
+                        margin-bottom: 0.5rem;
+                        transition: $transit_default;
+                        opacity: 1;
+
+                        &:hover {
+                            opacity: 0.7;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .title--border {
+        border-bottom: 2px solid var(--c_general_main);
+    }
+
+    // Elementos Tray
+    &-credits {
+        font-size: 0.8rem;
+        font-weight: 400;
+        text-align: left;
+        max-width: $v_width_content_page;
+        color: var(--c_general_text1);
+
+        @include small {
+            margin: 3rem 1.2rem 2rem 1.2rem;
+        }
+
+        @include medium {
+            margin: 3rem 2rem;
+        }
+
+        @include large {
+            margin: 3rem auto 1.25rem auto;
+        }
+
+        .credits {
+            @extend %flex-center-center;
+            text-align: center;
+        }
+
+        .footer-message {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .mode-preview {
+            transition: ease-out 0.2s;
+        }
+
+        .mode-preview:hover {
+            opacity: 1;
+        }
+
+        #NavLogoTray {
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        #NavLogoTray a {
+            transition: ease-out 0.2s;
+            font-weight: 600;
+        }
+
+        #NavLogoTray a:hover {
+            opacity: 0.8;
+        }
+
+        #NavLogoTray .timelogotray {
+            display: none;
+        }
+    }
+
+    //stg footer:
+    &-stg-theme {
+        background: var(--c_footer_bg);
+        color: var(--c_footer_text);
+        padding: 2rem 0 0;
+
+        .footer-stg-theme {
+            &-newsletter {
+                @extend %flex-center-center;
+                max-width: $v_width_content_page;
+
+                @include small {
+                    flex-wrap: wrap;
+                    padding: 0;
+                    margin: 2.5rem 1.2rem 0 1.2rem;
+                    border-bottom: 1px solid var(--c_general_main);
+                }
+
+                @include medium {
+                    margin: 0 auto;
+                    padding: 2.2rem 2rem;
+                    border-bottom: 1px solid var(--c_general_main);
+                }
+
+                @include large {
+                    margin: 0 auto;
+                    padding: 2.2rem 2rem;
+                    border-bottom: 1px solid var(--c_general_main);
+                }
+
+                .newsletter {
+                    &-text {
+                        @extend %flex-center-center;
+                        display: block;
+
+                        @include small {
+                            padding-bottom: 2rem;
+                            text-align: center;
+                            width: 100%;
+                        }
+
+                        @include medium {
+                            padding-bottom: 0;
+                            text-align: center;
+                            width: 40%;
+                        }
+
+                        @include large {
+                            padding-bottom: 0;
+                            text-align: center;
+                            width: 40%;
+                        }
+
+                        .text {
+                            &-emphasis {
+                                font-size: 1.5rem;
+                                font-weight: 700;
+                                color: var(--c_footer_title);
+                            }
+
+                            &-paragraph {
+                                font-weight: 600;
+                                color: var(--c_general_text1);
+                            }
+                        }
+                    }
+
+                    &-email {
+                        @extend %flex-center-center;
+                        position: relative;
+
+                        @include small {
+                            width: 100%;
+                            flex-wrap: wrap;
+                            padding-left: 0;
+                        }
+
+                        @include medium {
+                            padding-left: 1.25em;
+                            width: 60%;
+                        }
+
+                        @include large {
+                            padding-left: 1.25em;
+                            width: 60%;
+                        }
+
+                        .email-field {
+                            height: 2em;
+                            background-color: var(--c_footer_details_bg);
+                            color: var(--c_footer_text);
+                            font-weight: 600;
+                            padding: 1em 1em;
+                            border-radius: 4px;
+                            font-size: 0.875rem;
+
+                            // &:focus {
+                            //     box-shadow: inset 0 0 4px var(--c_footer_text);
+                            // }
+                            &::placeholder {
+                                color: var(--c_footer_text);
+                            }
+
+                            @include small {
+                                max-width: unset;
+                                margin-right: 0;
+                                margin-bottom: 1rem;
+                                width: 100%;
+                            }
+
+                            @include medium {
+                                max-width: unset;
+                                margin-right: 1em;
+                                width: 50%;
+                            }
+
+                            @include large {
+                                max-width: 420px;
+                                margin-right: 1em;
+                                width: 50%;
+                            }
+                        }
+
+                        .button1.newsletter-button {
+                            min-height: 56px;
+                            flex-shrink: 0;
+
+                            @include small {
+                                width: 100%;
+                                margin-bottom: 2.5rem;
+                            }
+
+                            @include medium {
+                            }
+                        }
+                    }
+                }
+            }
+
+            &-info {
+                max-width: $v_width_content_page;
+                display: grid;
+
+                @include small {
+                    margin: 0rem 1.2rem 2rem 1.2rem;
+                    grid-template-areas:
+                        'enterprise'    
+                        'pages'
+                        'helps'
+                        'contact'
+                        'social';
+                    grid-template-columns: 100%;
+                    grid-template-rows: auto;
+                    grid-gap: 1.25rem;
+                }
+
+                @include medium {
+                    margin: 3rem auto;
+                    grid-template-areas: 'enterprise pages contact social';
+                    grid-template-columns: 25% 1fr 1.15fr 1fr;
+                    grid-template-rows: auto;
+                    grid-gap: 2rem;
+                }
+
+                @include large {
+                    margin: 3rem auto;
+                    grid-template-areas: 'enterprise pages contact social';
+                    grid-template-columns: 25% 1fr 1.15fr 1fr;
+                    grid-template-rows: auto;
+                    grid-gap: 2.5rem;
+                }
+
+                .info {
+                    &-pages {
+                        grid-area: pages;
+                    }
+                    &-enterprise {
+                        grid-area: enterprise;
+
+                        .logo-footer {
+                            margin-bottom: 1.25rem;
+                        }
+                        
+                        p.text-footer {
+                            margin-bottom: 1.25rem;
+                        }
+                    }
+                    &-help {
+                        grid-area: helps;
+                    }
+                    &-contact {
+                        grid-area: contact;
+
+                        @include small {
+                            margin-top: -1.5em;
+                        }
+                    }                
+                    &-social {
+                        grid-area: social;
+                    }
+                    
+
+                    &-contact {
+                        .icon.icon-phone,
+                        .icon.icon-email {
+                            width: 1.5rem;
+                            height: 1.5rem;
+                            fill: var(--c_general_main);
+                            padding-right: 0.4rem;
+                        }
+                    }
+
+                    &-title {
+                        @include fontInsert(1.2, 600, var(--c_footer_title));
+                        margin-bottom: 0.92rem;
+                    }
+
+                    &-list {
+                        padding-bottom: 1rem;
+                        word-break: break-word;
+
+                        .contact-item {
+                            @extend %flex-start-center;
+                            padding-bottom: 0.6rem;
+                            opacity: 1;
+                            transition: $transit_default;
+                            color: var(--c_footer_text);
+
+                            &:hover {
+                                color: var(--c_footer_text);
+                                opacity: 0.8;
+                            }
+
+                            .icon-phone,
+                            .icon-email,
+                            .icon-whatsapp {
+                                margin-right: 0.5rem;
+
+                                &::before {
+                                    font-size: 1.25rem !important;
+                                }
+                            }
+                        }
+
+                        .info-link {
+                            @include fontInsert(0.938, 400, var(--c_footer_text));
+                            padding-bottom: 0.6rem;
+                            display: block;
+                            opacity: 1;
+                            transition: $transit_default;
+
+                            &:hover {
+                                color: var(--c_footer_title);
+                                opacity: 0.8;
+                            }
+                        }
+                    }
+
+                    &-social {
+                        .social {
+                            &-list {
+                                width: 100%;
+                                max-width: 192px;
+                            }
+                            &-text {
+                                @include fontInsert(0.9, 400, var(--c_footer_text));
+                                padding-bottom: 0.5rem;
+                            }
+
+                            &-debt,
+                            &-credit {
+                                @extend %flex-start-center;
+                                flex-wrap: wrap;
+                                margin-bottom: 0.9rem;
+                            }
+
+                            &-item {
+                                margin: 0 0.3rem 0.3rem 0;
+                            }
+                        }
+                    }
+
+                    &-media {
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        .media-link {
+                            margin-right: 1rem;
+                            margin-bottom: 0.5rem;
+                            transition: $transit_default;
+                            opacity: 1;
+
+                            &:hover {
+                                opacity: 0.7;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .title--border {
+            border-bottom: 2px solid var(--c_general_main);
+        }
+
+        // Elementos Tray
+        &-credits {
+            font-size: 0.8rem;
+            font-weight: 400;
+            text-align: left;
+            max-width: $v_width_content_page;
+            color: var(--c_general_text1);
+
+            @include small {
+                margin: 3rem 1.2rem 2rem 1.2rem;
+            }
+
+            @include medium {
+                margin: 2rem 2rem;
+            }
+
+            @include large {
+                margin: 1.25rem auto;
+            }
+
+            .credits {
+                @extend %flex-center-center;
+                text-align: center;
+            }
+
+            .footer-stg-theme-message {
+                @include fontInsert(0.813, 400, var(--c_footer_text));
+                margin-top: 1rem;
+                text-align: center;
+            }
+
+            .mode-preview {
+                transition: ease-out 0.2s;
+            }
+
+            .mode-preview:hover {
+                opacity: 1;
+            }
+
+            #NavLogoTray {
+                text-align: center;
+                font-size: 0.875rem;
+            }
+
+            #NavLogoTray a {
+                transition: ease-out 0.2s;
+                font-weight: 600;
+            }
+
+            #NavLogoTray a:hover {
+                opacity: 0.8;
+            }
+
+            #NavLogoTray .timelogotray {
+                display: none;
+            }
+        }
+
+        .payment-list {
+            ul {
+                @extend %flex-center-center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+        }
+
+        .signature {
+            background: var(--c_general_main);
+
+            div#stg-consult {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 2em;
+
+                span.logotray, a {
+                    color: var(--c_general_text_inverted);
+                    font-size: 14px;
+                }
+
+                a {
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}

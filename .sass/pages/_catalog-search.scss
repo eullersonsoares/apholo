@@ -1,0 +1,228 @@
+.catalog {
+    @extend %flex;
+    flex-wrap: wrap;
+
+    &-filter {
+        transition: 0.2s ease-out transform;
+
+        @include small {
+            opacity: 0;
+            visibility: hidden;
+            width: 0;
+            height: 0;
+            transform: translateY(calc(-100% - 10px));
+        }
+        @include medium {
+            display: block;
+            width: $v_width_filter;
+        }
+        @include large {
+            display: block;
+            width: $v_width_filter;
+        }
+
+        &.u-show {
+            @extend %modal-mobile-menus;
+            max-width: unset;
+            opacity: 1;
+            overflow: scroll;
+            transform: translateY(0);
+            visibility: visible;
+            z-index: 2000;
+
+            .filter {
+                padding: 0;
+            }
+
+            .filter-header.u-mobile {
+                @extend %flex-betw-center;
+                @extend %title-menu-modal;
+                padding: 1.9rem 1rem 1.3rem 1rem;
+
+                .filter-close {
+                    .icon-exit::before {
+                        color: var(--c_general_text1);
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+
+            .filter-content {
+                padding: 0 1rem;
+            }
+        }
+    }
+
+    &-title {
+        font-size: 1.563rem !important;
+        color: #2C2C2C;
+        @include title-h1(0, 500);
+        text-align: left !important;
+        margin: -0.75rem 0 1rem;
+        text-transform: lowercase !important;
+
+        @include small {
+            padding: 0;
+            margin: 0 !important;
+        }
+
+        @include medium {
+            padding: 1.9rem 1rem 1.3rem;
+        }
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    &-description {
+        @extend %paragraph-text;
+        border-bottom: $v_border_sections;
+        padding: 0.5rem 0;
+        margin-bottom: 0.5rem;
+    }
+
+    &-section {
+        .catalog-title {
+            margin: 0 0 2.5rem 0;
+        }
+
+        .banner-container {
+            margin: 0 0 1rem;
+        }
+
+        @include small {
+            width: 100%;
+        }
+        @include medium {
+            width: calc(100% - #{$v_width_filter});
+        }
+        @include large {
+            width: calc(100% - #{$v_width_filter});
+        }
+    }
+
+    &-listRefinement {
+        margin: 0rem 0 1rem 0;
+        justify-content: flex-end;
+        @extend %flex-betw-center;
+        @include small {
+            flex-direction: column;
+        }
+        @include medium {
+            flex-direction: row;
+        }
+        @include large {
+            flex-direction: row;
+        }
+
+        .results {
+            width: auto;
+        }
+
+        .listFilter {
+            @include small {
+                padding-top: 0;
+            }
+            @include medium {
+                padding-top: 0;
+            }
+            @include large {
+                padding-top: 0;
+            }
+
+            label.filtros:last-child {
+                display: none;
+            }
+
+            .filtro-ordem {
+                @include fontInsert(0.813, 400, #000000);
+
+                .select {
+                    @include fontInsert(0.875, 400, var(--c_general_text1));
+                    border: 1px solid #E0E0E0;
+                    border-radius: 0px;
+                    padding: 0.5rem 1rem;
+                }
+            }
+        }
+
+        .filter-button {
+            @include small {
+                margin-top: 1.5rem;
+                width: 100%;
+            }
+            @include medium {
+                margin-top: 0;
+                width: unset;
+            }
+            @include large {
+                margin-top: 0;
+                width: unset;
+            }
+
+            &.u-mobile {
+                @include small {
+                    display: block;
+                }
+
+                @include medium {
+                    display: none;
+                }
+
+                @include large {
+                    display: none;
+                }
+            }
+        }
+        .compare-button {
+            @include small {
+                margin-top: 1.5rem;
+                width: 100%;
+            }
+            @include medium {
+                margin-top: 1.5rem;
+                width: unset;
+            }
+            @include large {
+                margin-top: 0;
+                width: unset;
+            }
+        }
+    }
+
+    &-list.listProduct-item {
+        @include small {
+            width: calc(100% / 2);
+        }
+
+        @include medium {
+            width: calc(100% / 3);
+        }
+
+        @include large {
+            width: calc(100% / 3);
+        }
+    }
+
+    &-empty {
+        @include fontInsert(1.5, 700);
+        padding: 2.5rem 0;
+        text-align: center;
+    }
+}
+
+.search-title {
+    font-size: 1.563rem !important;
+    color: #000;
+    @include title-h1(0, 500);
+    text-align: left !important;
+    margin: 0 0 2rem 0;
+    @include small {
+        padding: 1.9rem 1rem 1.3rem;
+    }
+
+    @include medium {
+        padding: 0;
+    }
+}

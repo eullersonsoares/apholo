@@ -1,0 +1,13 @@
+{% set current_price = product.price_offer > 0 ? product.price_offer : product.price %} {% set old_price = product.price_offer > 0 ? product.price : false %} 
+
+<div class="price display-cash">
+    {% if old_price %}
+        <p class="price-old"><s>{{ settings.currency }} {{ old_price | currency }}</s></p>
+    {% endif %}
+
+    <p class="price-current">
+        <em class="value"> {{ settings.currency }} {{ current_price | currency }} </em>
+    </p>
+
+    <p class="price-installments">{{ product.payment }}</p>
+</div>

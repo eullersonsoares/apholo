@@ -1,0 +1,94 @@
+.filter {
+    padding-right: 1.5rem;
+
+    &-section {
+        border-radius: 8px;
+        padding: 0;
+        margin-bottom: 1rem;
+    }
+
+    &-title {
+        @include title-h3;
+    }
+
+    &-list {
+        border-bottom: 1px solid var(--c_general_details);
+        padding: 0.875rem 0;
+        margin-bottom: 1.5rem;
+        max-height: 200px;
+        overflow-y: auto;    
+        @extend %style-scroll;
+        @extend %text-general;
+
+        .filter-checkbox {
+            @extend %flex-start-center;
+            @include checkbox-square;
+            cursor: pointer;
+            line-height: 1.1;
+            padding-bottom: 0.6rem;
+        }
+
+        .filter-label {
+            @include fontInsert(0.875, 400, #2C2C2C);
+            cursor: pointer;
+            padding-left: 0.5rem;
+            transition: $transit_default;
+            opacity: 1;
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+
+        .filter-input:checked + .filter-label {
+            font-weight: 600;
+        }
+    }
+
+    #Cor ul.filter-list, #Tamanho ul.filter-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        .filter-item {
+
+            input {
+                display: none !important;
+
+                &:checked + .filter__label, &:checked + .filter-label {
+                    color: var(--c_general_main);
+                    border-color: var(--c_general_main);
+                }
+            }
+
+            .filter__label, .filter-label {
+                @extend %flex-center-center;
+                border: 1px solid #a0a0a0;
+                height: 45px;
+                width: 45px;
+                border-radius: 50px;
+
+                img {
+                    border-radius: 50px;
+                    height: 35px;
+                    width: 35px;
+                    object-fit: cover;
+                }
+            }
+
+            .filter-label {
+                padding:  0!important;
+                @extend %flex-center-center;
+            }
+        }
+    }
+
+    &-button {
+        width: 100%;
+        margin: auto;
+
+        @include small {
+            width: 93%;
+        }
+    }
+}

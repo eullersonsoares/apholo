@@ -1,0 +1,110 @@
+{% if settings.show_diferenciais_grid %}
+<section class="section differentials">
+    <ul class="content">
+        {% if settings.diferencial_grid_image_1 or settings.dif_grid_01_title or settings.dif_grid_01_text %}
+        <li class="differential">
+            {% if settings.diferencial_grid_image_1 %}
+            <div class="image">
+                <img src="{{ asset(settings.diferencial_grid_image_1) }}" alt="{{ settings.dif_grid_01_title }}">
+            </div>
+            {% endif %}
+            {% if settings.dif_grid_01_title or settings.dif_grid_01_text %}
+                <div class="text-differential">
+                    {% if settings.dif_grid_01_title %}
+                    <p><strong>{{ settings.dif_grid_01_title }}</strong></p>
+                    {% endif %}
+
+                    {% if settings.dif_grid_01_text %}
+                    <p>{{ settings.dif_grid_01_text }}</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </li>
+        {% endif %}
+
+        {% if settings.diferencial_grid_image_2 or settings.dif_grid_02_title or settings.dif_grid_02_text %}
+        <li class="differential">
+            {% if settings.diferencial_grid_image_2 %}
+            <div class="image">
+                <img src="{{ asset(settings.diferencial_grid_image_2) }}" alt="{{ settings.dif_grid_02_title }}">
+            </div>
+            {% endif %}
+            {% if settings.dif_grid_02_title or settings.dif_grid_02_text %}
+                <div class="text-differential">
+                    {% if settings.dif_grid_02_title %}
+                    <p><strong>{{ settings.dif_grid_02_title }}</strong></p>
+                    {% endif %}
+
+                    {% if settings.dif_grid_02_text %}
+                    <p>{{ settings.dif_grid_02_text }}</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </li>
+        {% endif %}
+
+        {% if settings.diferencial_grid_image_3 or settings.dif_grid_03_title or settings.dif_grid_03_text %}
+        <li class="differential">
+            {% if settings.diferencial_grid_image_3 %}
+            <div class="image">
+                <img src="{{ asset(settings.diferencial_grid_image_3) }}" alt="{{ settings.dif_grid_03_title }}">
+            </div>
+            {% endif %}
+            {% if settings.dif_grid_03_title or settings.dif_grid_03_text %}
+                <div class="text-differential">
+                    {% if settings.dif_grid_03_title %}
+                    <p><strong>{{ settings.dif_grid_03_title }}</strong></p>
+                    {% endif %}
+
+                    {% if settings.dif_grid_03_text %}
+                    <p>{{ settings.dif_grid_03_text }}</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </li>
+        {% endif %}
+
+        {% if settings.diferencial_grid_image_4 or settings.dif_grid_04_title or settings.dif_grid_04_text %}
+        <li class="differential">
+            {% if settings.diferencial_grid_image_4 %}
+            <div class="image">
+                <img src="{{ asset(settings.diferencial_grid_image_4) }}" alt="{{ settings.dif_grid_04_title }}">
+            </div>
+            {% endif %}
+            {% if settings.dif_grid_04_title or settings.dif_grid_04_text %}
+                <div class="text-differential">
+                    {% if settings.dif_grid_04_title %}
+                    <p><strong>{{ settings.dif_grid_04_title }}</strong></p>
+                    {% endif %}
+
+                    {% if settings.dif_grid_04_text %}
+                    <p>{{ settings.dif_grid_04_text }}</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </li>
+        {% endif %}
+
+        {% if settings.diferencial_grid_image_5 or settings.dif_grid_05_title or settings.dif_grid_05_text %}
+        <li class="differential">
+            {% if settings.diferencial_grid_image_5 %}
+            <div class="image">
+                <img src="{{ asset(settings.diferencial_grid_image_5) }}" alt="{{ settings.dif_grid_05_title }}">
+            </div>
+            {% endif %}
+            {% if settings.dif_grid_05_title or settings.dif_grid_05_text %}
+                <div class="text-differential">
+                    {% if settings.dif_grid_05_title %}
+                    <p><strong>{{ settings.dif_grid_05_title }}</strong></p>
+                    {% endif %}
+
+                    {% if settings.dif_grid_05_text %}
+                    <p>{{ settings.dif_grid_05_text }}</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </li>
+        {% endif %}
+    </ul>
+</section>
+{% endif %}

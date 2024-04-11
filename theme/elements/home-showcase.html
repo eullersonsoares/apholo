@@ -1,0 +1,83 @@
+{% if type %}
+    {% set quantity = quantity | default(8) %}
+    {% set title %}
+        {{ type == 'top_seller' ? 'Mais Vendidos' :
+            type == 'new' ? 'Acabou de chegar' :
+            type == 'featured' ? 'Os mais queridinhos' : 
+            type == 'free_shipping' ? 'Frete Gr&aacute;tis' : 
+            type == 'promotion' ? 'Promo&ccedil;&atilde;o'
+        }}
+    {% endset %}
+
+    {% if type == 'top_seller' %}
+        {% set products = Products({
+            'filter': ['available'],
+            'order' : { 'quantity_sold': 'desc' },
+            'limit' : quantity
+        }) %}
+    {% else %}
+
+        {% if rand %}
+            {% set products = Products({
+                'filter': [type, 'available'],
+                'limit' : quantity,
+                'order' : 'rand'
+            }) %}
+        {% else %}
+            {% set products = Products({
+                'filter': [type, 'available'],
+                'limit' : quantity
+            }) %}
+        {% endif %}
+
+    {% endif %}
+
+    {% if products | length > 0 %}
+        <section class="section showcase">
+            <h2 class="section-title">
+                {{ title }}
+            </h2>
+
+            {% if typeSection == "slides" %}
+                <div style="position:relative" class="slides-products">
+                    <div class="swiper slidesProducts">
+                        <ul class="showcase-listProduct swiper-wrapper">
+                            {% for item in products %}
+                                <li class="listProduct-item swiper-slide">
+                                    {% element 'snippets/product' {
+                                        product : item,
+                                        slide   : false
+                                    } %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% elseif typeSection == "showMore" %}
+                <ul class="showcase-listProduct" id='show-more-function'>
+                    {% for item in products %}
+                        <li class="listProduct-item">
+                            {% element 'snippets/product' {
+                                product : item,
+                                slide   : false
+                            } %}
+                        </li>
+                    {% endfor %}
+                </ul>
+                <button class="button2" id="showMore" data-href='{{ settings.link_see_more ? settings.link_see_more : "/loja/busca.php?palavra_busca=" }}'>Ver mais</button>
+            {% else %}
+                <ul class="showcase-listProduct">
+                    {% for item in products %}
+                        <li class="listProduct-item">
+                            {% element 'snippets/product' {
+                                product : item,
+                                slide   : false
+                            } %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </section>
+    {% endif %}
+
+{% endif %}

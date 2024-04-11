@@ -1,0 +1,91 @@
+.box-alerts {
+    @include fontInsert(0.875, 500, #000);
+    padding: 1em;
+    position: fixed;
+    bottom: 3%;
+    width: 30vw;
+    left: 1%;
+    z-index: 3400;
+    right: auto;
+    border-radius: 5px;
+    background: #f8f8f8;
+    box-shadow: 0 0 10px rgb(0,0,0,0.15);
+    text-align: center;
+
+    @include small {
+        left: 3vw;
+        width: 94vw;
+        bottom: 5vw;
+    }
+    
+    &:empty {
+        display: none;
+    }
+
+    .danger {
+        line-height: 1.2;
+        font-size: 0.875rem;
+        font-weight: 500;
+
+        @include small {
+            padding: 0 2rem;
+        }
+        @include medium {
+            padding: 0 2rem;
+        }
+
+        span {
+            color: var(--c_alert_error);
+            font-weight: 700;
+        }
+    }
+}
+
+#alert-show {
+    display: none;
+
+    &:checked ~ .box-alerts {
+        display: none;
+    }
+
+    + .infobox.danger,
+    + .box-alerts {
+        display: none;
+    }
+}
+
+.close-info {
+    display: block;
+    cursor: pointer;
+    top: 0.5rem;
+    right: 0.5rem;
+    bottom: 0;
+    position: absolute;
+    transform: rotate(45deg);
+    height: 14px;
+    width: 14px;
+
+    &:first-child {
+        display: none;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        height: 14px;
+        width: 2px;
+        background: var(--c_alert_error);
+        position: absolute;
+        left: 6px;
+    }
+
+    &:before {
+        content: '';
+        display: block;
+        width: 14px;
+        height: 2px;
+        background: var(--c_alert_error);
+        position: absolute;
+        top: 6px;
+    }
+}

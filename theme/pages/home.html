@@ -1,0 +1,96 @@
+{% element 'snippets/banner-line' { 'banner_id': 'home', 'banner_type': 'slides' } %} 
+
+{% element 'snippets/grid-differentials' %}
+
+{% element 'home-showcase' { 
+    'rand' : settings.showcase_rand_products, 
+    'type' : settings.showcase_type_1, 
+    'quantity' : settings.showcase_quantity_1,
+    'typeSection': settings.showcase_type1
+} %} 
+
+{% element 'snippets/highlighted-categories' %}
+
+{% if banner.extra7 or banner.extra8 or banner.extra9 %}
+<section class="mini-banners section">
+    <div class="content">
+        <a href="{{ banners.extra7.link }}" class="banner" id="banner-7" title="{{ banners.extra7.alt }}" target="{{ banners.extra7.target }}">
+            <img src="{{ banners.extra7.src }}" alt="{{ banners.extra7.alt }}" width="383.281px" height="383.281px">
+        </a>
+        <a href="{{ banners.extra8.link }}" class="banner" id="banner-8" title="{{ banners.extra8.alt }}" target="{{ banners.extra8.target }}">
+            <img src="{{ banners.extra8.src }}" alt="{{ banners.extra8.alt }}" width="383.281px" height="383.281px">
+        </a>
+        <a href="{{ banners.extra9.link }}" class="banner" id="banner-9" title="{{ banners.extra9.alt }}" target="{{ banners.extra9.target }}">
+            <img src="{{ banners.extra9.src }}" alt="{{ banners.extra9.alt }}" width="383.281px" height="383.281px"></a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{# comentado temporariamente 
+    {% element 'snippets/brands-list' %} 
+#}
+
+{% element 'home-showcase' { 
+    'rand' : settings.showcase_rand_products, 
+    'type' : settings.showcase_type_2, 
+    'quantity' : settings.showcase_quantity_2, 
+    'typeSection' : settings.showcase_type2
+} %} 
+
+{% if banner.extra1 %}
+<section class="banner-mais-vendidos section">
+    <a href="{{ banners.extra1.link }}" class="banner" id="banner-1" title="{{ banners.extra1.alt }}" target="{{ banners.extra1.target }}">
+        <img src="{{ banners.extra1.src }}" alt="{{ banners.extra1.alt }}" width="1180px" height="310px">
+    </a>
+</section>
+{% endif %}
+
+{% for page in pages.custom %} 
+    {% if page.info == "noticias" and settings.show_news %}
+        <section class="section news slide-has-dots">
+            <div class="section-header">
+                <h2 class="section-title">Dicas para voc&ecirc;</h2>
+            </div>
+            <div class="news-container">
+                <ul class="news-content"></ul>
+                <button class="news-button">
+                    <a href="{{ page.url }}" class="button2" title="Ver mais not&iacute;cias" rel="next" target="_self">
+                        Ver mais
+                    </a>
+                </button>
+            </div>
+        </section>
+    {% endif %} 
+{% endfor %} 
+
+{% for pages in pages.custom %} 
+    {% if pages.info == "depoimentos_de_clientes" and settings.show_reviews %}
+        <section class="section reviews" data-slides="reviews">
+            <h2 class="section-title">Depoimentos</h2>
+            <div class="reviews-container">
+                {% element 'CustomerReview.reviews' %}
+                <button class="reviews-button">
+                    <a class="button2" href="/depoimentos-de-clientes" title="Ver mais depoimentos" rel="next" target="_self">
+                        Ver mais depoimentos
+                    </a>
+                </button>
+            </div>
+        </section>
+    {% endif %} 
+{% endfor %} 
+
+{% element 'snippets/banner-line' { 'banner_id': 'bottom', 'banner_type': 'container' } %}
+
+{# COMENTADO
+<section class="section tagCloud">
+    <h2 class="section-title">{{ Translation('tags_mais_buscadas') }}</h2>
+    <ul class="tagCloud-list">
+        {% for tag in tags %}
+            <li class="tagCloud-item">
+                <a class="tagCloud-word" href="{{ tag.url }}" rel="next" target="_self">{{ tag.word }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</section>
+#}
