@@ -1,0 +1,28 @@
+{% set witdhImage = utils.is_mobile ? "70px" : "90px" %}
+
+<div class="popup" id="image-view" logged-data="{{ dump(customer) }}">
+    <div id="content-popup">
+        <div class="content-images">
+            <button id="btn-close"></button>
+            {% set quantityImages = product.images | length %}
+            <div class="gallery-thumbs" data-qtd="{{ quantityImages }}">
+                {% if product.images | length > 1 %} 
+                    {% for images in product.images %}
+                        <div class="gallery-thumb" data-gallery="image">
+                            <img class="gallery-img" src="{{ images.full }}" alt="{{ product.name }}" width="{{ witdhImage }}"/>
+                        </div>
+                    {% endfor %} 
+                {% endif %}
+            </div>
+
+            <div class="gallery-images" data-slides="gallery">
+                {% if product.images | length %} 
+                    <div class="gallery-image" data-gallery="image">
+                            <img class="gallery-img" src="{{ product.images[0].full }}" alt="{{ product.name }}"/>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

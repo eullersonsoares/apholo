@@ -24,10 +24,10 @@
     <section class="catalog-section">
         <header class="catalog-header">
             
-            <div style='{{ category.small_description ? "margin-bottom: 0" : "margin-bottom: 1rem" }}'>
+            <div style='{{ category.small_description and not utils.is_mobile ? "margin-bottom: 0" : "margin-bottom: 1rem" }}'>
                 {% element 'snippets/banner-line' { 'banner_id': 'title', 'banner_type': 'container' } %} 
             </div>
-            
+
             {% if not utils.is_mobile %}
                 {% if category.small_description %}
                     <div class="catalog-description">{{ category.small_description }}</div>
@@ -48,6 +48,8 @@
                     <button class="filter-button u-mobile button4" data-toggle="closed" data-target="#category-filter">
                         Filtro de Produtos
                     </button>
+
+                    {#{% element 'snippets/filter-sizes' %}#}
 
                     {% if settings.compare %}
                         <button class="compare-button">

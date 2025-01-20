@@ -17,6 +17,8 @@
         <header class="catalog-header">
             {% element 'snippets/banner-line' { 'banner_id': 'title', 'banner_type': 'container' } %} 
             
+            {#{% element 'snippets/filter-sizes' %}#}
+            
             {% if not utils.is_mobile %}
                 {% if category.small_description %}
                     <div class="catalog-description">{{ category.small_description }}</div>

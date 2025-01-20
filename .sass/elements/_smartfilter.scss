@@ -64,14 +64,14 @@
             .filter__label, .filter-label {
                 @extend %flex-center-center;
                 border: 1px solid #a0a0a0;
-                height: 45px;
-                width: 45px;
-                border-radius: 50px;
+                height: 40px;
+                width: 40px;
+                border-radius: 0px;
 
                 img {
-                    border-radius: 50px;
-                    height: 35px;
-                    width: 35px;
+                    border-radius: 0px;
+                    height: 32px;
+                    width: 32px;
                     object-fit: cover;
                 }
             }

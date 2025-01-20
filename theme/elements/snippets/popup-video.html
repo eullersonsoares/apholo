@@ -1,0 +1,48 @@
+{% set video_url = settings.iframe_video %}
+
+{% set video_url_base = video_url | replace({'https://www.youtube.com/embed/': '', 'https://www.youtube.com/shorts/': '', 'https://vimeo.com/': ''}) %}
+
+{% if video_url starts with 'https://www.youtube.com/embed/' %}
+    {% set video_id = video_url_base | split('?')[0] %}
+    {% set embed_url = "https://www.youtube.com/embed/" ~ video_id ~ "?autoplay=1&loop=1&playlist=" ~ video_id ~ "&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3" %}
+
+{% elseif video_url starts with 'https://www.youtube.com/shorts/' %}
+    {% set video_id = video_url_base | split('?')[0] %}
+    {% set embed_url = "https://www.youtube.com/embed/" ~ video_id ~ "?autoplay=1&loop=1&playlist=" ~ video_id ~ "&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3" %}
+
+{% elseif video_url starts with 'https://vimeo.com/' %}
+    {% set video_id = video_url_base %}
+    {% set embed_url = "https://player.vimeo.com/video/" ~ video_id ~ "?autoplay=1&loop=1" %}
+
+{% else %}
+    {% set embed_url = "" %}
+{% endif %}
+
+{% if settings.show_popup_video and embed_url %}
+    <div class="video-button">
+        {% set thumbImage = settings.video_image %}
+
+        <img src="{{ asset(thumbImage) }}" alt="Vídeo Apholo" data-url='{{ thumImage ? thumImage : "null" }}'>
+    </div>
+
+    <div class="popup" id="popup-video">
+        <div id="content-popup">
+            <div class="content-video" data-frame-sizes='{{ settings.video_view == "16x9" ? "16x9" : "9x16"}}'>
+                <button id="btn-close"></button>
+
+                {% if embed_url %}
+                    <iframe 
+                        id="videoPlayer" 
+                        data-src="{{ embed_url }}" 
+                        width="270" 
+                        height="480" 
+                        frameborder="0" 
+                        allow="autoplay; encrypted-media" 
+                        allowfullscreen
+                        >
+                    </iframe>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endif %}

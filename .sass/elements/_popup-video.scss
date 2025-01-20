@@ -1,0 +1,78 @@
+.video-button {
+    position: fixed;
+    z-index: 1000;
+    bottom: 5%;
+    left: 2%;
+    cursor: pointer;
+
+    &:hover img {
+        opacity: 0.85;
+    }
+
+    img {
+        max-width: 141px;
+        max-height: 141px;
+        border-radius: 200px;
+        transition: 0.3s;
+
+        @include small {
+            max-width: 72px;
+            max-height: 72px;
+        }
+    }
+}
+
+div#popup-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    background: #00000090;
+    align-items: center;
+    justify-content: center;
+    display: none;
+
+    button#btn-close {
+        position: absolute;
+        top: 0rem;
+        right: 0rem;
+        display: flex;
+        width: 30px;
+        height: 30px;
+        justify-content: center;
+        z-index: 1000;
+
+        &::after {
+            content: "";
+            height: 20px;
+            width: 3px;
+            display: block;
+            background: var(--c_general_inverted);
+            transform: rotate(45deg);
+            border-radius: 4px;
+            margin-left: -3px;
+        }
+
+        &::before {
+            content: "";
+            height: 20px;
+            width: 3px;
+            display: block;
+            background: var(--c_general_inverted);
+            transform: rotate(-45deg);
+            border-radius: 4px;
+        }
+    }
+
+    div.content-video {
+        display: flex;
+        padding: 2rem;
+        position: relative;
+
+        @include small {
+            padding: 1.5rem;
+        }
+    }
+}

@@ -1,27 +1,47 @@
+<div class="" id="varejo">
+    <section class="section">
+        <div class="content">
+            <div class="stars">
+                <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
+                <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
+                <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
+            </div>
+            <div class="texto">Varejo especializado desde 2018</div>
+            <div class="stars">
+                <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
+                <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
+                <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
+            </div>
+        </div>
+    </section>
+</div>
+
 {% element 'snippets/banner-line' { 'banner_id': 'home', 'banner_type': 'slides' } %} 
 
 {% element 'snippets/grid-differentials' %}
 
+{% element 'snippets/highlighted-categories' %}
+
+{% element 'snippets/filter-sizes' %}
+
 {% element 'home-showcase' { 
     'rand' : settings.showcase_rand_products, 
     'type' : settings.showcase_type_1, 
-    'quantity' : settings.showcase_quantity_1,
-    'typeSection': settings.showcase_type1
-} %} 
-
-{% element 'snippets/highlighted-categories' %}
+    'quantity' : settings.showcase_quantity_1 * 2,
+    'typeSection': settings.showcase_type1,
+} %}
 
 {% if banner.extra7 or banner.extra8 or banner.extra9 %}
 <section class="mini-banners section">
     <div class="content">
         <a href="{{ banners.extra7.link }}" class="banner" id="banner-7" title="{{ banners.extra7.alt }}" target="{{ banners.extra7.target }}">
-            <img src="{{ banners.extra7.src }}" alt="{{ banners.extra7.alt }}" width="383.281px" height="383.281px">
+            <img src="{{ banners.extra7.src }}" alt="{{ banners.extra7.alt }}" >
         </a>
         <a href="{{ banners.extra8.link }}" class="banner" id="banner-8" title="{{ banners.extra8.alt }}" target="{{ banners.extra8.target }}">
-            <img src="{{ banners.extra8.src }}" alt="{{ banners.extra8.alt }}" width="383.281px" height="383.281px">
+            <img src="{{ banners.extra8.src }}" alt="{{ banners.extra8.alt }}" >
         </a>
         <a href="{{ banners.extra9.link }}" class="banner" id="banner-9" title="{{ banners.extra9.alt }}" target="{{ banners.extra9.target }}">
-            <img src="{{ banners.extra9.src }}" alt="{{ banners.extra9.alt }}" width="383.281px" height="383.281px"></a>
+            <img src="{{ banners.extra9.src }}" alt="{{ banners.extra9.alt }}" >
         </div>
     </div>
 </section>
@@ -37,14 +57,6 @@
     'quantity' : settings.showcase_quantity_2, 
     'typeSection' : settings.showcase_type2
 } %} 
-
-{% if banner.extra1 %}
-<section class="banner-mais-vendidos section">
-    <a href="{{ banners.extra1.link }}" class="banner" id="banner-1" title="{{ banners.extra1.alt }}" target="{{ banners.extra1.target }}">
-        <img src="{{ banners.extra1.src }}" alt="{{ banners.extra1.alt }}" width="1180px" height="310px">
-    </a>
-</section>
-{% endif %}
 
 {% for page in pages.custom %} 
     {% if page.info == "noticias" and settings.show_news %}
@@ -80,7 +92,19 @@
     {% endif %} 
 {% endfor %} 
 
-{% element 'snippets/banner-line' { 'banner_id': 'bottom', 'banner_type': 'container' } %}
+{% element 'snippets/filter-sizes' %}
+
+{% if banner.extra1 %}
+    <section class="banner-mais-vendidos section">
+        <a href="{{ banners.extra1.link }}" class="banner" id="banner-1" title="{{ banners.extra1.alt }}" target="{{ banners.extra1.target }}">
+            <img src="{{ banners.extra1.src }}" alt="{{ banners.extra1.alt }}">
+
+            <div class="button2 button-banner" title="Ver agora">Ver agora</div>
+        </a>
+    </section>
+{% endif %}
+
+{#{% element 'snippets/banner-line' { 'banner_id': 'bottom', 'banner_type': 'container' } %}#}
 
 {# COMENTADO
 <section class="section tagCloud">

@@ -1,0 +1,24 @@
+{% set produtos = Products() %}
+{% set variationsList = [] %}
+
+<div class="filtro-variacoes">
+    <section class="section">
+        <div class="section-title">Compre por tamanho</div>
+        <ul class="list-filter">
+            {% for product in produtos %}
+            {% for variantArray in product.variants %}
+                {% for variant in variantArray.Sku %}
+                    {% if variant.type == "Tamanho" %}
+                        {% if variant.value not in variationsList %}
+                            {% set variationsList = variationsList | merge([variant.value]) %}
+                            <li class="filter-item">
+                                <a class="button2" href="/loja/busca.php?loja=1367111&variants%5B%5D=Tamanho%7C%7C{{ variant.value }}{{ pages.current == 'catalog' ? '&categoria=' ~ category.id}}">{{ variant.value }}</a>
+                            </li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        {% endfor %}        
+        </ul>
+    </section>
+</div>

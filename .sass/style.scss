@@ -242,7 +242,7 @@ $transit_slow: 0.5s ease-out;
     @include fontInsert(1.875, 400);
 
     @media (max-width:768px) {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
 }
 
@@ -482,7 +482,7 @@ $transit_slow: 0.5s ease-out;
     :root {
         --v_height_header_top: 156px;
         --v_height_header_menu: 0;
-        --v_height_header_total: calc(var(--v_height_header_top) + 30px);
+        --v_height_header_total: calc(var(--v_height_header_top) + 40px);
     }
 }
 
@@ -490,7 +490,7 @@ $transit_slow: 0.5s ease-out;
     :root {
         --v_height_header_top: 100px;
         --v_height_header_menu: 48px;
-        --v_height_header_total: calc(var(--v_height_header_top) + var(--v_height_header_menu) + 30px);
+        --v_height_header_total: calc(var(--v_height_header_top) + var(--v_height_header_menu) + 40px);
     }
 }
 
@@ -498,7 +498,7 @@ $transit_slow: 0.5s ease-out;
     :root {
         --v_height_header_top: 100px;
         --v_height_header_menu: 48px;
-        --v_height_header_total: calc(var(--v_height_header_top) + var(--v_height_header_menu) + 30px);
+        --v_height_header_total: calc(var(--v_height_header_top) + var(--v_height_header_menu) + 40px);
     }
 }
 
@@ -688,7 +688,7 @@ body.overflowed {
 }
 
 .button2 {
-    @include fontInsert(1, 700, var(--c_general_text_inverted));
+    @include fontInsert(1, 600, var(--c_general_text_inverted));
     background-color: var(--c_contrast_and_button);
     border-radius: 5px;
     display: block;
@@ -700,6 +700,11 @@ body.overflowed {
     &:focus,
     &:active {
         opacity: 0.85;
+    }
+
+    @include small {
+        @include fontInsert(0.875, 600, var(--c_general_text_inverted));
+        padding: 0.5rem 1rem;
     }
 }
 
@@ -805,10 +810,14 @@ div.Seguro {
     }
 }
 
+.bottomSlider-show {
+    display: none !important;
+}
+
 ///Imports of SASS parts:
 @import 'elements/header', 'elements/footer', 'elements/showcaseProduct', 'elements/banner', 'elements/differentials', 'default',
-    'elements/highlighted-categories', 'elements/alert-store', 'pages/home', 'elements/cart-data', 'elements/popup-lista-vip', 'elements/popup-cookies', 'pages/tray/modals-general', 'elements/brands-list', 'elements/pagination',
-    'elements/breadcrumb', 'pages/catalog-search', 'elements/smartfilter', 'pages/tray/newsletter-confirmation',
+    'elements/highlighted-categories', 'elements/alert-store', 'pages/home', 'elements/cart-data', 'elements/popup-lista-vip', 'elements/popup-image-view', 'elements/popup-video', 'elements/popup-cookies', 'pages/tray/modals-general', 'elements/brands-list', 'elements/pagination',
+    'elements/breadcrumb', 'pages/catalog-search', 'elements/smartfilter', 'elements/size_filter', 'pages/tray/newsletter-confirmation',
     'pages/tray/login', 'pages/tray/page-register', 'pages/tray/compare', 'pages/tray/custom', 'pages/pageProduct',
     'elements/modals', 'pages/tray/customerReviews', 'pages/tray/advanced-search', 'pages/tray/all-news',
     'pages/tray/news', 'pages/tray/contactUs.scss', 'pages/tray/rich-text-editor', 'pages/tray/wishlist/wishlist',

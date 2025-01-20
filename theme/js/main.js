@@ -152,8 +152,8 @@
 
                 $(sectionsSlides).each((index, el) => {
                     $(el).before(`
-                        <div class="swiper-button-prev ${numberCarousels(index)}"></div>
-                        <div class="swiper-button-next ${numberCarousels(index)}"></div>
+                        <div class="swiper-button-prev ${theme.numberCarousels(index)}"></div>
+                        <div class="swiper-button-next ${theme.numberCarousels(index)}"></div>
                     `);
 
                     new Swiper(el, {
@@ -172,8 +172,8 @@
                         },
     
                         navigation: {
-                            prevEl: `.swiper-button-prev.${numberCarousels(index)}`,
-                            nextEl: `.swiper-button-next.${numberCarousels(index)}`,
+                            prevEl: `.swiper-button-prev.${theme.numberCarousels(index)}`,
+                            nextEl: `.swiper-button-next.${theme.numberCarousels(index)}`,
                         },
                     });
                 });
@@ -181,26 +181,20 @@
                 $(".showcase-listProduct").removeClass("swiper-wrapper");
             }
 
-            function numberCarousels(n) {
-                switch(n) {
-                    case 0 : return "zero";
-                    break;
-                    case 1 : return "um";
-                    break;
-                    case 2 : return "dois";
-                    break;
-                    case 3 : return "tres";
-                    break;
-                    case 4 : return "quatro";
-                    break;
-                    case 5 : return "cinco";
-                    break;
-                    case 6 : return "seis";
-                    break;
-                    default: return "error";
-                }
-            }
+            
         },
+
+        numberCarousels: function (n) {
+            const numbers = [
+                "zero", "um", "dois", "tres", "quatro", "cinco", "seis", "sete", "oito", "nove",
+                "dez", "onze", "doze", "treze", "catorze", "quinze", "dezesseis", "dezessete", 
+                "dezoito", "dezenove", "vinte", "vinte e um", "vinte e dois", "vinte e tres", 
+                "vinte e quatro", "vinte e cinco", "vinte e seis", "vinte e sete", "vinte e oito", 
+                "vinte e nove", "trinta"
+            ];
+        
+            return numbers[n] || "error"; // Retorna o número por índice ou "error" para valores inválidos
+        },        
 
         slidesCategoryImages: function() {
             if($("#categories")) {
@@ -211,18 +205,18 @@
                 `);
 
                 new Swiper("#categories", {
-                    slidesPerView: 7,
+                    slidesPerView: 6,
                     loop: true,
                     breakpoints: {
                         0: {
-                            slidesPerView: 2,
+                            slidesPerView: 3,
                             spaceBetween: 15
                         },
                         680: {
-                            slidesPerView: 5,
+                            slidesPerView: 4,
                         },
                         900: {
-                            slidesPerView: 7,
+                            slidesPerView: 6,
                             spaceBetween: 30
                         },
                     },
@@ -251,7 +245,7 @@
                 visibleProducts += (window.screen.width  > 768) ? 4 : 2 ;
 
                 if (visibleProducts >= products.length) {
-                    showMoreBtn.innerHTML = 'Ver mais produtos';
+                    showMoreBtn.innerHTML = 'Ver mais';
                     showMoreBtn.addEventListener('click', function() {
                     window.location.href = $("#showMore").attr("data-href");
                     });
@@ -264,22 +258,69 @@
             }
         },
 
+        clickOneVariation: function() {
+            let divMonitorada = $('.pageProduct-variants');
+            let hasClicked = false; // Flag para verificar se o clique já foi feito
+        
+            let observer = new MutationObserver(function(mutations) {
+                if (hasClicked) return; // Verifica se o clique já ocorreu
+        
+                const variacoes = $(".passo2 .lista_cor_variacao img");
+        
+                // Se houver exatamente uma variação, clica nela e desativa o observer
+                if (variacoes.length === 1) {
+                    variacoes.click();
+                    hasClicked = true; // Define a flag para impedir novos cliques
+                    observer.disconnect(); // Desativa o MutationObserver
+                    theme.clickOneVariation();
+                }
+            });
+        
+            let options = {
+                childList: true,
+                subtree: true
+            };
+        
+            // Inicia a observação da div
+            if (divMonitorada.length) {
+                observer.observe(divMonitorada[0], options);
+            }
+        },
+
         observePrice: function() {
             
             // Seleciona a div que ser&aacute; monitorada
             let divMonitorada = $('.pageProduct-price.serverTray-content#observer');
 
+            if(!$('.pageProduct-price.serverTray-content #produto_preco [data-app="product.price"]').length || $("#nao_disp").length) {
+                $("#form_comprar div#observer").show();
+                $(".pageProduct-name + .pageProduct-price.serverTray-content").hide();
+            }
+
             // Cria uma nova inst&acirc;ncia do MutationObserver
             let observer = new MutationObserver(function(mutations) {
-                if($('.pageProduct-price.serverTray-content #produto_preco [data-app="product.price"]').text()) {
-                    $(".pageProduct-name + .pageProduct-price.serverTray-content .PrecoPrincipal").text("");
-                    
-                    $(".pageProduct-name + .pageProduct-price.serverTray-content .PrecoPrincipal").text(`
-                        R$ ${$('.pageProduct-price.serverTray-content #produto_preco [data-app="product.price"]').text()}
-                    `);
-                    
-                    $(".pageProduct-name + .pageProduct-price.serverTray-content .PrecoPrincipal + .parcelamento").html($('.pageProduct-price.serverTray-content #produto_preco #info_preco').html());
+                if(!$('.pageProduct-price.serverTray-content #produto_preco [data-app="product.price"]').length || $("#nao_disp").length) {
+                    $("#form_comprar div#observer").show();
+                    $(".pageProduct-name + .pageProduct-price.serverTray-content").hide();
+                    return;
                 }
+
+                $("#form_comprar div#observer").hide();
+                $(".pageProduct-name + .pageProduct-price.serverTray-content").show();
+
+                $(".pageProduct-name + .pageProduct-price.serverTray-content .PrecoPrincipal").text("");
+                
+                if($('.pageProduct-price.serverTray-content #produto_preco #precoDe').length) {
+                    $(".pageProduct-name + .pageProduct-price.serverTray-content #produto_preco s").text(`
+                        ${$('.pageProduct-price.serverTray-content #produto_preco #precoDe').text().replace('De',  '').trim()}
+                    `);
+                }
+
+                $(".pageProduct-name + .pageProduct-price.serverTray-content .PrecoPrincipal").text(`
+                    R$ ${$('.pageProduct-price.serverTray-content #produto_preco [data-app="product.price"]').text()}
+                `);
+                
+                $(".pageProduct-name + .pageProduct-price.serverTray-content .PrecoPrincipal + .parcelamento").html($('.pageProduct-price.serverTray-content #produto_preco #info_preco').html());
             });
 
             // Configura as op&ccedil;&otilde;es do MutationObserver
@@ -292,6 +333,49 @@
             observer.observe(divMonitorada[0], options);
         },
 
+        videoPopup: function() {
+            if (!$("div#popup-video iframe").length) {
+                return;
+            }
+
+            const src = $("div#popup-video iframe").data("src");
+            const frameSizes = $("div#popup-video [data-frame-sizes]").data("frame-sizes");
+            const proporcoes = (() => {                
+                if (frameSizes === "16x9") {
+                    return 16 / 9;
+                } else if (frameSizes === "9x16") {
+                    return 9 / 16;
+                } else {
+                    return 0.6;
+                }
+            })();
+            
+            const altura = (window.screen.width < 900 && frameSizes === "16x9") ? window.screen.height * 0.225 : window.screen.height * 0.7;
+            const largura = altura * proporcoes;
+
+            $("div#popup-video iframe").css({
+                height: altura,
+                width: largura
+            });
+
+            $(".video-button").on("click", function() {
+                $("div#popup-video iframe").attr("src", src);
+                $("div#popup-video").css("display", "flex");
+            });
+
+            $("div#popup-video").on("click", function(event) {
+                if (!$(event.target).closest("div#content-popup").length) {
+                    $("div#popup-video").hide();
+                    $("div#popup-video iframe").removeAttr("src");
+                }
+            });
+
+            $("div#popup-video #btn-close").on("click", function() {
+                $("div#popup-video").hide();
+                $("div#popup-video iframe").removeAttr("src");
+            });
+        },
+
         vipListPopup: function() {
             const sessao = $('[data-session]').data("session");
 
@@ -300,36 +384,119 @@
             }
 
             function addLocalStorageSession() {
-                localStorage.setItem("visualized", sessao);
+                localStorage.setItem("session", sessao);
             }
 
-            /*
-            if(!localStorage.visualized || localStorage.visualized !== sessao) {
-                $("div#lista-vip").css("display", "flex");
-            }*/
-
-            if($("html").hasClass("page-home")) {
+            if(!localStorage.visualized || !localStorage.session || localStorage.session !== sessao) {
                 $("div#lista-vip").css("display", "flex");
             }
 
             $("#lista-vip").on("click", function(event) {
                 if (!$(event.target).closest("div#content-popup").length) {
                   $("div#lista-vip").hide();
-                  //addLocalStorageSession();
-                  // addLocalStorage();
+                  addLocalStorageSession();
+                  addLocalStorage();
                 }
             });
 
             $("#btn-close").on("click", function() {
                 $("div#lista-vip").hide();
-                //addLocalStorageSession();
-                // addLocalStorage();
+                addLocalStorage();
+                addLocalStorageSession();
             });
 
             $("#vip-list").on("submit", function() {
-                $("div#lista-vip").hide();
-                //addLocalStorageSession();
-                // addLocalStorage();
+                addLocalStorage();
+                addLocalStorageSession();                
+            }); 
+        },
+
+        eventsFormListPopup: function() {
+            function copiaCupom() {
+                $("#cupom").on("click", function() {
+                    // Texto a ser copiado
+                    const texto = "PRIMEIRA15";
+    
+                    // Cria um elemento de input temporÃÂ¡rio para armazenar o texto
+                    const inputTemp = $('<input>');
+                    $('body').append(inputTemp);
+                    inputTemp.val(texto).trigger("select");
+    
+                    // Copia o texto selecionado para a ÃÂ¡rea de transferÃÂªncia
+                    document.execCommand('copy');
+    
+                    // Remove o input temporÃÂ¡rio
+                    inputTemp.remove();
+    
+                    // Atualiza a mensagem de status
+                    const status = $('#cupom');
+                    status.text('COPIADO!').addClass('copiado');
+    
+                    // Remove a mensagem de status apÃÂ³s 2 segundos
+                    setTimeout(function() {
+                        status.html(`
+                            <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m6 18h-3c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v3h3c.621 0 1 .522 1 1v14c0 .621-.522 1-1 1h-14c-.48 0-1-.379-1-1zm1.5-10.5v13h13v-13zm9-1.5v-2.5h-13v13h2.5v-9.5c0-.481.38-1 1-1z" fill-rule="nonzero"/></svg>
+                            PRIMEIRA15
+                        `).removeClass('copiado');
+                    }, 2000);
+                });
+            }
+
+            function redireciona() {
+                const sessao = $('[data-session]').data("session");
+                localStorage.setItem("session", sessao);
+                localStorage.setItem("visualized", "true");
+                $("#real-form .revendedor-button.button2").trigger("click");
+            }
+
+            function contagemRegressiva(time) {
+                if (time == 0) {
+                    redireciona();
+                    return;
+                }
+            
+                const text = `Em <b>${time} segundos</b> voc&ecirc; ser&aacute; redirecionado para <br>confirmar o seu cadastro`;
+                $('#redirecionamento').html(text);
+            
+                setTimeout(function() {
+                    contagemRegressiva(time - 1);
+                }, 1000);
+            }
+
+            //preenchendo nome:
+            $('form#vip-list [name="name"]').on("input", function() {
+                const nome = $(this).val();
+                $('#real-form [name="name"]').val(nome);
+            });
+
+            //preenchendo e-mail:
+            $('form#vip-list [name="email"]').on("input", function() {
+                const email = $(this).val();
+                $('#real-form [name="email"]').val(email);
+            });
+
+            //pegando o evento de submissÃÂ£o e comunicando:
+            $("#vip-list").on("submit", function(e) {
+                e.preventDefault();
+                $('form#vip-list [name="name"]').css("pointer-events", "none");
+                $('form#vip-list [name="email"]').css("pointer-events", "none");
+
+                const html =  `
+                    <div id="notifica-cupom">
+                        <div id="cupom" title="Clique para copiar o cupom!">
+                            <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m6 18h-3c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v3h3c.621 0 1 .522 1 1v14c0 .621-.522 1-1 1h-14c-.48 0-1-.379-1-1zm1.5-10.5v13h13v-13zm9-1.5v-2.5h-13v13h2.5v-9.5c0-.481.38-1 1-1z" fill-rule="nonzero"/></svg>
+                            PRIMEIRA15
+                        </div>
+                        <p class="text">Clique para copiar o cupom</p>
+                        <div id="redirecionamento"></div>
+                    </div>
+                `;
+
+                if(!$("notifica-cupom").length) {
+                    $("#vip-list .revendedor-button.button2").after(html);
+                    contagemRegressiva(10);
+                    copiaCupom();
+                }                
             });
         },
 
@@ -572,6 +739,16 @@
                 });
             }
         },
+
+        resizeImageMobile: function () {
+            if(window.screen.width > 900) {
+                return;
+            }
+
+            const currentSize = Number($(".pageProduct-gallery  .gallery-image").css("height").replace(/\d/g, ""));
+            $(".pageProduct-gallery").css("height", `${currentSize + 20}px`);
+        },
+
         /* Beginning Product Page */
         gallerySlidesOnProductPage: function () {
             const targetGallery = '[data-slides="gallery"]';
@@ -646,6 +823,8 @@
                     }
                 },
             });
+
+            theme.resizeImageMobile();
         },
 
         openProductVideoModal: function () {
@@ -1532,7 +1711,7 @@
                 if (precoAvista.length && precoAvista.text() !== "") {
                     let preco = precoAvista.text();
                     
-                    // Remove espaços em branco
+                    // Remove espaÃÂ§os em branco
                     preco = preco.replace(pattern1, "");
                     preco = preco.replace(pattern2, pattern2 + " ");
 
@@ -1651,11 +1830,11 @@
                     (list[0] && !list[0].hasOwnProperty("size") && list[0].hasOwnProperty("color"))
                 ) {
                     const simple = !list[0].hasOwnProperty("size") && list[0].hasOwnProperty("color");
-                    html += `<ul class='variations-list ${simple ? "simple" : "compound"}' data-type='color'>`;
+                    html += `<div class="swiper"><ul class='variations-list ${simple ? "simple" : "compound"} swiper-wrapper' data-type='color'>`;
                     list.sort(compararTamanhosLoja);
                     list.forEach((variation) => {
                         html += `
-                            <li class="variation" 
+                            <li class="variation swiper-slide" 
                                 title="Selecionar cor: ${variation.color}" 
                                 data-id="${variation.id}" 
                                 data-size="${variation.size}" 
@@ -1668,7 +1847,7 @@
                             </li>
                         `;
                     });
-                    html += '</ul>';
+                    html += '</ul></div>';
                     return html;
                 }
         
@@ -1679,11 +1858,11 @@
                     (list[0] && !list[0].hasOwnProperty("color") && list[0].hasOwnProperty("size"))
                 ) {
                     const simple = !list[0].hasOwnProperty("color") && list[0].hasOwnProperty("size");
-                    html += `<ul class='variations-list ${simple ? "simple" : "compound"}' data-type='sizes'>`;
+                    html += `<div class="swiper"><ul class='variations-list ${simple ? "simple" : "compound"} swiper-wrapper' data-type='sizes'>`;
                     list.sort(compararTamanhosLoja);
                     list.forEach((variation) => {
                         html += `
-                            <li class="variation" 
+                            <li class="variation swiper-slide" 
                                 title="Selecionar tamanho: ${variation.size}" 
                                 data-id="${variation.id}" 
                                 data-size="${variation.size}" 
@@ -1692,15 +1871,17 @@
                                 ${variation.productImage1 ? 'data-images1="' + variation.productImage1 + '"' : ''}
                                 ${variation.productImage2 ? 'data-images2="' + variation.productImage2 + '"' : ''}
                             >
-                                ${variation.size}
+                                <div>
+                                    ${variation.size}
+                                </div>
                             </li>
                         `;
                     });
-                    html += '</ul>';
+                    html += '</ul></div>';
                 }
                 return html;
             } catch (error) {
-                html = "Não foi possível carregar as variações."
+                html = "NÃÂ£o foi possÃÂ­vel carregar as variaÃÂ§ÃÂµes."
                 console.error(error);
                 throw error;
             }
@@ -1741,34 +1922,34 @@
 
         insertToCart: function() {
 
-            $(".product-button.add-cart-fast .product-buy .add-cart .button2").off("click").on("click", function() {
+            $(".product-info .add-cart .button2").off("click").on("click", function() {
                 const dataSession = $("html").data("session");
                 const productID = $(this).data("id");
-                const quantity = $(this).closest(".product-buy").find(".quantity").val();
-                const generalContainer = $(this).closest(".product-buy");
+                const quantity = 1;
+                const generalContainer = $(this).closest(".product-info");
             
                 const hasVariations = $(generalContainer).find(".variations").hasClass("variationsEmpty");
-                const simple = $(this).closest(".product-buy").find(".variations-list").hasClass("simple");
+                const simple = $(this).closest(".product-info").find(".variations-list").hasClass("simple");
             
                 let variantID = null;
             
                 if (!hasVariations) {
-                    const colorSelected = $(this).closest(".product-buy").find('[data-type="color"] .variation.selected').length > 0;
-                    const $selectedSize = $(this).closest(".product-buy").find('[data-type="sizes"] .variation.selected').length > 0;
+                    const colorSelected = $(this).closest(".product-info").find('[data-type="color"] .variation.selected').length > 0;
+                    const $selectedSize = $(this).closest(".product-info").find('[data-type="sizes"] .variation.selected').length > 0;
                 
                     if (simple) {
                         const type = $(generalContainer).find(".variations-list").data("type");
                 
                         if (type === "color") {
                             if (colorSelected > 0) {
-                                variantID = $(this).closest(".product-buy").find('[data-type="color"] .variation.selected').data("id");
+                                variantID = $(this).closest(".product-info").find('[data-type="color"] .variation.selected').data("id");
                             } else {
                                 theme.alertClient(generalContainer, false, "Selecione a cor do produto.");
                                 return;
                             }
                         } else if (type === "sizes") {
                             if ($selectedSize > 0) {
-                                variantID = $(this).closest(".product-buy").find('[data-type="sizes"] .variation.selected').data("id");
+                                variantID = $(this).closest(".product-info").find('[data-type="sizes"] .variation.selected').data("id");
                             } else {
                                 theme.alertClient(generalContainer, false, "Selecione o tamanho do produto.");
                                 return;
@@ -1782,7 +1963,7 @@
                         }
                 
                         if ($selectedSize > 0) {
-                            variantID = $(this).closest(".product-buy").find('[data-type="sizes"] .variation.selected').data("id");
+                            variantID = $(this).closest(".product-info").find('[data-type="sizes"] .variation.selected').data("id");
                         } else {
                             theme.alertClient(generalContainer, false, "Selecione o tamanho do produto.");
                             return;
@@ -1795,7 +1976,7 @@
                     return;
                 }
             
-                const $productBuy = $(this).closest(".product-buy");
+                const $productBuy = $(this).closest(".product-info");
                 $.ajax({
                     method: "POST",
                     url: "/web_api/cart/",
@@ -1818,7 +1999,7 @@
                             return;
                         }
 
-                        $productBuy.find('[data-type="sizes"]').remove();
+                        $productBuy.find('[data-type="sizes"]').closest(".swiper").remove();
                         return;
                     }
                     console.log(response);
@@ -1833,57 +2014,143 @@
                 });
             });
         },
+
+        slideVariationsProduct: function (product, globalIndex) {
+            const $products = $(product).find(".swiper");
         
-        addCartFast: function() {
-            $(".product-button.add-cart-fast").each(async function() {
-                const $button = $(this);
-                const productId = $button.find('[data-id]').data("id");
-                const variationsHtml = await theme.consultVariations(productId);
-                const hasVariations = variationsHtml;
+            $products.each(function (localIndex, element) {
+                const $product = $(element);
         
-                if (!hasVariations) {
-                    $button.find(".variations").addClass("variationsEmpty");
+                // Evitar reinicialização do Swiper
+                if ($product.hasClass("swiper-initialized")) {
+                    return;
                 }
         
-                $button.find(".variations").html(variationsHtml);
+                const carouselClass = `color-swiper-${globalIndex + localIndex}`;
         
-                theme.configureVariationClick($button.find('.variations-list.simple .variation'), theme.insertToCart);
+                // Adicionar botões de navegação para cores
+                if (!$product.siblings(`.swiper-button-prev.var.${carouselClass}`).length) {
+                    $product.before(`
+                        <div class="swiper-button-prev var ${carouselClass}"></div>
+                        <div class="swiper-button-next var ${carouselClass}"></div>
+                    `);
+                }
+                
         
-                $button.find('.compound[data-type="color"] .variation').on("click", function() {
-                    theme.disableVariationClick($button);
-                    const $color = $(this);
-                    theme.updateProductImages($color);
-        
-                    $button.find('.compound[data-type="color"] .variation.selected').not($color).removeClass('selected');
-                    $color.toggleClass('selected');
-        
-                    if (!$color.hasClass('selected')) {
-                        $button.find('[data-type="sizes"]').remove();
-                        theme.enableVariationClick($button);
-                        return;
-                    }
-        
-                    theme.removeExistingElements($button);
-                    theme.addLoadingElement($button);
-        
-                    const colorData = $color.data("color");
-        
-                    // Utilizando Promise para esperar o carregamento das variações de tamanhos
-                    new Promise(resolve => requestAnimationFrame(resolve)).then(async () => {
-                        const sizesHtml = await theme.consultVariations(productId, "sizes", colorData);
-        
-                        $button.find('.sizes-loading').remove();
-                        $button.find('[data-type="color"]').after(sizesHtml);
-        
-                        theme.configureSizeClickEvent($button.find('[data-type="sizes"] .variation'));
-                        theme.enableVariationClick($button);
-                        theme.insertToCart();
-                    });
+                // Inicializar Swiper
+                new Swiper($product[0], {
+                    slidesPerView: 4,
+                    spaceBetween: 12,
+                    loop: false,
+                    breakpoints: {
+                        0: { slidesPerView: 2 },
+                        680: { slidesPerView: 3 },
+                        900: { slidesPerView: 4 },
+                    },
+                    navigation: {
+                        prevEl: `.swiper-button-prev.var.${carouselClass}`,
+                        nextEl: `.swiper-button-next.var.${carouselClass}`,
+                    },
                 });
-        
-                theme.insertToCart();
             });
         },
+        
+        addCartFast: function () {
+            $(".product-button.add-cart-fast").each(async function (index) {
+                const $button = $(this);
+                const $product = $button.closest(".product");
+                const productId = $button.find('[data-id]').data("id");
+        
+                // Obtém as variações
+                const variationsHtml = await theme.consultVariations(productId);
+        
+                // Atualiza ou marca como vazio
+                const $variationsContainer = $product.find(".variations");
+                if (!variationsHtml) {
+                    $variationsContainer.closest(".product-buy").attr("style", "margin-bottom: 0 !important");
+                    $variationsContainer.empty().addClass("variationsEmpty");
+                    return;
+                }
+                $variationsContainer.html(variationsHtml).removeClass("variationsEmpty");
+        
+                // Configurações para variações simples
+                theme.configureVariationClick(
+                    $variationsContainer.find('.variations-list.simple .variation'),
+                    theme.insertToCart
+                );
+        
+                // Configurações para variações compostas (cor)
+                $product
+                    .find('.compound[data-type="color"] .variation')
+                    .off("click")
+                    .on("click", async function () {
+                        const $color = $(this);
+        
+                        // Atualiza imagens do produto com base na cor selecionada
+                        theme.updateProductImages($color);
+        
+                        // Alterna a seleção da cor
+                        $product.find('.compound[data-type="color"] .variation.selected')
+                            .not($color)
+                            .removeClass('selected');
+                        $color.toggleClass('selected');
+        
+                        // Remove tamanhos e carrossel existente se deselecionado ou mudar de cor
+                        $product.find('[data-type="sizes"]').parent().remove();
+                        $product.find('.swiper-button-prev.var2, .swiper-button-next.var2').remove();
+        
+                        if (!$color.hasClass('selected')) {
+                            // Nenhuma cor está selecionada
+                            theme.enableVariationClick($product);
+                            return;
+                        }
+        
+                        // Adiciona carregando enquanto busca tamanhos
+                        theme.addLoadingElement($product);
+        
+                        const colorData = $color.data("color");
+                        const sizesHtml = await theme.consultVariations(productId, "sizes", colorData);
+        
+                        // Remove carregando e adiciona os tamanhos correspondentes
+                        $product.find('.sizes-loading').remove();
+                        const $sizesContainer = $(sizesHtml).addClass('swiper');
+                        $variationsContainer.append($sizesContainer);
+        
+                        // Configura Swiper para tamanhos
+                        const sizeCarouselClass = `size-swiper-${index}`;
+                        $sizesContainer.parent().before(`
+                            <div class="swiper-button-prev var2 ${sizeCarouselClass}"></div>
+                            <div class="swiper-button-next var2 ${sizeCarouselClass}"></div>
+                        `);
+        
+                        new Swiper($sizesContainer[0], {
+                            slidesPerView: 3,
+                            spaceBetween: 12,
+                            loop: false,
+                            breakpoints: {
+                                0: { slidesPerView: 2 },
+                                680: { slidesPerView: 3 },
+                                900: { slidesPerView: 4 },
+                            },
+                            navigation: {
+                                prevEl: `.swiper-button-prev.var2.${sizeCarouselClass}`,
+                                nextEl: `.swiper-button-next.var2.${sizeCarouselClass}`,
+                            },
+                        });
+        
+                        // Configura evento de clique nos tamanhos
+                        theme.configureSizeClickEvent($sizesContainer.find('.variation'));
+        
+                        // Habilita as interações
+                        theme.enableVariationClick($product);
+                        theme.insertToCart();
+                    });
+        
+                // Configurações finais
+                theme.insertToCart();
+                theme.slideVariationsProduct($product, index);
+            });
+        },           
         
         configureVariationClick: function($elements, callback) {
             $elements.off("click").on("click", function() {
@@ -1917,7 +2184,8 @@
         },
         
         removeExistingElements: function ($button) {
-            $button.find('.sizes-loading, [data-type="sizes"]').empty();
+            $button.find('.sizes-loading').empty();
+            $button.find('[data-type="sizes"]').closest(".swiper").empty();
         },
         
         addLoadingElement: function ($button) {
@@ -1932,9 +2200,260 @@
         },
         
         updateVariation: function ($variation) {
-            $variation.closest('.product-buy').find('.variation.selected').not($variation).removeClass('selected');
+            $variation.closest('.product-info').find('.variation.selected').not($variation).removeClass('selected');
             $variation.toggleClass('selected');
         },      
+
+        slideDifferentials: function() {
+            const larguraDaTela = window.screen.width;
+
+            if(larguraDaTela > 1024 && $("section.differentials .content").length) {
+                return;
+            }
+
+            $("section.differentials").addClass("swiper");
+            $("section.differentials .content").addClass("swiper-wrapper");
+            $("section.differentials .content .differential").addClass("swiper-slide");
+            $("section.differentials .content").after(`
+                <div class="swiper-pagination"></div>
+            `);
+
+            new Swiper('.differentials.swiper', {
+                slidesPerView: 2,
+                loop: true,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1,
+                    },
+                    680: {
+                        slidesPerView: 2,
+                    },
+                    900: {
+                        slidesPerView: 2,
+                    },
+                },
+
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+        },
+
+        getVideoId: function(url) {
+            // Express&atilde;o regular para URLs no formato youtube.com/watch?v=ID, youtu.be/ID ou youtube.com/shorts/ID
+            const pattern = /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+
+            const match = url.match(pattern);
+            if (match) {
+                return match[1];
+            } else {
+                return null;
+            }
+        },
+
+        extractVimeoVideoId: function(url) {
+            const pattern = /vimeo\.com\/(?:video\/|channels\/\w+\/|)(\d+)/;
+
+            const match = url.match(pattern);
+            if (match) {
+                return match[1];
+            } else {
+                return null;
+            }
+        },
+
+        getVimeoVideoThumbnail: async function (videoId) {
+            const apiUrl = `https://vimeo.com/api/v2/video/${videoId}.json`;
+            
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+            
+                // A resposta ÃÂ© uma matriz, pois a API retorna um array de informa&ccedil;ÃÂµes do vÃÂ­deo
+                // Aqui, pegamos o primeiro elemento, pois estamos solicitando apenas um vÃÂ­deo
+                const videoInfo = data[0];
+                
+                // A URL da thumbnail estar&aacute; disponÃÂ­vel na propriedade "thumbnail_large"
+                const thumbnailUrl = videoInfo.thumbnail_large;
+                
+                // Agora vocÃÂª pode usar a URL da thumbnail para exibi-la em sua p&aacute;gina ou onde for necess&aacute;rio
+                return thumbnailUrl;
+            } catch (error) {
+                console.error('Ocorreu um erro ao obter a thumbnail do vÃÂ­deo:', error);
+                return null; // ou trate o erro de acordo com a necessidade
+            }
+        },
+        
+        seeEventsVideo: function(id) {
+            // Seleciona a div que ser&aacute; monitorada
+            let divMonitorada = $('.gallery-images');
+
+            const iframe =  `
+                <div class="swiper-slide video-frame" data-gallery="image">
+                    <iframe id="iframe-video" src="${$('#product-video').data("video")}" frameborder="0"></iframe>
+                </div>
+            `;
+
+            const thumb = `
+                <div class="swiper-slide gallery-thumb" data-gallery="image" video-thumb="">
+                    <img class="gallery-img swiper-lazy" src="${$('#product-video').data("image")}" video-image="" alt="${$('.pageProduct-name').text()}" width="90px" height="90px" style="object-fit: contain !important; padding: 1em;"/>
+                    <span class="icon-youtube-simple">
+                        <span class="path1"></span>
+                        <span class="path2"></span>
+                    </span>
+                </div>
+            `;
+
+            // Cria uma nova inst&acirc;ncia do MutationObserver
+            let observer = new MutationObserver(function(mutations) {
+                if(
+                    !$(".video-frame").length &&
+                    !$("[video-thumb]").length &&
+                    $("#product-video").length
+                ) {
+                    $('[data-gallery="box-images"]').append(iframe);
+                    $('[data-gallery="box-thumbs"]').append(thumb);
+                    theme.productVideo();
+                }
+            });
+
+            // Configura as op&ccedil;&otilde;es do MutationObserver
+            let options = {
+                childList: true, // Observar altera&ccedil;&otilde;es na lista de elementos filhos
+                subtree: true // Observar altera&ccedil;&otilde;es em todos os elementos descendentes
+            };
+
+            // Inicia a observa&ccedil;&atilde;o da div
+            observer.observe(divMonitorada[0], options);
+
+            if(window.screen.width < 768) {
+                $('[video-thumb]').on("click", function() {
+                    if($(this).hasClass("clicked")) {
+                        return;
+                    }
+                    
+                    theme.productVideo();
+                    $(this).addClass("clicked");
+                });
+            }
+        },
+        
+        clickSingleVariations: function() {
+            $(window).on("load", function() {
+                if(!$('[data-type="color"]').length) {
+                    return;
+                }
+
+                $('[data-type="color"]').each(function() {
+                    const variations = $(this).find("li.variation");
+                
+                    if(!variations.length || variations.length > 1) {
+                        return;
+                    }
+                
+                    variations.click();
+                })
+            });
+        },
+
+        productVideo: async function() {
+            const videoTag = $("#product-video");
+
+            if(videoTag.length) {
+                const url = videoTag.data("video");
+                let videoId = theme.getVideoId(url);
+
+                //Ajustando iframe ÃÂ  largura:
+                $("#iframe-video").attr("height", $(".gallery-images").css("height"));
+                $("#iframe-video").attr("width", $(".gallery-images").css("width"));
+
+                if(videoId != null) {
+                    //definindo iframe:
+                    $("#iframe-video").attr("src", `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1&loop=1&modestbranding=1`);
+
+                    setTimeout(() => {
+                        //definindo imagem:
+                        $("[video-image]").attr("src", `
+                            https://img.youtube.com/vi/${videoId}/0.jpg
+                        `).css({
+                            padding: "0 0.45em",
+                            objectFit: "cover"
+                        });
+                    }, 2000);
+                } else {
+                    videoId = theme.extractVimeoVideoId(url);
+                    let thumbVimeo = await theme.getVimeoVideoThumbnail(videoId);
+
+                    $("#iframe-video").attr("src", `https://player.vimeo.com/video/${videoId}?autoplay=1&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0`);
+
+                    setTimeout(() => {
+                        $("[video-image]").attr("src", thumbVimeo).css({
+                            padding: "0 0.45em",
+                            objectFit: "cover"
+                        });
+                    }, 2000);                        
+                }
+
+                theme.seeEventsVideo(videoId);
+            }
+        },
+
+        popupImageView: function() {
+            function changeImage(imageSrc) {
+                $("#image-view .gallery-images .gallery-img").attr("src", imageSrc);
+            }
+
+            $('[data-slides="gallery"] .gallery-image').on("click", function () {
+                const image = $(this).find("img").attr("src");
+                $("#image-view").css("display", "flex");
+                changeImage(image);
+            });
+
+            $("#image-view #btn-close").on("click", function () {
+                $("#image-view").hide();
+            });
+
+            $("#image-view .gallery-thumbs .gallery-img").on("click", function() {
+                const image = $(this).attr("src");
+                changeImage(image);
+            });
+
+            $("#image-view").on("click", function(event) {
+                if (!$(event.target).closest("div#content-popup").length) {
+                  $("#image-view").hide();
+                }
+            });
+        },
+
+        scrollToComments: function() {
+            $(window).on("load", function() {
+                if(window.location.hash === "#coments") {
+                    $('.pageProduct-price + a>div').trigger("click");
+                }
+            });
+        },
+        
+        searchOrder: function() {
+            if(!$("form.rastrear").length) {
+                return;
+            }
+
+            const baseURI = 'https://app.melhorrastreio.com.br/app/';
+
+            $("form.rastrear").on("submit", function(e) {
+                e.preventDefault();
+
+                const codigo = $("form.rastrear input").val();
+                const url = baseURI + codigo;
+                window.open(url, '_blank');
+            });
+        },
     };
 
     // Execution of Functions
@@ -1947,8 +2466,11 @@
         theme.cookiesInteracion();
 
         setTimeout(() => {
+            theme.searchOrder();
             theme.addCartFast();
+            theme.clickSingleVariations();
             theme.updatePriceShowCaseProducts();
+            theme.videoPopup();
             theme.vipListPopup();
             theme.processRteVideoAndTable();
             theme.openApplyOverlayClose();
@@ -1961,10 +2483,12 @@
         if ($('html').hasClass('page-home')) {
             setTimeout(function () {
                 theme.bannerSlides();
+                theme.slideDifferentials();
                 theme.productsSlides();
                 theme.slidesCategoryImages();
                 theme.productGridShowMore();
                 theme.loadNewsPageOnHome();
+                theme.eventsFormListPopup();
             }, 40);
             theme.customerReviewsSlidesOnHome();
             theme.brandsSlides();
@@ -1972,12 +2496,15 @@
         } else if ($('html').hasClass('page-product')) {
             theme.productsSlides();
             theme.gallerySlidesOnProductPage();
-            theme.openProductVideoModal();
-            theme.quantityProducts();
+            //theme.quantityProducts();
             theme.getQuantityChangeOnProductPage();
             theme.initProductVariationImageChange();
+            theme.popupImageView();
             theme.tabMedidas();
             theme.observePrice();
+            theme.clickOneVariation();
+            theme.productVideo();
+            theme.scrollToComments();
             theme.generateShippingToProduct();
             theme.addImageShipping();
             theme.goToProductReviews();

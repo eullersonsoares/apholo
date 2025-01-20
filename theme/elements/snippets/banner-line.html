@@ -19,6 +19,15 @@
         <div class="banner-slides" data-settings="{{ slideConfigs | json_encode() | escape }}" data-slides="banner">
             <div class="swiper">
                 <div class="swiper-wrapper">
+                    {# Comentado 
+                    {% if settings.banner_home_video and settings.banner_home_video_src %}
+                        <div class="swiper-slide banner-item" id="video-home">
+                            <video autoplay loop muted style="width: 100%;">
+                                <source src="{{ settings.banner_home_video_src }}" type="video/mp4">
+                            </video>
+                        </div>
+                    {% endif %}#}
+                    
                     {% for slide in banner_element.slides %} 
                         {% set lazyIndex = loop.index == 1 ? false : true %}
                         <div class="swiper-slide banner-item">

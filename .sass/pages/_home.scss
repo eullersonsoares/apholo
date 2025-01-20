@@ -1,3 +1,54 @@
+// .page-home main.default-main {
+//     display: flex;
+//     flex-direction: column;
+
+//     .banner-slides {
+//         order: 1
+//     }
+
+//     section.section.differentials {
+//         order: 2
+//     }
+
+//     .section.showcase {
+//         order: 3;
+
+//         @include medium {
+//             max-width: 100%;
+//         }
+        
+//         @include small {
+//             max-width: 100%;
+//         }
+//     }
+    
+//     section.section.highlighted-categories {
+//         order: 4;
+
+//         @include medium {
+//             max-width: 100%;
+//         }
+        
+//         @include small {
+//             max-width: 100%;
+//         }
+//     }
+    
+//     performa#performa3 {
+//         order: 5;
+//         margin-top: 2em;
+//     }
+    
+//     section.mini-banners.section {
+//         order: 6;
+//         margin-bottom: 2em;
+//     }
+
+//     .performa-vitrine .tns-inner {
+//         padding: 0;
+//     }
+// }
+
 /* Home */
 .section {
     max-width: $v_width_content_page;
@@ -20,6 +71,49 @@
         @extend %title-h2;
         margin-bottom: 1rem;
         text-align: center;
+    }
+
+    &.showcase {
+        display: flex;
+        flex-direction: column;
+
+        performa#performa2 {
+            order: 3;
+        }
+    }
+}
+
+#varejo {
+    background: #f6f6f6;
+
+    .section {
+        margin: 0 auto !important;
+    }
+
+    .content {
+        @extend %flex-center-center;
+        min-height: 45px;
+        gap: 1rem;
+
+        .texto {
+            @include fontInsert(1, 400, var(--c_general_text1));
+            text-align: center;
+
+            @include small {
+                @include fontInsert(0.713, 400, var(--c_general_text1));
+            }
+        }
+
+        .stars {
+            @extend %flex-center-center;
+            gap: 0.5rem;
+            margin-top: -0.13rem;
+
+            .icon-star-empty::before {
+                font-size: 0.875rem !important;
+                color: #000 !important;
+            }
+        }
     }
 }
 
@@ -159,9 +253,37 @@
     }
 }
 
-.banner-mais-vendidos img {
-    max-width: 100%;
-    object-fit: cover;
+.banner-mais-vendidos {
+    position: relative;
+    overflow: hidden;
+
+    .banner {
+        @extend %flex-center-center;    
+
+        img {
+            max-width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &:hover .button-banner {
+        bottom: 1rem;
+    }
+
+    .button-banner {
+        position: absolute;
+        transition: 0.3s;
+        bottom: -100%;
+        width: 25%;
+        left: calc(50% - 12.5%);
+        right: auto;
+        text-align: center;
+
+        @include small {
+            width: 35% !important;
+            left: 32.7% !important;
+        }
+    }
 }
 
 /// Newsletter:
@@ -297,7 +419,7 @@
         }
 
         .revendedor-text {
-            max-width: 275px;
+            max-width: 330px;
             
             @include small {
                 max-width: 100%;
@@ -305,7 +427,7 @@
         }
 
         h2 {
-            @include fontInsert(1.975, 450, var(--c_newsletter_texts));
+            @include fontInsert(1.5, 450, var(--c_newsletter_texts));
             
             @include small {
                 text-align: center;
@@ -313,7 +435,7 @@
         }
 
         p {
-            @include fontInsert(1.25, 400, var(--c_newsletter_texts));
+            @include fontInsert(0.875, 400, var(--c_newsletter_texts));
             
             @include small {
                 text-align: center;
@@ -351,6 +473,7 @@
 
                 @include small {
                     width: 100%;
+                    text-align: center;
                 }
             }
 
@@ -368,6 +491,7 @@
 
                 @include small {
                     width: 100%;
+                    text-align: center;
                 }
             }
 

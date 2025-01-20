@@ -1,6 +1,7 @@
+{% set size = utils.is_mobile ? "80px": "120px" %}
 <section class="section highlighted-categories" data-slides="highlighted-categories">
     <div class="content">
-        <h2 class="section-title">Escolha por categoria</h2>
+        <h2 class="section-title">Categoria</h2>
 
         <div style="position: relative;">
             <ul id="categories" class="swiper">
@@ -12,7 +13,7 @@
                             <li class="category swiper-slide">
                                 <a href="{{ category.link }}" title="{{ category.name }}">
                                     <div class="image">
-                                        <img src="{{ category.images[0] }}" alt="{{ category.name }}" width="166px" height="166px">
+                                        <img src="{{ category.images[0] }}" alt="{{ category.name }}" width="{{ size }}" height="{{ size }}">
                                     </div>
                                     <div class="category-title">{{ category.name }}</div>
                                 </a>
@@ -25,7 +26,7 @@
                                     <li class="category children-item swiper-slide">
                                         <a href="{{ children.link}}" title="{{ children.name }}">
                                             <div class="image">
-                                                <img src="{{ children.images[0] }}" alt="{{ children.name }}" width="166px" height="166px">
+                                                <img src="{{ children.images[0] }}" alt="{{ children.name }}" width="{{ size }}" height="{{ size }}">
                                             </div>
                                             <div class="category-title">{{ children.name }}</div>
                                         </a>

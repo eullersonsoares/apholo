@@ -168,6 +168,10 @@
                         object-fit: cover;
                         transition: $transit_slow;
                         scale: 1;
+
+                        @include small {
+                            padding: 0 !important;
+                        }
                     }
 
                     &:hover {
@@ -288,7 +292,11 @@
             margin-bottom: 1rem;
 
             @include small {
-                flex-wrap: wrap;
+                justify-content: flex-start;
+
+                .rating-message {
+                    text-align: left !important;
+                }
             }
 
             @include medium {
@@ -333,7 +341,6 @@
             position: relative;
             overflow: hidden;
             text-align: center;
-            height: 1.5rem;
 
             @include small {
                 font-size: 0.75rem;
@@ -451,6 +458,10 @@
         @extend %title-h2;
         line-height: 1.2;
         margin: 0 0 1.25rem;
+
+        @include small {
+            @include fontInsert(1.35, 400, var(--c_general_text1));
+        }
     }
 
     &-subtitle {
@@ -718,7 +729,7 @@
     }
 
     &-additionalMessage {
-        @include fontInsert(1, 600, var(--c_general_text1));
+        @include fontInsert(1, 400, var(--c_general_text1));
         margin-bottom: 1rem;
     }
 
@@ -816,6 +827,10 @@
             &-text {
                 @include fontInsert(1.25, 300, #7C7C7C);
                 margin-bottom: 0.5rem;
+
+                @include small {
+                    @include fontInsert(1, 300, #7C7C7C);
+                }
             }
 
             &-label {
@@ -834,6 +849,7 @@
 
             &-submit {
                 display: inline;
+                padding: .95rem 1rem;
             }
 
             &-result {
@@ -978,10 +994,14 @@
                 width: calc(100% - 4rem);
 
                 &::before {
-                    @include fontInsert(0.98, 600, var(--c_general_text_inverted), uppercase);
+                    @include fontInsert(1.25, 600, var(--c_general_text_inverted));
                     @extend .button2;
                     content: 'Avise-me';
                     text-align: center;
+
+                    @include small {
+                        @include fontInsert(1, 500, var(--c_general_text_inverted));
+                    }
                 }
 
                 img.image {
@@ -1333,7 +1353,6 @@
             li {
 
                 &.sem_estoque {
-                    pointer-events: none;
                     position: relative;
         
                     img {
@@ -1367,7 +1386,7 @@
                     height: 45px;
                     border: 1px solid var(--c_general_details);
                     display: block;
-                    border-radius: 80px;
+                    border-radius: 0px;
                     margin-right: 0.5rem;
                     padding: 3px;
                     transition: $transit_default;
@@ -1382,7 +1401,7 @@
                     min-height: 45px;
                     min-width: 45px;
                     border: 1px solid var(--c_general_details);
-                    border-radius: 80px;
+                    border-radius: 0px;
                     color: var(--c_general_text1);
                     margin: 0 0.5rem 0.3rem 0;
                     padding: 0.35rem 0.7rem;
@@ -1863,6 +1882,10 @@
                     .PrecoPrincipal {
                         @include fontInsert(1.125, 600, var(--c_general_main));
 
+                        @include small {
+                            font-size: 1rem !important;
+                        }
+
                         &::before {
                             content: 'por: ';
                             @include fontInsert(0.875, 400, var(--c_general_text2));
@@ -1946,7 +1969,7 @@
                 }
 
                 &-link {
-                    @include fontInsert(1.25, 500, #939598);
+                    @include fontInsert(1, 500, #939598);
                     border-radius: 0;
                     display: block;
                     padding: 1rem 2.5rem;
@@ -2579,5 +2602,36 @@
 
     .blocoAlerta {
         margin: 0 0 2rem 0;
+    }
+}
+
+
+[video-thumb] span.icon-youtube-simple {
+    position: absolute;
+    top: calc(50% - 13px);
+    left: calc(50% - 25px);
+
+    & .path1:before {
+        background: #fff;
+        position: relative;
+        z-index: 100;
+        left: 0.45em;
+        border-radius: 25px;
+    }
+
+    & .path2:before {
+        z-index: 200;
+        position: relative;
+    }
+}
+
+a.botao-commerce.botao-prosseguir-compra.pointer.right .botao-commerce-img {
+    font-size: 0;
+    
+    &::after {
+        content: "Finalizar compra";
+        font-size: 1rem;
+        text-transform: none;
+        font-weight: 700;
     }
 }

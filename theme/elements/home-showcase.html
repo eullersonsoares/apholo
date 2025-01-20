@@ -2,7 +2,7 @@
     {% set quantity = quantity | default(8) %}
     {% set title %}
         {{ type == 'top_seller' ? 'Mais Vendidos' :
-            type == 'new' ? 'Acabou de chegar' :
+            type == 'new' ? 'Novidades' :
             type == 'featured' ? 'Os mais queridinhos' : 
             type == 'free_shipping' ? 'Frete Gr&aacute;tis' : 
             type == 'promotion' ? 'Promo&ccedil;&atilde;o'
@@ -27,6 +27,15 @@
             {% set products = Products({
                 'filter': [type, 'available'],
                 'limit' : quantity
+            }) %}
+        {% endif %}
+
+        {% if blackFriday %}
+            {% set products = Products({
+                'filter': ['available'],
+                'limit': quantity,
+                'order': 'rand',
+                'categories': [139],
             }) %}
         {% endif %}
 

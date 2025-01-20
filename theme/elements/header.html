@@ -1,4 +1,8 @@
-<header data-header="scroll" class="header">
+{% set headerStyle = (settings.header_style == "left") %}
+{% set botaoMenu = settings.botao_menu %}
+{% set headerPosition = settings.header_position %}
+
+<header data-header="scroll" header-position="{{ headerPosition }}" class="header {{ headerStyle ? 'logo-ao-centro' : ''}} {{ pages.current == 'home' ? 'home' : ''}} {{ headerPosition == 'on' ? 'on' : ''}} ">
     {% element 'snippets/diferenciais-em-slides' %}
     
     <div class="header-top">
@@ -12,6 +16,8 @@
             <a class="header-logo" href="{{ store.url }}" title="Logo da loja" aria-label="logo da {{ store.name }}">
                 {% if settings.logo %}
                     <img class="header-image" src="{{ asset(settings.logo) }}"
+                        data-logo="{{ asset(settings.logo) }}"
+                        data-logo-invert="{{ asset(settings.logo_invert) }}"
                         alt="{{ store.name }}"
                         {% if not utils.is_mobile and settings.width_logo_desktop or height_logo_desktop %}
                             width='{{ (settings.width_logo_desktop) ? settings.width_logo_desktop : "222px" }}' 
@@ -32,15 +38,49 @@
 
             {% element 'snippets/header-search' %}
 
-            <div class="header-account">
-                <a href="https://amoserboana.com.br/" class="button2" id="revededora" target="_blank">
-                    Seja Revendedora
-                </a>
-                <a class="account-link" href="{{ links.central }}" title="Minha Conta">
-                    <span class="icon-account" aria-hidden="true"></span>
-                </a>
+        {% if headerStyle %}
+            <div class="headerStyle">
+        {% endif %}
+                
+            {% if botaoMenu and not utils.is_mobile %}
+                <div class="botaoMenu">
+                    <a href="{{ settings.link_botao }}" class="button2">
+                        {{ settings.texto_botao ? settings.texto_botao : 'Seja revendedor' }}
+                    </a>
+                </div>
+            {% endif %}
 
-                {# Comentado 
+            <div class="box-icon">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_2102_1471)">
+                    <path d="M16.4083 5.04159C16.145 4.76289 15.7831 4.59837 15.4 4.58326H14.6667V3.66659C14.6731 3.4843 14.6419 3.30264 14.575 3.13292C14.5082 2.9632 14.4071 2.80905 14.2782 2.68008C14.1492 2.5511 13.995 2.45004 13.8253 2.38321C13.6556 2.31638 13.4739 2.28519 13.2917 2.29159H2.29165C2.10936 2.28519 1.9277 2.31638 1.75798 2.38321C1.58826 2.45004 1.43412 2.5511 1.30514 2.68008C1.17616 2.80905 1.07511 2.9632 1.00827 3.13292C0.941436 3.30264 0.910249 3.4843 0.916652 3.66659V16.0416C0.910249 16.2239 0.941436 16.4055 1.00827 16.5753C1.07511 16.745 1.17616 16.8991 1.30514 17.0281C1.43412 17.1571 1.58826 17.2581 1.75798 17.325C1.9277 17.3918 2.10936 17.423 2.29165 17.4166H3.34582C3.54527 18.0758 3.95154 18.6533 4.50455 19.0637C5.05756 19.4741 5.72797 19.6957 6.41665 19.6957C7.10533 19.6957 7.77574 19.4741 8.32875 19.0637C8.88176 18.6533 9.28803 18.0758 9.48748 17.4166H12.5125C12.7119 18.0758 13.1182 18.6533 13.6712 19.0637C14.2242 19.4741 14.8946 19.6957 15.5833 19.6957C16.272 19.6957 16.9424 19.4741 17.4954 19.0637C18.0484 18.6533 18.4547 18.0758 18.6541 17.4166H19.7083C19.8906 17.423 20.0723 17.3918 20.242 17.325C20.4117 17.2581 20.5659 17.1571 20.6948 17.0281C20.8238 16.8991 20.9249 16.745 20.9917 16.5753C21.0585 16.4055 21.0897 16.2239 21.0833 16.0416V10.1749L16.4083 5.04159ZM15.1708 6.41659L18.5166 10.0833H14.6667V6.41659H15.1708ZM6.41665 17.8749C6.1447 17.8749 5.87886 17.7943 5.65274 17.6432C5.42662 17.4921 5.25039 17.2774 5.14632 17.0261C5.04225 16.7749 5.01502 16.4984 5.06807 16.2317C5.12113 15.965 5.25208 15.72 5.44438 15.5277C5.63668 15.3354 5.88168 15.2044 6.1484 15.1513C6.41513 15.0983 6.69159 15.1255 6.94284 15.2296C7.19409 15.3337 7.40884 15.5099 7.55992 15.736C7.71101 15.9621 7.79165 16.228 7.79165 16.4999C7.79805 16.6822 7.76687 16.8639 7.70003 17.0336C7.6332 17.2033 7.53215 17.3575 7.40317 17.4864C7.27419 17.6154 7.12004 17.7165 6.95032 17.7833C6.7806 17.8501 6.59894 17.8813 6.41665 17.8749ZM15.5833 17.8749C15.3114 17.8749 15.0455 17.7943 14.8194 17.6432C14.5933 17.4921 14.4171 17.2774 14.313 17.0261C14.2089 16.7749 14.1817 16.4984 14.2347 16.2317C14.2878 15.965 14.4187 15.72 14.611 15.5277C14.8033 15.3354 15.0483 15.2044 15.3151 15.1513C15.5818 15.0983 15.8583 15.1255 16.1095 15.2296C16.3608 15.3337 16.5755 15.5099 16.7266 15.736C16.8777 15.9621 16.9583 16.228 16.9583 16.4999C16.9647 16.6822 16.9335 16.8639 16.8667 17.0336C16.7999 17.2033 16.6988 17.3575 16.5698 17.4864C16.4409 17.6154 16.2867 17.7165 16.117 17.7833C15.9473 17.8501 15.7656 17.8813 15.5833 17.8749Z" fill="#373435"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_2102_1471">
+                    <rect width="22" height="22" fill="white"/>
+                    </clipPath>
+                    </defs>
+                </svg>
+
+                <span>Rastreio</span>
+
+                <div class="reastrear-pedido">
+                    <form action="/#" class="rastrear">
+                        <input type="text" required placeholder="Digite seu c&oacute;digo aqui">
+                        <button type="submit" class="button2">
+                            Rastrear
+                            <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.89822 6.76408L1.68802 0.615873C1.65301 0.581397 1.61077 0.553452 1.56372 0.533635C1.51668 0.513817 1.46575 0.502515 1.41384 0.500374C1.36194 0.498233 1.31007 0.505294 1.2612 0.521154C1.21233 0.537015 1.16742 0.561365 1.12903 0.592813C1.09064 0.624261 1.05952 0.662191 1.03745 0.704439C1.01539 0.746686 1.0028 0.792423 1.00042 0.839039C0.998032 0.885654 1.00589 0.932234 1.02355 0.976121C1.04122 1.02001 1.06833 1.06034 1.10335 1.09481L7.07256 7.00177L1.10335 12.9052C1.06833 12.9397 1.04122 12.98 1.02356 13.0239C1.00589 13.0678 0.998033 13.1143 1.00042 13.161C1.0028 13.2076 1.01539 13.2533 1.03745 13.2956C1.05952 13.3378 1.09064 13.3757 1.12903 13.4072C1.16742 13.4386 1.21233 13.463 1.2612 13.4788C1.31007 13.4947 1.36194 13.5018 1.41384 13.4996C1.46575 13.4975 1.51668 13.4862 1.56373 13.4664C1.61077 13.4465 1.65301 13.4186 1.68802 13.3841L7.89822 7.23947C7.96373 7.17428 8 7.08959 8 7.00177C8 6.91396 7.96373 6.82927 7.89822 6.76408Z" fill="white" stroke="var(--c_general_inverted)"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="header-account">
+                <span class="icon-account" aria-hidden="true"></span>
+
+                {% if customer.logged %}
                     <div class="tray-hide logged" data-logged-user="true">
                         <span class="account-text">Ol&aacute;, <span data-customer="name"></span></span>
                         <div class="account-access">
@@ -49,6 +89,7 @@
                             <a class="account-link" href="{{ links.logout }}" title="Sair">Sair</a>
                         </div>
                     </div>
+                {% else %}
                     <div class="tray-hide loggedout" data-logged-user="false">
                         <span class="account-text">Minha Conta</span>
                         <div class="account-access">
@@ -57,14 +98,18 @@
                             <a class="account-link" href="{{ links.register }}" title="Cadastrar">Cadastrar</a>
                         </div>
                     </div>
-                #}
+                {% endif %}
             </div>
 
-            <a class="header-cart" title="Carrinho" onclick="createList()">
+            <div class="header-cart" title="Carrinho" onclick="createList()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 7h-4v-3c0-2.209-1.791-4-4-4s-4 1.791-4 4v3h-4l-2 17h20l-2-17zm-11-3c0-1.654 1.346-3 3-3s3 1.346 3 3v3h-6v-3zm-4.751 18l1.529-13h2.222v1.5c0 .276.224.5.5.5s.5-.224.5-.5v-1.5h6v1.5c0 .276.224.5.5.5s.5-.224.5-.5v-1.5h2.222l1.529 13h-15.502z"/></svg>
                 <span class="cart-quantity" data-cart="amount">0</span>
-            </a>
+            </div>
             {% element 'snippets/cart-data' %}
+
+        {% if headerStyle %}
+        </div>
+        {% endif %}
         </div>
     </div>
 

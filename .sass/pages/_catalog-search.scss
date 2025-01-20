@@ -2,6 +2,12 @@
     @extend %flex;
     flex-wrap: wrap;
 
+    @include small {
+        .filtro-variacoes .section {
+            padding: 0 !important;
+        }
+    }
+
     &-filter {
         transition: 0.2s ease-out transform;
 
@@ -49,6 +55,7 @@
 
             .filter-content {
                 padding: 0 1rem;
+
             }
         }
     }
@@ -83,8 +90,26 @@
     }
 
     &-section {
+        display: flex;
+        flex-direction: column;
+
+        performa {
+            &:first-child {
+                order: 4;
+            }
+
+            &:last-child {
+                order: 5;
+            }
+        }
+        
         .catalog-title {
             margin: 0 0 2.5rem 0;
+        }
+
+        .catalog-content {
+            display: flex;
+            flex-direction: column;
         }
 
         .banner-container {
@@ -103,7 +128,7 @@
     }
 
     &-listRefinement {
-        margin: 0rem 0 1rem 0;
+        margin: 1rem 0 1rem 0;
         justify-content: flex-end;
         @extend %flex-betw-center;
         @include small {

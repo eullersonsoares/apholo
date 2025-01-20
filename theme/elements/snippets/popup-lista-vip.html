@@ -1,39 +1,65 @@
 <div class="popup" id="lista-vip">
     <div id="content-popup">
         <button id="btn-close"></button>
-        <div class="image-popup">
-            {% if banner.popup %}
+        {% if banner.extra2 %}
+            <div class="image-popup">
                 <a href="{{ links.register }}" class="link">
-                    <img src="{{ banners.popup.src }}" alt="{{ banners.popup.alt }}">
+                    <img src="{{ banners.extra2.src }}" alt="{{ banners.extra2.alt }}">
                 </a>
-            {% endif %}
-        </div>
-        {# Comentado
-            <div class="content-cadastro">
-                <h3 id="title-popup">{{ settings.popup_news_title }}</h3>
-                <p id="sub-title">{{ settings.popup_news_subtitle }}</p>
-
-                <form id="vip-list" action="/mvc/store/newsletter/" method="post">
-                    <input type="hidden" name="loja" value="{{ store.id }}" />
-                    
-                    <span>Nome*</span>
-                    <input name="name" type="text" placeholder="Nome" required>
-
-                    <span>E-mail*</span>
-                    <input
-                        class="email-field"
-                        type="email"
-                        name="email"
-                        placeholder="{{ settings.revendedor_placeholder ? settings.revendedor_placeholder : 'E-mail' }}"
-                        required
-                        spellcheck="false"
-                        autocomplete="off"
-                    />
-                    <button type="submit" class="revendedor-button button2" >
-                        Cadastrar
-                    </button>
-                </form>
             </div>
-        #}
+        {% endif %}
+        <div class="content-cadastro">
+            <h3 id="title-popup">
+                Cadastre-se e ganhe 15% OFF na sua PRIMEIRA COMPRA
+                {# comentado 
+                    {{ settings.popup_news_title }}
+                #}
+            </h3>
+
+            {# comentado 
+                <p id="sub-title">{{ settings.popup_news_subtitle }}</p>
+            #}
+            
+            <form id="vip-list">
+                <input type="hidden" name="loja" value="{{ store.id }}" />
+                
+                <span>Nome*</span>
+                <input name="name" type="text" placeholder="Nome" required>
+
+                <span>E-mail*</span>
+                <input
+                    class="email-field"
+                    type="email"
+                    name="email"
+                    placeholder="{{ settings.revendedor_placeholder ? settings.revendedor_placeholder : 'E-mail' }}"
+                    required
+                    spellcheck="false"
+                    autocomplete="off"
+                />
+                <button type="submit" class="revendedor-button button2" >
+                    Cadastrar
+                </button>
+            </form>
+            <form id="real-form" class="hidden" action="/mvc/store/newsletter/" method="post">
+                <input type="hidden" name="loja" value="{{ store.id }}" />
+                
+                <span>Nome*</span>
+                <input name="name" type="text" placeholder="Nome" required>
+
+                <span>E-mail*</span>
+                <input
+                    class="email-field"
+                    type="email"
+                    name="email"
+                    placeholder="{{ settings.revendedor_placeholder ? settings.revendedor_placeholder : 'E-mail' }}"
+                    required
+                    spellcheck="false"
+                    autocomplete="off"
+                />
+                <button type="submit" class="revendedor-button button2" >
+                    Cadastrar
+                </button>
+            </form>
+        </div>
     </div>
 </div>

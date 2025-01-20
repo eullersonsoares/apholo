@@ -30,7 +30,7 @@
 
         @include small {
             & {
-                width: 85%;
+                width: 90%;
             }
         }
 
@@ -41,6 +41,7 @@
             justify-content: space-between;
             text-align: left;
             padding: 1.25em 0 0.5rem;
+            width: 100%;
             border-bottom: 2px solid var(--c_general_details);
 
             svg {
@@ -64,6 +65,10 @@
             overflow-y: auto;
             max-height: 75vh;
             height: 100%;
+
+            @include small {
+                max-height: 65vh;
+            }
         }
         
         div#price-product {

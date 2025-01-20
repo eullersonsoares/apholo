@@ -10,7 +10,6 @@
 
         .listProduct-item {
             box-sizing: border-box;
-            margin-bottom: 2.5rem;
 
             min-height: 100%;
 
@@ -61,7 +60,7 @@
     }
 
     button#showMore {
-        margin: 1.5rem auto 3rem;
+        margin: 2rem auto;
         background: transparent;
         color: var(--c_contrast_and_button);
         border: 1px solid var(--c_contrast_and_button);
@@ -208,8 +207,11 @@
     &-info {
         @extend %flex-colun-betw;
         flex-grow: 1;
+        min-height: 220px;
+
         @include small {
             margin: 0.5rem 0rem 0.4rem;
+            min-height: 240px;
         }
         @include medium {
             margin: 1rem 0rem 0.5rem;
@@ -221,19 +223,21 @@
 
     &-name {
         @include fontInsert(1, 400, var(--c_general_text1));
-        padding-bottom: 1rem;
-        text-align: left;
+        padding-bottom: 0.75rem;
+        text-align: center;
         text-transform: lowercase;
 
         &::first-letter {
             text-transform: capitalize;    
         }
+
+        @include fontInsert(0.875, 400, var(--c_general_text1));
     }
 
     /// Rating
     &-rating {
         @extend %flex-center-center;
-        margin-bottom: 1rem;
+        margin-bottom: 0.75rem;
 
         .rating-icon {
             padding: 0 0.15rem;
@@ -257,12 +261,11 @@
         @extend %flex-center-colun;
         width: inherit;
         text-align: center;
+        margin-bottom: 0.75rem;
 
         .price {
-            text-align: left;
+            text-align: center;
             width: 100%;
-            display: flex;
-            flex-direction: column;
 
             @include small {
                 &-titleStarting {
@@ -270,16 +273,16 @@
                 }
 
                 &-current {
-                    @include fontInsert(0.87, 400, var(--c_general_text1));
+                    @include fontInsert(0.713, 400, var(--c_general_text1));
                 }
                 
                 &-old,
                 &-installments {
-                    @include fontInsert(0.875, 500, var(--c_general_main));
+                    @include fontInsert(0.713, 400, var(--c_general_text1));
                 }
 
                 &-current .value {
-                    @include fontInsert(0.75, 400, var(--c_general_text1));
+                    @include fontInsert(0.713, 500, var(--c_general_text1));
                 }
             }
             @include medium {
@@ -293,11 +296,11 @@
                 
                 &-old,
                 &-installments {
-                    @include fontInsert(0.875, 500, var(--c_general_main));
+                    @include fontInsert(0.875, 400, var(--c_general_text1));
                 }
 
                 &-current .value {
-                    @include fontInsert(0.875, 400, var(--c_general_text1));
+                    @include fontInsert(0.875, 500, var(--c_general_text1));
                 }
             }
             @include large {
@@ -311,56 +314,33 @@
                 
                 &-old,
                 &-installments {
-                    @include fontInsert(0.875, 500, var(--c_general_main));
+                    @include fontInsert(0.875, 400, var(--c_general_text1));
                 }
 
                 &-current .value {
-                    @include fontInsert(0.875, 400, var(--c_general_text1));
+                    @include fontInsert(0.875, 500, var(--c_general_text1));
                 }
             }
 
-            &-old {
-                order: 1;
-            }
-
-            &-current {
-                order: 3;
-
-                .value {
-                    &::before {
-                        content: "ou";
-                    }
-
-                    &::after {
-                        content: "à vista";
-                    }
-                }
+            .prices-product {
+                @extend %flex-center-center;
+                gap: 0.5rem;
             }
 
             &-installments {
-                text-align: left;
-                order: 2;
+                margin-top: -0.65rem;
+                line-height: 1;
+                text-align: center;
 
-                br, .preco-avista, .txt-avista, .txt-com-desconto, span.txt-forma-pagamento {
-                    display: none;
-                }
+                .txt-corparcelas .color {
+                    @include fontInsert(0.875, 400, var(--c_general_text1));
 
-                .txt-corparcelas {
-                    .preco-parc2 {
-                        font-size: 0 !important;
-                    }
-
-                    .color {
-                        @include fontInsert(0.875, 500, var(--c_general_main));
+                    @include small {
+                        @include fontInsert(0.713, 400, var(--c_general_text1));
                     }
                 }
-
                 .txt-cadaparcelas .preco-parc2 {
-                    @include fontInsert(1.25, 500, var(--c_general_main));
-                }
-                
-                span.operadora {
-                    text-transform: lowercase;
+                    @include fontInsert(0.875, 400, var(--c_general_text1));
                 }
             }
 
@@ -380,16 +360,19 @@
         line-height: 1.1;
         opacity: 1;
         transition: $transit_default;
+        width: 100%;
+        border-radius: 5px;
+        margin-bottom: 0.5em;
 
         @include small {
             font-size: 0.75rem;
-            padding: 0.9rem 1.5rem;
+            padding: 0.9rem;
         }
         @include medium {
-            padding: 0.9rem 2rem;
+            padding: 0.9rem;
         }
         @include large {
-            padding: 0.9rem 2rem;
+            padding: 0.9rem;
         }
 
         &:hover {
@@ -399,16 +382,13 @@
 
     /// Product-Tags
     &-tag {
-        @extend %flex-betw;
-        flex-wrap: wrap;
+        flex-wrap: nome;
         margin-top: 0;
         min-height: 75px;
         position: absolute;
-        top: calc(70% + 40px);
+        top: 0.75rem;
         z-index: 100;
-        align-items: flex-end;
-        justify-content: center;
-        max-width: 90%;
+        max-width: 50%;
         left: 5%;
         opacity: 1;
         transition: 0.3s;
@@ -416,15 +396,15 @@
 
         @include small {
             min-height: 60px;
-            top: calc(60% + 25px);
+            top: 0.35rem;
             z-index: 100;
-            max-width: 100%;
-            left: 0;
+            max-width: 50%;
+            left: 0.35rem;
             transition: .3s;
         }
 
         .tag {
-            @extend %flex-center-center;
+            @extend %flex-start;
             @include fontInsert(0.75, 700, var(--c_general_text_inverted));
             border-radius: 4px;
             text-align: center;
@@ -433,19 +413,18 @@
 
             @include small {
                 margin-bottom: 0.1rem;
-                margin-right: 0.1rem;
                 width: 100%;
+                height: 1.2rem;
+                min-height: 1.2rem;
             }
 
             @include medium {
                 margin-bottom: 0.5rem;
-                margin-right: 0.18rem;
-                width: calc(50% - 0.1rem);
+                width: 100%;
             }
             @include large {
                 margin-bottom: 0.5rem;
-                margin-right: 0.25rem;
-                width: calc(50% - 0.13rem);
+                width: 100%;
             }
 
             &:nth-child(2n) {
@@ -473,7 +452,7 @@
                 height: $v_height_tags;
 
                 @include small {
-                    height: 25px;
+                    height: 1.2rem;
                 }
             }
 
@@ -521,22 +500,29 @@
     }
 
     .tag-floating {
-        @include fontInsert(0.75, 700, var(--c_general_text_inverted), uppercase);
+        @include fontInsert(0.75, 700, var(--c_general_text1), uppercase);
         @extend %flex-center-colun;
-        background-color: var(--c_general_secondary);
-        border-radius: 50%;
+        background-color: #fff;
+        border-radius: 5px;
         line-height: 1;
         position: absolute;
-        height: 3rem;
-        width: 3rem;
+        height: 1.75rem;
+        width: 3.25rem;
         z-index: 10;
 
+        a {
+            color: var(--c_general_text1);
+        }
+
         @include small {
-            top: 0.7rem;
-            right: 0.7rem;
+            top: .5rem;
+            right: .35rem;
+            font-size: 0.625rem;
+            height: 1.15rem;
+            width: 2.5rem;
         }
         @include medium {
-            top: 1.063rem;
+            top: 0.75rem;
             right: 1.063rem;
         }
         @include large {
@@ -546,36 +532,37 @@
     }
 
     &-button {
-        width: 94%;
-        position: absolute;
-        bottom: -100%;
-        left: 3%;
-        right: auto;
-        box-shadow: 0 0 15px rgb(0,0,0,0.1);
-        z-index: 101;
-        transition: 0.3s;
+        margin-top: auto;
+        // width: 94%;
+        // position: absolute;
+        // bottom: -100%;
+        // left: 3%;
+        // right: auto;
+        // box-shadow: 0 0 15px rgb(0,0,0,0.1);
+        // z-index: 101;
+        // transition: 0.3s;
 
-        &.add-cart-fast {
-            left: 0;
-            width: 100%;
-        }
+        // &.add-cart-fast {
+        //     left: 0;
+        //     width: 100%;
+        // }
 
-        @include small {
-            display: none;
-            margin: 0;
+        // @include small {
+        //     display: none;
+        //     margin: 0;
 
-            .button2 {
-                font-size: 0.75rem;
-                padding: 1rem 1.5rem;
-            }
-        }
+        //     .button2 {
+        //         font-size: 0.75rem;
+        //         padding: 1rem 1.5rem;
+        //     }
+        // }
 
-        @include medium {
-            margin: 0;
-        }
-        @include large {
-            margin: 0;
-        }
+        // @include medium {
+        //     margin: 0;
+        // }
+        // @include large {
+        //     margin: 0;
+        // }
 
         &.u-marginNone {
             margin: 0;
@@ -591,120 +578,160 @@
             align-items: center;
             justify-content: flex-end;
             box-shadow: none;
-            
-            .product-buy {
-                padding: 0.75rem;
-                background: #ffffff90;
-                border-radius: 0px;
-                box-shadow: 0 0 15px rgb(0,0,0,0.15);
+            margin-top: auto;
+        }
+
+        a[href] {
+            margin-bottom: 0.63rem;
+            padding: 0.75rem;
+        }
+    }
+
+    &-info {
+        .swiper-button-next {
+            right: 0 !important;
+        } 
+        
+        .swiper-button-prev {
+            left: 0 !important;
+        }
+
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 1.25rem;
+            color: var(--c_general_text1);
+        }
+    }
+
+    .product-buy {
+        background: #ffffff90;
+        border-radius: 0px;
+        // box-shadow: 0 0 15px rgb(0,0,0,0.15);
+        width: 100%;
+        position: relative;
+        margin-bottom: 0.75rem;
+
+        @include small {
+            & {
+                padding: 0.25rem;
+                margin-bottom: 0.35rem;
+            }
+        }
+
+        &>.swiper {
+            margin-top: 0.5em;
+        }
+        
+        &>.var2 {
+            top: auto !important;
+            bottom: -3px;
+        }
+
+        .variations {
+            max-width: 80%;
+            border-radius: 4px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        
+            &.variationsEmpty {
+                display: none;
+            }
+        
+            &.swiper-initialized {
+                .variations-list {
+                    flex-wrap: nowrap;
+                    gap: 0rem;
+                }
+            }
+
+            &-list {
+
+                .variation {
+                    @include fontInsert(0.875, 400, var(--c_general_text1));
+                    cursor: pointer;
+
+                    div {       
+                        @extend %flex-center-center;
+                        padding: 0.35rem;
+                        border: 1px solid #a0a0a0;
+                        min-width: 35px;
+                        min-height: 35px;
+                        border-radius: 50px;
+                        
+                        @include small {
+                            @include fontInsert(0.65, 400, var(--c_general_text1));
+                            min-width: 30px;
+                            min-height: 30px;
+                            padding: 0.3rem;
+                        }
+                    }
+
+                    &.selected {
+                        div {
+                            border-color: var(--c_general_main) !important;
+                            color: var(--c_general_main) !important;
+                            
+                            img {
+                                border-color: var(--c_general_main) !important;
+                            }
+                        }
+                    }
+                }
+
+                &[data-type="color"] {
+                    .variation {
+                        padding: 0 !important;
+                        border: none !important;
+
+                        img {
+                            border: 1px solid #a0a0a0;
+                            width: 35px;
+                            height: 35px;
+                            border-radius: 50px;
+                            object-fit: cover;
+
+                            @include small {
+                                width: 25px;
+                                height: 25px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .add-cart {
+            @extend %flex-betw-center;
+            gap: 0.75rem;
+
+            .quantity {
+                width: 28%;
+                padding: 1rem 0.35rem;
+                background: #ffffff;
+                border-radius: 5px;
+                
+                @include small {
+                    & {
+                        font-size: 12px;
+                        width: 17%;
+                        padding: 0.3rem;
+                    }
+                }
+            }
+
+            .button2 {
+                padding: 1rem;
                 width: 100%;
 
                 @include small {
-                    & {
-                        padding: 0.25rem;
-                    }
+                    padding: 0.75rem;
                 }
+            }
 
-                .variations {
-                    max-height: 80%;
-                    overflow-y: auto;
-                    margin-bottom: 0.75rem;
-                    border-radius: 4px;
-
-                    &-list {
-                        @extend %flex-evenly-center;
-                        flex-wrap: wrap;
-                        gap: 1rem;
-                        padding: .75rem 0 0;
-
-                        @include small {
-                            gap: 0.35rem;
-                        }
-
-                        .variation {
-                            @include fontInsert(0.875, 400, var(--c_general_text1));
-                            @extend %flex-center-center;
-                            padding: 0.5rem;
-                            border: 1px solid #a0a0a0;
-                            min-width: 35px;
-                            min-height: 35px;
-                            border-radius: 50px;
-
-                            @include small {
-                                @include fontInsert(0.65, 400, var(--c_general_text1));
-                                min-width: 25px;
-                                min-height: 25px;
-                                padding: 0.35rem;
-                            }
-
-                            &.selected {
-                                border-color: var(--c_general_main) !important;
-                                color: var(--c_general_main) !important;
-                                
-                                img {
-                                    border-color: var(--c_general_main) !important;
-                                }
-                            }
-                        }
-
-                        &[data-type="color"] {
-                            .variation {
-                                padding: 0 !important;
-                                border: none !important;
-    
-                                img {
-                                    border: 1px solid #a0a0a0;
-                                    width: 35px;
-                                    height: 35px;
-                                    border-radius: 50px;
-                                    object-fit: cover;
-
-                                    @include small {
-                                        width: 25px;
-                                        height: 25px;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                .add-cart {
-                    @extend %flex-betw-center;
-                    gap: 0.75rem;
-
-                    .quantity {
-                        width: 28%;
-                        padding: 1rem 0.35rem;
-                        background: #ffffff;
-                        border-radius: 5px;
-                        
-                        @include small {
-                            & {
-                                font-size: 12px;
-                                width: 17%;
-                                padding: 0.3rem;
-                            }
-                        }
-                    }
-
-                    .button2 {
-                        padding: 1rem;
-
-                        @include small {
-                            & {
-                                font-size: 11px !important;
-                                width: 73%;
-                                padding: 0.3rem;
-                            }
-                        }
-                    }
-
-                    .alert-client {
-                        @include small {
-                            font-size: 12px !important;
-                        }
-                    }
+            .alert-client {
+                @include small {
+                    font-size: 12px !important;
                 }
             }
         }
@@ -719,9 +746,9 @@
 
 .product {
     &:hover {
-        .product-tag {
-            opacity: 0;
-        }
+        // .product-tag, .tag-percentageDiscount {
+        //     opacity: 0;
+        // }
 
         .hover-images {
             img:first-child {
@@ -732,23 +759,39 @@
                 display: block;
             }
         }
+        
+        .product-video {
+            
+            &.product-video img {
+                display: block !important;
+            }
 
-        .product-button {
-            bottom: 2%;
-        }
-
-        .product-button.add-cart-fast {
-            bottom: 0%;
-        }
-
-        .aspect-ratio1x1 {
-            .product-button {
-                top: 82%;
-
-                @include small {
-                    top: 70%;
-                }
+            iframe {
+                pointer-events: none;
+                z-index: 100 !important;
             }
         }
+
+        // .product-button {
+        //     bottom: 2%;
+        // }
+
+        // .product-button.add-cart-fast {
+        //     bottom: 0%;
+        // }
+
+        // .aspect-ratio1x1 {
+        //     .product-button {
+        //         top: 82%;
+
+        //         @include small {
+        //             top: 70%;
+        //         }
+        //     }
+        // }
     }    
+}
+
+.performa-name-vitrine {
+    height: fit-content;
 }

@@ -19,12 +19,17 @@
         <div class="pageProduct-gallery {{ showZoom ? 'zoom-true' }}" data-gallery="product">
 
             {% if product.video %}
-                <button class="gallery-video" type="button" data-toggle="closed" data-target="#modals-video" data-button="video" data-url="{{ product.video }}" aria-label="Ver V&iacute;deo">
+                <output id="product-video"
+                    data-video="{{ product.video }}"
+                    data-image="{{ asset('img/loading.gif') }}"
+                ></output>
+
+                <!-- <button class="gallery-video" type="button" data-toggle="closed" data-target="#modals-video" data-button="video" data-url="{{ product.video }}" aria-label="Ver V&iacute;deo">
                     <span class="icon-youtube-simple">
                         <span class="path1"></span>
                         <span class="path2"></span>
                     </span>
-                </button>
+                </button> -->
             {% endif %}
 
             <div class="gallery-images swiper" data-slides="gallery">
@@ -37,18 +42,32 @@
                             </div>
                         </div>
                     {% endfor %}
+                    
+                    {% if product.video %}
+                        <div class="swiper-slide video-frame" data-gallery="image">
+                            <iframe id="iframe-video" src="{{ product.video }}" frameborder="0" width="230px" height="350px"></iframe>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
 
             {% set quantityImages = product.images | length %}
             <div class="gallery-thumbs{{ quantityImages > 4 ? ' u-show' }} swiper" data-slides="gallery-thumbs" data-qtd="{{ quantityImages }}">
                 <div class="swiper-wrapper" data-gallery="box-thumbs">
-                    {% if product.images | length > 1 %} 
-                        {% for images in product.images %}
-                            <div class="swiper-slide gallery-thumb" data-gallery="image">
-                                <img class="gallery-img swiper-lazy" data-src="{{ images.medium }}" alt="{{ product.name }}" width="90px" height="90px" />
-                            </div>
-                        {% endfor %} 
+                    {% for images in product.images %}
+                        <div class="swiper-slide gallery-thumb" data-gallery="image">
+                            <img class="gallery-img swiper-lazy" data-src="{{ images.medium }}" alt="{{ product.name }}" width="90px" height="90px" />
+                        </div>
+                    {% endfor %} 
+
+                    {% if product.video %}
+                        <div class="swiper-slide gallery-thumb" data-gallery="image" video-thumb="">
+                            <img class="gallery-img swiper-lazy" data-src="{{ asset('img/loading.gif') }}" video-image="" alt="{{ product.name }}" width="90px" height="90px" style="object-fit: contain !important; padding: 1em;"/>
+                            <span class="icon-youtube-simple">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                            </span>
+                        </div>
                     {% endif %}
                 </div>
                 <div class="slides-buttonPrev--gallery icon-arrow-simple{{ quantityImages > 4 ? ' u-show' }}"></div>
@@ -367,3 +386,5 @@
     </section>
 {% endif %}
 #}
+
+{% element 'snippets/popup-image-view' {'product': product} %}

@@ -1,5 +1,6 @@
 .differentials {
-
+    width: 100%;
+    
     .content {
         display: flex;
         justify-content: space-between;
@@ -8,7 +9,7 @@
         li.differential {
             display: flex;
             align-items: center;
-            gap: 13px;
+            gap: 8px;
 
 
             .text-differential {
@@ -19,6 +20,16 @@
                 p {
                     @include fontInsert(1, 350, var(--c_general_text1), var(--font_family));
                 }
+
+                @include small {
+                    strong {
+                        @include fontInsert(1, 500, var(--c_general_text1), var(--font_family));
+                    }
+        
+                    p {
+                        @include fontInsert(0.875, 300, var(--c_general_text1), var(--font_family));
+                    }                    
+                }
             }
 
             @include small {
@@ -28,11 +39,11 @@
 
                 .image {
                     display: flex;
-                    min-height: 60px;
+                    min-height: 50px;
                     align-items: center;
 
                     img {
-                        max-height: 70px;
+                        max-height: 60px;
                         object-fit: contain;
                     }
                 }
@@ -40,9 +51,26 @@
             }
         }
 
-        @include small {
-            gap: 1em 2em;
-            justify-content: space-around;
+        @include medium {
+            justify-content: normal !important;
+            flex-wrap: nowrap;
         }
+
+        @include small {
+            justify-content: normal !important;
+            flex-wrap: nowrap;
+        }
+    }
+
+    @include medium {
+        padding-bottom: 2em !important;
+    }
+
+    @include small {
+        padding-bottom: 2em !important;
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: var(--c_general_main) !important;
     }
 }

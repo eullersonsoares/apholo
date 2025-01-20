@@ -687,7 +687,7 @@ button.swiper-pagination-bullet {
   flex-direction: column;
 }
 
-.pageProduct-related .related-showcase, .pageProduct .tabs-nav .nav-list, .pageProduct-gifts .brinde_lista, .showcase-listProduct {
+.pageProduct-related .related-showcase, .pageProduct .tabs-nav .nav-list, .pageProduct-gifts .brinde_lista, .product-tag .tag, .showcase-listProduct {
   display: flex;
   justify-content: flex-start;
 }
@@ -697,7 +697,7 @@ button.swiper-pagination-bullet {
 .page-lista #atualizaLista + .container3 .container2 div.board > div:nth-child(2),
 .page-print_lista .container3:first-child .container2 div.board > div:nth-child(2),
 .page-print_lista .blocoAlerta + .container3 .container2 div.board > div:nth-child(2),
-.page-print_lista #atualizaLista + .container3 .container2 div.board > div:nth-child(2), .modals .box-button, .header-account {
+.page-print_lista #atualizaLista + .container3 .container2 div.board > div:nth-child(2), .modals .box-button, .logo-ao-centro .headerStyle {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -714,7 +714,7 @@ button.swiper-pagination-bullet {
 .page-central_cliente #paginacao .right .next a, .page-central_cliente #paginacao, .page-lista .lista-produtos .lista-produto-adquirido,
 .page-print_lista .lista-produtos .lista-produto-adquirido, .page-contact .contactUs-phone:before, .page-contact .contactUs-whats:before, .page-contact .contactUs-email:before, .modals.u-show, .pageProduct .cor_variacao .lista_cor_variacao li div,
 .pageProduct .cor_variacao [data-id=lista_cor_variacao] li div,
-.pageProduct .cor_variacao [data-id^=second-dropdown-show] li div, .pageProduct-batchPromotion #miniad img:not([src*=".png"]):not([src*=".jpg"]):not([src*=".jpeg"]):not([src*=".svg"]):not([src*=".gif"]), .pageProduct-tags .tag, .pageProduct-gallery .gallery-thumbs, .container3 .board .right, .page-comparador .comparator ul li ul .comparsionFoto div, .page-comparador .comparatorTabs ul li.aberta, .page-comparador .comparatorTabs ul li, .filter #Cor ul.filter-list .filter-item .filter__label, .filter #Cor ul.filter-list .filter-item .filter-label, .filter #Tamanho ul.filter-list .filter-item .filter__label, .filter #Tamanho ul.filter-list .filter-item .filter-label, .pagination, .brands .icon-tag, .brands-item, .modal .modal-body, .tagCloud-list, .product-button.add-cart-fast .product-buy .variations-list .variation, .product-tag .tag-progressiveDiscount .progressiveDiscount, .product-tag .tag, .product-rating, .product-compare .compare-button, .footer-stg-theme .payment-list ul, .footer-stg-theme-credits .credits, .footer-stg-theme .footer-stg-theme-newsletter .newsletter-email, .footer-stg-theme .footer-stg-theme-newsletter .newsletter-text, .footer-stg-theme .footer-stg-theme-newsletter, .footer-credits .credits, .footer .footer-newsletter .newsletter-email, .footer .footer-newsletter .newsletter-text, .footer .footer-newsletter, .header-menu .menu-firstLevel, .header-menu, .header-cart, .header-search, #whatsapp-button a, #whatsapp-button, .justify-center {
+.pageProduct .cor_variacao [data-id^=second-dropdown-show] li div, .pageProduct-batchPromotion #miniad img:not([src*=".png"]):not([src*=".jpg"]):not([src*=".jpeg"]):not([src*=".svg"]):not([src*=".gif"]), .pageProduct-tags .tag, .pageProduct-gallery .gallery-thumbs, .container3 .board .right, .page-comparador .comparator ul li ul .comparsionFoto div, .page-comparador .comparatorTabs ul li.aberta, .page-comparador .comparatorTabs ul li, .filter #Cor ul.filter-list .filter-item .filter__label, .filter #Cor ul.filter-list .filter-item .filter-label, .filter #Tamanho ul.filter-list .filter-item .filter__label, .filter #Tamanho ul.filter-list .filter-item .filter-label, .pagination, .brands .icon-tag, .brands-item, .modal .modal-body, .tagCloud-list, .banner-mais-vendidos .banner, #varejo .content .stars, #varejo .content, .product .product-buy .variations-list .variation div, .product-tag .tag-progressiveDiscount .progressiveDiscount, .product-price .price .prices-product, .product-rating, .product-compare .compare-button, .footer-stg-theme-credits .credits, .footer-stg-theme .footer-stg-theme-newsletter .newsletter-email, .footer-stg-theme .footer-stg-theme-newsletter .newsletter-text, .footer-stg-theme .footer-stg-theme-newsletter, .footer-credits .credits, .footer .footer-newsletter .newsletter-email, .footer .footer-newsletter .newsletter-text, .footer .footer-newsletter, .header-menu .menu-firstLevel, .header-menu, .header-cart, .header-account, .header-search, .header .container-custom .info-media, .header .container-custom .atendimento, #whatsapp-button a, #whatsapp-button, .justify-center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -746,25 +746,25 @@ button.swiper-pagination-bullet {
 
 .pageProduct .cor_variacao .lista_cor_variacao,
 .pageProduct .cor_variacao [data-id=lista_cor_variacao],
-.pageProduct .cor_variacao [data-id^=second-dropdown-show], .pageProduct-buy #product-form-box, .page-comparador .comparator ul li ul li:not(.comparsionFoto), .filter-list .filter-checkbox, .breadcrumb, .footer-stg-theme .footer-stg-theme-info .info-social .social-debt, .footer-stg-theme .footer-stg-theme-info .info-social .social-credit, .footer-stg-theme .footer-stg-theme-info .info-list .contact-item, .footer .footer-info .info-social .social-debt, .footer .footer-info .info-social .social-credit, .footer .footer-info .info-list .contact-item, .menuMobile-account .u-show .account-access, .header-logo {
+.pageProduct .cor_variacao [data-id^=second-dropdown-show], .pageProduct-buy #product-form-box, .page-comparador .comparator ul li ul li:not(.comparsionFoto), .filter-list .filter-checkbox, .breadcrumb, .footer-stg-theme .footer-stg-theme-info .info-payment .payment-debt, .footer-stg-theme .footer-stg-theme-info .info-payment .payment-credit, .footer-stg-theme .footer-stg-theme-info .info-list .contact-item, .footer .footer-info .info-social .social-debt, .footer .footer-info .info-social .social-credit, .footer .footer-info .info-list .contact-item, .menuMobile-account .u-show .account-access, .header-logo {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.page-central_listas .container3:not(.central-conteudo) + .board, .pageProduct-lastSeen .lastSeen-list #produtos, .modal .cart-preview-footer, .modal .modal-header, .modal .modal-content #div_atualiza form fieldset p:last-child, .reviews-container .dep_lista, .product-tag {
+.page-central_listas .container3:not(.central-conteudo) + .board, .pageProduct-lastSeen .lastSeen-list #produtos, .modal .cart-preview-footer, .modal .modal-header, .modal .modal-content #div_atualiza form fieldset p:last-child, .reviews-container .dep_lista {
   display: flex;
   justify-content: space-between;
 }
 
 .page-lista .lista-produtos form,
-.page-print_lista .lista-produtos form, .page-depoimentos .container #comentario_cliente .review-form, .pageProduct .varCont ul li ul li, .pageProduct .varCont ul li:not(#opcoes0-0 *), .pageProduct-bonusScore .produto-bonus, .catalog-listRefinement, .catalog-filter.u-show .filter-header.u-mobile, .brands-list, .product-button.add-cart-fast .product-buy .add-cart, .menuMobile-account .account-button, .menuMobile-account, .menuMobile-title, .header-content, .justify-between {
+.page-print_lista .lista-produtos form, .page-depoimentos .container #comentario_cliente .review-form, .pageProduct .varCont ul li ul li, .pageProduct .varCont ul li:not(#opcoes0-0 *), .pageProduct-bonusScore .produto-bonus, .catalog-listRefinement, .catalog-filter.u-show .filter-header.u-mobile, .brands-list, .product .product-buy .add-cart, .menuMobile-account .account-button, .menuMobile-account, .menuMobile-title, .header-content, .header .container-custom, .justify-between {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.product-button.add-cart-fast .product-buy .variations-list, .justify-evenly {
+.filtro-variacoes .section .list-filter, .justify-evenly {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -1902,7 +1902,7 @@ body {
 }
 @media (max-width: 768px) {
   .page-listas_index h2, .page-depoimentos .container #comentario_cliente .review-form, .pageProduct-lastSeen .lastSeen-title, .pageProduct-related .related-title, .pageProduct .tabs-reviews h2, .pageProduct-buyTogether .buyTogether #ProdAbas a, .pageProduct-name, .section-title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -2058,21 +2058,21 @@ body {
   :root {
     --v_height_header_top: 156px;
     --v_height_header_menu: 0;
-    --v_height_header_total: calc(var(--v_height_header_top) + 30px);
+    --v_height_header_total: calc(var(--v_height_header_top) + 40px);
   }
 }
 @media (min-width: 768.1px) and (max-width: 1080px) {
   :root {
     --v_height_header_top: 100px;
     --v_height_header_menu: 48px;
-    --v_height_header_total: calc(var(--v_height_header_top) + var(--v_height_header_menu) + 30px);
+    --v_height_header_total: calc(var(--v_height_header_top) + var(--v_height_header_menu) + 40px);
   }
 }
 @media (min-width: 1080.1px) {
   :root {
     --v_height_header_top: 100px;
     --v_height_header_menu: 48px;
-    --v_height_header_total: calc(var(--v_height_header_top) + var(--v_height_header_menu) + 30px);
+    --v_height_header_total: calc(var(--v_height_header_top) + var(--v_height_header_menu) + 40px);
   }
 }
 @keyframes disappearAndFall {
@@ -2267,7 +2267,7 @@ body.overflowed {
   color: var(--c_general_text_inverted);
   font-family: var(--font_family);
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
   font-variant: normal;
   text-transform: none;
   background-color: var(--c_contrast_and_button);
@@ -2300,6 +2300,24 @@ body.overflowed {
 .page-print_lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) a:active::before, .page-central_comissoes .form_resgatar_bonus label:active:last-of-type::before, .page-central_comissoes_extrato .saldo_pontos + div form:active::after, .page-listas_criar #lista_criar .container3 .container2 div[style="text-align:right;"]:active::before, .page-search #Vitrine form input[type=image]:active, .pageProduct .tabs-reviews #comentario_cliente a[data-logged-user]:active:not(.tray-hide), .pageProduct #produto_nao_disp #nao_disp #letMeKnow:active::before, .page-comparador .comparatorTabs ul .aberta:active, .page-register .botao-commerce:active, .page-login .caixa-login fieldset .botao-commerce:active,
 .page-login .caixa-cadastro fieldset .botao-commerce:active, .modal .botao-continuar-comprando .botao-commerce-img:active, .modal #concorda-termo #acceptTerm:active, .modal #send_link button.perguntasProdutoBTimg:active, .modal .modal-content #div_atualiza form .advancedSearchFormBTimg:active {
   opacity: 0.85;
+}
+@media (max-width: 768px) {
+  .button2, .page-extra .container > table:not(form *) tr:only-child td:only-child a:last-child, .page-extra .container form tr:only-child td:last-child::before, .page-extra .container form .botao-commerce, .page-listas_busca .container3 .container3 + .board li .label:last-child a .bt-avancar:before, .page-listas_busca .container3 .container3:first-of-type .board .label .bt-avancar:before, .page-listas_evento .bt-avancar:before, .page-listas_evento .container3:last-of-type .board a[href^=listas_criar]:before, .page-lista .lista-produtos form .lista-produto-quantidade a,
+  .page-print_lista .lista-produtos form .lista-produto-quantidade a, .page-lista .container3:first-child .container2 > .board > div:nth-child(1) a::before,
+  .page-lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) a::before,
+  .page-lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) a::before,
+  .page-print_lista .container3:first-child .container2 > .board > div:nth-child(1) a::before,
+  .page-print_lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) a::before,
+  .page-print_lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) a::before, .page-central_comissoes .form_resgatar_bonus label:last-of-type::before, .page-central_comissoes_extrato .saldo_pontos + div form::after, .page-listas_criar #lista_criar .container3 .container2 div[style="text-align:right;"]::before, .page-search #Vitrine form input[type=image], .pageProduct .tabs-reviews #comentario_cliente a[data-logged-user]:not(.tray-hide), .pageProduct #produto_nao_disp #nao_disp #letMeKnow::before, .page-comparador .comparatorTabs ul .aberta, .page-register .botao-commerce, .page-login .caixa-login fieldset .botao-commerce,
+  .page-login .caixa-cadastro fieldset .botao-commerce, .modal .botao-continuar-comprando .botao-commerce-img, .modal #concorda-termo #acceptTerm, .modal #send_link button.perguntasProdutoBTimg, .modal .modal-content #div_atualiza form .advancedSearchFormBTimg {
+    color: var(--c_general_text_inverted);
+    font-family: var(--font_family);
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-variant: normal;
+    text-transform: none;
+    padding: 0.5rem 1rem;
+  }
 }
 
 .button3, .page-extra .container > table:not(form *) tr:only-child td:only-child a:nth-last-child(2), .page-listas_evento .container3:last-of-type .board a[href^=central_listas]:before, .page-lista .lista-produtos .lista-produto-adquirido:nth-last-child(3)::before,
@@ -2441,6 +2459,10 @@ div.Seguro {
   color: #fff !important;
 }
 
+.bottomSlider-show {
+  display: none !important;
+}
+
 .header {
   position: fixed;
   width: 100vw;
@@ -2448,6 +2470,64 @@ div.Seguro {
   top: 0;
   transition: 0.5s ease-out;
   scroll-behavior: smooth;
+}
+.header.home.on * {
+  color: var(--c_general_inverted) !important;
+  background: transparent;
+  border-color: transparent;
+}
+.header.home.on input.search-input {
+  background: var(--c_general_inverted) !important;
+}
+.header.home.on .botaoMenu a.button2, .header.home.on .botaoMenu .page-extra .container > table:not(form *) tr:only-child td:only-child a:last-child, .page-extra .container > table:not(form *) tr:only-child td:only-child .header.home.on .botaoMenu a:last-child, .header.home.on .botaoMenu .page-extra .container form a.botao-commerce, .page-extra .container form .header.home.on .botaoMenu a.botao-commerce, .header.home.on .botaoMenu .page-listas_busca .container3 .container3 + .board li .label:last-child a a.bt-avancar:before, .page-listas_busca .container3 .container3 + .board li .label:last-child a .header.home.on .botaoMenu a.bt-avancar:before, .header.home.on .botaoMenu .page-listas_busca .container3 .container3:first-of-type .board .label a.bt-avancar:before, .page-listas_busca .container3 .container3:first-of-type .board .label .header.home.on .botaoMenu a.bt-avancar:before, .header.home.on .botaoMenu .page-listas_evento a.bt-avancar:before, .page-listas_evento .header.home.on .botaoMenu a.bt-avancar:before, .header.home.on .botaoMenu .page-listas_evento .container3:last-of-type .board a[href^=listas_criar]:before, .page-listas_evento .container3:last-of-type .board .header.home.on .botaoMenu a[href^=listas_criar]:before, .header.home.on .botaoMenu .page-lista .lista-produtos form .lista-produto-quantidade a, .page-lista .lista-produtos form .lista-produto-quantidade .header.home.on .botaoMenu a,
+.header.home.on .botaoMenu .page-print_lista .lista-produtos form .lista-produto-quantidade a,
+.page-print_lista .lista-produtos form .lista-produto-quantidade .header.home.on .botaoMenu a, .header.home.on .botaoMenu .page-lista .container3:first-child .container2 > .board > div:nth-child(1) a::before, .page-lista .container3:first-child .container2 > .board > div:nth-child(1) .header.home.on .botaoMenu a::before,
+.header.home.on .botaoMenu .page-lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) a::before,
+.header.home.on .botaoMenu .page-lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) a::before,
+.page-lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) .header.home.on .botaoMenu a::before,
+.page-lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) .header.home.on .botaoMenu a::before,
+.header.home.on .botaoMenu .page-print_lista .container3:first-child .container2 > .board > div:nth-child(1) a::before,
+.page-print_lista .container3:first-child .container2 > .board > div:nth-child(1) .header.home.on .botaoMenu a::before,
+.header.home.on .botaoMenu .page-print_lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) a::before,
+.header.home.on .botaoMenu .page-print_lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) a::before,
+.page-print_lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) .header.home.on .botaoMenu a::before,
+.page-print_lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) .header.home.on .botaoMenu a::before, .header.home.on .botaoMenu .pageProduct .tabs-reviews #comentario_cliente a[data-logged-user]:not(.tray-hide), .pageProduct .tabs-reviews #comentario_cliente .header.home.on .botaoMenu a[data-logged-user]:not(.tray-hide), .header.home.on .botaoMenu .pageProduct #produto_nao_disp #nao_disp a#letMeKnow::before, .pageProduct #produto_nao_disp #nao_disp .header.home.on .botaoMenu a#letMeKnow::before, .header.home.on .botaoMenu .page-comparador .comparatorTabs ul a.aberta, .page-comparador .comparatorTabs ul .header.home.on .botaoMenu a.aberta, .header.home.on .botaoMenu .page-register a.botao-commerce, .page-register .header.home.on .botaoMenu a.botao-commerce, .header.home.on .botaoMenu .page-login .caixa-login fieldset a.botao-commerce, .page-login .caixa-login fieldset .header.home.on .botaoMenu a.botao-commerce,
+.header.home.on .botaoMenu .page-login .caixa-cadastro fieldset a.botao-commerce,
+.page-login .caixa-cadastro fieldset .header.home.on .botaoMenu a.botao-commerce, .header.home.on .botaoMenu .modal .botao-continuar-comprando a.botao-commerce-img, .modal .botao-continuar-comprando .header.home.on .botaoMenu a.botao-commerce-img, .header.home.on .botaoMenu .modal #concorda-termo a#acceptTerm, .modal #concorda-termo .header.home.on .botaoMenu a#acceptTerm, .header.home.on .botaoMenu .modal .modal-content #div_atualiza form a.advancedSearchFormBTimg, .modal .modal-content #div_atualiza form .header.home.on .botaoMenu a.advancedSearchFormBTimg {
+  color: var(--c_contrast_and_button) !important;
+  background: var(--c_general_inverted) !important;
+}
+.header.home.on .headerStyle .box-icon path {
+  fill: transparent !important;
+}
+.header.home.on .headerStyle path {
+  fill: var(--c_general_inverted);
+  stroke: var(--c_general_inverted);
+}
+@media (max-width: 768px) {
+  .header.u-effectHeader .header-search {
+    order: 1 !important;
+  }
+  .header-logo {
+    order: 2;
+    width: 60%;
+    text-align: center;
+  }
+  .header-button.mobile {
+    order: 1;
+    margin-left: 0.25rem;
+    margin-right: 0.75rem;
+  }
+  .header .box-icon {
+    order: 3;
+  }
+  .header-cart {
+    order: 4;
+  }
+  .header-search {
+    order: 5 !important;
+    max-width: 100% !important;
+  }
 }
 @media (max-width: 768px) {
   .header.u-effectHeader .header-logo {
@@ -2459,7 +2539,7 @@ div.Seguro {
   }
   .header.u-effectHeader .header-content .header-search {
     order: unset;
-    width: 70%;
+    width: 60%;
   }
 }
 @media (min-width: 768.1px) and (max-width: 1080px) {
@@ -2486,9 +2566,68 @@ div.Seguro {
 .header-top {
   background-color: var(--c_header_bg);
 }
-.header .diferenciais_topo {
+.header .dif {
   color: var(--c_header_dif_text);
   background: var(--c_header_dif_bg);
+}
+.header .container-custom {
+  max-width: 1180px;
+  margin: auto;
+  gap: 1em;
+}
+@media (max-width: 768px) {
+  .header .container-custom {
+    padding: 0 1.25rem;
+  }
+}
+.header .container-custom .atendimento {
+  gap: 0.3em;
+  position: relative;
+  cursor: pointer;
+  height: 40px;
+}
+.header .container-custom .atendimento svg {
+  max-width: 24px;
+}
+.header .container-custom .atendimento:hover .atendimento-info {
+  opacity: 1;
+  z-index: 1000;
+  height: auto;
+}
+.header .container-custom .atendimento-info {
+  position: absolute;
+  background: #fff;
+  top: 40px;
+  left: 0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  padding: 1em;
+  border-top: 1px solid var(--c_general_main);
+  border-radius: 0px;
+  max-width: 300px;
+  transition: 0.3s;
+  opacity: 0;
+  z-index: -10;
+  height: 50px;
+  overflow: hidden;
+}
+.header .container-custom .atendimento-info li {
+  margin-bottom: 0.35em;
+}
+.header .container-custom .atendimento-info li .contact-item {
+  display: flex;
+  gap: 0.4em;
+  color: var(--c_header_text_main);
+}
+.header .container-custom .atendimento-info span {
+  color: var(--c_header_text_main);
+  font-size: 14px;
+}
+.header .container-custom .atendimento-info span:before {
+  font-size: 18px;
+  color: var(--c_header_text_main);
+}
+.header .container-custom .diferenciais_topo {
   padding: 2px 0;
   transition: 0.3s;
   overflow: hidden;
@@ -2496,28 +2635,79 @@ div.Seguro {
   align-items: center;
   justify-content: space-between;
   grid-template-columns: repeat(7, 100%);
-  height: 30px;
+  height: 40px;
 }
-.header .diferenciais_topo .diff_item {
+.header .container-custom .diferenciais_topo .diff_item {
   font-size: 14px;
   font-family: var(--font_family);
-  font-weight: 500;
+  font-weight: 400;
   text-align: center;
   transition: 0.55s;
 }
-.header .diferenciais_topo .diff_item div:first-child {
-  line-height: 9px;
+@media (max-width: 768px) {
+  .header .container-custom .diferenciais_topo .diff_item {
+    font-size: 14px;
+  }
+}
+.header .container-custom .diferenciais_topo .diff_item div:first-child {
+  line-height: 18px;
   font-weight: 400;
 }
-.header .diferenciais_topo .diff_item div:first-child + div {
+@media (max-width: 768px) {
+  .header .container-custom .diferenciais_topo .diff_item div:first-child {
+    line-height: 16px;
+  }
+}
+.header .container-custom .diferenciais_topo .diff_item div:first-child + div {
   opacity: 0.75;
   font-size: 0.96em;
 }
-.header .diferenciais_topo .dif {
+.header .container-custom .diferenciais_topo .dif {
   margin-bottom: 10px;
   font-size: 130%;
   cursor: pointer;
   padding: 3px;
+}
+.header .container-custom .info-media {
+  gap: 0.65em;
+}
+.header .container-custom a.media-link {
+  position: relative;
+  top: 0.15em;
+  gap: 0.3em;
+}
+.header .container-custom a.media-link svg {
+  fill: var(--c_header_dif_text);
+  max-width: 20px;
+}
+.header .container-custom a.media-link svg path {
+  fill: var(--c_header_dif_text);
+}
+.header .container-custom a.media-link span:before {
+  font-size: 1.5em;
+  color: var(--c_header_dif_text);
+}
+.header .social-icons-mobile {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.header .social-icons-mobile:hover .icons-section {
+  opacity: 1;
+  z-index: 100;
+}
+.header .social-icons-mobile svg {
+  fill: var(--c_header_dif_text);
+  width: 22px;
+}
+.header .social-icons-mobile .icons-section {
+  position: absolute;
+  right: 0;
+  top: 2.015em;
+  background: var(--c_header_dif_bg);
+  padding: 0.25rem 0.5rem;
+  z-index: -1;
+  opacity: 0;
 }
 .header-content {
   transition: 0.5s ease-out;
@@ -2536,8 +2726,7 @@ div.Seguro {
   display: block;
   flex-shrink: 0;
   max-height: 4rem;
-  width: 33.33333%;
-  text-align: center;
+  width: 23.75%;
 }
 @media (max-width: 768px) {
   .header-logo {
@@ -2549,36 +2738,31 @@ div.Seguro {
 @media (min-width: 768.1px) and (max-width: 1080px) {
   .header-logo {
     height: calc(100% - 2rem);
-    order: 2;
   }
 }
 @media (min-width: 1080.1px) {
   .header-logo {
     height: calc(100% - 2rem);
-    order: 2;
   }
 }
 .header-logo .header-image {
   width: auto;
+  max-width: 75%;
   height: 100%;
 }
 .header-logo .header-image + .header-title {
   display: none;
 }
-.header a#revededora {
-  min-width: 250px;
-  text-align: center;
-  font-weight: 600 !important;
-}
 .header-search {
   position: relative;
-  margin-right: auto;
-  max-width: 25%;
+  margin: 0 4em;
+  transition: width 0.3s ease-out;
+  max-width: 40%;
   width: 100%;
-  order: 1;
 }
 @media (max-width: 768px) {
   .header-search {
+    order: 1;
     margin: 0;
     max-width: none;
   }
@@ -2587,13 +2771,14 @@ div.Seguro {
   color: var(--c_header_text_secondary);
   font-family: var(--font_family);
   font-size: 1rem;
-  font-weight: 350;
+  font-weight: 500;
   font-variant: normal;
   text-transform: none;
   display: block;
   padding: 0 58px 0 20px;
-  border-radius: 6px;
-  background: var(--c_general_inverted);
+  border-radius: 5px;
+  background: #ffffff;
+  border: 1px solid #BDBDBD;
   width: 100%;
   height: 52px;
 }
@@ -2604,6 +2789,12 @@ div.Seguro {
 }
 .header-search .search-input:focus {
   box-shadow: inset 0 0 4px var(--c_header_text_secondary);
+}
+.header-search .search-input::-moz-placeholder {
+  opacity: 0.6;
+}
+.header-search .search-input::placeholder {
+  opacity: 0.6;
 }
 .header-search .search-button {
   border-radius: 5px;
@@ -2752,21 +2943,91 @@ div.Seguro {
   line-height: 1.4;
   background-color: transparent !important;
 }
+.header a.button2, .header .page-extra .container > table:not(form *) tr:only-child td:only-child a:last-child, .page-extra .container > table:not(form *) tr:only-child td:only-child .header a:last-child, .header .page-extra .container form a.botao-commerce, .page-extra .container form .header a.botao-commerce, .header .page-listas_busca .container3 .container3 + .board li .label:last-child a a.bt-avancar:before, .page-listas_busca .container3 .container3 + .board li .label:last-child a .header a.bt-avancar:before, .header .page-listas_busca .container3 .container3:first-of-type .board .label a.bt-avancar:before, .page-listas_busca .container3 .container3:first-of-type .board .label .header a.bt-avancar:before, .header .page-listas_evento a.bt-avancar:before, .page-listas_evento .header a.bt-avancar:before, .header .page-listas_evento .container3:last-of-type .board a[href^=listas_criar]:before, .page-listas_evento .container3:last-of-type .board .header a[href^=listas_criar]:before, .header .page-lista .lista-produtos form .lista-produto-quantidade a, .page-lista .lista-produtos form .lista-produto-quantidade .header a,
+.header .page-print_lista .lista-produtos form .lista-produto-quantidade a,
+.page-print_lista .lista-produtos form .lista-produto-quantidade .header a, .header .page-lista .container3:first-child .container2 > .board > div:nth-child(1) a::before, .page-lista .container3:first-child .container2 > .board > div:nth-child(1) .header a::before,
+.header .page-lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) a::before,
+.header .page-lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) a::before,
+.page-lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) .header a::before,
+.page-lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) .header a::before,
+.header .page-print_lista .container3:first-child .container2 > .board > div:nth-child(1) a::before,
+.page-print_lista .container3:first-child .container2 > .board > div:nth-child(1) .header a::before,
+.header .page-print_lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) a::before,
+.header .page-print_lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) a::before,
+.page-print_lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) .header a::before,
+.page-print_lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) .header a::before, .header .pageProduct .tabs-reviews #comentario_cliente a[data-logged-user]:not(.tray-hide), .pageProduct .tabs-reviews #comentario_cliente .header a[data-logged-user]:not(.tray-hide), .header .pageProduct #produto_nao_disp #nao_disp a#letMeKnow::before, .pageProduct #produto_nao_disp #nao_disp .header a#letMeKnow::before, .header .page-comparador .comparatorTabs ul a.aberta, .page-comparador .comparatorTabs ul .header a.aberta, .header .page-register a.botao-commerce, .page-register .header a.botao-commerce, .header .page-login .caixa-login fieldset a.botao-commerce, .page-login .caixa-login fieldset .header a.botao-commerce,
+.header .page-login .caixa-cadastro fieldset a.botao-commerce,
+.page-login .caixa-cadastro fieldset .header a.botao-commerce, .header .modal .botao-continuar-comprando a.botao-commerce-img, .modal .botao-continuar-comprando .header a.botao-commerce-img, .header .modal #concorda-termo a#acceptTerm, .modal #concorda-termo .header a#acceptTerm, .header .modal .modal-content #div_atualiza form a.advancedSearchFormBTimg, .modal .modal-content #div_atualiza form .header a.advancedSearchFormBTimg {
+  font-size: 14px;
+  padding: 0.7em 1.2em;
+  margin-right: 2em;
+  border-radius: 0;
+}
+.header .box-icon {
+  display: flex;
+  position: relative;
+  gap: 0.5rem;
+}
+@media (max-width: 768px) {
+  .header .box-icon span {
+    display: none;
+  }
+}
+.header .box-icon:hover .reastrear-pedido {
+  height: 95px;
+  opacity: 1;
+  z-index: 1000;
+}
+.header .box-icon .reastrear-pedido {
+  height: 0;
+  transition: 0.3s;
+  position: absolute;
+  top: 2em;
+  padding-top: 1em;
+  opacity: 0;
+  z-index: -1;
+  right: -110px;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .header .box-icon .reastrear-pedido {
+    max-width: 90vw;
+    right: 15vw;
+  }
+}
+.header .box-icon .reastrear-pedido form.rastrear {
+  background: var(--c_header_bg);
+  min-width: 300px;
+  padding: 1em;
+  border-radius: 0px;
+  border-top: 1px solid var(--c_general_main);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 1em;
+}
+.header .box-icon .reastrear-pedido form.rastrear input {
+  color: var(--c_header_text_secondary);
+  background-color: #BDBDBD;
+  padding: 0 15px;
+}
+@media (max-width: 768px) {
+  .header .box-icon .reastrear-pedido form.rastrear input {
+    max-width: calc(50% - 1rem);
+  }
+}
+.header .box-icon .reastrear-pedido form.rastrear [type=submit] {
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.header .box-icon svg {
+  cursor: pointer;
+}
 .header-account {
+  margin: 0 2em;
   min-width: -moz-fit-content;
   min-width: fit-content;
-  gap: 2rem;
-}
-@media (min-width: 1080.1px) {
-  .header-account {
-    order: 3;
-    width: 31%;
-  }
-}
-@media (min-width: 768.1px) and (max-width: 1080px) {
-  .header-account {
-    order: 3;
-  }
 }
 .header-account[data-logged-user=true]:not(.tray-hide) + [data-logged-user] {
   display: none;
@@ -2780,13 +3041,18 @@ div.Seguro {
   margin-right: 0.5rem;
 }
 .header-account .icon-account:before {
-  font-size: 2.25rem;
+  font-size: 1.8rem;
+}
+.header-account .loggedout {
+  display: flex;
+  flex-direction: column;
 }
 .header-account .account-access, .header-account .account-link, .header-account .account-separator {
   color: var(--c_header_text_secondary);
   font-size: 0.85rem;
   transition: 0.2s ease-out;
   line-height: 15px;
+  font-weight: 300;
 }
 .header-account .account-text {
   color: var(--c_header_text_secondary);
@@ -2813,21 +3079,19 @@ div.Seguro {
 .header-account .account-separator {
   padding: 0 4px;
 }
+.header-account {
+  margin: 0 2em;
+  position: relative;
+}
+.header-account:hover .account-action {
+  height: 110px;
+  z-index: 1000;
+  opacity: 1;
+}
 .header-cart {
   transition: ease-out 0.2s;
   position: relative;
   cursor: pointer;
-}
-@media (min-width: 1080.1px) {
-  .header-cart {
-    order: 4;
-    width: 2.33%;
-  }
-}
-@media (min-width: 768.1px) and (max-width: 1080px) {
-  .header-cart {
-    order: 4;
-  }
 }
 .header-cart svg {
   height: 1.8rem;
@@ -2895,6 +3159,9 @@ div.Seguro {
     padding: 0 0.625rem;
   }
 }
+.header-menu .menu-list {
+  gap: 2em;
+}
 .header-menu .menu-list, .header-menu .menu-firstLevel {
   position: relative;
 }
@@ -2902,7 +3169,7 @@ div.Seguro {
   color: var(--c_general_text1);
   font-family: var(--font_family);
   font-size: 1.125rem;
-  font-weight: 350;
+  font-weight: 400;
   font-variant: normal;
   text-transform: none;
   height: var(--v_height_header_menu);
@@ -2933,13 +3200,9 @@ div.Seguro {
   color: var(--c_header_text_main);
   z-index: 2;
   transition: ease-out 0.2s;
-  text-transform: lowercase;
-}
-.header-menu .menu-firstLevel > .menu-link::first-letter, .header-menu .menu-firstLevel > .menu-expand::first-letter {
-  text-transform: uppercase;
 }
 .header-menu .menu button.menu-expand {
-  background: var(--c_general_main);
+  background: var(--c_contrast_and_button);
   width: 30px;
   height: 30px;
   display: flex;
@@ -2953,11 +3216,11 @@ div.Seguro {
   color: var(--c_general_text1);
   font-family: var(--font_family);
   font-size: 1.125rem;
-  font-weight: 350;
+  font-weight: 400;
   font-variant: normal;
   text-transform: none;
   background-color: var(--c_header_bg);
-  border-radius: 0 0 0.5rem 0.5rem;
+  border-radius: 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
   visibility: hidden;
   opacity: 0;
@@ -2970,18 +3233,10 @@ div.Seguro {
   max-height: 50vh;
   min-width: 275px;
   width: auto;
-  text-transform: lowercase;
-}
-.header-menu .menu-secondLevel::first-letter {
-  text-transform: uppercase;
 }
 .header-menu .menu-secondLevel .secondLevel-item {
   border-bottom: 1.5px solid var(--c_general_details);
   padding: 24px 0;
-  text-transform: lowercase;
-}
-.header-menu .menu-secondLevel .secondLevel-item::first-letter {
-  text-transform: uppercase;
 }
 .header-menu .menu-secondLevel .secondLevel-item:first-child {
   padding-top: 0px;
@@ -2991,12 +3246,8 @@ div.Seguro {
   padding-bottom: 0px;
 }
 .header-menu .menu-secondLevel .menu-link {
-  color: var(--c_general_text1);
+  color: var(--c_header_text_main);
   transition: 0.2s ease-out;
-  text-transform: lowercase;
-}
-.header-menu .menu-secondLevel .menu-link::first-letter {
-  text-transform: uppercase;
 }
 .header-menu .menu-secondLevel .menu-link:hover {
   color: var(--c_general_main);
@@ -3005,14 +3256,10 @@ div.Seguro {
   color: var(--c_general_text1);
   font-family: var(--font_family);
   font-size: 1.15rem;
-  font-weight: 350;
+  font-weight: 400;
   font-variant: normal;
   text-transform: none;
-  text-transform: lowercase;
   padding-top: 11px;
-}
-.header-menu .menu-thirdLevel::first-letter {
-  text-transform: uppercase;
 }
 .header-menu .menu-thirdLevel:last-child {
   padding-bottom: 0;
@@ -3199,6 +3446,52 @@ div.Seguro {
     opacity: 0.6;
   }
 }
+@media (max-width: 768px) {
+  .logo-ao-centro.u-effectHeader .header-search {
+    order: 2 !important;
+  }
+  .logo-ao-centro .header-button.mobile {
+    order: 1;
+    margin-right: 1rem;
+    margin-left: 0rem;
+  }
+  .logo-ao-centro .header-logo {
+    order: 2;
+    width: 60%;
+  }
+  .logo-ao-centro .logo-ao-centro .headerStyle {
+    order: 3;
+    width: 20%;
+    justify-content: space-between;
+  }
+  .logo-ao-centro .header-search {
+    order: 4 !important;
+    max-width: 100% !important;
+  }
+}
+.logo-ao-centro .header-search {
+  order: 1;
+  max-width: 25%;
+  margin: 0;
+}
+.logo-ao-centro .header-logo {
+  width: 50%;
+  text-align: center;
+  order: 2;
+}
+.logo-ao-centro .headerStyle {
+  order: 3;
+  width: 25%;
+}
+@media (max-width: 768px) {
+  .logo-ao-centro .headerStyle {
+    gap: 0.75rem;
+  }
+}
+.logo-ao-centro .headerStyle .header-account {
+  gap: 0.35rem;
+}
+
 .footer {
   background: var(--c_footer_bg);
   color: var(--c_footer_text);
@@ -3694,7 +3987,7 @@ div.Seguro {
 @media (max-width: 768px) {
   .footer-stg-theme .footer-stg-theme-info {
     margin: 0rem 1.2rem 2rem 1.2rem;
-    grid-template-areas: "enterprise" "pages" "helps" "contact" "social";
+    grid-template-areas: "enterprise" "pages" "helps" "contact" "payment";
     grid-template-columns: 100%;
     grid-template-rows: auto;
     grid-gap: 1.25rem;
@@ -3703,8 +3996,8 @@ div.Seguro {
 @media (min-width: 768.1px) and (max-width: 1080px) {
   .footer-stg-theme .footer-stg-theme-info {
     margin: 3rem auto;
-    grid-template-areas: "enterprise pages contact social";
-    grid-template-columns: 25% 1fr 1.15fr 1fr;
+    grid-template-areas: "enterprise pages contact payment";
+    grid-template-columns: 22% 1fr 1.5fr 1fr;
     grid-template-rows: auto;
     grid-gap: 2rem;
   }
@@ -3712,8 +4005,8 @@ div.Seguro {
 @media (min-width: 1080.1px) {
   .footer-stg-theme .footer-stg-theme-info {
     margin: 3rem auto;
-    grid-template-areas: "enterprise pages contact social";
-    grid-template-columns: 25% 1fr 1.15fr 1fr;
+    grid-template-areas: "enterprise pages contact payment";
+    grid-template-columns: 22% 1fr 1.5fr 1fr;
     grid-template-rows: auto;
     grid-gap: 2.5rem;
   }
@@ -3741,8 +4034,8 @@ div.Seguro {
     margin-top: -1.5em;
   }
 }
-.footer-stg-theme .footer-stg-theme-info .info-social {
-  grid-area: social;
+.footer-stg-theme .footer-stg-theme-info .info-payment {
+  grid-area: payment;
 }
 .footer-stg-theme .footer-stg-theme-info .info-contact .icon.icon-phone, .footer-stg-theme .footer-stg-theme-info .info-contact .page-contact .icon.contactUs-phone, .page-contact .footer-stg-theme .footer-stg-theme-info .info-contact .icon.contactUs-phone,
 .footer-stg-theme .footer-stg-theme-info .info-contact .icon.icon-email,
@@ -3750,14 +4043,14 @@ div.Seguro {
 .page-contact .footer-stg-theme .footer-stg-theme-info .info-contact .icon.contactUs-email {
   width: 1.5rem;
   height: 1.5rem;
-  fill: var(--c_general_main);
+  fill: var(--c_footer_icon);
   padding-right: 0.4rem;
 }
 .footer-stg-theme .footer-stg-theme-info .info-title {
   color: var(--c_footer_title);
   font-family: var(--font_family);
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 500;
   font-variant: normal;
   text-transform: none;
   margin-bottom: 0.92rem;
@@ -3810,11 +4103,11 @@ div.Seguro {
   color: var(--c_footer_title);
   opacity: 0.8;
 }
-.footer-stg-theme .footer-stg-theme-info .info-social .social-list {
+.footer-stg-theme .footer-stg-theme-info .info-payment .payment-list {
   width: 100%;
   max-width: 192px;
 }
-.footer-stg-theme .footer-stg-theme-info .info-social .social-text {
+.footer-stg-theme .footer-stg-theme-info .info-payment .payment-text {
   color: var(--c_footer_text);
   font-family: var(--font_family);
   font-size: 0.9rem;
@@ -3823,11 +4116,11 @@ div.Seguro {
   text-transform: none;
   padding-bottom: 0.5rem;
 }
-.footer-stg-theme .footer-stg-theme-info .info-social .social-debt, .footer-stg-theme .footer-stg-theme-info .info-social .social-credit {
+.footer-stg-theme .footer-stg-theme-info .info-payment .payment-debt, .footer-stg-theme .footer-stg-theme-info .info-payment .payment-credit {
   flex-wrap: wrap;
   margin-bottom: 0.9rem;
 }
-.footer-stg-theme .footer-stg-theme-info .info-social .social-item {
+.footer-stg-theme .footer-stg-theme-info .info-payment .payment-item {
   margin: 0 0.3rem 0.3rem 0;
 }
 .footer-stg-theme .footer-stg-theme-info .info-media {
@@ -3839,6 +4132,13 @@ div.Seguro {
   margin-bottom: 0.5rem;
   transition: 0.2s ease-out;
   opacity: 1;
+}
+.footer-stg-theme .footer-stg-theme-info .info-media .media-link svg {
+  background: var(--c_general_main);
+  height: 32px;
+  width: 32px;
+  padding: 5px;
+  border-radius: 50px;
 }
 .footer-stg-theme .footer-stg-theme-info .info-media .media-link:hover {
   opacity: 0.7;
@@ -3860,12 +4160,12 @@ div.Seguro {
 }
 @media (min-width: 768.1px) and (max-width: 1080px) {
   .footer-stg-theme-credits {
-    margin: 2rem 2rem;
+    margin: 3rem 2rem;
   }
 }
 @media (min-width: 1080.1px) {
   .footer-stg-theme-credits {
-    margin: 1.25rem auto;
+    margin: 3rem auto 1.25rem auto;
   }
 }
 .footer-stg-theme-credits .credits {
@@ -3901,21 +4201,18 @@ div.Seguro {
 .footer-stg-theme-credits #NavLogoTray .timelogotray {
   display: none;
 }
-.footer-stg-theme .payment-list ul {
-  flex-wrap: wrap;
-  gap: 15px;
-}
 .footer-stg-theme .signature {
-  background: var(--c_general_main);
+  background: #fff;
 }
 .footer-stg-theme .signature div#stg-consult {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--c_general_main);
   gap: 2em;
 }
 .footer-stg-theme .signature div#stg-consult span.logotray, .footer-stg-theme .signature div#stg-consult a {
-  color: var(--c_general_text_inverted);
+  color: var(--c_general_inverted);
   font-size: 14px;
 }
 .footer-stg-theme .signature div#stg-consult a {
@@ -3933,7 +4230,6 @@ div.Seguro {
 }
 .showcase-listProduct .listProduct-item {
   box-sizing: border-box;
-  margin-bottom: 2.5rem;
   min-height: 100%;
 }
 @media (max-width: 768px) {
@@ -3976,7 +4272,7 @@ div.Seguro {
   font-size: 20px;
 }
 .showcase button#showMore {
-  margin: 1.5rem auto 3rem;
+  margin: 2rem auto;
   background: transparent;
   color: var(--c_contrast_and_button);
   border: 1px solid var(--c_contrast_and_button);
@@ -4114,10 +4410,12 @@ div.Seguro {
 }
 .product-info {
   flex-grow: 1;
+  min-height: 220px;
 }
 @media (max-width: 768px) {
   .product-info {
     margin: 0.5rem 0rem 0.4rem;
+    min-height: 240px;
   }
 }
 @media (min-width: 768.1px) and (max-width: 1080px) {
@@ -4137,15 +4435,21 @@ div.Seguro {
   font-weight: 400;
   font-variant: normal;
   text-transform: none;
-  padding-bottom: 1rem;
-  text-align: left;
+  padding-bottom: 0.75rem;
+  text-align: center;
   text-transform: lowercase;
+  color: var(--c_general_text1);
+  font-family: var(--font_family);
+  font-size: 0.875rem;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
 }
 .product-name::first-letter {
   text-transform: capitalize;
 }
 .product-rating {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 .product-rating .rating-icon {
   padding: 0 0.15rem;
@@ -4168,12 +4472,11 @@ div.Seguro {
 .product-price {
   width: inherit;
   text-align: center;
+  margin-bottom: 0.75rem;
 }
 .product-price .price {
-  text-align: left;
+  text-align: center;
   width: 100%;
-  display: flex;
-  flex-direction: column;
 }
 @media (max-width: 768px) {
   .product-price .price-titleStarting {
@@ -4187,24 +4490,24 @@ div.Seguro {
   .product-price .price-current {
     color: var(--c_general_text1);
     font-family: var(--font_family);
-    font-size: 0.87rem;
+    font-size: 0.713rem;
     font-weight: 400;
     font-variant: normal;
     text-transform: none;
   }
   .product-price .price-old, .product-price .price-installments {
-    color: var(--c_general_main);
+    color: var(--c_general_text1);
     font-family: var(--font_family);
-    font-size: 0.875rem;
-    font-weight: 500;
+    font-size: 0.713rem;
+    font-weight: 400;
     font-variant: normal;
     text-transform: none;
   }
   .product-price .price-current .value {
     color: var(--c_general_text1);
     font-family: var(--font_family);
-    font-size: 0.75rem;
-    font-weight: 400;
+    font-size: 0.713rem;
+    font-weight: 500;
     font-variant: normal;
     text-transform: none;
   }
@@ -4227,10 +4530,10 @@ div.Seguro {
     text-transform: none;
   }
   .product-price .price-old, .product-price .price-installments {
-    color: var(--c_general_main);
+    color: var(--c_general_text1);
     font-family: var(--font_family);
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: 400;
     font-variant: normal;
     text-transform: none;
   }
@@ -4238,7 +4541,7 @@ div.Seguro {
     color: var(--c_general_text1);
     font-family: var(--font_family);
     font-size: 0.875rem;
-    font-weight: 400;
+    font-weight: 500;
     font-variant: normal;
     text-transform: none;
   }
@@ -4261,14 +4564,6 @@ div.Seguro {
     text-transform: none;
   }
   .product-price .price-old, .product-price .price-installments {
-    color: var(--c_general_main);
-    font-family: var(--font_family);
-    font-size: 0.875rem;
-    font-weight: 500;
-    font-variant: normal;
-    text-transform: none;
-  }
-  .product-price .price-current .value {
     color: var(--c_general_text1);
     font-family: var(--font_family);
     font-size: 0.875rem;
@@ -4276,47 +4571,48 @@ div.Seguro {
     font-variant: normal;
     text-transform: none;
   }
+  .product-price .price-current .value {
+    color: var(--c_general_text1);
+    font-family: var(--font_family);
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-variant: normal;
+    text-transform: none;
+  }
 }
-.product-price .price-old {
-  order: 1;
-}
-.product-price .price-current {
-  order: 3;
-}
-.product-price .price-current .value::before {
-  content: "ou";
-}
-.product-price .price-current .value::after {
-  content: "à vista";
+.product-price .price .prices-product {
+  gap: 0.5rem;
 }
 .product-price .price-installments {
-  text-align: left;
-  order: 2;
-}
-.product-price .price-installments br, .product-price .price-installments .preco-avista, .product-price .price-installments .txt-avista, .product-price .price-installments .txt-com-desconto, .product-price .price-installments span.txt-forma-pagamento {
-  display: none;
-}
-.product-price .price-installments .txt-corparcelas .preco-parc2 {
-  font-size: 0 !important;
+  margin-top: -0.65rem;
+  line-height: 1;
+  text-align: center;
 }
 .product-price .price-installments .txt-corparcelas .color {
-  color: var(--c_general_main);
+  color: var(--c_general_text1);
   font-family: var(--font_family);
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 400;
   font-variant: normal;
   text-transform: none;
+}
+@media (max-width: 768px) {
+  .product-price .price-installments .txt-corparcelas .color {
+    color: var(--c_general_text1);
+    font-family: var(--font_family);
+    font-size: 0.713rem;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+  }
 }
 .product-price .price-installments .txt-cadaparcelas .preco-parc2 {
-  color: var(--c_general_main);
+  color: var(--c_general_text1);
   font-family: var(--font_family);
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: 0.875rem;
+  font-weight: 400;
   font-variant: normal;
   text-transform: none;
-}
-.product-price .price-installments span.operadora {
-  text-transform: lowercase;
 }
 .product-price .price-old s {
   color: grey;
@@ -4332,36 +4628,37 @@ div.Seguro {
   line-height: 1.1;
   opacity: 1;
   transition: 0.2s ease-out;
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 0.5em;
 }
 @media (max-width: 768px) {
   .product-message {
     font-size: 0.75rem;
-    padding: 0.9rem 1.5rem;
+    padding: 0.9rem;
   }
 }
 @media (min-width: 768.1px) and (max-width: 1080px) {
   .product-message {
-    padding: 0.9rem 2rem;
+    padding: 0.9rem;
   }
 }
 @media (min-width: 1080.1px) {
   .product-message {
-    padding: 0.9rem 2rem;
+    padding: 0.9rem;
   }
 }
 .product-message:hover {
   opacity: 0.6;
 }
 .product-tag {
-  flex-wrap: wrap;
+  flex-wrap: nome;
   margin-top: 0;
   min-height: 75px;
   position: absolute;
-  top: calc(70% + 40px);
+  top: 0.75rem;
   z-index: 100;
-  align-items: flex-end;
-  justify-content: center;
-  max-width: 90%;
+  max-width: 50%;
   left: 5%;
   opacity: 1;
   transition: 0.3s;
@@ -4370,10 +4667,10 @@ div.Seguro {
 @media (max-width: 768px) {
   .product-tag {
     min-height: 60px;
-    top: calc(60% + 25px);
+    top: 0.35rem;
     z-index: 100;
-    max-width: 100%;
-    left: 0;
+    max-width: 50%;
+    left: 0.35rem;
     transition: 0.3s;
   }
 }
@@ -4392,22 +4689,21 @@ div.Seguro {
 @media (max-width: 768px) {
   .product-tag .tag {
     margin-bottom: 0.1rem;
-    margin-right: 0.1rem;
     width: 100%;
+    height: 1.2rem;
+    min-height: 1.2rem;
   }
 }
 @media (min-width: 768.1px) and (max-width: 1080px) {
   .product-tag .tag {
     margin-bottom: 0.5rem;
-    margin-right: 0.18rem;
-    width: calc(50% - 0.1rem);
+    width: 100%;
   }
 }
 @media (min-width: 1080.1px) {
   .product-tag .tag {
     margin-bottom: 0.5rem;
-    margin-right: 0.25rem;
-    width: calc(50% - 0.13rem);
+    width: 100%;
   }
 }
 .product-tag .tag:nth-child(2n) {
@@ -4434,7 +4730,7 @@ div.Seguro {
 }
 @media (max-width: 768px) {
   .product-tag .tag img {
-    height: 25px;
+    height: 1.2rem;
   }
 }
 .product-tag .tag.tag--full {
@@ -4477,29 +4773,35 @@ div.Seguro {
   min-width: 100%;
 }
 .product .tag-floating {
-  color: var(--c_general_text_inverted);
+  color: var(--c_general_text1);
   font-family: var(--font_family);
   font-size: 0.75rem;
   font-weight: 700;
   font-variant: normal;
   text-transform: uppercase;
-  background-color: var(--c_general_secondary);
-  border-radius: 50%;
+  background-color: #fff;
+  border-radius: 5px;
   line-height: 1;
   position: absolute;
-  height: 3rem;
-  width: 3rem;
+  height: 1.75rem;
+  width: 3.25rem;
   z-index: 10;
+}
+.product .tag-floating a {
+  color: var(--c_general_text1);
 }
 @media (max-width: 768px) {
   .product .tag-floating {
-    top: 0.7rem;
-    right: 0.7rem;
+    top: 0.5rem;
+    right: 0.35rem;
+    font-size: 0.625rem;
+    height: 1.15rem;
+    width: 2.5rem;
   }
 }
 @media (min-width: 768.1px) and (max-width: 1080px) {
   .product .tag-floating {
-    top: 1.063rem;
+    top: 0.75rem;
     right: 1.063rem;
   }
 }
@@ -4510,52 +4812,7 @@ div.Seguro {
   }
 }
 .product-button {
-  width: 94%;
-  position: absolute;
-  bottom: -100%;
-  left: 3%;
-  right: auto;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  z-index: 101;
-  transition: 0.3s;
-}
-.product-button.add-cart-fast {
-  left: 0;
-  width: 100%;
-}
-@media (max-width: 768px) {
-  .product-button {
-    display: none;
-    margin: 0;
-  }
-  .product-button .button2, .product-button .page-extra .container > table:not(form *) tr:only-child td:only-child a:last-child, .page-extra .container > table:not(form *) tr:only-child td:only-child .product-button a:last-child, .product-button .page-extra .container form tr:only-child td:last-child::before, .page-extra .container form tr:only-child .product-button td:last-child::before, .product-button .page-extra .container form .botao-commerce, .page-extra .container form .product-button .botao-commerce, .product-button .page-listas_busca .container3 .container3 + .board li .label:last-child a .bt-avancar:before, .page-listas_busca .container3 .container3 + .board li .label:last-child a .product-button .bt-avancar:before, .product-button .page-listas_busca .container3 .container3:first-of-type .board .label .bt-avancar:before, .page-listas_busca .container3 .container3:first-of-type .board .label .product-button .bt-avancar:before, .product-button .page-listas_evento .bt-avancar:before, .page-listas_evento .product-button .bt-avancar:before, .product-button .page-listas_evento .container3:last-of-type .board a[href^=listas_criar]:before, .page-listas_evento .container3:last-of-type .board .product-button a[href^=listas_criar]:before, .product-button .page-lista .lista-produtos form .lista-produto-quantidade a, .page-lista .lista-produtos form .lista-produto-quantidade .product-button a,
-  .product-button .page-print_lista .lista-produtos form .lista-produto-quantidade a,
-  .page-print_lista .lista-produtos form .lista-produto-quantidade .product-button a, .product-button .page-lista .container3:first-child .container2 > .board > div:nth-child(1) a::before, .page-lista .container3:first-child .container2 > .board > div:nth-child(1) .product-button a::before,
-  .product-button .page-lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) a::before,
-  .product-button .page-lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) a::before,
-  .page-lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) .product-button a::before,
-  .page-lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) .product-button a::before,
-  .product-button .page-print_lista .container3:first-child .container2 > .board > div:nth-child(1) a::before,
-  .page-print_lista .container3:first-child .container2 > .board > div:nth-child(1) .product-button a::before,
-  .product-button .page-print_lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) a::before,
-  .product-button .page-print_lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) a::before,
-  .page-print_lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) .product-button a::before,
-  .page-print_lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) .product-button a::before, .product-button .page-central_comissoes .form_resgatar_bonus label:last-of-type::before, .page-central_comissoes .form_resgatar_bonus .product-button label:last-of-type::before, .product-button .page-central_comissoes_extrato .saldo_pontos + div form::after, .page-central_comissoes_extrato .saldo_pontos + div .product-button form::after, .product-button .page-listas_criar #lista_criar .container3 .container2 div[style="text-align:right;"]::before, .page-listas_criar #lista_criar .container3 .container2 .product-button div[style="text-align:right;"]::before, .product-button .page-search #Vitrine form input[type=image], .page-search #Vitrine form .product-button input[type=image], .product-button .pageProduct .tabs-reviews #comentario_cliente a[data-logged-user]:not(.tray-hide), .pageProduct .tabs-reviews #comentario_cliente .product-button a[data-logged-user]:not(.tray-hide), .product-button .pageProduct #produto_nao_disp #nao_disp #letMeKnow::before, .pageProduct #produto_nao_disp #nao_disp .product-button #letMeKnow::before, .product-button .page-comparador .comparatorTabs ul .aberta, .page-comparador .comparatorTabs ul .product-button .aberta, .product-button .page-register .botao-commerce, .page-register .product-button .botao-commerce, .product-button .page-login .caixa-login fieldset .botao-commerce, .page-login .caixa-login fieldset .product-button .botao-commerce,
-  .product-button .page-login .caixa-cadastro fieldset .botao-commerce,
-  .page-login .caixa-cadastro fieldset .product-button .botao-commerce, .product-button .modal .botao-continuar-comprando .botao-commerce-img, .modal .botao-continuar-comprando .product-button .botao-commerce-img, .product-button .modal #concorda-termo #acceptTerm, .modal #concorda-termo .product-button #acceptTerm, .product-button .modal #send_link button.perguntasProdutoBTimg, .modal #send_link .product-button button.perguntasProdutoBTimg, .product-button .modal .modal-content #div_atualiza form .advancedSearchFormBTimg, .modal .modal-content #div_atualiza form .product-button .advancedSearchFormBTimg {
-    font-size: 0.75rem;
-    padding: 1rem 1.5rem;
-  }
-}
-@media (min-width: 768.1px) and (max-width: 1080px) {
-  .product-button {
-    margin: 0;
-  }
-}
-@media (min-width: 1080.1px) {
-  .product-button {
-    margin: 0;
-  }
+  margin-top: auto;
 }
 .product-button.u-marginNone {
   margin: 0;
@@ -4583,73 +4840,98 @@ div.Seguro {
   align-items: center;
   justify-content: flex-end;
   box-shadow: none;
+  margin-top: auto;
 }
-.product-button.add-cart-fast .product-buy {
+.product-button a[href] {
+  margin-bottom: 0.63rem;
   padding: 0.75rem;
+}
+.product-info .swiper-button-next {
+  right: 0 !important;
+}
+.product-info .swiper-button-prev {
+  left: 0 !important;
+}
+.product-info .swiper-button-next:after, .product-info .swiper-button-prev:after {
+  font-size: 1.25rem;
+  color: var(--c_general_text1);
+}
+.product .product-buy {
   background: rgba(255, 255, 255, 0.5647058824);
   border-radius: 0px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
   width: 100%;
-}
-@media (max-width: 768px) {
-  .product-button.add-cart-fast .product-buy {
-    padding: 0.25rem;
-  }
-}
-.product-button.add-cart-fast .product-buy .variations {
-  max-height: 80%;
-  overflow-y: auto;
+  position: relative;
   margin-bottom: 0.75rem;
-  border-radius: 4px;
-}
-.product-button.add-cart-fast .product-buy .variations-list {
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 0.75rem 0 0;
 }
 @media (max-width: 768px) {
-  .product-button.add-cart-fast .product-buy .variations-list {
-    gap: 0.35rem;
+  .product .product-buy {
+    padding: 0.25rem;
+    margin-bottom: 0.35rem;
   }
 }
-.product-button.add-cart-fast .product-buy .variations-list .variation {
+.product .product-buy > .swiper {
+  margin-top: 0.5em;
+}
+.product .product-buy > .var2 {
+  top: auto !important;
+  bottom: -3px;
+}
+.product .product-buy .variations {
+  max-width: 80%;
+  border-radius: 4px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.product .product-buy .variations.variationsEmpty {
+  display: none;
+}
+.product .product-buy .variations.swiper-initialized .variations-list {
+  flex-wrap: nowrap;
+  gap: 0rem;
+}
+.product .product-buy .variations-list .variation {
   color: var(--c_general_text1);
   font-family: var(--font_family);
   font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
   text-transform: none;
-  padding: 0.5rem;
+  cursor: pointer;
+}
+.product .product-buy .variations-list .variation div {
+  padding: 0.35rem;
   border: 1px solid #a0a0a0;
   min-width: 35px;
   min-height: 35px;
   border-radius: 50px;
 }
 @media (max-width: 768px) {
-  .product-button.add-cart-fast .product-buy .variations-list .variation {
+  .product .product-buy .variations-list .variation div {
     color: var(--c_general_text1);
     font-family: var(--font_family);
     font-size: 0.65rem;
     font-weight: 400;
     font-variant: normal;
     text-transform: none;
-    min-width: 25px;
-    min-height: 25px;
-    padding: 0.35rem;
+    min-width: 30px;
+    min-height: 30px;
+    padding: 0.3rem;
   }
 }
-.product-button.add-cart-fast .product-buy .variations-list .variation.selected {
+.product .product-buy .variations-list .variation.selected div {
   border-color: var(--c_general_main) !important;
   color: var(--c_general_main) !important;
 }
-.product-button.add-cart-fast .product-buy .variations-list .variation.selected img {
+.product .product-buy .variations-list .variation.selected div img {
   border-color: var(--c_general_main) !important;
 }
-.product-button.add-cart-fast .product-buy .variations-list[data-type=color] .variation {
+.product .product-buy .variations-list[data-type=color] .variation {
   padding: 0 !important;
   border: none !important;
 }
-.product-button.add-cart-fast .product-buy .variations-list[data-type=color] .variation img {
+.product .product-buy .variations-list[data-type=color] .variation img {
   border: 1px solid #a0a0a0;
   width: 35px;
   height: 35px;
@@ -4658,67 +4940,66 @@ div.Seguro {
      object-fit: cover;
 }
 @media (max-width: 768px) {
-  .product-button.add-cart-fast .product-buy .variations-list[data-type=color] .variation img {
+  .product .product-buy .variations-list[data-type=color] .variation img {
     width: 25px;
     height: 25px;
   }
 }
-.product-button.add-cart-fast .product-buy .add-cart {
+.product .product-buy .add-cart {
   gap: 0.75rem;
 }
-.product-button.add-cart-fast .product-buy .add-cart .quantity {
+.product .product-buy .add-cart .quantity {
   width: 28%;
   padding: 1rem 0.35rem;
   background: #ffffff;
   border-radius: 5px;
 }
 @media (max-width: 768px) {
-  .product-button.add-cart-fast .product-buy .add-cart .quantity {
+  .product .product-buy .add-cart .quantity {
     font-size: 12px;
     width: 17%;
     padding: 0.3rem;
   }
 }
-.product-button.add-cart-fast .product-buy .add-cart .button2, .product-button.add-cart-fast .product-buy .add-cart .page-extra .container > table:not(form *) tr:only-child td:only-child a:last-child, .page-extra .container > table:not(form *) tr:only-child td:only-child .product-button.add-cart-fast .product-buy .add-cart a:last-child, .product-button.add-cart-fast .product-buy .add-cart .page-extra .container form tr:only-child td:last-child::before, .page-extra .container form tr:only-child .product-button.add-cart-fast .product-buy .add-cart td:last-child::before, .product-button.add-cart-fast .product-buy .add-cart .page-extra .container form .botao-commerce, .page-extra .container form .product-button.add-cart-fast .product-buy .add-cart .botao-commerce, .product-button.add-cart-fast .product-buy .add-cart .page-listas_busca .container3 .container3 + .board li .label:last-child a .bt-avancar:before, .page-listas_busca .container3 .container3 + .board li .label:last-child a .product-button.add-cart-fast .product-buy .add-cart .bt-avancar:before, .product-button.add-cart-fast .product-buy .add-cart .page-listas_busca .container3 .container3:first-of-type .board .label .bt-avancar:before, .page-listas_busca .container3 .container3:first-of-type .board .label .product-button.add-cart-fast .product-buy .add-cart .bt-avancar:before, .product-button.add-cart-fast .product-buy .add-cart .page-listas_evento .bt-avancar:before, .page-listas_evento .product-button.add-cart-fast .product-buy .add-cart .bt-avancar:before, .product-button.add-cart-fast .product-buy .add-cart .page-listas_evento .container3:last-of-type .board a[href^=listas_criar]:before, .page-listas_evento .container3:last-of-type .board .product-button.add-cart-fast .product-buy .add-cart a[href^=listas_criar]:before, .product-button.add-cart-fast .product-buy .add-cart .page-lista .lista-produtos form .lista-produto-quantidade a, .page-lista .lista-produtos form .lista-produto-quantidade .product-button.add-cart-fast .product-buy .add-cart a,
-.product-button.add-cart-fast .product-buy .add-cart .page-print_lista .lista-produtos form .lista-produto-quantidade a,
-.page-print_lista .lista-produtos form .lista-produto-quantidade .product-button.add-cart-fast .product-buy .add-cart a, .product-button.add-cart-fast .product-buy .add-cart .page-lista .container3:first-child .container2 > .board > div:nth-child(1) a::before, .page-lista .container3:first-child .container2 > .board > div:nth-child(1) .product-button.add-cart-fast .product-buy .add-cart a::before,
-.product-button.add-cart-fast .product-buy .add-cart .page-lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) a::before,
-.product-button.add-cart-fast .product-buy .add-cart .page-lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) a::before,
-.page-lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) .product-button.add-cart-fast .product-buy .add-cart a::before,
-.page-lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) .product-button.add-cart-fast .product-buy .add-cart a::before,
-.product-button.add-cart-fast .product-buy .add-cart .page-print_lista .container3:first-child .container2 > .board > div:nth-child(1) a::before,
-.page-print_lista .container3:first-child .container2 > .board > div:nth-child(1) .product-button.add-cart-fast .product-buy .add-cart a::before,
-.product-button.add-cart-fast .product-buy .add-cart .page-print_lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) a::before,
-.product-button.add-cart-fast .product-buy .add-cart .page-print_lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) a::before,
-.page-print_lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) .product-button.add-cart-fast .product-buy .add-cart a::before,
-.page-print_lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) .product-button.add-cart-fast .product-buy .add-cart a::before, .product-button.add-cart-fast .product-buy .add-cart .page-central_comissoes .form_resgatar_bonus label:last-of-type::before, .page-central_comissoes .form_resgatar_bonus .product-button.add-cart-fast .product-buy .add-cart label:last-of-type::before, .product-button.add-cart-fast .product-buy .add-cart .page-central_comissoes_extrato .saldo_pontos + div form::after, .page-central_comissoes_extrato .saldo_pontos + div .product-button.add-cart-fast .product-buy .add-cart form::after, .product-button.add-cart-fast .product-buy .add-cart .page-listas_criar #lista_criar .container3 .container2 div[style="text-align:right;"]::before, .page-listas_criar #lista_criar .container3 .container2 .product-button.add-cart-fast .product-buy .add-cart div[style="text-align:right;"]::before, .product-button.add-cart-fast .product-buy .add-cart .page-search #Vitrine form input[type=image], .page-search #Vitrine form .product-button.add-cart-fast .product-buy .add-cart input[type=image], .product-button.add-cart-fast .product-buy .add-cart .pageProduct .tabs-reviews #comentario_cliente a[data-logged-user]:not(.tray-hide), .pageProduct .tabs-reviews #comentario_cliente .product-button.add-cart-fast .product-buy .add-cart a[data-logged-user]:not(.tray-hide), .product-button.add-cart-fast .product-buy .add-cart .pageProduct #produto_nao_disp #nao_disp #letMeKnow::before, .pageProduct #produto_nao_disp #nao_disp .product-button.add-cart-fast .product-buy .add-cart #letMeKnow::before, .product-button.add-cart-fast .product-buy .add-cart .page-comparador .comparatorTabs ul .aberta, .page-comparador .comparatorTabs ul .product-button.add-cart-fast .product-buy .add-cart .aberta, .product-button.add-cart-fast .product-buy .add-cart .page-register .botao-commerce, .page-register .product-button.add-cart-fast .product-buy .add-cart .botao-commerce, .product-button.add-cart-fast .product-buy .add-cart .page-login .caixa-login fieldset .botao-commerce, .page-login .caixa-login fieldset .product-button.add-cart-fast .product-buy .add-cart .botao-commerce,
-.product-button.add-cart-fast .product-buy .add-cart .page-login .caixa-cadastro fieldset .botao-commerce,
-.page-login .caixa-cadastro fieldset .product-button.add-cart-fast .product-buy .add-cart .botao-commerce, .product-button.add-cart-fast .product-buy .add-cart .modal .botao-continuar-comprando .botao-commerce-img, .modal .botao-continuar-comprando .product-button.add-cart-fast .product-buy .add-cart .botao-commerce-img, .product-button.add-cart-fast .product-buy .add-cart .modal #concorda-termo #acceptTerm, .modal #concorda-termo .product-button.add-cart-fast .product-buy .add-cart #acceptTerm, .product-button.add-cart-fast .product-buy .add-cart .modal #send_link button.perguntasProdutoBTimg, .modal #send_link .product-button.add-cart-fast .product-buy .add-cart button.perguntasProdutoBTimg, .product-button.add-cart-fast .product-buy .add-cart .modal .modal-content #div_atualiza form .advancedSearchFormBTimg, .modal .modal-content #div_atualiza form .product-button.add-cart-fast .product-buy .add-cart .advancedSearchFormBTimg {
+.product .product-buy .add-cart .button2, .product .product-buy .add-cart .page-extra .container > table:not(form *) tr:only-child td:only-child a:last-child, .page-extra .container > table:not(form *) tr:only-child td:only-child .product .product-buy .add-cart a:last-child, .product .product-buy .add-cart .page-extra .container form tr:only-child td:last-child::before, .page-extra .container form tr:only-child .product .product-buy .add-cart td:last-child::before, .product .product-buy .add-cart .page-extra .container form .botao-commerce, .page-extra .container form .product .product-buy .add-cart .botao-commerce, .product .product-buy .add-cart .page-listas_busca .container3 .container3 + .board li .label:last-child a .bt-avancar:before, .page-listas_busca .container3 .container3 + .board li .label:last-child a .product .product-buy .add-cart .bt-avancar:before, .product .product-buy .add-cart .page-listas_busca .container3 .container3:first-of-type .board .label .bt-avancar:before, .page-listas_busca .container3 .container3:first-of-type .board .label .product .product-buy .add-cart .bt-avancar:before, .product .product-buy .add-cart .page-listas_evento .bt-avancar:before, .page-listas_evento .product .product-buy .add-cart .bt-avancar:before, .product .product-buy .add-cart .page-listas_evento .container3:last-of-type .board a[href^=listas_criar]:before, .page-listas_evento .container3:last-of-type .board .product .product-buy .add-cart a[href^=listas_criar]:before, .product .product-buy .add-cart .page-lista .lista-produtos form .lista-produto-quantidade a, .page-lista .lista-produtos form .lista-produto-quantidade .product .product-buy .add-cart a,
+.product .product-buy .add-cart .page-print_lista .lista-produtos form .lista-produto-quantidade a,
+.page-print_lista .lista-produtos form .lista-produto-quantidade .product .product-buy .add-cart a, .product .product-buy .add-cart .page-lista .container3:first-child .container2 > .board > div:nth-child(1) a::before, .page-lista .container3:first-child .container2 > .board > div:nth-child(1) .product .product-buy .add-cart a::before,
+.product .product-buy .add-cart .page-lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) a::before,
+.product .product-buy .add-cart .page-lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) a::before,
+.page-lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) .product .product-buy .add-cart a::before,
+.page-lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) .product .product-buy .add-cart a::before,
+.product .product-buy .add-cart .page-print_lista .container3:first-child .container2 > .board > div:nth-child(1) a::before,
+.page-print_lista .container3:first-child .container2 > .board > div:nth-child(1) .product .product-buy .add-cart a::before,
+.product .product-buy .add-cart .page-print_lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) a::before,
+.product .product-buy .add-cart .page-print_lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) a::before,
+.page-print_lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) .product .product-buy .add-cart a::before,
+.page-print_lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) .product .product-buy .add-cart a::before, .product .product-buy .add-cart .page-central_comissoes .form_resgatar_bonus label:last-of-type::before, .page-central_comissoes .form_resgatar_bonus .product .product-buy .add-cart label:last-of-type::before, .product .product-buy .add-cart .page-central_comissoes_extrato .saldo_pontos + div form::after, .page-central_comissoes_extrato .saldo_pontos + div .product .product-buy .add-cart form::after, .product .product-buy .add-cart .page-listas_criar #lista_criar .container3 .container2 div[style="text-align:right;"]::before, .page-listas_criar #lista_criar .container3 .container2 .product .product-buy .add-cart div[style="text-align:right;"]::before, .product .product-buy .add-cart .page-search #Vitrine form input[type=image], .page-search #Vitrine form .product .product-buy .add-cart input[type=image], .product .product-buy .add-cart .pageProduct .tabs-reviews #comentario_cliente a[data-logged-user]:not(.tray-hide), .pageProduct .tabs-reviews #comentario_cliente .product .product-buy .add-cart a[data-logged-user]:not(.tray-hide), .product .product-buy .add-cart .pageProduct #produto_nao_disp #nao_disp #letMeKnow::before, .pageProduct #produto_nao_disp #nao_disp .product .product-buy .add-cart #letMeKnow::before, .product .product-buy .add-cart .page-comparador .comparatorTabs ul .aberta, .page-comparador .comparatorTabs ul .product .product-buy .add-cart .aberta, .product .product-buy .add-cart .page-register .botao-commerce, .page-register .product .product-buy .add-cart .botao-commerce, .product .product-buy .add-cart .page-login .caixa-login fieldset .botao-commerce, .page-login .caixa-login fieldset .product .product-buy .add-cart .botao-commerce,
+.product .product-buy .add-cart .page-login .caixa-cadastro fieldset .botao-commerce,
+.page-login .caixa-cadastro fieldset .product .product-buy .add-cart .botao-commerce, .product .product-buy .add-cart .modal .botao-continuar-comprando .botao-commerce-img, .modal .botao-continuar-comprando .product .product-buy .add-cart .botao-commerce-img, .product .product-buy .add-cart .modal #concorda-termo #acceptTerm, .modal #concorda-termo .product .product-buy .add-cart #acceptTerm, .product .product-buy .add-cart .modal #send_link button.perguntasProdutoBTimg, .modal #send_link .product .product-buy .add-cart button.perguntasProdutoBTimg, .product .product-buy .add-cart .modal .modal-content #div_atualiza form .advancedSearchFormBTimg, .modal .modal-content #div_atualiza form .product .product-buy .add-cart .advancedSearchFormBTimg {
   padding: 1rem;
+  width: 100%;
 }
 @media (max-width: 768px) {
-  .product-button.add-cart-fast .product-buy .add-cart .button2, .product-button.add-cart-fast .product-buy .add-cart .page-extra .container > table:not(form *) tr:only-child td:only-child a:last-child, .page-extra .container > table:not(form *) tr:only-child td:only-child .product-button.add-cart-fast .product-buy .add-cart a:last-child, .product-button.add-cart-fast .product-buy .add-cart .page-extra .container form tr:only-child td:last-child::before, .page-extra .container form tr:only-child .product-button.add-cart-fast .product-buy .add-cart td:last-child::before, .product-button.add-cart-fast .product-buy .add-cart .page-extra .container form .botao-commerce, .page-extra .container form .product-button.add-cart-fast .product-buy .add-cart .botao-commerce, .product-button.add-cart-fast .product-buy .add-cart .page-listas_busca .container3 .container3 + .board li .label:last-child a .bt-avancar:before, .page-listas_busca .container3 .container3 + .board li .label:last-child a .product-button.add-cart-fast .product-buy .add-cart .bt-avancar:before, .product-button.add-cart-fast .product-buy .add-cart .page-listas_busca .container3 .container3:first-of-type .board .label .bt-avancar:before, .page-listas_busca .container3 .container3:first-of-type .board .label .product-button.add-cart-fast .product-buy .add-cart .bt-avancar:before, .product-button.add-cart-fast .product-buy .add-cart .page-listas_evento .bt-avancar:before, .page-listas_evento .product-button.add-cart-fast .product-buy .add-cart .bt-avancar:before, .product-button.add-cart-fast .product-buy .add-cart .page-listas_evento .container3:last-of-type .board a[href^=listas_criar]:before, .page-listas_evento .container3:last-of-type .board .product-button.add-cart-fast .product-buy .add-cart a[href^=listas_criar]:before, .product-button.add-cart-fast .product-buy .add-cart .page-lista .lista-produtos form .lista-produto-quantidade a, .page-lista .lista-produtos form .lista-produto-quantidade .product-button.add-cart-fast .product-buy .add-cart a,
-  .product-button.add-cart-fast .product-buy .add-cart .page-print_lista .lista-produtos form .lista-produto-quantidade a,
-  .page-print_lista .lista-produtos form .lista-produto-quantidade .product-button.add-cart-fast .product-buy .add-cart a, .product-button.add-cart-fast .product-buy .add-cart .page-lista .container3:first-child .container2 > .board > div:nth-child(1) a::before, .page-lista .container3:first-child .container2 > .board > div:nth-child(1) .product-button.add-cart-fast .product-buy .add-cart a::before,
-  .product-button.add-cart-fast .product-buy .add-cart .page-lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) a::before,
-  .product-button.add-cart-fast .product-buy .add-cart .page-lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) a::before,
-  .page-lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) .product-button.add-cart-fast .product-buy .add-cart a::before,
-  .page-lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) .product-button.add-cart-fast .product-buy .add-cart a::before,
-  .product-button.add-cart-fast .product-buy .add-cart .page-print_lista .container3:first-child .container2 > .board > div:nth-child(1) a::before,
-  .page-print_lista .container3:first-child .container2 > .board > div:nth-child(1) .product-button.add-cart-fast .product-buy .add-cart a::before,
-  .product-button.add-cart-fast .product-buy .add-cart .page-print_lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) a::before,
-  .product-button.add-cart-fast .product-buy .add-cart .page-print_lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) a::before,
-  .page-print_lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) .product-button.add-cart-fast .product-buy .add-cart a::before,
-  .page-print_lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) .product-button.add-cart-fast .product-buy .add-cart a::before, .product-button.add-cart-fast .product-buy .add-cart .page-central_comissoes .form_resgatar_bonus label:last-of-type::before, .page-central_comissoes .form_resgatar_bonus .product-button.add-cart-fast .product-buy .add-cart label:last-of-type::before, .product-button.add-cart-fast .product-buy .add-cart .page-central_comissoes_extrato .saldo_pontos + div form::after, .page-central_comissoes_extrato .saldo_pontos + div .product-button.add-cart-fast .product-buy .add-cart form::after, .product-button.add-cart-fast .product-buy .add-cart .page-listas_criar #lista_criar .container3 .container2 div[style="text-align:right;"]::before, .page-listas_criar #lista_criar .container3 .container2 .product-button.add-cart-fast .product-buy .add-cart div[style="text-align:right;"]::before, .product-button.add-cart-fast .product-buy .add-cart .page-search #Vitrine form input[type=image], .page-search #Vitrine form .product-button.add-cart-fast .product-buy .add-cart input[type=image], .product-button.add-cart-fast .product-buy .add-cart .pageProduct .tabs-reviews #comentario_cliente a[data-logged-user]:not(.tray-hide), .pageProduct .tabs-reviews #comentario_cliente .product-button.add-cart-fast .product-buy .add-cart a[data-logged-user]:not(.tray-hide), .product-button.add-cart-fast .product-buy .add-cart .pageProduct #produto_nao_disp #nao_disp #letMeKnow::before, .pageProduct #produto_nao_disp #nao_disp .product-button.add-cart-fast .product-buy .add-cart #letMeKnow::before, .product-button.add-cart-fast .product-buy .add-cart .page-comparador .comparatorTabs ul .aberta, .page-comparador .comparatorTabs ul .product-button.add-cart-fast .product-buy .add-cart .aberta, .product-button.add-cart-fast .product-buy .add-cart .page-register .botao-commerce, .page-register .product-button.add-cart-fast .product-buy .add-cart .botao-commerce, .product-button.add-cart-fast .product-buy .add-cart .page-login .caixa-login fieldset .botao-commerce, .page-login .caixa-login fieldset .product-button.add-cart-fast .product-buy .add-cart .botao-commerce,
-  .product-button.add-cart-fast .product-buy .add-cart .page-login .caixa-cadastro fieldset .botao-commerce,
-  .page-login .caixa-cadastro fieldset .product-button.add-cart-fast .product-buy .add-cart .botao-commerce, .product-button.add-cart-fast .product-buy .add-cart .modal .botao-continuar-comprando .botao-commerce-img, .modal .botao-continuar-comprando .product-button.add-cart-fast .product-buy .add-cart .botao-commerce-img, .product-button.add-cart-fast .product-buy .add-cart .modal #concorda-termo #acceptTerm, .modal #concorda-termo .product-button.add-cart-fast .product-buy .add-cart #acceptTerm, .product-button.add-cart-fast .product-buy .add-cart .modal #send_link button.perguntasProdutoBTimg, .modal #send_link .product-button.add-cart-fast .product-buy .add-cart button.perguntasProdutoBTimg, .product-button.add-cart-fast .product-buy .add-cart .modal .modal-content #div_atualiza form .advancedSearchFormBTimg, .modal .modal-content #div_atualiza form .product-button.add-cart-fast .product-buy .add-cart .advancedSearchFormBTimg {
-    font-size: 11px !important;
-    width: 73%;
-    padding: 0.3rem;
+  .product .product-buy .add-cart .button2, .product .product-buy .add-cart .page-extra .container > table:not(form *) tr:only-child td:only-child a:last-child, .page-extra .container > table:not(form *) tr:only-child td:only-child .product .product-buy .add-cart a:last-child, .product .product-buy .add-cart .page-extra .container form tr:only-child td:last-child::before, .page-extra .container form tr:only-child .product .product-buy .add-cart td:last-child::before, .product .product-buy .add-cart .page-extra .container form .botao-commerce, .page-extra .container form .product .product-buy .add-cart .botao-commerce, .product .product-buy .add-cart .page-listas_busca .container3 .container3 + .board li .label:last-child a .bt-avancar:before, .page-listas_busca .container3 .container3 + .board li .label:last-child a .product .product-buy .add-cart .bt-avancar:before, .product .product-buy .add-cart .page-listas_busca .container3 .container3:first-of-type .board .label .bt-avancar:before, .page-listas_busca .container3 .container3:first-of-type .board .label .product .product-buy .add-cart .bt-avancar:before, .product .product-buy .add-cart .page-listas_evento .bt-avancar:before, .page-listas_evento .product .product-buy .add-cart .bt-avancar:before, .product .product-buy .add-cart .page-listas_evento .container3:last-of-type .board a[href^=listas_criar]:before, .page-listas_evento .container3:last-of-type .board .product .product-buy .add-cart a[href^=listas_criar]:before, .product .product-buy .add-cart .page-lista .lista-produtos form .lista-produto-quantidade a, .page-lista .lista-produtos form .lista-produto-quantidade .product .product-buy .add-cart a,
+  .product .product-buy .add-cart .page-print_lista .lista-produtos form .lista-produto-quantidade a,
+  .page-print_lista .lista-produtos form .lista-produto-quantidade .product .product-buy .add-cart a, .product .product-buy .add-cart .page-lista .container3:first-child .container2 > .board > div:nth-child(1) a::before, .page-lista .container3:first-child .container2 > .board > div:nth-child(1) .product .product-buy .add-cart a::before,
+  .product .product-buy .add-cart .page-lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) a::before,
+  .product .product-buy .add-cart .page-lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) a::before,
+  .page-lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) .product .product-buy .add-cart a::before,
+  .page-lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) .product .product-buy .add-cart a::before,
+  .product .product-buy .add-cart .page-print_lista .container3:first-child .container2 > .board > div:nth-child(1) a::before,
+  .page-print_lista .container3:first-child .container2 > .board > div:nth-child(1) .product .product-buy .add-cart a::before,
+  .product .product-buy .add-cart .page-print_lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) a::before,
+  .product .product-buy .add-cart .page-print_lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) a::before,
+  .page-print_lista .blocoAlerta + .container3 .container2 > .board > div:nth-child(1) .product .product-buy .add-cart a::before,
+  .page-print_lista #atualizaLista + .container3 .container2 > .board > div:nth-child(1) .product .product-buy .add-cart a::before, .product .product-buy .add-cart .page-central_comissoes .form_resgatar_bonus label:last-of-type::before, .page-central_comissoes .form_resgatar_bonus .product .product-buy .add-cart label:last-of-type::before, .product .product-buy .add-cart .page-central_comissoes_extrato .saldo_pontos + div form::after, .page-central_comissoes_extrato .saldo_pontos + div .product .product-buy .add-cart form::after, .product .product-buy .add-cart .page-listas_criar #lista_criar .container3 .container2 div[style="text-align:right;"]::before, .page-listas_criar #lista_criar .container3 .container2 .product .product-buy .add-cart div[style="text-align:right;"]::before, .product .product-buy .add-cart .page-search #Vitrine form input[type=image], .page-search #Vitrine form .product .product-buy .add-cart input[type=image], .product .product-buy .add-cart .pageProduct .tabs-reviews #comentario_cliente a[data-logged-user]:not(.tray-hide), .pageProduct .tabs-reviews #comentario_cliente .product .product-buy .add-cart a[data-logged-user]:not(.tray-hide), .product .product-buy .add-cart .pageProduct #produto_nao_disp #nao_disp #letMeKnow::before, .pageProduct #produto_nao_disp #nao_disp .product .product-buy .add-cart #letMeKnow::before, .product .product-buy .add-cart .page-comparador .comparatorTabs ul .aberta, .page-comparador .comparatorTabs ul .product .product-buy .add-cart .aberta, .product .product-buy .add-cart .page-register .botao-commerce, .page-register .product .product-buy .add-cart .botao-commerce, .product .product-buy .add-cart .page-login .caixa-login fieldset .botao-commerce, .page-login .caixa-login fieldset .product .product-buy .add-cart .botao-commerce,
+  .product .product-buy .add-cart .page-login .caixa-cadastro fieldset .botao-commerce,
+  .page-login .caixa-cadastro fieldset .product .product-buy .add-cart .botao-commerce, .product .product-buy .add-cart .modal .botao-continuar-comprando .botao-commerce-img, .modal .botao-continuar-comprando .product .product-buy .add-cart .botao-commerce-img, .product .product-buy .add-cart .modal #concorda-termo #acceptTerm, .modal #concorda-termo .product .product-buy .add-cart #acceptTerm, .product .product-buy .add-cart .modal #send_link button.perguntasProdutoBTimg, .modal #send_link .product .product-buy .add-cart button.perguntasProdutoBTimg, .product .product-buy .add-cart .modal .modal-content #div_atualiza form .advancedSearchFormBTimg, .modal .modal-content #div_atualiza form .product .product-buy .add-cart .advancedSearchFormBTimg {
+    padding: 0.75rem;
   }
 }
 @media (max-width: 768px) {
-  .product-button.add-cart-fast .product-buy .add-cart .alert-client {
+  .product .product-buy .add-cart .alert-client {
     font-size: 12px !important;
   }
 }
@@ -4741,28 +5022,23 @@ div.Seguro {
   padding: 0.75rem 2rem;
 }
 
-.product:hover .product-tag {
-  opacity: 0;
-}
 .product:hover .hover-images img:first-child {
   display: none;
 }
 .product:hover .hover-images img:last-child {
   display: block;
 }
-.product:hover .product-button {
-  bottom: 2%;
+.product:hover .product-video.product-video img {
+  display: block !important;
 }
-.product:hover .product-button.add-cart-fast {
-  bottom: 0%;
+.product:hover .product-video iframe {
+  pointer-events: none;
+  z-index: 100 !important;
 }
-.product:hover .aspect-ratio1x1 .product-button {
-  top: 82%;
-}
-@media (max-width: 768px) {
-  .product:hover .aspect-ratio1x1 .product-button {
-    top: 70%;
-  }
+
+.performa-name-vitrine {
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .banner {
@@ -4835,6 +5111,11 @@ div.Seguro {
   font-size: 16px;
   color: var(--c_general_inverted);
 }
+@media (max-width: 768px) {
+  .banner-slides .swiper-button-next, .banner-slides .swiper-button-prev {
+    display: none;
+  }
+}
 .banner-slides .swiper-button-prev {
   left: 5% !important;
 }
@@ -4900,8 +5181,8 @@ div.Seguro {
   transition: 0.3s;
 }
 .swiper-pagination .icon-circle.icon-circle-empty::before {
-  background: var(--c_general_main);
-  color: var(--c_general_main);
+  background: #d9d9d9;
+  color: #d9d9d9;
   padding: 0 1.5em;
   border-radius: 10px;
 }
@@ -4916,6 +5197,9 @@ div.Seguro {
   opacity: 1;
 }
 
+.differentials {
+  width: 100%;
+}
 .differentials .content {
   display: flex;
   justify-content: space-between;
@@ -4924,7 +5208,7 @@ div.Seguro {
 .differentials .content li.differential {
   display: flex;
   align-items: center;
-  gap: 13px;
+  gap: 8px;
 }
 .differentials .content li.differential .text-differential strong {
   color: var(--c_general_text1);
@@ -4943,6 +5227,24 @@ div.Seguro {
   text-transform: var(--font_family);
 }
 @media (max-width: 768px) {
+  .differentials .content li.differential .text-differential strong {
+    color: var(--c_general_text1);
+    font-family: var(--font_family);
+    font-size: 1rem;
+    font-weight: 500;
+    font-variant: normal;
+    text-transform: var(--font_family);
+  }
+  .differentials .content li.differential .text-differential p {
+    color: var(--c_general_text1);
+    font-family: var(--font_family);
+    font-size: 0.875rem;
+    font-weight: 300;
+    font-variant: normal;
+    text-transform: var(--font_family);
+  }
+}
+@media (max-width: 768px) {
   .differentials .content li.differential {
     text-align: center;
     width: 36vw;
@@ -4950,20 +5252,39 @@ div.Seguro {
   }
   .differentials .content li.differential .image {
     display: flex;
-    min-height: 60px;
+    min-height: 50px;
     align-items: center;
   }
   .differentials .content li.differential .image img {
-    max-height: 70px;
+    max-height: 60px;
     -o-object-fit: contain;
        object-fit: contain;
   }
 }
+@media (min-width: 768.1px) and (max-width: 1080px) {
+  .differentials .content {
+    justify-content: normal !important;
+    flex-wrap: nowrap;
+  }
+}
 @media (max-width: 768px) {
   .differentials .content {
-    gap: 1em 2em;
-    justify-content: space-around;
+    justify-content: normal !important;
+    flex-wrap: nowrap;
   }
+}
+@media (min-width: 768.1px) and (max-width: 1080px) {
+  .differentials {
+    padding-bottom: 2em !important;
+  }
+}
+@media (max-width: 768px) {
+  .differentials {
+    padding-bottom: 2em !important;
+  }
+}
+.differentials .swiper-pagination-bullet-active {
+  background-color: var(--c_general_main) !important;
 }
 
 @media (max-width: 768px) {
@@ -5021,6 +5342,10 @@ div.Seguro {
   width: 40px;
   height: 40px;
   position: relative;
+}
+
+span.txt-forma-pagamento {
+  display: none;
 }
 
 .highlighted-categories ul#categories {
@@ -5197,6 +5522,51 @@ div.Seguro {
   margin-bottom: 1rem;
   text-align: center;
 }
+.section.showcase {
+  display: flex;
+  flex-direction: column;
+}
+.section.showcase performa#performa2 {
+  order: 3;
+}
+
+#varejo {
+  background: #f6f6f6;
+}
+#varejo .section {
+  margin: 0 auto !important;
+}
+#varejo .content {
+  min-height: 45px;
+  gap: 1rem;
+}
+#varejo .content .texto {
+  color: var(--c_general_text1);
+  font-family: var(--font_family);
+  font-size: 1rem;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  #varejo .content .texto {
+    color: var(--c_general_text1);
+    font-family: var(--font_family);
+    font-size: 0.713rem;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+  }
+}
+#varejo .content .stars {
+  gap: 0.5rem;
+  margin-top: -0.13rem;
+}
+#varejo .content .stars .icon-star-empty::before, #varejo .content .pageProduct .tabs-reviews .stars .starn:not(.icon-star)::before, .pageProduct .tabs-reviews #varejo .content .stars .starn:not(.icon-star)::before {
+  font-size: 0.875rem !important;
+  color: #000 !important;
+}
 
 /* reviews */
 .reviews {
@@ -5346,10 +5716,32 @@ div.Seguro {
   transform: scale(1.025);
 }
 
-.banner-mais-vendidos img {
+.banner-mais-vendidos {
+  position: relative;
+  overflow: hidden;
+}
+.banner-mais-vendidos .banner img {
   max-width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.banner-mais-vendidos:hover .button-banner {
+  bottom: 1rem;
+}
+.banner-mais-vendidos .button-banner {
+  position: absolute;
+  transition: 0.3s;
+  bottom: -100%;
+  width: 25%;
+  left: 37.5%;
+  right: auto;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .banner-mais-vendidos .button-banner {
+    width: 35% !important;
+    left: 32.7% !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -5508,7 +5900,7 @@ div.Seguro {
   }
 }
 .revendedor .content .revendedor-text {
-  max-width: 275px;
+  max-width: 330px;
 }
 @media (max-width: 768px) {
   .revendedor .content .revendedor-text {
@@ -5518,7 +5910,7 @@ div.Seguro {
 .revendedor .content h2 {
   color: var(--c_newsletter_texts);
   font-family: var(--font_family);
-  font-size: 1.975rem;
+  font-size: 1.5rem;
   font-weight: 450;
   font-variant: normal;
   text-transform: none;
@@ -5531,7 +5923,7 @@ div.Seguro {
 .revendedor .content p {
   color: var(--c_newsletter_texts);
   font-family: var(--font_family);
-  font-size: 1.25rem;
+  font-size: 0.875rem;
   font-weight: 400;
   font-variant: normal;
   text-transform: none;
@@ -5577,6 +5969,7 @@ div.Seguro {
 @media (max-width: 768px) {
   .revendedor .content form.revendedor-email input[name=name] {
     width: 100%;
+    text-align: center;
   }
 }
 .revendedor .content form.revendedor-email input[name=email] {
@@ -5596,6 +5989,7 @@ div.Seguro {
 @media (max-width: 768px) {
   .revendedor .content form.revendedor-email input[name=email] {
     width: 100%;
+    text-align: center;
   }
 }
 .revendedor .content form.revendedor-email .button2, .revendedor .content form.revendedor-email .page-extra .container > table:not(form *) tr:only-child td:only-child a:last-child, .page-extra .container > table:not(form *) tr:only-child td:only-child .revendedor .content form.revendedor-email a:last-child, .revendedor .content .page-extra .container form.revendedor-email tr:only-child td:last-child::before, .page-extra .container .revendedor .content form.revendedor-email tr:only-child td:last-child::before, .revendedor .content .page-extra .container form.revendedor-email .botao-commerce, .page-extra .container .revendedor .content form.revendedor-email .botao-commerce, .revendedor .content form.revendedor-email .page-listas_busca .container3 .container3 + .board li .label:last-child a .bt-avancar:before, .page-listas_busca .container3 .container3 + .board li .label:last-child a .revendedor .content form.revendedor-email .bt-avancar:before, .revendedor .content form.revendedor-email .page-listas_busca .container3 .container3:first-of-type .board .label .bt-avancar:before, .page-listas_busca .container3 .container3:first-of-type .board .label .revendedor .content form.revendedor-email .bt-avancar:before, .revendedor .content form.revendedor-email .page-listas_evento .bt-avancar:before, .page-listas_evento .revendedor .content form.revendedor-email .bt-avancar:before, .revendedor .content form.revendedor-email .page-listas_evento .container3:last-of-type .board a[href^=listas_criar]:before, .page-listas_evento .container3:last-of-type .board .revendedor .content form.revendedor-email a[href^=listas_criar]:before, .revendedor .content .page-lista .lista-produtos form.revendedor-email .lista-produto-quantidade a, .page-lista .lista-produtos .revendedor .content form.revendedor-email .lista-produto-quantidade a,
@@ -5803,7 +6197,7 @@ div.Seguro {
 }
 @media (max-width: 768px) {
   #cart-data .data-content {
-    width: 85%;
+    width: 90%;
   }
 }
 #cart-data .data-content div#title-preview-cart {
@@ -5812,6 +6206,7 @@ div.Seguro {
   justify-content: space-between;
   text-align: left;
   padding: 1.25em 0 0.5rem;
+  width: 100%;
   border-bottom: 2px solid var(--c_general_details);
 }
 #cart-data .data-content div#title-preview-cart svg {
@@ -5831,6 +6226,11 @@ div.Seguro {
   overflow-y: auto;
   max-height: 75vh;
   height: 100%;
+}
+@media (max-width: 768px) {
+  #cart-data .data-content ul#cart-products {
+    max-height: 65vh;
+  }
 }
 #cart-data .data-content div#price-product {
   color: var(--c_general_main);
@@ -5963,7 +6363,9 @@ div#lista-vip div#content-popup {
 }
 @media (max-width: 768px) {
   div#lista-vip div#content-popup {
-    max-width: 94vw;
+    max-width: 80vw;
+    gap: 1em;
+    flex-direction: column;
   }
 }
 div#lista-vip div#content-popup button#btn-close {
@@ -6002,14 +6404,48 @@ div#lista-vip div#content-popup .image-popup img {
   max-height: 100%;
   max-width: 100%;
 }
+@media (max-width: 768px) {
+  div#lista-vip div#content-popup .image-popup img {
+    aspect-ratio: 1/0.75;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: top;
+       object-position: top;
+  }
+}
 div#lista-vip div#content-popup h3#title-popup {
   font-size: 24px;
   color: var(--c_general_text1);
+}
+@media (max-width: 768px) {
+  div#lista-vip div#content-popup h3#title-popup {
+    line-height: 26px;
+    text-align: center;
+  }
 }
 div#lista-vip div#content-popup p#sub-title {
   font-size: 0.813rem;
   color: var(--c_general_text1);
   margin: 10px 0;
+}
+@media (max-width: 768px) {
+  div#lista-vip div#content-popup p#sub-title {
+    text-align: center;
+    line-height: 14px;
+  }
+}
+div#lista-vip div#content-popup .content-cadastro {
+  min-width: 45%;
+  padding: 0 2em 0 0;
+}
+@media (max-width: 768px) {
+  div#lista-vip div#content-popup .content-cadastro {
+    padding: 0 1.75em 1.75em;
+    position: relative;
+  }
+}
+div#lista-vip div#content-popup #real-form {
+  display: none !important;
 }
 div#lista-vip div#content-popup form#vip-list {
   margin-top: 1em;
@@ -6042,6 +6478,229 @@ div#lista-vip div#content-popup form#vip-list .page-login .caixa-cadastro fields
   width: 100%;
   margin-top: 20px;
   height: 48px;
+}
+div#lista-vip div#content-popup div#notifica-cupom {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  margin-top: 1em;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+@media (max-width: 768px) {
+  div#lista-vip div#content-popup div#notifica-cupom {
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0em;
+    width: 100%;
+    background: #fff;
+    z-index: 100;
+    height: 50%;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+}
+div#lista-vip div#content-popup div#notifica-cupom div#cupom {
+  display: flex;
+  align-items: center;
+  border: 2px dotted var(--c_general_main);
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.35em 1em;
+  margin: auto;
+  cursor: pointer;
+  border-radius: 3px;
+  font-weight: 600;
+  color: var(--c_general_main);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+}
+@media (max-width: 768px) {
+  div#lista-vip div#content-popup div#notifica-cupom div#cupom {
+    margin: 0 auto;
+  }
+}
+div#lista-vip div#content-popup div#notifica-cupom div#cupom svg {
+  width: 24px;
+  margin-right: 0.35rem;
+  fill: var(--c_general_main);
+}
+div#lista-vip div#content-popup div#notifica-cupom div#cupom.copiado {
+  color: green !important;
+  border: 2px solid green !important;
+}
+div#lista-vip div#content-popup div#notifica-cupom div#redirecionamento {
+  font-weight: 400 !important;
+  font-size: 13px;
+}
+div#lista-vip div#content-popup div#notifica-cupom div#redirecionamento b {
+  color: var(--c_general_main);
+}
+
+div#image-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.5647058824);
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+div#image-view button#btn-close {
+  position: absolute;
+  top: 1.75rem;
+  right: 1.75rem;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  z-index: 1000;
+}
+div#image-view button#btn-close::after {
+  content: "";
+  height: 20px;
+  width: 3px;
+  display: block;
+  background: var(--c_general_main);
+  transform: rotate(45deg);
+  border-radius: 4px;
+  margin-left: -4px;
+}
+div#image-view button#btn-close::before {
+  content: "";
+  height: 20px;
+  width: 3px;
+  display: block;
+  background: var(--c_general_main);
+  transform: rotate(-45deg);
+  border-radius: 4px;
+}
+div#image-view div.content-images {
+  display: flex;
+  padding: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1em;
+  position: relative;
+}
+@media (max-width: 768px) {
+  div#image-view div.content-images {
+    padding: 1.5rem;
+    flex-direction: column-reverse;
+  }
+}
+div#image-view div.content-images .gallery-thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+@media (max-width: 768px) {
+  div#image-view div.content-images .gallery-thumbs {
+    flex-direction: row;
+    gap: 1rem;
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
+}
+div#image-view div.content-images .gallery-thumbs img {
+  aspect-ratio: 0.65/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+div#image-view div.content-images .gallery-image img {
+  height: 100%;
+  width: 85%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  aspect-ratio: 0.65/1;
+}
+@media (max-width: 768px) {
+  div#image-view div.content-images .gallery-image img {
+    width: 100%;
+  }
+}
+
+.video-button {
+  position: fixed;
+  z-index: 1000;
+  bottom: 5%;
+  left: 2%;
+  cursor: pointer;
+}
+.video-button:hover img {
+  opacity: 0.85;
+}
+.video-button img {
+  max-width: 141px;
+  max-height: 141px;
+  border-radius: 200px;
+  transition: 0.3s;
+}
+@media (max-width: 768px) {
+  .video-button img {
+    max-width: 72px;
+    max-height: 72px;
+  }
+}
+
+div#popup-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.5647058824);
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+div#popup-video button#btn-close {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  z-index: 1000;
+}
+div#popup-video button#btn-close::after {
+  content: "";
+  height: 20px;
+  width: 3px;
+  display: block;
+  background: var(--c_general_inverted);
+  transform: rotate(45deg);
+  border-radius: 4px;
+  margin-left: -3px;
+}
+div#popup-video button#btn-close::before {
+  content: "";
+  height: 20px;
+  width: 3px;
+  display: block;
+  background: var(--c_general_inverted);
+  transform: rotate(-45deg);
+  border-radius: 4px;
+}
+div#popup-video div.content-video {
+  display: flex;
+  padding: 2rem;
+  position: relative;
+}
+@media (max-width: 768px) {
+  div#popup-video div.content-video {
+    padding: 1.5rem;
+  }
 }
 
 #popup-de-cookies {
@@ -6704,6 +7363,11 @@ body.modal-open {
 .catalog {
   flex-wrap: wrap;
 }
+@media (max-width: 768px) {
+  .catalog .filtro-variacoes .section {
+    padding: 0 !important;
+  }
+}
 .catalog-filter {
   transition: 0.2s ease-out transform;
 }
@@ -6805,8 +7469,22 @@ body.modal-open {
   padding: 0.5rem 0;
   margin-bottom: 0.5rem;
 }
+.catalog-section {
+  display: flex;
+  flex-direction: column;
+}
+.catalog-section performa:first-child {
+  order: 4;
+}
+.catalog-section performa:last-child {
+  order: 5;
+}
 .catalog-section .catalog-title {
   margin: 0 0 2.5rem 0;
+}
+.catalog-section .catalog-content {
+  display: flex;
+  flex-direction: column;
 }
 .catalog-section .banner-container {
   margin: 0 0 1rem;
@@ -6827,7 +7505,7 @@ body.modal-open {
   }
 }
 .catalog-listRefinement {
-  margin: 0rem 0 1rem 0;
+  margin: 1rem 0 1rem 0;
   justify-content: flex-end;
 }
 @media (max-width: 768px) {
@@ -7090,14 +7768,14 @@ body.modal-open {
 }
 .filter #Cor ul.filter-list .filter-item .filter__label, .filter #Cor ul.filter-list .filter-item .filter-label, .filter #Tamanho ul.filter-list .filter-item .filter__label, .filter #Tamanho ul.filter-list .filter-item .filter-label {
   border: 1px solid #a0a0a0;
-  height: 45px;
-  width: 45px;
-  border-radius: 50px;
+  height: 40px;
+  width: 40px;
+  border-radius: 0px;
 }
 .filter #Cor ul.filter-list .filter-item .filter__label img, .filter #Cor ul.filter-list .filter-item .filter-label img, .filter #Tamanho ul.filter-list .filter-item .filter__label img, .filter #Tamanho ul.filter-list .filter-item .filter-label img {
-  border-radius: 50px;
-  height: 35px;
-  width: 35px;
+  border-radius: 0px;
+  height: 32px;
+  width: 32px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -7112,6 +7790,38 @@ body.modal-open {
   .filter-button {
     width: 93%;
   }
+}
+
+@media (max-width: 768px) {
+  .filtro-variacoes {
+    max-width: 100%;
+  }
+}
+.filtro-variacoes .section .list-filter {
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+@media (max-width: 768px) {
+  .filtro-variacoes .section .list-filter {
+    color: var(--c_general_text_inverted);
+    font-family: var(--font_family);
+    font-size: 1rem;
+    font-weight: 500;
+    font-variant: normal;
+    text-transform: none;
+    max-width: 100%;
+  }
+}
+.filtro-variacoes .section .list-filter .filter-item a {
+  color: var(--c_general_text_inverted);
+  font-family: var(--font_family);
+  font-size: 1.15rem;
+  font-weight: 500;
+  font-variant: normal;
+  text-transform: none;
 }
 
 .page-newsletter .default-content {
@@ -8288,6 +8998,11 @@ span.mensagensErro {
   transition: 0.5s ease-out;
   scale: 1;
 }
+@media (max-width: 768px) {
+  .pageProduct-gallery .gallery-thumbs .gallery-thumb .gallery-img {
+    padding: 0 !important;
+  }
+}
 .pageProduct-gallery .gallery-thumbs .gallery-thumb:hover .gallery-img {
   scale: 1.1;
 }
@@ -8396,7 +9111,10 @@ span.mensagensErro {
 }
 @media (max-width: 768px) {
   .pageProduct-info .product-rating {
-    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .pageProduct-info .product-rating .rating-message {
+    text-align: left !important;
   }
 }
 @media (min-width: 768.1px) and (max-width: 1080px) {
@@ -8446,7 +9164,6 @@ span.mensagensErro {
   position: relative;
   overflow: hidden;
   text-align: center;
-  height: 1.5rem;
 }
 @media (max-width: 768px) {
   .pageProduct-tags .tag {
@@ -8565,6 +9282,16 @@ span.mensagensErro {
 .pageProduct-name {
   line-height: 1.2;
   margin: 0 0 1.25rem;
+}
+@media (max-width: 768px) {
+  .pageProduct-name {
+    color: var(--c_general_text1);
+    font-family: var(--font_family);
+    font-size: 1.35rem;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+  }
 }
 .pageProduct-subtitle {
   margin-bottom: 0.7rem;
@@ -8819,7 +9546,7 @@ span.mensagensErro {
   color: var(--c_general_text1);
   font-family: var(--font_family);
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 400;
   font-variant: normal;
   text-transform: none;
   margin-bottom: 1rem;
@@ -8913,6 +9640,16 @@ span.mensagensErro {
   text-transform: none;
   margin-bottom: 0.5rem;
 }
+@media (max-width: 768px) {
+  .pageProduct-shipping .shipping-text {
+    color: #7C7C7C;
+    font-family: var(--font_family);
+    font-size: 1rem;
+    font-weight: 300;
+    font-variant: normal;
+    text-transform: none;
+  }
+}
 .pageProduct-shipping .shipping-label {
   font-size: 0;
 }
@@ -8928,6 +9665,7 @@ span.mensagensErro {
 }
 .pageProduct-shipping .shipping-submit {
   display: inline;
+  padding: 0.95rem 1rem;
 }
 .pageProduct-shipping .shipping-result {
   position: relative;
@@ -9071,12 +9809,22 @@ span.mensagensErro {
 .pageProduct #produto_nao_disp #nao_disp #letMeKnow::before {
   color: var(--c_general_text_inverted);
   font-family: var(--font_family);
-  font-size: 0.98rem;
+  font-size: 1.25rem;
   font-weight: 600;
   font-variant: normal;
-  text-transform: uppercase;
+  text-transform: none;
   content: "Avise-me";
   text-align: center;
+}
+@media (max-width: 768px) {
+  .pageProduct #produto_nao_disp #nao_disp #letMeKnow::before {
+    color: var(--c_general_text_inverted);
+    font-family: var(--font_family);
+    font-size: 1rem;
+    font-weight: 500;
+    font-variant: normal;
+    text-transform: none;
+  }
 }
 .pageProduct #produto_nao_disp #nao_disp #letMeKnow img.image {
   display: none;
@@ -9433,7 +10181,6 @@ span.mensagensErro {
 .pageProduct .cor_variacao .lista_cor_variacao li.sem_estoque,
 .pageProduct .cor_variacao [data-id=lista_cor_variacao] li.sem_estoque,
 .pageProduct .cor_variacao [data-id^=second-dropdown-show] li.sem_estoque {
-  pointer-events: none;
   position: relative;
 }
 .pageProduct .cor_variacao .lista_cor_variacao li.sem_estoque img,
@@ -9474,7 +10221,7 @@ span.mensagensErro {
   height: 45px;
   border: 1px solid var(--c_general_details);
   display: block;
-  border-radius: 80px;
+  border-radius: 0px;
   margin-right: 0.5rem;
   padding: 3px;
   transition: 0.2s ease-out;
@@ -9490,7 +10237,7 @@ span.mensagensErro {
   min-height: 45px;
   min-width: 45px;
   border: 1px solid var(--c_general_details);
-  border-radius: 80px;
+  border-radius: 0px;
   color: var(--c_general_text1);
   margin: 0 0.5rem 0.3rem 0;
   padding: 0.35rem 0.7rem;
@@ -9977,6 +10724,11 @@ span.mensagensErro {
   font-variant: normal;
   text-transform: none;
 }
+@media (max-width: 768px) {
+  .pageProduct-buyTogether .buyTogether .precosCompreJunto .comprejunto_preco2 .PrecoPrincipal {
+    font-size: 1rem !important;
+  }
+}
 .pageProduct-buyTogether .buyTogether .precosCompreJunto .comprejunto_preco2 .PrecoPrincipal::before {
   content: "por: ";
   color: var(--c_general_text2);
@@ -10054,7 +10806,7 @@ span.mensagensErro {
 .pageProduct .tabs-nav .nav-link {
   color: #939598;
   font-family: var(--font_family);
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 500;
   font-variant: normal;
   text-transform: none;
@@ -10673,6 +11425,33 @@ span.mensagensErro {
 .pageProduct .page-print_lista #atualizaLista,
 .page-print_lista .pageProduct #atualizaLista {
   margin: 0 0 2rem 0;
+}
+
+[video-thumb] span.icon-youtube-simple {
+  position: absolute;
+  top: calc(50% - 13px);
+  left: calc(50% - 25px);
+}
+[video-thumb] span.icon-youtube-simple .path1:before {
+  background: #fff;
+  position: relative;
+  z-index: 100;
+  left: 0.45em;
+  border-radius: 25px;
+}
+[video-thumb] span.icon-youtube-simple .path2:before {
+  z-index: 200;
+  position: relative;
+}
+
+a.botao-commerce.botao-prosseguir-compra.pointer.right .botao-commerce-img {
+  font-size: 0;
+}
+a.botao-commerce.botao-prosseguir-compra.pointer.right .botao-commerce-img::after {
+  content: "Finalizar compra";
+  font-size: 1rem;
+  text-transform: none;
+  font-weight: 700;
 }
 
 .modals {

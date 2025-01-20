@@ -1,18 +1,18 @@
 
 
-/** OBSERVAÇÕES IMPORTANTES:
+/** OBSERVAÃÃES IMPORTANTES:
  * 
- * A requisição GET é realizada em 3 eventos: ao clicar na bag do carrinho, clicar em adicionar, diminuir;
- * A requisição POST é realizada em 2 eventos: ao clicar em adicionar e diminuir;
- * A requisição DELETE, é realizada em 2 eventos: ao clicar em diminuir e excluir o produto;
- * Os itens da lista são criados através de uma função, de acordo com a quantidade de itens encontrados na array de dados da requisição;
- * Um loop realiza a inserção dos ítens dentro da tag "ul", inserindo uma classe com o index do loop. (Para realizarmos a identificação de cada item no html);
- * A atualização dos elementos da lista é realizada apenas após o refresh da página;
- * As interações de feedback em relação as ações que o usuário realiza no front-end são inseridas por uma função que é ativada de acordo com o feedback da  API em relação à ação solicitada.
+ * A requisiÃ§Ã£o GET Ã© realizada em 3 eventos: ao clicar na bag do carrinho, clicar em adicionar, diminuir;
+ * A requisiÃ§Ã£o POST Ã© realizada em 2 eventos: ao clicar em adicionar e diminuir;
+ * A requisiÃ§Ã£o DELETE, Ã© realizada em 2 eventos: ao clicar em diminuir e excluir o produto;
+ * Os itens da lista sÃ£o criados atravÃ©s de uma funÃ§Ã£o, de acordo com a quantidade de itens encontrados na array de dados da requisiÃ§Ã£o;
+ * Um loop realiza a inserÃ§Ã£o dos Ã­tens dentro da tag "ul", inserindo uma classe com o index do loop. (Para realizarmos a identificaÃ§Ã£o de cada item no html);
+ * A atualizaÃ§Ã£o dos elementos da lista Ã© realizada apenas apÃ³s o refresh da pÃ¡gina;
+ * As interaÃ§Ãµes de feedback em relaÃ§Ã£o as aÃ§Ãµes que o usuÃ¡rio realiza no front-end sÃ£o inseridas por uma funÃ§Ã£o que Ã© ativada de acordo com o feedback da  API em relaÃ§Ã£o Ã  aÃ§Ã£o solicitada.
 **/ 
 
 
-//REFATORANDO O CÓDIGO DA SOLUÇÃO DO CARRINHO (PROJETO: CALOR DA PELE):
+//REFATORANDO O CÃDIGO DA SOLUÃÃO DO CARRINHO (PROJETO: CALOR DA PELE):
 
 //Variaveis globais:
 var url = `/web_api/cart/`;
@@ -20,7 +20,7 @@ function data_session() {
     return document.querySelector("html").attributes['data-session'].value;
 }
       
-//Funções globais:
+//FunÃ§Ãµes globais:
 function createItemList(i) {
     //criando os elementos:
     let item = document.createElement('li'), 
@@ -62,55 +62,51 @@ function pricing(v) {
 }
 
 
-//Sequencia lógica de funções:
+//Sequencia lÃ³gica de funÃ§Ãµes:
 
 //Insere a lista HTML:
-function createList() {
-    var data;
-
-    //Faz o GET das informações do carrinho:
-    fetch(`${url}${data_session()}`)
+async function createList() {
+    var data = await fetch(`${url}${data_session()}`)
     .then(response =>{
         return response.json();
-    })
-    .then(d =>{
-        data = d;
-    })
-    .catch((err) => {
-        alert(err);
-    })
+    }).catch((err) => {
+        console.error(err);
+    });
 
-    setTimeout(() => {
-        if (parseInt(data.length) > 0) {
-            let listado = document.querySelectorAll("ul#cart-products li#cart-product");
-            if (listado.length > 0) {for(r=0; r<listado.length; r++) {listado[r].remove();}}
 
-            for(i=0; i<data.length; i++) {
-                let list = document.querySelector("ul#cart-products"), 
-                    items = document.querySelectorAll("ul#cart-products li#cart-product"), 
-                    item = createItemList(i);
+    if (parseInt(data.length) > 0) {
+        let listado = document.querySelectorAll("ul#cart-products li#cart-product");
+        if (listado.length > 0) {for(r=0; r<listado.length; r++) {listado[r].remove();}}
 
-                if (items.length != data.length) { list.appendChild(item) };
-            };
+        for(i=0; i<data.length; i++) {
+            let list = document.querySelector("ul#cart-products"), 
+                items = document.querySelectorAll("ul#cart-products li#cart-product"), 
+                item = createItemList(i);
 
-            let id = document.querySelectorAll("#id-product"), img = document.querySelectorAll("ul#cart-products li#cart-product #img img"), title = document.querySelectorAll("ul#cart-products li#cart-product div#text-product"), price = document.querySelectorAll("ul#cart-products li#cart-product div#price-product"), board = document.querySelectorAll("ul#cart-products li#cart-product div#board-product");
-            
-            for(e=0; e<data.length; e++) {
-                id[e].innerHTML = "<div>" + data[e].Cart.product_id + "</div>" + "<span>" + data[e].Cart.variant_id + "</span>";
-                img[e].setAttribute("src", data[e].Cart.product_image.https);
-                title[e].innerHTML = data[e].Cart.product_name;
-                price[e].innerHTML = `<span id="qnt">${data[e].Cart.quantity}</span> X ${pricing(data[e].Cart.price)}`;
-                board[e].innerHTML = `<div id="board-content"><span id="menos" onclick="removeProduct(this)" class="idx-${e}">-</span><input name="quant" class="text idx-${e}" size="1" type="text" value="${data[e].Cart.quantity}"><span id="mais" onclick="addProduct(this)" class="idx-${e}">+</span></div><div onclick="deleteProduct(this)" id="trash" class="idx-${e}"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M9 3h6v-1.75c0-.066-.026-.13-.073-.177-.047-.047-.111-.073-.177-.073h-5.5c-.066 0-.13.026-.177.073-.047.047-.073.111-.073.177v1.75zm11 1h-16v18c0 .552.448 1 1 1h14c.552 0 1-.448 1-1v-18zm-10 3.5c0-.276-.224-.5-.5-.5s-.5.224-.5.5v12c0 .276.224.5.5.5s.5-.224.5-.5v-12zm5 0c0-.276-.224-.5-.5-.5s-.5.224-.5.5v12c0 .276.224.5.5.5s.5-.224.5-.5v-12zm8-4.5v1h-2v18c0 1.105-.895 2-2 2h-14c-1.105 0-2-.895-2-2v-18h-2v-1h7v-2c0-.552.448-1 1-1h6c.552 0 1 .448 1 1v2h7z"/></svg></div>`;
-            }
+            if (items.length != data.length) { list.appendChild(item) };
+        };
+
+        let id = document.querySelectorAll("#id-product"), 
+            img = document.querySelectorAll("ul#cart-products li#cart-product #img img"), 
+            title = document.querySelectorAll("ul#cart-products li#cart-product div#text-product"), 
+            price = document.querySelectorAll("ul#cart-products li#cart-product div#price-product"), 
+            board = document.querySelectorAll("ul#cart-products li#cart-product div#board-product");
+        
+        for(e=0; e<data.length; e++) {
+            id[e].innerHTML = "<div>" + data[e].Cart.product_id + "</div>" + "<span>" + data[e].Cart.variant_id + "</span>";
+            img[e].setAttribute("src", data[e].Cart.product_image.https);
+            title[e].innerHTML = data[e].Cart.product_name;
+            price[e].innerHTML = `<span id="qnt">${data[e].Cart.quantity}</span> X ${pricing(data[e].Cart.price)}`;
+            board[e].innerHTML = `<div id="board-content"><span id="menos" onclick="removeProduct(this)" class="idx-${e}">-</span><input name="quant" class="text idx-${e}" size="1" type="text" value="${data[e].Cart.quantity}"><span id="mais" onclick="addProduct(this)" class="idx-${e}">+</span></div><div onclick="deleteProduct(this)" id="trash" class="idx-${e}"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M9 3h6v-1.75c0-.066-.026-.13-.073-.177-.047-.047-.111-.073-.177-.073h-5.5c-.066 0-.13.026-.177.073-.047.047-.073.111-.073.177v1.75zm11 1h-16v18c0 .552.448 1 1 1h14c.552 0 1-.448 1-1v-18zm-10 3.5c0-.276-.224-.5-.5-.5s-.5.224-.5.5v12c0 .276.224.5.5.5s.5-.224.5-.5v-12zm5 0c0-.276-.224-.5-.5-.5s-.5.224-.5.5v12c0 .276.224.5.5.5s.5-.224.5-.5v-12zm8-4.5v1h-2v18c0 1.105-.895 2-2 2h-14c-1.105 0-2-.895-2-2v-18h-2v-1h7v-2c0-.552.448-1 1-1h6c.552 0 1 .448 1 1v2h7z"/></svg></div>`;
         }
+    }
 
-        cartItens(data.length);
-        amount()
-        show_cart();
-    },275);
+    cartItens(data.length);
+    amount()
+    show_cart();
 }
 
-/* Adição, Subtração e Remoção de produtos: */
+/* AdiÃ§Ã£o, SubtraÃ§Ã£o e RemoÃ§Ã£o de produtos: */
 async function addProduct(class_index) {
     let e = class_index,
         index = parseInt(e.classList[0].replace(/[^0-9]/g,'')),
@@ -217,7 +213,7 @@ async function deleteProduct(class_index) {
 }
 
 
-//Funções de exibição da janle do carrinho:
+//FunÃ§Ãµes de exibiÃ§Ã£o da janle do carrinho:
 function show_cart() {
     let status = document.getElementById("cart-data"), infos = document.querySelector("#cart-data .data-content");
     let janela = window.screen.width;
@@ -230,9 +226,9 @@ function show_cart() {
             infos.style.marginRight = 0;
         },100);
 
-        setTimeout(() => { 
-            document.querySelector("#cart-data").addEventListener('click', handleClickOutside, false);
-        }, 150);
+        // setTimeout(() => { 
+        //     document.querySelector("#cart-data").addEventListener('click', handleClickOutside, false);
+        // }, 150);
     } else { 
         status.style.opacity = 0;
         status.style.zIndex = -7;
@@ -248,9 +244,9 @@ function show_cart() {
 }
 
 
-// Funções de notificação (Front-end):
+// FunÃ§Ãµes de notificaÃ§Ã£o (Front-end):
 
-//Verifica se recebemos a variável "causes", no objeto data. Se tivermos recebido, então teremos uma falha na requisição. Se não, 
+//Verifica se recebemos a variÃ¡vel "causes", no objeto data. Se tivermos recebido, entÃ£o teremos uma falha na requisiÃ§Ã£o. Se nÃ£o, 
 function statusRequest(index, message = "undefined") {
     if (message != "undefined" && message != "") {
         notify(index, message);

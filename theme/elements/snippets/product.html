@@ -1,3 +1,29 @@
+{% set video_url = product.video %}
+
+{% set video_url_base = video_url | replace({'https://www.youtube.com/embed/': '', 'https://www.youtube.com/shorts/': '', 'https://vimeo.com/': ''}) %}
+
+{% if video_url starts with 'https://www.youtube.com/embed/' %}
+    {% set video_id = video_url_base | split('?')[0] %}
+    {% set embed_url = "https://www.youtube.com/embed/" ~ video_id ~ "?autoplay=1&mute=1&controls=0&loop=1&playlist=" ~ video_id ~ "&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3" %}
+
+{% elseif video_url starts with 'https://www.youtube.com/shorts/' %}
+    {% set video_id = video_url_base | split('?')[0] %}
+    {% set embed_url = "https://www.youtube.com/embed/" ~ video_id ~ "?autoplay=1&mute=1&controls=0&loop=1&playlist=" ~ video_id ~ "&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3" %}
+
+{% elseif video_url starts with 'https://vimeo.com/' %}
+    {% set video_id = video_url_base %}
+    {% set embed_url = "https://player.vimeo.com/video/" ~ video_id ~ "?autoplay=1&muted=1&loop=1" %}
+
+{% else %}
+    {% set embed_url = "" %}
+{% endif %}
+
+{# Debugging: Mostrar valores para verificação 
+    <p>Video URL: {{ video_url }}</p>
+    <p>Video ID: {{ video_id }}</p>
+    <p>Embed URL: {{ embed_url }}</p>
+#}
+
 <div class="product">
     {% if pages.current == 'catalog' and settings.compare %}
         <div class="product-compare">
@@ -32,8 +58,8 @@
             </div>
         {% endif %}
         
-        <a href="{{ product.link }}" class='product-link {{ product.images[1].large ? "hover-images" }}'>
-            {% if product.images[1].large %}
+        <a href="{{ product.link }}" class='product-link {{ product.images[1].large ? "hover-images" }} {{ embed_url ? "product-video" }}'>
+            {% if product.images[1].full and not embed_url %}
                 <img
                     class="product-img lazyload"
                     src="{{ product.images[0].full }}"
@@ -56,45 +82,43 @@
                     width="450"
                     height="450"
                 />
+            {% endif %}            
+            
+            {% if embed_url %}
+                <iframe 
+                    id="videoPlayer" 
+                    src="{{ embed_url }}" 
+                    width="270" 
+                    height="480" 
+                    frameborder="0" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen
+                    style="position: absolute; top: 0; left: 0; z-index: -1; margin-top: 0em"
+                    >
+                </iframe>
             {% endif %}
         </a>
+    </div>
 
-        <button class="
-            product-button
-            {% if product.available and (product.stock > 0 or settings.without_stock_sale) and not product.upon_request %}
-                add-cart-fast
-            {% endif %}
-            " type="button" aria-label="Ver Produto">
-            
-            {% if product.available and (product.stock > 0 or settings.without_stock_sale) and not product.upon_request %}
+    <div class="product-info">
+        {% if product.available and (product.stock > 0 or settings.without_stock_sale) and not product.upon_request %}
             <div class="product-buy">
                 <div class="variations">
                     <p style="text-align: center; padding: 0.5rem 0;">Carregando...</p>
                 </div>
-                <div class="add-cart">
-                    <input type="number" name="quantity" class="quantity" placeholder="1" min="1" value="1">
-                    <a class="button2" data-id="{{ product.id }}"> Incluir na Sacola </a>
-                </div>
-                <div class="alert-client"></div>
-            </div>                
+            </div>
+        {% endif %}
 
-            {% else %}
-                <a class="button2" href="{{ product.link }}"> Ver produto </a>
-            {% endif %}
-        </button>
-        
-    </div>
-
-    <a class="product-info" href="{{ product.link }}">
         {% if pages.current == 'catalog' %}
             <h2 class="product-name">{{ product.name }}</h2>
         {% else %}
             <h4 class="product-name">{{ product.name }}</h4>
         {% endif %} 
         
-        {# COMENTADO 
+        {% set logado = customer.logged %}
+        <a href="{{ logado ? product.link ~ '#coments' : '/loja/login_layout.php?loja=1367111&origem=comentario_produto&IdProd=' ~ product.id }}" class="comments">
             {% element 'snippets/product-rating' { 'review': product.ranking } %}
-        #}
+        </a>
 
         <div class="product-price">
             {% if product.available and (product.stock > 0 or settings.without_stock_sale) and not product.upon_request %} 
@@ -115,5 +139,26 @@
                 } %}
             {% endif %}
         </div>
-    </a>
+
+        <button class="
+            product-button
+            {% if product.available and (product.stock > 0 or settings.without_stock_sale) and not product.upon_request %}
+                add-cart-fast
+            {% endif %}
+            " type="button" aria-label="Ver Produto">
+            
+            {% if product.available and (product.stock > 0 or settings.without_stock_sale) and not product.upon_request %}
+            <div class="product-buy">
+                <div class="add-cart">
+                    {# Comentado <input type="number" name="quantity" class="quantity" placeholder="1" min="1" value="1">#}
+                    <a class="button2" data-id="{{ product.id }}"> Comprar </a>
+                </div>
+                <div class="alert-client"></div>
+            </div>                
+
+            {% else %}
+                <a class="button2" href="{{ product.link }}"> Ver produto </a>
+            {% endif %}
+        </button>
+    </div>
 </div>

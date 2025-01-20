@@ -68,6 +68,12 @@
                 font-size: 16px;
                 color: var(--c_general_inverted)
             }
+
+            @include small {
+                & {
+                    display: none;
+                }
+            }
         }
     
         .swiper-button-prev {
@@ -146,8 +152,8 @@
             &::before {color: #D9D9D9; padding: 0 0.5em; border-radius: 10px; transition: 0.3s;}
     
             &.icon-circle-empty::before {
-                background: var(--c_general_main);
-                color: var(--c_general_main);
+                background: #d9d9d9;
+                color: #d9d9d9;
                 padding: 0 1.5em;
                 border-radius: 10px;
             }    
