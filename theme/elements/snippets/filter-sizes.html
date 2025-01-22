@@ -1,9 +1,11 @@
 {% set produtos = Products() %}
 {% set variationsList = [] %}
 
-<div class="filtro-variacoes">
+<div class="filtro-variacoes" style="{{ pages.current in ['catalog', 'search'] ? 'margin-top: -1rem;' }}">
     <section class="section">
-        <div class="section-title">Compre por tamanho</div>
+        {% if pages.current not in ['catalog', 'search'] %}
+            <div class="section-title">Compre por Tamanho</div>
+        {% endif %}
         <ul class="list-filter">
             {% for product in produtos %}
             {% for variantArray in product.variants %}
@@ -18,7 +20,7 @@
                     {% endif %}
                 {% endfor %}
             {% endfor %}
-        {% endfor %}        
+        {% endfor %}
         </ul>
     </section>
 </div>

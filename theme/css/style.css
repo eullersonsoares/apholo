@@ -714,7 +714,7 @@ button.swiper-pagination-bullet {
 .page-central_cliente #paginacao .right .next a, .page-central_cliente #paginacao, .page-lista .lista-produtos .lista-produto-adquirido,
 .page-print_lista .lista-produtos .lista-produto-adquirido, .page-contact .contactUs-phone:before, .page-contact .contactUs-whats:before, .page-contact .contactUs-email:before, .modals.u-show, .pageProduct .cor_variacao .lista_cor_variacao li div,
 .pageProduct .cor_variacao [data-id=lista_cor_variacao] li div,
-.pageProduct .cor_variacao [data-id^=second-dropdown-show] li div, .pageProduct-batchPromotion #miniad img:not([src*=".png"]):not([src*=".jpg"]):not([src*=".jpeg"]):not([src*=".svg"]):not([src*=".gif"]), .pageProduct-tags .tag, .pageProduct-gallery .gallery-thumbs, .container3 .board .right, .page-comparador .comparator ul li ul .comparsionFoto div, .page-comparador .comparatorTabs ul li.aberta, .page-comparador .comparatorTabs ul li, .filter #Cor ul.filter-list .filter-item .filter__label, .filter #Cor ul.filter-list .filter-item .filter-label, .filter #Tamanho ul.filter-list .filter-item .filter__label, .filter #Tamanho ul.filter-list .filter-item .filter-label, .pagination, .brands .icon-tag, .brands-item, .modal .modal-body, .tagCloud-list, .banner-mais-vendidos .banner, #varejo .content .stars, #varejo .content, .product .product-buy .variations-list .variation div, .product-tag .tag-progressiveDiscount .progressiveDiscount, .product-price .price .prices-product, .product-rating, .product-compare .compare-button, .footer-stg-theme-credits .credits, .footer-stg-theme .footer-stg-theme-newsletter .newsletter-email, .footer-stg-theme .footer-stg-theme-newsletter .newsletter-text, .footer-stg-theme .footer-stg-theme-newsletter, .footer-credits .credits, .footer .footer-newsletter .newsletter-email, .footer .footer-newsletter .newsletter-text, .footer .footer-newsletter, .header-menu .menu-firstLevel, .header-menu, .header-cart, .header-account, .header-search, .header .container-custom .info-media, .header .container-custom .atendimento, #whatsapp-button a, #whatsapp-button, .justify-center {
+.pageProduct .cor_variacao [data-id^=second-dropdown-show] li div, .pageProduct-batchPromotion #miniad img:not([src*=".png"]):not([src*=".jpg"]):not([src*=".jpeg"]):not([src*=".svg"]):not([src*=".gif"]), .pageProduct-tags .tag, .pageProduct-gallery .gallery-thumbs, .container3 .board .right, .page-comparador .comparator ul li ul .comparsionFoto div, .page-comparador .comparatorTabs ul li.aberta, .page-comparador .comparatorTabs ul li, .filter #Cor ul.filter-list .filter-item .filter__label, .filter #Cor ul.filter-list .filter-item .filter-label, .filter #Tamanho ul.filter-list .filter-item .filter__label, .filter #Tamanho ul.filter-list .filter-item .filter-label, .pagination, .brands .icon-tag, .brands-item, .modal .modal-body, .tagCloud-list, .banner-mais-vendidos .banner, #varejo .content .stars, #varejo .content, .product .product-buy .variations-list .variation div, .product-tag .tag-progressiveDiscount .progressiveDiscount, .product-price .price .prices-product, .product-rating, .product-compare .compare-button, .footer-stg-theme-credits .credits, .footer-stg-theme .footer-stg-theme-newsletter .newsletter-email, .footer-stg-theme .footer-stg-theme-newsletter .newsletter-text, .footer-stg-theme .footer-stg-theme-newsletter, .footer-credits .credits, .footer .footer-newsletter .newsletter-email, .footer .footer-newsletter .newsletter-text, .footer .footer-newsletter, .header-menu .menu-firstLevel > .menu-link, .header-menu .menu-firstLevel > .menu-expand, .header-menu .menu-firstLevel, .header-menu, .header-cart, .header-account, .header-search, .header .container-custom .info-media, .header .container-custom .atendimento, #whatsapp-button a, #whatsapp-button, .justify-center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -731,7 +731,7 @@ button.swiper-pagination-bullet {
   align-items: flex-end;
 }
 
-.pageProduct-shipping .loading {
+.pageProduct-shipping .loading, .catalog-listRefinement {
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -758,7 +758,7 @@ button.swiper-pagination-bullet {
 }
 
 .page-lista .lista-produtos form,
-.page-print_lista .lista-produtos form, .page-depoimentos .container #comentario_cliente .review-form, .pageProduct .varCont ul li ul li, .pageProduct .varCont ul li:not(#opcoes0-0 *), .pageProduct-bonusScore .produto-bonus, .catalog-listRefinement, .catalog-filter.u-show .filter-header.u-mobile, .brands-list, .product .product-buy .add-cart, .menuMobile-account .account-button, .menuMobile-account, .menuMobile-title, .header-content, .header .container-custom, .justify-between {
+.page-print_lista .lista-produtos form, .page-depoimentos .container #comentario_cliente .review-form, .pageProduct .varCont ul li ul li, .pageProduct .varCont ul li:not(#opcoes0-0 *), .pageProduct-bonusScore .produto-bonus, .catalog-filter.u-show .filter-header.u-mobile, .brands-list, .product .product-buy .add-cart, .menuMobile-account .account-button, .menuMobile-account, .menuMobile-title, .header-content, .header .container-custom, .justify-between {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2636,6 +2636,7 @@ div.Seguro {
   justify-content: space-between;
   grid-template-columns: repeat(7, 100%);
   height: 40px;
+  width: 100%;
 }
 .header .container-custom .diferenciais_topo .diff_item {
   font-size: 14px;
@@ -3193,6 +3194,7 @@ div.Seguro {
   justify-content: flex-end;
 }
 .header-menu .menu-firstLevel > .menu-link, .header-menu .menu-firstLevel > .menu-expand {
+  gap: 0.35rem;
   position: relative;
   padding: 0 12px;
   text-align: center;
@@ -4272,7 +4274,7 @@ div.Seguro {
   font-size: 20px;
 }
 .showcase button#showMore {
-  margin: 2rem auto;
+  margin: 2rem auto 0;
   background: transparent;
   color: var(--c_contrast_and_button);
   border: 1px solid var(--c_contrast_and_button);
@@ -4890,6 +4892,15 @@ div.Seguro {
 .product .product-buy .variations.swiper-initialized .variations-list {
   flex-wrap: nowrap;
   gap: 0rem;
+}
+.product .product-buy .variations-list.swiper-wrapper {
+  justify-content: space-evenly;
+}
+@media (max-width: 768px) {
+  .product .product-buy .variations-list.swiper-wrapper {
+    justify-content: center;
+    align-items: center;
+  }
 }
 .product .product-buy .variations-list .variation {
   color: var(--c_general_text1);
@@ -7507,20 +7518,12 @@ body.modal-open {
 .catalog-listRefinement {
   margin: 1rem 0 1rem 0;
   justify-content: flex-end;
+  flex-direction: column;
 }
 @media (max-width: 768px) {
   .catalog-listRefinement {
-    flex-direction: column;
-  }
-}
-@media (min-width: 768.1px) and (max-width: 1080px) {
-  .catalog-listRefinement {
-    flex-direction: row;
-  }
-}
-@media (min-width: 1080.1px) {
-  .catalog-listRefinement {
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 }
 .catalog-listRefinement .results {
@@ -7803,6 +7806,8 @@ body.modal-open {
   width: 100%;
   overflow-y: hidden;
   overflow-x: auto;
+  max-width: 900px;
+  margin: auto;
 }
 @media (max-width: 768px) {
   .filtro-variacoes .section .list-filter {
@@ -9422,7 +9427,7 @@ span.mensagensErro {
   font-variant: normal;
   text-transform: none;
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
 }
 .pageProduct-price .precode {
   text-transform: lowercase;
@@ -9462,6 +9467,7 @@ span.mensagensErro {
 .pageProduct-price strong.preco-parc2,
 .pageProduct-price .preco-parc2 strong {
   color: var(--c_general_text1);
+  font-weight: 400;
 }
 .pageProduct-wishlist {
   background-color: var(--c_general_main);
@@ -9546,7 +9552,7 @@ span.mensagensErro {
   color: var(--c_general_text1);
   font-family: var(--font_family);
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 300;
   font-variant: normal;
   text-transform: none;
   margin-bottom: 1rem;
@@ -9565,7 +9571,7 @@ span.mensagensErro {
   font-size: 0;
 }
 .pageProduct-buy #button-buy span::before {
-  content: "Adicionar à sacola";
+  content: "Comprar";
   text-transform: none;
   font-size: 0.92rem;
 }
@@ -10875,6 +10881,10 @@ span.mensagensErro {
   display: none;
   padding-bottom: 1rem;
   max-width: 100%;
+}
+.pageProduct .tabs-content * {
+  font-family: var(--font_family) !important;
+  font-weight: 300;
 }
 @media (max-width: 768px) {
   .pageProduct .tabs-content {

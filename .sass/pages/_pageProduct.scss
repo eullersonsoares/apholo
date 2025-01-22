@@ -589,7 +589,7 @@
         #produto_preco {
             @include fontInsert(1, 400, var(--c_general_text2));
             margin-top: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0rem;
         }
 
         .precode {
@@ -637,6 +637,7 @@
         strong.preco-parc2,
         .preco-parc2 strong {
             color: var(--c_general_text1);
+            font-weight: 400;
         }
     }
 
@@ -729,7 +730,7 @@
     }
 
     &-additionalMessage {
-        @include fontInsert(1, 400, var(--c_general_text1));
+        @include fontInsert(1, 300, var(--c_general_text1));
         margin-bottom: 1rem;
     }
 
@@ -750,7 +751,7 @@
                 font-size: 0;
 
                 &::before {
-                    content: "Adicionar à sacola";
+                    content: "Comprar";
                     text-transform: none;
                     font-size: 0.92rem;
                 }
@@ -2031,6 +2032,11 @@
             display: none;
             padding-bottom: 1rem;
             max-width: 100%;
+
+            * {
+                font-family: var(--font_family) !important;
+                font-weight: 300;
+            }
 
             @include small {
                 padding-top: 2.5rem;

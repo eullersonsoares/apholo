@@ -130,15 +130,12 @@
     &-listRefinement {
         margin: 1rem 0 1rem 0;
         justify-content: flex-end;
-        @extend %flex-betw-center;
+        @extend %flex-center-end;
+        flex-direction: column;
+
         @include small {
-            flex-direction: column;
-        }
-        @include medium {
-            flex-direction: row;
-        }
-        @include large {
-            flex-direction: row;
+            justify-content: center;
+            align-items: center;
         }
 
         .results {

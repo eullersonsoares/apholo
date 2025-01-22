@@ -109,8 +109,10 @@
                     {% endif %}
             </main>
 
-            {% element 'newsletter' %}
-            {% element 'snippets/instagram' %}
+            {% if pages.current == 'home'%}
+                {% element 'newsletter' %}
+                {% element 'snippets/instagram' %}
+            {% endif %}
             {% element 'footer-stg-theme' %}
         </div>
         <div>{% element 'snippets/alert-store' %}</div>

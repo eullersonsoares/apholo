@@ -12,6 +12,8 @@
             width: 100%;
             overflow-y: hidden;
             overflow-x: auto;
+            max-width: 900px;
+            margin: auto;
 
             @include small {
                 @include fontInsert(1, 500, var(--c_general_text_inverted));

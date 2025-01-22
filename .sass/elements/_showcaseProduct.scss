@@ -60,7 +60,7 @@
     }
 
     button#showMore {
-        margin: 2rem auto;
+        margin: 2rem auto 0;
         background: transparent;
         color: var(--c_contrast_and_button);
         border: 1px solid var(--c_contrast_and_button);
@@ -646,6 +646,15 @@
             }
 
             &-list {
+
+                &.swiper-wrapper {
+                    justify-content: space-evenly;
+
+                    @include small {
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
 
                 .variation {
                     @include fontInsert(0.875, 400, var(--c_general_text1));
