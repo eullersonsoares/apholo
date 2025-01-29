@@ -1,4 +1,9 @@
 .highlighted-categories {
+    margin: 2rem auto 1.5rem !important; 
+
+    @include small {
+        margin: 1rem auto 0.5rem !important; 
+    }
 
     ul#categories {
         display: flex;
@@ -17,6 +22,11 @@
             @include fontInsert(1, 400, var(--c_general_text1));
             margin-top: 20px;
             text-transform: lowercase;
+
+            @include small {
+                @include fontInsert(0.715, 400, var(--c_general_text1));
+                margin-top: 6px;
+            }
 
             &::first-letter {
                 text-transform: uppercase;

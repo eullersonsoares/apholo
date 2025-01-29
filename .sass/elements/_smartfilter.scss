@@ -65,7 +65,7 @@
                 @extend %flex-center-center;
                 border: 1px solid #a0a0a0;
                 height: 40px;
-                width: 40px;
+                min-width: 40px;
                 border-radius: 0px;
 
                 img {

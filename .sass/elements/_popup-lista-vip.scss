@@ -10,6 +10,10 @@ div#lista-vip {
     align-items: center;
     justify-content: center;
 
+    &.visible {
+        display: flex !important;
+    }
+    
     div#content-popup {
         background: #fff;
         display: flex;

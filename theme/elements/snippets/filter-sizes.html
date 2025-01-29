@@ -1,5 +1,6 @@
 {% set produtos = Products() %}
 {% set variationsList = [] %}
+{% set variationsShow = ["P", "M", "G", "GG", "XG", "XXGG"] %} {# Corrigido o nome da variável #}
 
 <div class="filtro-variacoes" style="{{ pages.current in ['catalog', 'search'] ? 'margin-top: -1rem;' }}">
     <section class="section">
@@ -8,19 +9,19 @@
         {% endif %}
         <ul class="list-filter">
             {% for product in produtos %}
-            {% for variantArray in product.variants %}
-                {% for variant in variantArray.Sku %}
-                    {% if variant.type == "Tamanho" %}
-                        {% if variant.value not in variationsList %}
-                            {% set variationsList = variationsList | merge([variant.value]) %}
-                            <li class="filter-item">
-                                <a class="button2" href="/loja/busca.php?loja=1367111&variants%5B%5D=Tamanho%7C%7C{{ variant.value }}{{ pages.current == 'catalog' ? '&categoria=' ~ category.id}}">{{ variant.value }}</a>
-                            </li>
+                {% for variantArray in product.variants %}
+                    {% for variant in variantArray.Sku %}
+                        {% if variant.type == "Tamanho" %}
+                            {% if variant.value not in variationsList and variant.value in variationsShow %}
+                                {% set variationsList = variationsList | merge([variant.value]) %}
+                                <li class="filter-item">
+                                    <a class="button2" href="/loja/busca.php?loja={{ store.id }}&variants%5B%5D=Tamanho%7C%7C{{ variant.value }}{{ pages.current == 'catalog' ? '&categoria=' ~ category.id}}">{{ variant.value }}</a>
+                                </li>
+                            {% endif %}
                         {% endif %}
-                    {% endif %}
+                    {% endfor %}
                 {% endfor %}
             {% endfor %}
-        {% endfor %}
         </ul>
     </section>
 </div>

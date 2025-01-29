@@ -567,7 +567,7 @@
 
             @include small {
                 max-width: 90vw;
-                right: 15vw;
+                right: -15vw;
             }
 
             form.rastrear {
@@ -866,6 +866,10 @@
                 @include fontInsert(1.15, 400);
                 padding-top: 11px;
 
+                @include small {
+                    @include fontInsert(0.875, 500, var(--c_header_text_main));
+                }
+
                 &:last-child {
                     padding-bottom: 0;
                 }
@@ -934,6 +938,10 @@
         color: var(--c_general_text1);
         width: 100%;
 
+        @include small {
+            @include fontInsert(1.5, 600, var(--c_header_text_main));
+        }
+
         .icon-menu {
             margin-right: 1.25rem;
 
@@ -994,6 +1002,10 @@
 
             &-text {
                 @include fontInsert(1.5, 700, var(--c_general_text1));
+
+                @include small {
+                    @include fontInsert(1.35, 600, var(--c_general_text1));
+                }
             }
 
             &-access {
@@ -1026,11 +1038,19 @@
             @include fontInsert(1.1, 600, var(--c_header_text_main));
             border-bottom: $v_border_header;
             padding: 1.5rem 0 1rem 0;
+
+            @include small {
+                @include fontInsert(1, 500, var(--c_header_text_main));
+            }
         }
 
         &-secondLevel {
             @include fontInsert(1, 400, var(--c_header_text_main));
             padding-top: 0.95rem;
+
+            @include small {
+                @include fontInsert(0.875, 500, var(--c_header_text_main));
+            }
 
             .menu-link {
                 line-height: 1.6rem;

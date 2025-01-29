@@ -14,16 +14,16 @@
 
             .text-differential {
                 strong {
-                    @include fontInsert(1.125, 550, var(--c_general_text1), var(--font_family));
+                    @include fontInsert(1.125, 500, var(--c_general_text1), var(--font_family));
                 }
     
                 p {
-                    @include fontInsert(1, 350, var(--c_general_text1), var(--font_family));
+                    @include fontInsert(1, 300, var(--c_general_text1), var(--font_family));
                 }
 
                 @include small {
                     strong {
-                        @include fontInsert(1, 500, var(--c_general_text1), var(--font_family));
+                        @include fontInsert(1, 400, var(--c_general_text1), var(--font_family));
                     }
         
                     p {
@@ -33,9 +33,7 @@
             }
 
             @include small {
-                text-align: center;
                 width: 36vw;
-                flex-direction: column;
 
                 .image {
                     display: flex;

@@ -147,7 +147,7 @@
         },
 
         productsSlides: function () {
-            if($(".slidesProducts") && ($(".slidesProducts .swiper-slide").length > 3)) {
+            if ($(".slidesProducts") && ($(".slidesProducts .swiper-slide").length > 3)) {
                 const sectionsSlides = document.querySelectorAll(".slidesProducts");
 
                 $(sectionsSlides).each((index, el) => {
@@ -170,7 +170,7 @@
                                 slidesPerView: 4,
                             },
                         },
-    
+
                         navigation: {
                             prevEl: `.swiper-button-prev.${theme.numberCarousels(index)}`,
                             nextEl: `.swiper-button-next.${theme.numberCarousels(index)}`,
@@ -181,24 +181,24 @@
                 $(".showcase-listProduct").removeClass("swiper-wrapper");
             }
 
-            
+
         },
 
         numberCarousels: function (n) {
             const numbers = [
                 "zero", "um", "dois", "tres", "quatro", "cinco", "seis", "sete", "oito", "nove",
-                "dez", "onze", "doze", "treze", "catorze", "quinze", "dezesseis", "dezessete", 
-                "dezoito", "dezenove", "vinte", "vinte e um", "vinte e dois", "vinte e tres", 
-                "vinte e quatro", "vinte e cinco", "vinte e seis", "vinte e sete", "vinte e oito", 
+                "dez", "onze", "doze", "treze", "catorze", "quinze", "dezesseis", "dezessete",
+                "dezoito", "dezenove", "vinte", "vinte e um", "vinte e dois", "vinte e tres",
+                "vinte e quatro", "vinte e cinco", "vinte e seis", "vinte e sete", "vinte e oito",
                 "vinte e nove", "trinta"
             ];
-        
-            return numbers[n] || "error"; // Retorna o número por índice ou "error" para valores inválidos
-        },        
 
-        slidesCategoryImages: function() {
-            if($("#categories")) {
-                
+            return numbers[n] || "error"; // Retorna o número por índice ou "error" para valores inválidos
+        },
+
+        slidesCategoryImages: function () {
+            if ($("#categories")) {
+
                 $("#categories").before(`
                     <div class="swiper-button-prev cat"></div>
                     <div class="swiper-button-next cat"></div>
@@ -209,11 +209,11 @@
                     loop: true,
                     breakpoints: {
                         0: {
-                            slidesPerView: 3,
-                            spaceBetween: 15
+                            slidesPerView: 5,
+                            spaceBetween: 7
                         },
                         680: {
-                            slidesPerView: 4,
+                            slidesPerView: 5,
                         },
                         900: {
                             slidesPerView: 6,
@@ -229,44 +229,44 @@
             }
         },
 
-        productGridShowMore: function() {
+        productGridShowMore: function () {
             const products = document.querySelectorAll('#show-more-function .listProduct-item');
             const showMoreBtn = document.getElementById('showMore');
 
-            if((products != null) && (showMoreBtn != null)) {
-                
-                let visibleProducts = (window.screen.width  > 768) ? 4 : 2 ;
+            if ((products != null) && (showMoreBtn != null)) {
+
+                let visibleProducts = (window.screen.width > 768) ? 4 : 2;
 
                 for (let i = visibleProducts; i < products.length; i++) {
                     products[i].style.display = 'none';
                 }
 
-                showMoreBtn.addEventListener('click', function() {
-                visibleProducts += (window.screen.width  > 768) ? 4 : 2 ;
+                showMoreBtn.addEventListener('click', function () {
+                    visibleProducts += (window.screen.width > 768) ? 4 : 2;
 
-                if (visibleProducts >= products.length) {
-                    showMoreBtn.innerHTML = 'Ver mais';
-                    showMoreBtn.addEventListener('click', function() {
-                    window.location.href = $("#showMore").attr("data-href");
-                    });
-                }
+                    if (visibleProducts >= products.length) {
+                        showMoreBtn.innerHTML = 'Ver mais';
+                        showMoreBtn.addEventListener('click', function () {
+                            window.location.href = $("#showMore").attr("data-href");
+                        });
+                    }
 
-                for (let i = 0; i < visibleProducts; i++) {
-                    products[i].style.display = 'block';
-                }           
+                    for (let i = 0; i < visibleProducts; i++) {
+                        products[i].style.display = 'block';
+                    }
                 });
             }
         },
 
-        clickOneVariation: function() {
+        clickOneVariation: function () {
             let divMonitorada = $('.pageProduct-variants');
             let hasClicked = false; // Flag para verificar se o clique já foi feito
-        
-            let observer = new MutationObserver(function(mutations) {
+
+            let observer = new MutationObserver(function (mutations) {
                 if (hasClicked) return; // Verifica se o clique já ocorreu
-        
+
                 const variacoes = $(".passo2 .lista_cor_variacao img");
-        
+
                 // Se houver exatamente uma variação, clica nela e desativa o observer
                 if (variacoes.length === 1) {
                     variacoes.click();
@@ -275,31 +275,31 @@
                     theme.clickOneVariation();
                 }
             });
-        
+
             let options = {
                 childList: true,
                 subtree: true
             };
-        
+
             // Inicia a observação da div
             if (divMonitorada.length) {
                 observer.observe(divMonitorada[0], options);
             }
         },
 
-        observePrice: function() {
-            
+        observePrice: function () {
+
             // Seleciona a div que ser&aacute; monitorada
             let divMonitorada = $('.pageProduct-price.serverTray-content#observer');
 
-            if(!$('.pageProduct-price.serverTray-content #produto_preco [data-app="product.price"]').length || $("#nao_disp").length) {
+            if (!$('.pageProduct-price.serverTray-content #produto_preco [data-app="product.price"]').length || $("#nao_disp").length) {
                 $("#form_comprar div#observer").show();
                 $(".pageProduct-name + .pageProduct-price.serverTray-content").hide();
             }
 
             // Cria uma nova inst&acirc;ncia do MutationObserver
-            let observer = new MutationObserver(function(mutations) {
-                if(!$('.pageProduct-price.serverTray-content #produto_preco [data-app="product.price"]').length || $("#nao_disp").length) {
+            let observer = new MutationObserver(function (mutations) {
+                if (!$('.pageProduct-price.serverTray-content #produto_preco [data-app="product.price"]').length || $("#nao_disp").length) {
                     $("#form_comprar div#observer").show();
                     $(".pageProduct-name + .pageProduct-price.serverTray-content").hide();
                     return;
@@ -309,17 +309,17 @@
                 $(".pageProduct-name + .pageProduct-price.serverTray-content").show();
 
                 $(".pageProduct-name + .pageProduct-price.serverTray-content .PrecoPrincipal").text("");
-                
-                if($('.pageProduct-price.serverTray-content #produto_preco #precoDe').length) {
+
+                if ($('.pageProduct-price.serverTray-content #produto_preco #precoDe').length) {
                     $(".pageProduct-name + .pageProduct-price.serverTray-content #produto_preco s").text(`
-                        ${$('.pageProduct-price.serverTray-content #produto_preco #precoDe').text().replace('De',  '').trim()}
+                        ${$('.pageProduct-price.serverTray-content #produto_preco #precoDe').text().replace('De', '').trim()}
                     `);
                 }
 
                 $(".pageProduct-name + .pageProduct-price.serverTray-content .PrecoPrincipal").text(`
                     R$ ${$('.pageProduct-price.serverTray-content #produto_preco [data-app="product.price"]').text()}
                 `);
-                
+
                 $(".pageProduct-name + .pageProduct-price.serverTray-content .PrecoPrincipal + .parcelamento").html($('.pageProduct-price.serverTray-content #produto_preco #info_preco').html());
             });
 
@@ -333,14 +333,14 @@
             observer.observe(divMonitorada[0], options);
         },
 
-        videoPopup: function() {
+        videoPopup: function () {
             if (!$("div#popup-video iframe").length) {
                 return;
             }
 
             const src = $("div#popup-video iframe").data("src");
             const frameSizes = $("div#popup-video [data-frame-sizes]").data("frame-sizes");
-            const proporcoes = (() => {                
+            const proporcoes = (() => {
                 if (frameSizes === "16x9") {
                     return 16 / 9;
                 } else if (frameSizes === "9x16") {
@@ -349,7 +349,7 @@
                     return 0.6;
                 }
             })();
-            
+
             const altura = (window.screen.width < 900 && frameSizes === "16x9") ? window.screen.height * 0.225 : window.screen.height * 0.7;
             const largura = altura * proporcoes;
 
@@ -358,82 +358,92 @@
                 width: largura
             });
 
-            $(".video-button").on("click", function() {
+            $(".video-button").on("click", function () {
                 $("div#popup-video iframe").attr("src", src);
                 $("div#popup-video").css("display", "flex");
             });
 
-            $("div#popup-video").on("click", function(event) {
+            $("div#popup-video").on("click", function (event) {
                 if (!$(event.target).closest("div#content-popup").length) {
                     $("div#popup-video").hide();
                     $("div#popup-video iframe").removeAttr("src");
                 }
             });
 
-            $("div#popup-video #btn-close").on("click", function() {
+            $("div#popup-video #btn-close").on("click", function () {
                 $("div#popup-video").hide();
                 $("div#popup-video iframe").removeAttr("src");
             });
         },
 
-        vipListPopup: function() {
-            const sessao = $('[data-session]').data("session");
+        vipListPopup: function () {
+            const sessao = $('[data-session]').data('session');
+            const vipPopup = $('#lista-vip');
+            const popupContent = $('#content-popup');
+            const btnClose = $('#btn-close');
+            const vipForm = $('#vip-list');
+            const LOCAL_STORAGE_KEYS = {
+                VISUALIZED: 'visualized',
+                SESSION: 'session',
+            };
 
-            function addLocalStorage() {
-                localStorage.setItem("visualized", "true");
+            // Funções auxiliares para manipulação do Local Storage
+            const addToLocalStorage = (key, value) => localStorage.setItem(key, value);
+            const isPopupNeeded = () => {
+                const isVisualized = localStorage.getItem(LOCAL_STORAGE_KEYS.VISUALIZED);
+                const storedSession = localStorage.getItem(LOCAL_STORAGE_KEYS.SESSION);
+                return !isVisualized || storedSession !== sessao;
+            };
+
+            // Exibe o popup se necessário
+            if (isPopupNeeded()) {
+                vipPopup.addClass('visible'); // Use uma classe CSS para visibilidade
             }
 
-            function addLocalStorageSession() {
-                localStorage.setItem("session", sessao);
-            }
-
-            if(!localStorage.visualized || !localStorage.session || localStorage.session !== sessao) {
-                $("div#lista-vip").css("display", "flex");
-            }
-
-            $("#lista-vip").on("click", function(event) {
-                if (!$(event.target).closest("div#content-popup").length) {
-                  $("div#lista-vip").hide();
-                  addLocalStorageSession();
-                  addLocalStorage();
+            // Eventos
+            vipPopup.on('click', function (event) {
+                if (!$(event.target).closest(popupContent).length) {
+                    vipPopup.removeClass('visible');
+                    addToLocalStorage(LOCAL_STORAGE_KEYS.VISUALIZED, 'true');
+                    addToLocalStorage(LOCAL_STORAGE_KEYS.SESSION, sessao);
                 }
             });
 
-            $("#btn-close").on("click", function() {
-                $("div#lista-vip").hide();
-                addLocalStorage();
-                addLocalStorageSession();
+            btnClose.on('click', function () {
+                vipPopup.removeClass('visible');
+                addToLocalStorage(LOCAL_STORAGE_KEYS.VISUALIZED, 'true');
+                addToLocalStorage(LOCAL_STORAGE_KEYS.SESSION, sessao);
             });
 
-            $("#vip-list").on("submit", function() {
-                addLocalStorage();
-                addLocalStorageSession();                
-            }); 
+            vipForm.on('submit', function () {
+                addToLocalStorage(LOCAL_STORAGE_KEYS.VISUALIZED, 'true');
+                addToLocalStorage(LOCAL_STORAGE_KEYS.SESSION, sessao);
+            });
         },
 
-        eventsFormListPopup: function() {
+        eventsFormListPopup: function () {
             function copiaCupom() {
-                $("#cupom").on("click", function() {
+                $("#cupom").on("click", function () {
                     // Texto a ser copiado
                     const texto = "PRIMEIRA15";
-    
+
                     // Cria um elemento de input temporÃÂ¡rio para armazenar o texto
                     const inputTemp = $('<input>');
                     $('body').append(inputTemp);
                     inputTemp.val(texto).trigger("select");
-    
+
                     // Copia o texto selecionado para a ÃÂ¡rea de transferÃÂªncia
                     document.execCommand('copy');
-    
+
                     // Remove o input temporÃÂ¡rio
                     inputTemp.remove();
-    
+
                     // Atualiza a mensagem de status
                     const status = $('#cupom');
                     status.text('COPIADO!').addClass('copiado');
-    
+
                     // Remove a mensagem de status apÃÂ³s 2 segundos
-                    setTimeout(function() {
+                    setTimeout(function () {
                         status.html(`
                             <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m6 18h-3c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v3h3c.621 0 1 .522 1 1v14c0 .621-.522 1-1 1h-14c-.48 0-1-.379-1-1zm1.5-10.5v13h13v-13zm9-1.5v-2.5h-13v13h2.5v-9.5c0-.481.38-1 1-1z" fill-rule="nonzero"/></svg>
                             PRIMEIRA15
@@ -454,34 +464,34 @@
                     redireciona();
                     return;
                 }
-            
+
                 const text = `Em <b>${time} segundos</b> voc&ecirc; ser&aacute; redirecionado para <br>confirmar o seu cadastro`;
                 $('#redirecionamento').html(text);
-            
-                setTimeout(function() {
+
+                setTimeout(function () {
                     contagemRegressiva(time - 1);
                 }, 1000);
             }
 
             //preenchendo nome:
-            $('form#vip-list [name="name"]').on("input", function() {
+            $('form#vip-list [name="name"]').on("input", function () {
                 const nome = $(this).val();
                 $('#real-form [name="name"]').val(nome);
             });
 
             //preenchendo e-mail:
-            $('form#vip-list [name="email"]').on("input", function() {
+            $('form#vip-list [name="email"]').on("input", function () {
                 const email = $(this).val();
                 $('#real-form [name="email"]').val(email);
             });
 
             //pegando o evento de submissÃÂ£o e comunicando:
-            $("#vip-list").on("submit", function(e) {
+            $("#vip-list").on("submit", function (e) {
                 e.preventDefault();
                 $('form#vip-list [name="name"]').css("pointer-events", "none");
                 $('form#vip-list [name="email"]').css("pointer-events", "none");
 
-                const html =  `
+                const html = `
                     <div id="notifica-cupom">
                         <div id="cupom" title="Clique para copiar o cupom!">
                             <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m6 18h-3c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v3h3c.621 0 1 .522 1 1v14c0 .621-.522 1-1 1h-14c-.48 0-1-.379-1-1zm1.5-10.5v13h13v-13zm9-1.5v-2.5h-13v13h2.5v-9.5c0-.481.38-1 1-1z" fill-rule="nonzero"/></svg>
@@ -492,22 +502,22 @@
                     </div>
                 `;
 
-                if(!$("notifica-cupom").length) {
+                if (!$("notifica-cupom").length) {
                     $("#vip-list .revendedor-button.button2").after(html);
                     contagemRegressiva(10);
                     copiaCupom();
-                }                
+                }
             });
         },
 
         cookiesInteracion: function () {
             const consent = "I accept";
 
-            if(!localStorage.consentCookiesMessage) {
+            if (!localStorage.consentCookiesMessage) {
                 $("#popup-de-cookies").removeClass("hide");
             }
 
-            $("#close-popup-cookies").on("click", function() {
+            $("#close-popup-cookies").on("click", function () {
                 $("#popup-de-cookies").addClass("hide");
                 localStorage.setItem("consentCookiesMessage", consent);
             });
@@ -557,15 +567,15 @@
             }
         },
 
-        colorDiferentials: function() {
+        colorDiferentials: function () {
             const imgs = document.querySelectorAll(".differential .image img");
-            imgs.forEach(function(img, index) {
-            const title = document.querySelectorAll(".differential .text-differential strong")[index];
-            const imgSrc = img.src;
-            const imgObj = new Image();
-            imgObj.crossOrigin = 'Anonymous';
-            imgObj.src = imgSrc;
-                imgObj.addEventListener('load', function() {
+            imgs.forEach(function (img, index) {
+                const title = document.querySelectorAll(".differential .text-differential strong")[index];
+                const imgSrc = img.src;
+                const imgObj = new Image();
+                imgObj.crossOrigin = 'Anonymous';
+                imgObj.src = imgSrc;
+                imgObj.addEventListener('load', function () {
                     const canvas = document.createElement('canvas');
                     canvas.width = this.width;
                     canvas.height = this.height;
@@ -590,7 +600,7 @@
                         } else {
                             colorMap[rgba] = 1;
                         }
-                    }                 
+                    }
 
                     let maxCount = 0;
                     let predominantColor = '';
@@ -607,7 +617,7 @@
             });
         },
 
-        rgbaToHex: function(rgba) {
+        rgbaToHex: function (rgba) {
             const values = rgba.split(',');
             const r = parseInt(values[0]);
             const g = parseInt(values[1]);
@@ -617,7 +627,7 @@
             return '#' + theme.componentToHex(r) + theme.componentToHex(g) + theme.componentToHex(b) + theme.componentToHex(alpha * 255);
         },
 
-        componentToHex: function(c) {
+        componentToHex: function (c) {
             const hex = c.toString(16);
             return hex.length === 1 ? '0' + hex : hex;
         },
@@ -669,8 +679,8 @@
             }
         },
 
-        footerInteraction: function() {
-            if(window.screen.width < 960) {
+        footerInteraction: function () {
+            if (window.screen.width < 960) {
                 $(".footer-stg-theme .footer-stg-theme-info .info-list").slideUp("fast");
                 $(".footer-stg-theme .footer-stg-theme-info .info-title").css({
                     backgroundImage: "url(data:image/svg+xml;base64,PHN2ZyBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMTYuODQzIDEwLjIxMWMuMTA4LS4xNDEuMTU3LS4zLjE1Ny0uNDU2IDAtLjM4OS0uMzA2LS43NTUtLjc0OS0uNzU1aC04LjUwMWMtLjQ0NSAwLS43NS4zNjctLjc1Ljc1NSAwIC4xNTcuMDUuMzE2LjE1OS40NTcgMS4yMDMgMS41NTQgMy4yNTIgNC4xOTkgNC4yNTggNS40OTguMTQyLjE4NC4zNi4yOS41OTIuMjkuMjMgMCAuNDQ5LS4xMDcuNTkxLS4yOTEgMS4wMDItMS4yOTkgMy4wNDQtMy45NDUgNC4yNDMtNS40OTh6Ii8+PC9zdmc+)",
@@ -680,29 +690,29 @@
                     cursor: "pointer"
                 });
 
-                $(".footer-stg-theme .footer-stg-theme-info .info-title").on("click", function() {
-                const infoList = $(this).next(".info-list");
-                if (infoList.css("display") == "none") {
-                    $(this).css({
-                        backgroundImage: "url(data:image/svg+xml;base64,PHN2ZyBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMTYuODQzIDEzLjc4OWMuMTA4LjE0MS4xNTcuMy4xNTcuNDU2IDAgLjM4OS0uMzA2Ljc1NS0uNzQ5Ljc1NWgtOC41MDFjLS40NDUgMC0uNzUtLjM2Ny0uNzUtLjc1NSAwLS4xNTcuMDUtLjMxNi4xNTktLjQ1NyAxLjIwMy0xLjU1NCAzLjI1Mi00LjE5OSA0LjI1OC01LjQ5OC4xNDItLjE4NC4zNi0uMjkuNTkyLS4yOS4yMyAwIC40NDkuMTA3LjU5MS4yOTEgMS4wMDIgMS4yOTkgMy4wNDQgMy45NDUgNC4yNDMgNS40OTh6Ii8+PC9zdmc+)",
-                        backgroundRepeat: "no-repeat",
-                        backgroundPositionY: "center",
-                        backgroundPositionX: "96%",
-                        cursor: "pointer"
-                    });
+                $(".footer-stg-theme .footer-stg-theme-info .info-title").on("click", function () {
+                    const infoList = $(this).next(".info-list");
+                    if (infoList.css("display") == "none") {
+                        $(this).css({
+                            backgroundImage: "url(data:image/svg+xml;base64,PHN2ZyBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMTYuODQzIDEzLjc4OWMuMTA4LjE0MS4xNTcuMy4xNTcuNDU2IDAgLjM4OS0uMzA2Ljc1NS0uNzQ5Ljc1NWgtOC41MDFjLS40NDUgMC0uNzUtLjM2Ny0uNzUtLjc1NSAwLS4xNTcuMDUtLjMxNi4xNTktLjQ1NyAxLjIwMy0xLjU1NCAzLjI1Mi00LjE5OSA0LjI1OC01LjQ5OC4xNDItLjE4NC4zNi0uMjkuNTkyLS4yOS4yMyAwIC40NDkuMTA3LjU5MS4yOTEgMS4wMDIgMS4yOTkgMy4wNDQgMy45NDUgNC4yNDMgNS40OTh6Ii8+PC9zdmc+)",
+                            backgroundRepeat: "no-repeat",
+                            backgroundPositionY: "center",
+                            backgroundPositionX: "96%",
+                            cursor: "pointer"
+                        });
 
-                    infoList.slideDown("fast");
-                } else {
-                    $(this).css({
-                        backgroundImage: "url(data:image/svg+xml;base64,PHN2ZyBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMTYuODQzIDEwLjIxMWMuMTA4LS4xNDEuMTU3LS4zLjE1Ny0uNDU2IDAtLjM4OS0uMzA2LS43NTUtLjc0OS0uNzU1aC04LjUwMWMtLjQ0NSAwLS43NS4zNjctLjc1Ljc1NSAwIC4xNTcuMDUuMzE2LjE1OS40NTcgMS4yMDMgMS41NTQgMy4yNTIgNC4xOTkgNC4yNTggNS40OTguMTQyLjE4NC4zNi4yOS41OTIuMjkuMjMgMCAuNDQ5LS4xMDcuNTkxLS4yOTEgMS4wMDItMS4yOTkgMy4wNDQtMy45NDUgNC4yNDMtNS40OTh6Ii8+PC9zdmc+)",
-                        backgroundRepeat: "no-repeat",
-                        backgroundPositionY: "center",
-                        backgroundPositionX: "96%",
-                        cursor: "pointer"
-                    });
+                        infoList.slideDown("fast");
+                    } else {
+                        $(this).css({
+                            backgroundImage: "url(data:image/svg+xml;base64,PHN2ZyBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMTYuODQzIDEwLjIxMWMuMTA4LS4xNDEuMTU3LS4zLjE1Ny0uNDU2IDAtLjM4OS0uMzA2LS43NTUtLjc0OS0uNzU1aC04LjUwMWMtLjQ0NSAwLS43NS4zNjctLjc1Ljc1NSAwIC4xNTcuMDUuMzE2LjE1OS40NTcgMS4yMDMgMS41NTQgMy4yNTIgNC4xOTkgNC4yNTggNS40OTguMTQyLjE4NC4zNi4yOS41OTIuMjkuMjMgMCAuNDQ5LS4xMDcuNTkxLS4yOTEgMS4wMDItMS4yOTkgMy4wNDQtMy45NDUgNC4yNDMtNS40OTh6Ii8+PC9zdmc+)",
+                            backgroundRepeat: "no-repeat",
+                            backgroundPositionY: "center",
+                            backgroundPositionX: "96%",
+                            cursor: "pointer"
+                        });
 
-                    infoList.slideUp("fast");
-                }
+                        infoList.slideUp("fast");
+                    }
                 });
             }
         },
@@ -741,7 +751,7 @@
         },
 
         resizeImageMobile: function () {
-            if(window.screen.width > 900) {
+            if (window.screen.width > 900) {
                 return;
             }
 
@@ -791,32 +801,32 @@
                 },
                 on: {
                     init: function () {
-                        if(!zoomActive) return;
+                        if (!zoomActive) return;
 
-                        if(this.slides.length === 1){
+                        if (this.slides.length === 1) {
                             this.unsetGrabCursor();
                             this.allowTouchMove = false;
                         }
 
                         let wrapper = $('.pageProduct-gallery.zoom-true').find(`[data-index="1"] .zoom`);
 
-                        if(!wrapper.find('img:first').next().length){
+                        if (!wrapper.find('img:first').next().length) {
                             wrapper.zoom({
-                                touch : false,
-                                url   : wrapper.find('img').attr('src')
+                                touch: false,
+                                url: wrapper.find('img').attr('src')
                             });
                         }
 
                     },
                     slideChange: function () {
-                        if(!zoomActive) return;
+                        if (!zoomActive) return;
                         let index = this.activeIndex + 1;
                         let wrapper = $('.pageProduct-gallery.zoom-true').find(`[data-index="${index}"] .zoom`);
 
-                        if(!wrapper.find('img:first').next().length){
+                        if (!wrapper.find('img:first').next().length) {
                             wrapper.zoom({
-                                touch : false,
-                                url   : wrapper.find('img').attr('src')
+                                touch: false,
+                                url: wrapper.find('img').attr('src')
                             });
                         }
 
@@ -988,7 +998,7 @@
             });
         },
 
-        addImageShipping: function() {
+        addImageShipping: function () {
             $(".shipping-form").prepend(`
                 <svg width="60" height="54" viewBox="0 0 60 54" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <mask id="mask0_215_952" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="60" height="54">
@@ -1073,8 +1083,8 @@
             }, 3000);
         },
 
-        quantityProducts: function() {
-            if(!$(".pageProduct-buy #product-form-box #quantidade") && $(".pageProduct-buy #button-buy")) {
+        quantityProducts: function () {
+            if (!$(".pageProduct-buy #product-form-box #quantidade") && $(".pageProduct-buy #button-buy")) {
                 $(".pageProduct-buy #product-form-box").prepend(`
                     <div data-app="product.quantity" id="quantidade">
                         <label class="color">
@@ -1338,9 +1348,8 @@
 
                 htmlThumbs += `
                     <div class="swiper-slide gallery-thumb" data-gallery="image">
-                        <img class="gallery-img${slideIndex === 1 ? ' swiper-lazy' : ' lazyload'}" data-src="${
-                    item.thumbs[90].https
-                }" src="${ item.thumbs[90].https }" alt="${productName}" width="90px" height="90px">
+                        <img class="gallery-img${slideIndex === 1 ? ' swiper-lazy' : ' lazyload'}" data-src="${item.thumbs[90].https
+                    }" src="${item.thumbs[90].https}" alt="${productName}" width="90px" height="90px">
                     </div>
                 `;
             });
@@ -1641,18 +1650,18 @@
             }, 200);
         },
 
-        tabMedidas: function() {
+        tabMedidas: function () {
             const imageTab = $("#tabelaImg img");
 
-            $("#b-tab-medidas").on("click", function() {
+            $("#b-tab-medidas").on("click", function () {
                 $(".pageProduct div#popup-tab-medidas").css("display", "flex");
             });
 
-            $(".pageProduct div#popup-tab-medidas .content #fechar-popup").on("click", function() {
+            $(".pageProduct div#popup-tab-medidas .content #fechar-popup").on("click", function () {
                 $(".pageProduct div#popup-tab-medidas").hide();
             });
 
-            $(".pageProduct div#popup-tab-medidas").click(function(event) {
+            $(".pageProduct div#popup-tab-medidas").click(function (event) {
                 const popup = $(".pageProduct div#popup-tab-medidas .content");
 
                 // Verifica se o clique ocorreu fora do popup
@@ -1661,14 +1670,14 @@
                 }
             });
 
-            $("#tab1").on("click", function() {
-                imageTab.attr({"src": `${imageTab.attr("tab1-src")}`, "alt": `${imageTab.attr("tab1-alt")}`, "title": `${imageTab.attr("tab1-title")}`});
+            $("#tab1").on("click", function () {
+                imageTab.attr({ "src": `${imageTab.attr("tab1-src")}`, "alt": `${imageTab.attr("tab1-alt")}`, "title": `${imageTab.attr("tab1-title")}` });
             });
-            $("#tab2").on("click", function() {
-                imageTab.attr({"src": `${imageTab.attr("tab2-src")}`, "alt": `${imageTab.attr("tab2-alt")}`, "title": `${imageTab.attr("tab2-title")}`});
+            $("#tab2").on("click", function () {
+                imageTab.attr({ "src": `${imageTab.attr("tab2-src")}`, "alt": `${imageTab.attr("tab2-alt")}`, "title": `${imageTab.attr("tab2-title")}` });
             });
-            $("#tab3").on("click", function() {
-                imageTab.attr({"src": `${imageTab.attr("tab3-src")}`, "alt": `${imageTab.attr("tab3-alt")}`, "title": `${imageTab.attr("tab3-title")}`});
+            $("#tab3").on("click", function () {
+                imageTab.attr({ "src": `${imageTab.attr("tab3-src")}`, "alt": `${imageTab.attr("tab3-alt")}`, "title": `${imageTab.attr("tab3-title")}` });
             });
         },
 
@@ -1701,16 +1710,16 @@
             $('[data-cart="amount"]').text($('.cart-preview-item').length);
         },
 
-        updatePriceShowCaseProducts: function() {
+        updatePriceShowCaseProducts: function () {
             const pattern1 = /\s+/;
             const pattern2 = "R$";
 
-            $(".product-price").each(function() {
+            $(".product-price").each(function () {
                 const precoAvista = $(this).find("span.preco-avista.precoAvista");
 
                 if (precoAvista.length && precoAvista.text() !== "") {
                     let preco = precoAvista.text();
-                    
+
                     // Remove espaÃÂ§os em branco
                     preco = preco.replace(pattern1, "");
                     preco = preco.replace(pattern2, pattern2 + " ");
@@ -1721,37 +1730,37 @@
             });
         },
 
-        getVariation: function(id) {
-            return new Promise(function(resolve, reject) {
+        getVariation: function (id) {
+            return new Promise(function (resolve, reject) {
                 const variationID = id;
                 const dataVariation = {};
-        
+
                 $.ajax({
                     method: "GET",
                     url: `/web_api/variants/${variationID}`
-                }).done(function(response, textStatus, jqXHR) {
+                }).done(function (response, textStatus, jqXHR) {
                     const variation = response.Variant;
-        
-                    if(variation.hasOwnProperty("Sku") && variation.Sku.length > 0) {
+
+                    if (variation.hasOwnProperty("Sku") && variation.Sku.length > 0) {
                         const inforVar = variation.Sku;
                         inforVar.forEach((v) => {
-                            if(v.type == "Tamanho" && v.value) {
+                            if (v.type == "Tamanho" && v.value) {
                                 dataVariation.size = v.value;
                             }
 
-                            if(v.type == "Cor" && v.value) {
+                            if (v.type == "Cor" && v.value) {
                                 dataVariation.color = v.value;
                                 dataVariation.thumbColor = v.image_secure;
                             }
                         });
                     }
-                    
+
                     dataVariation.id = variationID;
                     dataVariation.productImage1 = variation.VariantImage && variation.VariantImage[0] && variation.VariantImage[0].https ? variation.VariantImage[0].https : null;
                     dataVariation.productImage2 = variation.VariantImage && variation.VariantImage[1] && variation.VariantImage[1].https ? variation.VariantImage[1].https : null;
-        
+
                     resolve(dataVariation);
-                }).fail(function(jqXHR, status, errorThrown) {
+                }).fail(function (jqXHR, status, errorThrown) {
                     var response = $.parseJSON(jqXHR.responseText);
                     console.log(response);
                     reject(errorThrown);
@@ -1759,13 +1768,13 @@
             });
         },
 
-        consultVariations: async function(id, type = "color", name) {
+        consultVariations: async function (id, type = "color", name) {
             const productID = id;
             let list = [];
             let html = "";
-        
+
             function getVariationWithPromise(variation) {
-                return new Promise(function(resolve, reject) {
+                return new Promise(function (resolve, reject) {
                     theme.getVariation(variation.id)
                         .then(resolve)
                         .catch(reject);
@@ -1773,24 +1782,24 @@
             }
 
             function compararTamanhosLoja(a, b) {
-                const ordemTamanhos = ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","UN","PP","P","M","G","GG","XG","XGG","EG","32A","34A","36A","38A","40A","42A","44A","46A","48A","50A","52A","54A","56A","58A","60A","32B","34B","36B","38B","40B","42B","44B","46B","48B","50B","52B","54B","56B","58B","60B","32C","34C","36C","38C","40C","42C","44C","46C","48C","50C","52C","54C","56C","58C","60C","32D","34D","36D","38D","40D","42D","44D","46D","48D","50D","52D","54D","56D","58D","60D","32E","34E","36E","38E","40E","42E","44E","46E","48E","50E","52E","54E","56E","58E","60E","32F","34F","36F","38F","40F","42F","44F","46F","48F","50F","52F","54F","56F","58F","60F","32G","34G","36G","38G","40G","42G","44G","46G","48G","50G","52G","54G","56G","58G","60G","32H","34H","36H","38H","40H","42H","44H","46H","48H","50H","52H","54H","56H","58H","60H","32I","34I","36I","38I","40I","42I","44I","46I","48I","50I","52I","54I","56I","58I","60I","32J","34J","36J","38J","40J","42J","44J","46J","48J","50J","52J","54J","56J","58J","60J","32K","34K","36K","38K","40K","42K","44K","46K","48K","50K","52K","54K","56K","58K","60K","32L","34L","36L","38L","40L","42L","44L","46L","48L","50L","52L","54L","56L","58L","60L","32M","34M","36M","38M","40M","42M","44M","46M","48M","50M","52M","54M","56M","58M","60M","32N","34N","36N","38N","40N","42N","44N","46N","48N","50N","52N","54N","56N","58N","60N","32O","34O","36O","38O","40O","42O","44O","46O","48O","50O","52O","54O","56O","58O","60O","32P","34P","36P","38P","40P","42P","44P","46P","48P","50P","52P","54P","56P","58P","60P","32Q","34Q","36Q","38Q","40Q","42Q","44Q","46Q","48Q","50Q","52Q","54Q","56Q","58Q","60Q","32R","34R","36R","38R","40R","42R","44R","46R","48R","50R","52R","54R","56R","58R","60R","32S","34S","36S","38S","40S","42S","44S","46S","48S","50S","52S","54S","56S","58S","60S","32T","34T","36T","38T","40T","42T","44T","46T","48T","50T","52T","54T","56T","58T","60T","32U","34U","36U","38U","40U","42U","44U","46U","48U","50U","52U","54U","56U","58U","60U","32V","34V","36V","38V","40V","42V","44V","46V","48V","50V","52V","54V","56V","58V","60V","32W","34W","36W","38W","40W","42W","44W","46W","48W","50W","52W","54W","56W","58W","60W","32X","34X","36X","38X","40X","42X","44X","46X","48X","50X","52X","54X","56X","58X","60X","32Y","34Y","36Y","38Y","40Y","42Y","44Y","46Y","48Y","50Y","52Y","54Y","56Y","58Y","60Y","32Z","34Z","36Z","38Z","40Z","42Z","44Z","46Z","48Z","50Z","52Z","54Z","56Z","58Z","60Z"];
-            
+                const ordemTamanhos = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100", "UN", "PP", "P", "M", "G", "GG", "XG", "XGG", "XXGG","EG", "32A", "34A", "36A", "38A", "40A", "42A", "44A", "46A", "48A", "50A", "52A", "54A", "56A", "58A", "60A", "32B", "34B", "36B", "38B", "40B", "42B", "44B", "46B", "48B", "50B", "52B", "54B", "56B", "58B", "60B", "32C", "34C", "36C", "38C", "40C", "42C", "44C", "46C", "48C", "50C", "52C", "54C", "56C", "58C", "60C", "32D", "34D", "36D", "38D", "40D", "42D", "44D", "46D", "48D", "50D", "52D", "54D", "56D", "58D", "60D", "32E", "34E", "36E", "38E", "40E", "42E", "44E", "46E", "48E", "50E", "52E", "54E", "56E", "58E", "60E", "32F", "34F", "36F", "38F", "40F", "42F", "44F", "46F", "48F", "50F", "52F", "54F", "56F", "58F", "60F", "32G", "34G", "36G", "38G", "40G", "42G", "44G", "46G", "48G", "50G", "52G", "54G", "56G", "58G", "60G", "32H", "34H", "36H", "38H", "40H", "42H", "44H", "46H", "48H", "50H", "52H", "54H", "56H", "58H", "60H", "32I", "34I", "36I", "38I", "40I", "42I", "44I", "46I", "48I", "50I", "52I", "54I", "56I", "58I", "60I", "32J", "34J", "36J", "38J", "40J", "42J", "44J", "46J", "48J", "50J", "52J", "54J", "56J", "58J", "60J", "32K", "34K", "36K", "38K", "40K", "42K", "44K", "46K", "48K", "50K", "52K", "54K", "56K", "58K", "60K", "32L", "34L", "36L", "38L", "40L", "42L", "44L", "46L", "48L", "50L", "52L", "54L", "56L", "58L", "60L", "32M", "34M", "36M", "38M", "40M", "42M", "44M", "46M", "48M", "50M", "52M", "54M", "56M", "58M", "60M", "32N", "34N", "36N", "38N", "40N", "42N", "44N", "46N", "48N", "50N", "52N", "54N", "56N", "58N", "60N", "32O", "34O", "36O", "38O", "40O", "42O", "44O", "46O", "48O", "50O", "52O", "54O", "56O", "58O", "60O", "32P", "34P", "36P", "38P", "40P", "42P", "44P", "46P", "48P", "50P", "52P", "54P", "56P", "58P", "60P", "32Q", "34Q", "36Q", "38Q", "40Q", "42Q", "44Q", "46Q", "48Q", "50Q", "52Q", "54Q", "56Q", "58Q", "60Q", "32R", "34R", "36R", "38R", "40R", "42R", "44R", "46R", "48R", "50R", "52R", "54R", "56R", "58R", "60R", "32S", "34S", "36S", "38S", "40S", "42S", "44S", "46S", "48S", "50S", "52S", "54S", "56S", "58S", "60S", "32T", "34T", "36T", "38T", "40T", "42T", "44T", "46T", "48T", "50T", "52T", "54T", "56T", "58T", "60T", "32U", "34U", "36U", "38U", "40U", "42U", "44U", "46U", "48U", "50U", "52U", "54U", "56U", "58U", "60U", "32V", "34V", "36V", "38V", "40V", "42V", "44V", "46V", "48V", "50V", "52V", "54V", "56V", "58V", "60V", "32W", "34W", "36W", "38W", "40W", "42W", "44W", "46W", "48W", "50W", "52W", "54W", "56W", "58W", "60W", "32X", "34X", "36X", "38X", "40X", "42X", "44X", "46X", "48X", "50X", "52X", "54X", "56X", "58X", "60X", "32Y", "34Y", "36Y", "38Y", "40Y", "42Y", "44Y", "46Y", "48Y", "50Y", "52Y", "54Y", "56Y", "58Y", "60Y", "32Z", "34Z", "36Z", "38Z", "40Z", "42Z", "44Z", "46Z", "48Z", "50Z", "52Z", "54Z", "56Z", "58Z", "60Z"];
+
                 const indiceA = a && a.size ? ordemTamanhos.indexOf(a.size.toUpperCase()) : -1;
                 const indiceB = b && b.size ? ordemTamanhos.indexOf(b.size.toUpperCase()) : -1;
-            
+
                 return indiceA - indiceB;
-            }            
-        
+            }
+
             const promises = [];
-        
+
             try {
                 const response = await $.ajax({
                     method: "GET",
                     url: `/web_api/products/${productID}`
                 });
-        
+
                 const variationList = response.Product.Variant;
-        
+
                 if (variationList.length == 0) {
                     return false;
                 }
@@ -1798,35 +1807,35 @@
                 variationList.forEach((variation) => {
                     const promise = getVariationWithPromise(variation);
                     promises.push(promise);
-        
+
                     promise
-                    .then(function(dataVariation) {
-                        if (
-                            dataVariation.color && 
-                            !list.some((v) => v.color && v.color.toLowerCase() === dataVariation.color.toLowerCase()) &&
-                            type === "color"
-                        ) {
-                            list.push(dataVariation);
-                        } else if (
-                            (!dataVariation.color && dataVariation.size) || 
-                            (name && (name.toLowerCase() === dataVariation.color.toLowerCase()) && type === "sizes")
-                        ) {
-                            list.push(dataVariation);
-                        }                                                         
-                    })
-                    .catch(function(error) {
-                        console.error(error);
-                    });
+                        .then(function (dataVariation) {
+                            if (
+                                dataVariation.color &&
+                                !list.some((v) => v.color && v.color.toLowerCase() === dataVariation.color.toLowerCase()) &&
+                                type === "color"
+                            ) {
+                                list.push(dataVariation);
+                            } else if (
+                                (!dataVariation.color && dataVariation.size) ||
+                                (name && (name.toLowerCase() === dataVariation.color.toLowerCase()) && type === "sizes")
+                            ) {
+                                list.push(dataVariation);
+                            }
+                        })
+                        .catch(function (error) {
+                            console.error(error);
+                        });
                 });
 
                 await Promise.all(promises);
-        
-                console.log(list);
-                
+
+                console.log("Cheguei aqui", list);
+
                 if (
-                    list.length > 0 && 
-                    type === "color" && 
-                    (list[0] && list[0].hasOwnProperty("color")) || 
+                    list.length > 0 &&
+                    type === "color" &&
+                    (list[0] && list[0].hasOwnProperty("color")) ||
                     (list[0] && !list[0].hasOwnProperty("size") && list[0].hasOwnProperty("color"))
                 ) {
                     const simple = !list[0].hasOwnProperty("size") && list[0].hasOwnProperty("color");
@@ -1850,11 +1859,11 @@
                     html += '</ul></div>';
                     return html;
                 }
-        
+
                 if (
-                    type === "sizes" && 
-                    list.length > 0 && 
-                    (list[0] && list[0].hasOwnProperty("size")) || 
+                    type === "sizes" &&
+                    list.length > 0 &&
+                    (list[0] && list[0].hasOwnProperty("size")) ||
                     (list[0] && !list[0].hasOwnProperty("color") && list[0].hasOwnProperty("size"))
                 ) {
                     const simple = !list[0].hasOwnProperty("color") && list[0].hasOwnProperty("size");
@@ -1879,6 +1888,7 @@
                     });
                     html += '</ul></div>';
                 }
+
                 return html;
             } catch (error) {
                 html = "NÃÂ£o foi possÃÂ­vel carregar as variaÃÂ§ÃÂµes."
@@ -1887,7 +1897,7 @@
             }
         },
 
-        alertClient: function(reference, success, text) {
+        alertClient: function (reference, success, text) {
             const status = success ? "#0cb570" : "#b50c0c";
             const message = text;
 
@@ -1920,26 +1930,26 @@
             setTimeout(cleanFields, 7000);
         },
 
-        insertToCart: function() {
+        insertToCart: function () {
 
-            $(".product-info .add-cart .button2").off("click").on("click", function() {
+            $(".product-info .add-cart .button2").off("click").on("click", function () {
                 const dataSession = $("html").data("session");
                 const productID = $(this).data("id");
                 const quantity = 1;
                 const generalContainer = $(this).closest(".product-info");
-            
+
                 const hasVariations = $(generalContainer).find(".variations").hasClass("variationsEmpty");
                 const simple = $(this).closest(".product-info").find(".variations-list").hasClass("simple");
-            
+
                 let variantID = null;
-            
+
                 if (!hasVariations) {
                     const colorSelected = $(this).closest(".product-info").find('[data-type="color"] .variation.selected').length > 0;
                     const $selectedSize = $(this).closest(".product-info").find('[data-type="sizes"] .variation.selected').length > 0;
-                
+
                     if (simple) {
                         const type = $(generalContainer).find(".variations-list").data("type");
-                
+
                         if (type === "color") {
                             if (colorSelected > 0) {
                                 variantID = $(this).closest(".product-info").find('[data-type="color"] .variation.selected').data("id");
@@ -1961,7 +1971,7 @@
                             theme.alertClient(generalContainer, false, "Selecione a cor do produto.");
                             return;
                         }
-                
+
                         if ($selectedSize > 0) {
                             variantID = $(this).closest(".product-info").find('[data-type="sizes"] .variation.selected').data("id");
                         } else {
@@ -1970,12 +1980,12 @@
                         }
                     }
                 }
-                            
+
                 if (quantity <= 0) {
                     theme.alertClient(generalContainer, false, "Selecione uma quantidade acima de zero para adicionar o produto na sacola.");
                     return;
                 }
-            
+
                 const $productBuy = $(this).closest(".product-info");
                 $.ajax({
                     method: "POST",
@@ -1989,13 +1999,13 @@
                             variant_id: variantID
                         }
                     })
-                }).done(function(response, textStatus, jqXHRH) {
+                }).done(function (response, textStatus, jqXHRH) {
                     if (response.code === 201 || response.code === 200) {
                         amount();
                         theme.alertClient(generalContainer, true, "Produto adicionado na sacola.");
                         $productBuy.find('[data-type="color"] .variation, [data-type="sizes"] .variation').removeClass("selected");
-                        
-                        if(simple) {
+
+                        if (simple) {
                             return;
                         }
 
@@ -2003,9 +2013,9 @@
                         return;
                     }
                     console.log(response);
-                }).fail(function(jqXHR, status, errorThrown) {
+                }).fail(function (jqXHR, status, errorThrown) {
                     const response = $.parseJSON(jqXHR.responseText);
-            
+
                     if (response.code === 400) {
                         theme.alertClient(generalContainer, false, response.causes[0]);
                         return;
@@ -2017,17 +2027,17 @@
 
         slideVariationsProduct: function (product, globalIndex) {
             const $products = $(product).find(".swiper");
-        
+
             $products.each(function (localIndex, element) {
                 const $product = $(element);
-        
+
                 // Evitar reinicialização do Swiper
                 if ($product.hasClass("swiper-initialized")) {
                     return;
                 }
-        
+
                 const carouselClass = `color-swiper-${globalIndex + localIndex}`;
-        
+
                 // Adicionar botões de navegação para cores
                 if (!$product.siblings(`.swiper-button-prev.var.${carouselClass}`).length) {
                     $product.before(`
@@ -2035,8 +2045,8 @@
                         <div class="swiper-button-next var ${carouselClass}"></div>
                     `);
                 }
-                
-        
+
+
                 // Inicializar Swiper
                 new Swiper($product[0], {
                     slidesPerView: 4,
@@ -2054,16 +2064,16 @@
                 });
             });
         },
-        
+
         addCartFast: function () {
             $(".product-button.add-cart-fast").each(async function (index) {
                 const $button = $(this);
                 const $product = $button.closest(".product");
                 const productId = $button.find('[data-id]').data("id");
-        
+
                 // Obtém as variações
                 const variationsHtml = await theme.consultVariations(productId);
-        
+
                 // Atualiza ou marca como vazio
                 const $variationsContainer = $product.find(".variations");
                 if (!variationsHtml) {
@@ -2071,58 +2081,59 @@
                     $variationsContainer.empty().addClass("variationsEmpty");
                     return;
                 }
+
                 $variationsContainer.html(variationsHtml).removeClass("variationsEmpty");
-        
+
                 // Configurações para variações simples
                 theme.configureVariationClick(
                     $variationsContainer.find('.variations-list.simple .variation'),
                     theme.insertToCart
                 );
-        
+
                 // Configurações para variações compostas (cor)
                 $product
                     .find('.compound[data-type="color"] .variation')
                     .off("click")
                     .on("click", async function () {
                         const $color = $(this);
-        
+
                         // Atualiza imagens do produto com base na cor selecionada
                         theme.updateProductImages($color);
-        
+
                         // Alterna a seleção da cor
                         $product.find('.compound[data-type="color"] .variation.selected')
                             .not($color)
                             .removeClass('selected');
                         $color.toggleClass('selected');
-        
+
                         // Remove tamanhos e carrossel existente se deselecionado ou mudar de cor
                         $product.find('[data-type="sizes"]').parent().remove();
                         $product.find('.swiper-button-prev.var2, .swiper-button-next.var2').remove();
-        
+
                         if (!$color.hasClass('selected')) {
                             // Nenhuma cor está selecionada
                             theme.enableVariationClick($product);
                             return;
                         }
-        
+
                         // Adiciona carregando enquanto busca tamanhos
                         theme.addLoadingElement($product);
-        
+
                         const colorData = $color.data("color");
                         const sizesHtml = await theme.consultVariations(productId, "sizes", colorData);
-        
+
                         // Remove carregando e adiciona os tamanhos correspondentes
                         $product.find('.sizes-loading').remove();
                         const $sizesContainer = $(sizesHtml).addClass('swiper');
                         $variationsContainer.append($sizesContainer);
-        
+
                         // Configura Swiper para tamanhos
                         const sizeCarouselClass = `size-swiper-${index}`;
                         $sizesContainer.parent().before(`
                             <div class="swiper-button-prev var2 ${sizeCarouselClass}"></div>
                             <div class="swiper-button-next var2 ${sizeCarouselClass}"></div>
                         `);
-        
+
                         new Swiper($sizesContainer[0], {
                             slidesPerView: 3,
                             spaceBetween: 12,
@@ -2137,77 +2148,77 @@
                                 nextEl: `.swiper-button-next.var2.${sizeCarouselClass}`,
                             },
                         });
-        
+
                         // Configura evento de clique nos tamanhos
                         theme.configureSizeClickEvent($sizesContainer.find('.variation'));
-        
+
                         // Habilita as interações
                         theme.enableVariationClick($product);
                         theme.insertToCart();
                     });
-        
+
                 // Configurações finais
                 theme.insertToCart();
                 theme.slideVariationsProduct($product, index);
             });
-        },           
-        
-        configureVariationClick: function($elements, callback) {
-            $elements.off("click").on("click", function() {
+        },
+
+        configureVariationClick: function ($elements, callback) {
+            $elements.off("click").on("click", function () {
                 const $variation = $(this);
                 theme.updateVariation($variation);
                 callback($elements);
             });
         },
-        
+
         disableVariationClick: function ($button) {
-            $button.find('.variation').css({"pointer-events": "none", "opacity": "0.5"});
+            $button.find('.variation').css({ "pointer-events": "none", "opacity": "0.5" });
         },
-        
+
         enableVariationClick: function ($button) {
-            $button.find('.variation').css({"pointer-events": "all", "opacity": "1"});
+            $button.find('.variation').css({ "pointer-events": "all", "opacity": "1" });
         },
-        
+
         updateProductImages: function ($color) {
             const urlImg1 = $color.attr("data-images1");
             const urlImg2 = $color.attr("data-images2");
             const img1 = $color.closest(".product-image").find(".product-img:first-child");
             const img2 = $color.closest(".product-image").find(".product-img:last-child");
-        
+
             if (urlImg1 && urlImg1 !== "" && img1) {
                 img1.attr("src", urlImg1);
             }
-        
+
             if (urlImg2 && urlImg2 !== "" && img2) {
                 img2.attr("src", urlImg2);
             }
         },
-        
+
         removeExistingElements: function ($button) {
             $button.find('.sizes-loading').empty();
             $button.find('[data-type="sizes"]').closest(".swiper").empty();
         },
-        
+
         addLoadingElement: function ($button) {
             $button.find('[data-type="color"]').after(`<p class="sizes-loading" style="text-align: center; padding: 0.5rem 0;">Carregando...</p>`);
         },
-        
+
         configureSizeClickEvent: function ($sizes) {
             $sizes.off("click").on("click", function () {
                 $sizes.parent().find('.variation.selected').not($(this)).removeClass('selected');
                 $(this).toggleClass('selected');
             });
         },
-        
+
         updateVariation: function ($variation) {
             $variation.closest('.product-info').find('.variation.selected').not($variation).removeClass('selected');
             $variation.toggleClass('selected');
-        },      
+        },
 
-        slideDifferentials: function() {
+        slideDifferentials: function () {
             const larguraDaTela = window.screen.width;
 
-            if(larguraDaTela > 1024 && $("section.differentials .content").length) {
+            if (larguraDaTela > 1024 && $("section.differentials .content").length) {
                 return;
             }
 
@@ -2225,7 +2236,7 @@
                     delay: 2500,
                     disableOnInteraction: false,
                 },
-                
+
                 breakpoints: {
                     0: {
                         slidesPerView: 1,
@@ -2245,7 +2256,7 @@
             });
         },
 
-        getVideoId: function(url) {
+        getVideoId: function (url) {
             // Express&atilde;o regular para URLs no formato youtube.com/watch?v=ID, youtu.be/ID ou youtube.com/shorts/ID
             const pattern = /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
 
@@ -2257,7 +2268,7 @@
             }
         },
 
-        extractVimeoVideoId: function(url) {
+        extractVimeoVideoId: function (url) {
             const pattern = /vimeo\.com\/(?:video\/|channels\/\w+\/|)(\d+)/;
 
             const match = url.match(pattern);
@@ -2270,18 +2281,18 @@
 
         getVimeoVideoThumbnail: async function (videoId) {
             const apiUrl = `https://vimeo.com/api/v2/video/${videoId}.json`;
-            
+
             try {
                 const response = await fetch(apiUrl);
                 const data = await response.json();
-            
+
                 // A resposta ÃÂ© uma matriz, pois a API retorna um array de informa&ccedil;ÃÂµes do vÃÂ­deo
                 // Aqui, pegamos o primeiro elemento, pois estamos solicitando apenas um vÃÂ­deo
                 const videoInfo = data[0];
-                
+
                 // A URL da thumbnail estar&aacute; disponÃÂ­vel na propriedade "thumbnail_large"
                 const thumbnailUrl = videoInfo.thumbnail_large;
-                
+
                 // Agora vocÃÂª pode usar a URL da thumbnail para exibi-la em sua p&aacute;gina ou onde for necess&aacute;rio
                 return thumbnailUrl;
             } catch (error) {
@@ -2289,12 +2300,12 @@
                 return null; // ou trate o erro de acordo com a necessidade
             }
         },
-        
-        seeEventsVideo: function(id) {
+
+        seeEventsVideo: function (id) {
             // Seleciona a div que ser&aacute; monitorada
             let divMonitorada = $('.gallery-images');
 
-            const iframe =  `
+            const iframe = `
                 <div class="swiper-slide video-frame" data-gallery="image">
                     <iframe id="iframe-video" src="${$('#product-video').data("video")}" frameborder="0"></iframe>
                 </div>
@@ -2311,8 +2322,8 @@
             `;
 
             // Cria uma nova inst&acirc;ncia do MutationObserver
-            let observer = new MutationObserver(function(mutations) {
-                if(
+            let observer = new MutationObserver(function (mutations) {
+                if (
                     !$(".video-frame").length &&
                     !$("[video-thumb]").length &&
                     $("#product-video").length
@@ -2332,40 +2343,40 @@
             // Inicia a observa&ccedil;&atilde;o da div
             observer.observe(divMonitorada[0], options);
 
-            if(window.screen.width < 768) {
-                $('[video-thumb]').on("click", function() {
-                    if($(this).hasClass("clicked")) {
+            if (window.screen.width < 768) {
+                $('[video-thumb]').on("click", function () {
+                    if ($(this).hasClass("clicked")) {
                         return;
                     }
-                    
+
                     theme.productVideo();
                     $(this).addClass("clicked");
                 });
             }
         },
-        
-        clickSingleVariations: function() {
-            $(window).on("load", function() {
-                if(!$('[data-type="color"]').length) {
+
+        clickSingleVariations: function () {
+            $(window).on("load", function () {
+                if (!$('[data-type="color"]').length) {
                     return;
                 }
 
-                $('[data-type="color"]').each(function() {
+                $('[data-type="color"]').each(function () {
                     const variations = $(this).find("li.variation");
-                
-                    if(!variations.length || variations.length > 1) {
+
+                    if (!variations.length || variations.length > 1) {
                         return;
                     }
-                
+
                     variations.click();
                 })
             });
         },
 
-        productVideo: async function() {
+        productVideo: async function () {
             const videoTag = $("#product-video");
 
-            if(videoTag.length) {
+            if (videoTag.length) {
                 const url = videoTag.data("video");
                 let videoId = theme.getVideoId(url);
 
@@ -2373,7 +2384,7 @@
                 $("#iframe-video").attr("height", $(".gallery-images").css("height"));
                 $("#iframe-video").attr("width", $(".gallery-images").css("width"));
 
-                if(videoId != null) {
+                if (videoId != null) {
                     //definindo iframe:
                     $("#iframe-video").attr("src", `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1&loop=1&modestbranding=1`);
 
@@ -2397,14 +2408,14 @@
                             padding: "0 0.45em",
                             objectFit: "cover"
                         });
-                    }, 2000);                        
+                    }, 2000);
                 }
 
                 theme.seeEventsVideo(videoId);
             }
         },
 
-        popupImageView: function() {
+        popupImageView: function () {
             function changeImage(imageSrc) {
                 $("#image-view .gallery-images .gallery-img").attr("src", imageSrc);
             }
@@ -2419,34 +2430,34 @@
                 $("#image-view").hide();
             });
 
-            $("#image-view .gallery-thumbs .gallery-img").on("click", function() {
+            $("#image-view .gallery-thumbs .gallery-img").on("click", function () {
                 const image = $(this).attr("src");
                 changeImage(image);
             });
 
-            $("#image-view").on("click", function(event) {
+            $("#image-view").on("click", function (event) {
                 if (!$(event.target).closest("div#content-popup").length) {
-                  $("#image-view").hide();
+                    $("#image-view").hide();
                 }
             });
         },
 
-        scrollToComments: function() {
-            $(window).on("load", function() {
-                if(window.location.hash === "#coments") {
+        scrollToComments: function () {
+            $(window).on("load", function () {
+                if (window.location.hash === "#coments") {
                     $('.pageProduct-price + a>div').trigger("click");
                 }
             });
         },
-        
-        searchOrder: function() {
-            if(!$("form.rastrear").length) {
+
+        searchOrder: function () {
+            if (!$("form.rastrear").length) {
                 return;
             }
 
             const baseURI = 'https://app.melhorrastreio.com.br/app/';
 
-            $("form.rastrear").on("submit", function(e) {
+            $("form.rastrear").on("submit", function (e) {
                 e.preventDefault();
 
                 const codigo = $("form.rastrear input").val();
@@ -2537,7 +2548,7 @@
             theme.insertBreadcrumbNavigationInPage('wishlist');
         } else if ($('html').hasClass('page-extra')) {
             theme.insertBreadcrumbNavigationInPage('Sistema de Afiliados', true);
-        } else if (!$('html').hasClass('page-product') && !$('html').hasClass('page-catalog') && !$('html').hasClass('page-search')){
+        } else if (!$('html').hasClass('page-product') && !$('html').hasClass('page-catalog') && !$('html').hasClass('page-search')) {
             theme.insertBreadcrumbNavigationInPage();
         }
     });
