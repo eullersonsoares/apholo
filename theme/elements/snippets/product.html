@@ -1,21 +1,28 @@
 {% set video_url = product.video %}
 
-{% set video_url_base = video_url | replace({'https://www.youtube.com/embed/': '', 'https://www.youtube.com/shorts/': '', 'https://vimeo.com/': ''}) %}
+{% set video_id = "" %}
+{% set embed_url = "" %}
 
-{% if video_url starts with 'https://www.youtube.com/embed/' %}
-    {% set video_id = video_url_base | split('?')[0] %}
-    {% set embed_url = "https://www.youtube.com/embed/" ~ video_id ~ "?autoplay=1&mute=1&controls=0&loop=1&playlist=" ~ video_id ~ "&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3" %}
+{% if video_url %}
+    {% if 'youtube.com/watch?v=' in video_url %}
+        {% set video_id = video_url | replace({'https://www.youtube.com/watch?v=': ''}) | split('&')[0] %}
+    {% elseif 'youtu.be/' in video_url %}
+        {% set video_id = video_url | replace({'https://youtu.be/': ''}) | split('?')[0] %}
+    {% elseif 'youtube.com/embed/' in video_url %}
+        {% set video_id = video_url | replace({'https://www.youtube.com/embed/': ''}) | split('?')[0] %}
+    {% elseif 'www.youtube.com/shorts/' in video_url %}
+        {% set video_id = video_url | replace({'https://www.youtube.com/shorts/': ''}) | split('?')[0] %}   
+    {% elseif 'youtube.com/shorts/' in video_url %}
+        {% set video_id = video_url | replace({'https://youtube.com/shorts/': ''}) | split('?')[0] %}
+    {% elseif 'vimeo.com/' in video_url %}
+        {% set video_id = video_url | replace({'https://vimeo.com/': ''}) | split('?')[0] %}
+    {% endif %}
 
-{% elseif video_url starts with 'https://www.youtube.com/shorts/' %}
-    {% set video_id = video_url_base | split('?')[0] %}
-    {% set embed_url = "https://www.youtube.com/embed/" ~ video_id ~ "?autoplay=1&mute=1&controls=0&loop=1&playlist=" ~ video_id ~ "&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3" %}
-
-{% elseif video_url starts with 'https://vimeo.com/' %}
-    {% set video_id = video_url_base %}
-    {% set embed_url = "https://player.vimeo.com/video/" ~ video_id ~ "?autoplay=1&muted=1&loop=1" %}
-
-{% else %}
-    {% set embed_url = "" %}
+    {% if video_id and 'vimeo.com' in video_url %}
+        {% set embed_url = "https://player.vimeo.com/video/" ~ video_id ~ "?autoplay=1&muted=1&loop=1" %}
+    {% elseif video_id %}
+        {% set embed_url = "https://www.youtube.com/embed/" ~ video_id ~ "?autoplay=1&mute=1&controls=0&loop=1&playlist=" ~ video_id ~ "&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3" %}
+    {% endif %}
 {% endif %}
 
 {# Debugging: Mostrar valores para verificação 
@@ -61,23 +68,23 @@
         <a href="{{ product.link }}" class='product-link {{ product.images[1].large ? "hover-images" }} {{ embed_url ? "product-video" }}'>
             {% if product.images[1].full and not embed_url %}
                 <img
-                    class="product-img lazyload"
-                    src="{{ product.images[0].full }}"
+                    class="product-img lazy"
+                    data-src="{{ product.images[0].full }}"
                     alt="{{ product.name }}"
                     width="450"
                     height="450"
                 />
                 <img
-                    class="product-img lazyload"
-                    src="{{ product.images[1].full }}"
+                    class="product-img lazy"
+                    data-src="{{ product.images[1].full }}"
                     alt="{{ product.name }}"
                     width="450"
                     height="450"
                 />
             {% else %} 
                 <img
-                    class="product-img lazyload"
-                    src="{{ product.images[0].full }}"
+                    class="product-img lazy"
+                    data-src="{{ product.images[0].full }}"
                     alt="{{ product.name }}"
                     width="450"
                     height="450"
@@ -94,6 +101,7 @@
                     allow="autoplay; encrypted-media" 
                     allowfullscreen
                     style="position: absolute; top: 0; left: 0; z-index: -1; margin-top: 0em"
+                    loading="lazy"
                     >
                 </iframe>
             {% endif %}

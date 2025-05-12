@@ -15,7 +15,7 @@
                 {% for slide in banners.home.slides %}
                 <div{{ loop.index == 1 ? ' class="first-slide"' }}>
                     <a href="{{ slide.link }}" target="{{ slide.target }}">
-                        <img data-lazy="{{ slide.image }}" alt="{{ slide.label }}">
+                        <img{{ loop.index > 1 ? ' class="lazy"' }} data-lazy="{{ slide.image }}" alt="{{ slide.label }}">
                     </a>
                 </div>
                 {% endfor %}

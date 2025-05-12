@@ -8,7 +8,7 @@
         height : image.height
     } %}
 
-    {% set lazy_class         = swiper ? 'swiper-lazy' : 'lazyload' %}
+    {% set lazy_class         = swiper ? 'swiper-lazy' : 'lazy' %}
     {% set padding_percentage = ((item.height / item.width) * 100) %}
 
     <{{ item.link ? 'a href="'~ item.link ~'" class="banner-link"' : 'span' }} 
@@ -18,25 +18,13 @@
     {% if padding %} 
         style="--padding: {{ padding_percentage }}%" 
     {% endif %}>
-
-    {% if not isSlide %}
-        <picture>
-            <source media="(max-width: 768px)" data-srcset="
-                {{ id == 'bottom' ? banners.extra10.src :
-                    id == 'footer' ? banners.extra11.src :
-                    id == 'title' ? banners.extra12.src 
-                }}                
-            ">
-    {% endif %}  
-            <img class="banner-img {{ swiper ? lazy_class : ( not isSlide ? lazy_class ) }}"
+        <img class="banner-img {{ swiper ? lazy_class : ( not isSlide ? lazy_class ) }}"
             {% if swiper or ( not swiper and not isSlide) %}
             src="{{ asset('img/empty.png') }}"        
             data-{% endif %}src="{{ item.src }}" 
             alt="{{ item.alt ? item.alt : 'Banner' }}" 
             width="{{ item.width }}" height="{{ item.height }}">
-    {% if not isSlide %}
-        </picture>
-    {% endif %}
+    
     </{{ item.link ? 'a' : 'span' }}>
 
 {% endif %}

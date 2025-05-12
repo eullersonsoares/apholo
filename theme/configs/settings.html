@@ -2805,6 +2805,37 @@
         font-size: 14px;
         font-weight: 600;
     }
+
+    .depoimento {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .depoimento .d-flex.option {
+        display: flex;
+        align-items: center;
+        min-width: 75%;
+        gap: 1em;
+    }
+
+    .depoimento .msg {
+        min-width: 25%;
+    }
+
+    .depoimento input.textarea {
+        width: 100%;
+        min-height: 35px;
+        border: none;
+        background: #eaeaea;
+        padding: 15px;
+        border-radius: 5px;
+    }
+
+    .depoimento [placeholder="Nome do depoimento"] {
+        min-height: 35px;
+        padding: 14px !important;
+    }
 </style>
 
 <div class="tray-loader">
@@ -4382,22 +4413,191 @@
 
                                 <div class="tab-header">
                                     <div class="title-col">Depoimentos</div>
-                                    <div class="msg">Configura&ccedil;&otilde;es dos depoimentos na p&aacute;gina
-                                        inicial</div>
+                                    <div class="msg">Configura&ccedil;&otilde;es dos depoimentos na p&aacute;gina inicial.</div>
                                 </div>
 
                                 <div class="tab-content">
                                     <div class="box-section mb-0">
                                         <div class="title flex justify-between align-center">
-                                            <span>Exibir bloco de depoimentos</span>
+                                            <span>Exibir seção de depoimentos</span>
                                             <label class="check-drag">
-                                                <input type="checkbox" name="show_reviews" value="1">
+                                                <input type="checkbox" name="show_sections_reviews" value="1">
                                                 <span class="icon"></span>
                                             </label>
                                         </div>
+
+                                        <div class="depoimento">
+                                            <div class="msg">Depoimento 1</div>
+                                            <div class="d-flex option" style="margin: 1em 0px 0;">
+                                                <input type="text" placeholder="Nome do depoimento" name="name_review_1" style="width: 75%">
+                                                <label class="input-area">
+                                                    <select class="select-input" name="stars_review_1">
+                                                        <option value="">Avaliação (Estrelas):</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </label>
+                                            </div>
+                                        
+                                            <input class="textarea" name="message_review_1" rows="4" cols="50" placeholder="Depoimento do cliente...">
+                                        </div>
+
+                                        <div class="depoimento">
+                                            <div class="msg">Depoimento 2</div>
+                                            <div class="d-flex option" style="margin: 1em 0px 0;">
+                                                <input type="text" placeholder="Nome do depoimento" name="name_review_2" style="width: 75%">
+                                                <label class="input-area">
+                                                    <select class="select-input" name="stars_review_2">
+                                                        <option value="">Avaliação (Estrelas):</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </label>
+                                            </div>
+                                        
+                                            <input class="textarea" name="message_review_2" rows="4" cols="50" placeholder="Depoimento do cliente...">
+                                        </div>
+
+                                        <div class="depoimento">
+                                            <div class="msg">Depoimento 3</div>
+                                            <div class="d-flex option" style="margin: 1em 0px 0;">
+                                                <input type="text" placeholder="Nome do depoimento" name="name_review_3" style="width: 75%">
+                                                <label class="input-area">
+                                                    <select class="select-input" name="stars_review_3">
+                                                        <option value="">Avaliação (Estrelas):</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </label>
+                                            </div>
+                                        
+                                            <input class="textarea" name="message_review_3" rows="4" cols="50" placeholder="Depoimento do cliente...">
+                                        </div>
+
+                                        <div class="depoimento">
+                                            <div class="msg">Depoimento 4</div>
+                                            <div class="d-flex option" style="margin: 1em 0px 0;">
+                                                <input type="text" placeholder="Nome do depoimento" name="name_review_4" style="width: 75%">
+                                                <label class="input-area">
+                                                    <select class="select-input" name="stars_review_4">
+                                                        <option value="">Avaliação (Estrelas):</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </label>
+                                            </div>
+                                        
+                                            <input class="textarea" name="message_review_4" rows="4" cols="50" placeholder="Depoimento do cliente...">
+                                        </div>
+
+                                        <div class="depoimento">
+                                            <div class="msg">Depoimento 5</div>
+                                            <div class="d-flex option" style="margin: 1em 0px 0;">
+                                                <input type="text" placeholder="Nome do depoimento" name="name_review_5" style="width: 75%">
+                                                <label class="input-area">
+                                                    <select class="select-input" name="stars_review_5">
+                                                        <option value="">Avaliação (Estrelas):</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </label>
+                                            </div>
+                                        
+                                            <input class="textarea" name="message_review_5" rows="4" cols="50" placeholder="Depoimento do cliente...">
+                                        </div>
+
+                                        <div class="depoimento">
+                                            <div class="msg">Depoimento 6</div>
+                                            <div class="d-flex option" style="margin: 1em 0px 0;">
+                                                <input type="text" placeholder="Nome do depoimento" name="name_review_6" style="width: 75%">
+                                                <label class="input-area">
+                                                    <select class="select-input" name="stars_review_6">
+                                                        <option value="">Avaliação (Estrelas):</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </label>
+                                            </div>
+                                        
+                                            <input class="textarea" name="message_review_6" rows="4" cols="50" placeholder="Depoimento do cliente...">
+                                        </div>
+
+                                        <div class="depoimento">
+                                            <div class="msg">Depoimento 7</div>
+                                            <div class="d-flex option" style="margin: 1em 0px 0;">
+                                                <input type="text" placeholder="Nome do depoimento" name="name_review_7" style="width: 75%">
+                                                <label class="input-area">
+                                                    <select class="select-input" name="stars_review_7">
+                                                        <option value="">Avaliação (Estrelas):</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </label>
+                                            </div>
+                                        
+                                            <input class="textarea" name="message_review_7" rows="4" cols="50" placeholder="Depoimento do cliente...">
+                                        </div>
+
+                                        <div class="depoimento">
+                                            <div class="msg">Depoimento 8</div>
+                                            <div class="d-flex option" style="margin: 1em 0px 0;">
+                                                <input type="text" placeholder="Nome do depoimento" name="name_review_8" style="width: 75%">
+                                                <label class="input-area">
+                                                    <select class="select-input" name="stars_review_8">
+                                                        <option value="">Avaliação (Estrelas):</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </label>
+                                            </div>
+                                        
+                                            <input class="textarea" name="message_review_8" rows="4" cols="50" placeholder="Depoimento do cliente...">
+                                        </div>
+
+                                        <div class="depoimento">
+                                            <div class="msg">Depoimento 9</div>
+                                            <div class="d-flex option" style="margin: 1em 0px 0;">
+                                                <input type="text" placeholder="Nome do depoimento" name="name_review_9" style="width: 75%">
+                                                <label class="input-area">
+                                                    <select class="select-input" name="stars_review_9">
+                                                        <option value="">Avaliação (Estrelas):</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </label>
+                                            </div>
+                                        
+                                            <input class="textarea" name="message_review_9" rows="4" cols="50" placeholder="Depoimento do cliente...">
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
 
                             <!-- Store reviews -->
@@ -5276,7 +5476,7 @@
 
             init: function () {
 
-                console.log('[Tray Dashboard] Organizing itens and loading resources..');
+                //console.log('[Tray Dashboard] Organizing itens and loading resources..');
 
                 /* Structure functions calls */
                 this.organizeTrayElements();
@@ -5297,7 +5497,7 @@
                 /* Show dashboard */
                 this.showDashboard();
 
-                console.log('[Tray Dashboard] Done! Tray Dashboard ready.');
+                //console.log('[Tray Dashboard] Done! Tray Dashboard ready.');
 
             },
 

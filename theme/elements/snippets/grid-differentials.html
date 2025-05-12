@@ -5,7 +5,7 @@
         <li class="differential">
             {% if settings.diferencial_grid_image_1 %}
             <div class="image">
-                <img src="{{ asset(settings.diferencial_grid_image_1) }}" alt="{{ settings.dif_grid_01_title }}">
+                <img class="lazy" data-src="{{ asset(settings.diferencial_grid_image_1) }}" alt="{{ settings.dif_grid_01_title }}">
             </div>
             {% endif %}
             {% if settings.dif_grid_01_title or settings.dif_grid_01_text %}
@@ -26,7 +26,7 @@
         <li class="differential">
             {% if settings.diferencial_grid_image_2 %}
             <div class="image">
-                <img src="{{ asset(settings.diferencial_grid_image_2) }}" alt="{{ settings.dif_grid_02_title }}">
+                <img class="lazy" data-src="{{ asset(settings.diferencial_grid_image_2) }}" alt="{{ settings.dif_grid_02_title }}">
             </div>
             {% endif %}
             {% if settings.dif_grid_02_title or settings.dif_grid_02_text %}
@@ -47,7 +47,7 @@
         <li class="differential">
             {% if settings.diferencial_grid_image_3 %}
             <div class="image">
-                <img src="{{ asset(settings.diferencial_grid_image_3) }}" alt="{{ settings.dif_grid_03_title }}">
+                <img class="lazy" data-src="{{ asset(settings.diferencial_grid_image_3) }}" alt="{{ settings.dif_grid_03_title }}">
             </div>
             {% endif %}
             {% if settings.dif_grid_03_title or settings.dif_grid_03_text %}
@@ -68,7 +68,7 @@
         <li class="differential">
             {% if settings.diferencial_grid_image_4 %}
             <div class="image">
-                <img src="{{ asset(settings.diferencial_grid_image_4) }}" alt="{{ settings.dif_grid_04_title }}">
+                <img class="lazy" data-src="{{ asset(settings.diferencial_grid_image_4) }}" alt="{{ settings.dif_grid_04_title }}">
             </div>
             {% endif %}
             {% if settings.dif_grid_04_title or settings.dif_grid_04_text %}
@@ -89,7 +89,7 @@
         <li class="differential">
             {% if settings.diferencial_grid_image_5 %}
             <div class="image">
-                <img src="{{ asset(settings.diferencial_grid_image_5) }}" alt="{{ settings.dif_grid_05_title }}">
+                <img class="lazy" data-src="{{ asset(settings.diferencial_grid_image_5) }}" alt="{{ settings.dif_grid_05_title }}">
             </div>
             {% endif %}
             {% if settings.dif_grid_05_title or settings.dif_grid_05_text %}

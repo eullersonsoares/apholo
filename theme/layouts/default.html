@@ -29,28 +29,7 @@
         {{ tray.analytics }} 
         {{ googleTagManager.header(pages.current, tagManagerData) }}
 
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-PW9GZG2P');</script>
-        <!-- End Google Tag Manager -->
-
-        <script type="text/javascript">
-            (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "n5pvuh6d5d");
-        </script>
-
-        <script>
-            (function(e,t,o,n,p,r,i){e.visitorGlobalObjectAlias=n;e[e.visitorGlobalObjectAlias]=e[e.visitorGlobalObjectAlias]||function(){(e[e.visitorGlobalObjectAlias].q=e[e.visitorGlobalObjectAlias].q||[]).push(arguments)};e[e.visitorGlobalObjectAlias].l=(new Date).getTime();r=t.createElement("script");r.src=o;r.async=true;i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)})(window,document,"https://diffuser-cdn.app-us1.com/diffuser/diffuser.js","vgo");
-            vgo('setAccount', '652446405');
-            vgo('setTrackByDefault', true);
-            vgo('process');
-        </script>
+        <script id="sizebay-vfr-v4" src="https://static.sizebay.technology/5521/prescript.js"></script>
     </head>
     <body>
         {{ googleTagManager.top(pages.current, tagManagerData) }} 
@@ -64,6 +43,28 @@
 
             <main class="default-main">
                 {% if not ('home' in pages.current) %}
+                    <div class="" id="varejo">
+                        <section class="section">
+                            <div class="content">
+                                <div class="stars">
+                                    <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
+                                    <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
+                                    <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
+                                </div>
+                                <div class="texto">Revendedor autorizado desde 2018</div>
+                                <div class="stars">
+                                    <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
+                                    <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
+                                    <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    
+                    {% if pages.current in ['home', 'catalog']%}
+                        {% element 'snippets/highlighted-categories' %}
+                    {% endif %}
+
                     <div class="default-content {{ pages.current in ['catalog', 'home', 'search'] ? ' not-padding' }}">
                 {% endif %} 
                     {% if "central" in pages.current %}
@@ -74,6 +75,28 @@
                             </div>
                         </div>
                     {% elseif 'home' in pages.current %} 
+                        <div class="" id="varejo">
+                            <section class="section">
+                                <div class="content">
+                                    <div class="stars">
+                                        <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
+                                        <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
+                                        <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
+                                    </div>
+                                    <div class="texto">Revendedor autorizado desde 2018</div>
+                                    <div class="stars">
+                                        <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
+                                        <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
+                                        <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        
+                        {% if pages.current in ['home', 'catalog']%}
+                            {% element 'snippets/highlighted-categories' %}
+                        {% endif %}
+                        
                         {{ content_for_layout }} 
                     {% else %} 
                         {% set special_pages = [ 'listas', 'depoimentos-de-clientes', 'noticias' ] %} 
@@ -135,13 +158,6 @@
         {% element 'snippets/popup-video' %}
 
         <script src="{{ asset('js/cart-interaction.js') }}"></script>
-
-        <!-- Google Tag Manager (noscript) -->
-        <noscript>
-            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW9GZG2P"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe>
-        </noscript>
-        <!-- End Google Tag Manager (noscript) -->
 
     </body>
 </html>

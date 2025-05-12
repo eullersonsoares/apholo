@@ -1,24 +1,50 @@
 {% set produtos = Products() %}
 {% set variationsList = [] %}
-{% set variationsShow = ["P", "M", "G", "GG", "XG", "XXGG"] %} {# Corrigido o nome da variável #}
+{% set variationsShow = ["P", "M", "G", "GG", "XG", "XGG", "XXGG"] %}
 
-<div class="filtro-variacoes" style="{{ pages.current in ['catalog', 'search'] ? 'margin-top: -1rem;' }}">
+{% if pages.current == "catalog" %}
+    {% set produtos = Products({
+        'categories': [category.id]
+    }) %}
+{% endif %}
+
+<div class="filtro-variacoes" style="{{ pages.current in ['catalog', 'search'] ? 'width: 100%;' }}">
     <section class="section">
-        {% if pages.current not in ['catalog', 'search'] %}
-            <div class="section-title">Compre por Tamanho</div>
-        {% endif %}
+        <div class="section-title">COMPRE POR TAMANHO</div>
         <ul class="list-filter">
-            {% for product in produtos %}
-                {% for variantArray in product.variants %}
-                    {% for variant in variantArray.Sku %}
-                        {% if variant.type == "Tamanho" %}
-                            {% if variant.value not in variationsList and variant.value in variationsShow %}
-                                {% set variationsList = variationsList | merge([variant.value]) %}
-                                <li class="filter-item">
-                                    <a class="button2" href="/loja/busca.php?loja={{ store.id }}&variants%5B%5D=Tamanho%7C%7C{{ variant.value }}{{ pages.current == 'catalog' ? '&categoria=' ~ category.id}}">{{ variant.value }}</a>
-                                </li>
-                            {% endif %}
-                        {% endif %}
+            {% if pages.current == "catalog" %}
+                {% for product in produtos %}
+                    {% for variantArray in product.variants %}
+                        {% for variant in variantArray.Sku if variant.type == 'Tamanho' and variant.value not in variationsList %}
+                            {% set variationsList = variationsList | merge([variant.value]) %}
+                        {% endfor %}
+                    {% endfor %}
+                {% endfor %}
+
+                {% for variant in variationsList | sort %}
+                    {% if variant not in variationsShow %}
+                        <li class="filter-item">
+                            <a class="button2" 
+                            href="/loja/busca.php?loja={{ store.id }}&variants[]=Tamanho||{{ variant }}{% if pages.current == 'catalog' %}&categoria={{ category.id }}{% endif %}">
+                                {{ variant | upper }}
+                            </a>
+                        </li>
+                        
+                    {% endif %}
+                {% endfor %}
+                
+                {% set variationsList = [] %}
+            {% endif %}
+
+            {% for size in variationsShow %}
+                {% for product in produtos %}
+                    {% for variantArray in product.variants %}
+                        {% for variant in variantArray.Sku if variant.type == 'Tamanho' and variant.value == size and variant.value not in variationsList %}
+                            {% set variationsList = variationsList | merge([variant.value]) %}
+                            <li class="filter-item">
+                                <a class="button2" href="/loja/busca.php?loja={{ store.id }}&variants[]=Tamanho||{{ variant.value }}{{ pages.current == 'catalog' ? '&categoria=' ~ category.id }}">{{ variant.value | upper }}</a>
+                            </li>
+                        {% endfor %}
                     {% endfor %}
                 {% endfor %}
             {% endfor %}

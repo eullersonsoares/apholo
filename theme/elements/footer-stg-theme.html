@@ -10,7 +10,7 @@
 
         <div class="info-enterprise">
             {% if settings.logo_footer %}
-                <img class="logo-footer" src="{{ asset(settings.logo_footer) }}"
+                <img class="logo-footer lazy" data-src="{{ asset(settings.logo_footer) }}"
                     alt="{{ store.name }}"
                     {% if not utils.is_mobile and settings.width_logo_desktop or height_logo_desktop %}
                         width='{{ (settings.width_logo_desktop) ? settings.width_logo_desktop : "222px" }}' 

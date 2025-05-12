@@ -210,10 +210,11 @@
                     breakpoints: {
                         0: {
                             slidesPerView: 5,
-                            spaceBetween: 7
+                            spaceBetween: 0
                         },
                         680: {
                             slidesPerView: 5,
+                            spaceBetween: 0
                         },
                         900: {
                             slidesPerView: 6,
@@ -353,6 +354,12 @@
             const altura = (window.screen.width < 900 && frameSizes === "16x9") ? window.screen.height * 0.225 : window.screen.height * 0.7;
             const largura = altura * proporcoes;
 
+            $("#preview").on("load", function () {
+                setTimeout(function() {
+                    $(".loading-image").remove();
+                }, 3000);
+            });
+
             $("div#popup-video iframe").css({
                 height: altura,
                 width: largura
@@ -377,138 +384,111 @@
         },
 
         vipListPopup: function () {
-            const sessao = $('[data-session]').data('session');
             const vipPopup = $('#lista-vip');
             const popupContent = $('#content-popup');
             const btnClose = $('#btn-close');
             const vipForm = $('#vip-list');
             const LOCAL_STORAGE_KEYS = {
                 VISUALIZED: 'visualized',
-                SESSION: 'session',
             };
-
-            // Funções auxiliares para manipulação do Local Storage
+        
             const addToLocalStorage = (key, value) => localStorage.setItem(key, value);
             const isPopupNeeded = () => {
                 const isVisualized = localStorage.getItem(LOCAL_STORAGE_KEYS.VISUALIZED);
-                const storedSession = localStorage.getItem(LOCAL_STORAGE_KEYS.SESSION);
-                return !isVisualized || storedSession !== sessao;
+                return !isVisualized;
             };
-
-            // Exibe o popup se necessário
+        
             if (isPopupNeeded()) {
-                vipPopup.addClass('visible'); // Use uma classe CSS para visibilidade
+                vipPopup.addClass('visible');
             }
-
-            // Eventos
+        
             vipPopup.on('click', function (event) {
                 if (!$(event.target).closest(popupContent).length) {
-                    vipPopup.removeClass('visible');
-                    addToLocalStorage(LOCAL_STORAGE_KEYS.VISUALIZED, 'true');
-                    addToLocalStorage(LOCAL_STORAGE_KEYS.SESSION, sessao);
+                    fecharPopup();
                 }
             });
-
-            btnClose.on('click', function () {
+        
+            btnClose.on('click', fecharPopup);
+        
+            function fecharPopup() {
                 vipPopup.removeClass('visible');
                 addToLocalStorage(LOCAL_STORAGE_KEYS.VISUALIZED, 'true');
-                addToLocalStorage(LOCAL_STORAGE_KEYS.SESSION, sessao);
-            });
-
+            }
+        
             vipForm.on('submit', function () {
                 addToLocalStorage(LOCAL_STORAGE_KEYS.VISUALIZED, 'true');
-                addToLocalStorage(LOCAL_STORAGE_KEYS.SESSION, sessao);
             });
         },
-
+        
         eventsFormListPopup: function () {
             function copiaCupom() {
-                $("#cupom").on("click", function () {
-                    // Texto a ser copiado
-                    const texto = "PRIMEIRA15";
-
-                    // Cria um elemento de input temporÃÂ¡rio para armazenar o texto
-                    const inputTemp = $('<input>');
-                    $('body').append(inputTemp);
-                    inputTemp.val(texto).trigger("select");
-
-                    // Copia o texto selecionado para a ÃÂ¡rea de transferÃÂªncia
+                $("#cupom").off("click").on("click", function () {
+                    const texto = "PRIMEIRA5";
+                    const inputTemp = $('<input>').val(texto).appendTo('body').select();
                     document.execCommand('copy');
-
-                    // Remove o input temporÃÂ¡rio
                     inputTemp.remove();
-
-                    // Atualiza a mensagem de status
+        
                     const status = $('#cupom');
                     status.text('COPIADO!').addClass('copiado');
-
-                    // Remove a mensagem de status apÃÂ³s 2 segundos
+        
                     setTimeout(function () {
                         status.html(`
-                            <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m6 18h-3c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v3h3c.621 0 1 .522 1 1v14c0 .621-.522 1-1 1h-14c-.48 0-1-.379-1-1zm1.5-10.5v13h13v-13zm9-1.5v-2.5h-13v13h2.5v-9.5c0-.481.38-1 1-1z" fill-rule="nonzero"/></svg>
-                            PRIMEIRA15
+                            <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="m6 18h-3c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v3h3c.621 0 1 .522 1 1v14c0 .621-.522 1-1 1h-14c-.48 0-1-.379-1-1zm1.5-10.5v13h13v-13zm9-1.5v-2.5h-13v13h2.5v-9.5c0-.481.38-1 1-1z" fill-rule="nonzero"/>
+                            </svg>
+                            PRIMEIRA5
                         `).removeClass('copiado');
                     }, 2000);
                 });
             }
-
+        
             function redireciona() {
-                const sessao = $('[data-session]').data("session");
-                localStorage.setItem("session", sessao);
                 localStorage.setItem("visualized", "true");
                 $("#real-form .revendedor-button.button2").trigger("click");
             }
-
+        
             function contagemRegressiva(time) {
-                if (time == 0) {
+                if (time === 0) {
                     redireciona();
                     return;
                 }
-
-                const text = `Em <b>${time} segundos</b> voc&ecirc; ser&aacute; redirecionado para <br>confirmar o seu cadastro`;
-                $('#redirecionamento').html(text);
-
-                setTimeout(function () {
-                    contagemRegressiva(time - 1);
-                }, 1000);
+        
+                $('#redirecionamento').html(`Em <b>${time} segundos</b> voc&ecirc; ser&aacute; redirecionado para <br>confirmar o seu cadastro`);
+                setTimeout(() => contagemRegressiva(time - 1), 1000);
             }
-
-            //preenchendo nome:
-            $('form#vip-list [name="name"]').on("input", function () {
-                const nome = $(this).val();
-                $('#real-form [name="name"]').val(nome);
+        
+            $("#vip-list [name='name']").on("input", function () {
+                $('#real-form [name="name"]').val($(this).val());
             });
-
-            //preenchendo e-mail:
-            $('form#vip-list [name="email"]').on("input", function () {
-                const email = $(this).val();
-                $('#real-form [name="email"]').val(email);
+        
+            $("#vip-list [name='email']").on("input", function () {
+                $('#real-form [name="email"]').val($(this).val());
             });
-
-            //pegando o evento de submissÃÂ£o e comunicando:
+        
             $("#vip-list").on("submit", function (e) {
                 e.preventDefault();
-                $('form#vip-list [name="name"]').css("pointer-events", "none");
-                $('form#vip-list [name="email"]').css("pointer-events", "none");
-
-                const html = `
-                    <div id="notifica-cupom">
-                        <div id="cupom" title="Clique para copiar o cupom!">
-                            <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m6 18h-3c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v3h3c.621 0 1 .522 1 1v14c0 .621-.522 1-1 1h-14c-.48 0-1-.379-1-1zm1.5-10.5v13h13v-13zm9-1.5v-2.5h-13v13h2.5v-9.5c0-.481.38-1 1-1z" fill-rule="nonzero"/></svg>
-                            PRIMEIRA15
+                $("#vip-list [name='name'], #vip-list [name='email']").css("pointer-events", "none");
+                localStorage.setItem("session", $('[data-session]').data("session"));
+                localStorage.setItem("visualized", "true");
+        
+                if (!$("#notifica-cupom").length) {
+                    $("#vip-list .revendedor-button.button2").after(`
+                        <div id="notifica-cupom">
+                            <div id="cupom" title="Clique para copiar o cupom!">
+                                <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="m6 18h-3c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v3h3c.621 0 1 .522 1 1v14c0 .621-.522 1-1 1h-14c-.48 0-1-.379-1-1zm1.5-10.5v13h13v-13zm9-1.5v-2.5h-13v13h2.5v-9.5c0-.481.38-1 1-1z" fill-rule="nonzero"/>
+                                </svg>
+                                PRIMEIRA5
+                            </div>
+                            <p class="text">Clique para copiar o cupom</p>
+                            <div id="redirecionamento"></div>
                         </div>
-                        <p class="text">Clique para copiar o cupom</p>
-                        <div id="redirecionamento"></div>
-                    </div>
-                `;
-
-                if (!$("notifica-cupom").length) {
-                    $("#vip-list .revendedor-button.button2").after(html);
+                    `);
                     contagemRegressiva(10);
                     copiaCupom();
                 }
             });
-        },
+        },                
 
         cookiesInteracion: function () {
             const consent = "I accept";
@@ -842,7 +822,7 @@
             const modal = $('[data-modal="video"]');
 
             video.on('click', function () {
-                modal.find('iframe').addClass('lazyload').attr('src', $(this).data('url'));
+                modal.find('iframe').addClass('lazy').attr('src', $(this).data('url'));
             });
         },
 
@@ -1224,7 +1204,7 @@
                 const link = $(this).parent().attr('href') || '';
                 const name = $(this).attr('alt');
 
-                $(this).addClass('buyTogether-img lazyload').attr('src', '').attr('src', bigImgUrl);
+                $(this).addClass('buyTogether-img lazy').attr('src', '').attr('src', bigImgUrl);
 
                 if (link !== '') {
                     $(this).unwrap();
@@ -1341,14 +1321,14 @@
                 htmlImages += `
                     <div class="swiper-slide gallery-image" data-gallery="image" data-index="${slideIndex}">
                         <div class="zoom">
-                            <img class="gallery-img${slideIndex === 1 ? ' swiper-lazy' : ' lazyload'}" data-src="${item.https}" src="${item.https}" alt="${productName}">
+                            <img class="gallery-img${slideIndex === 1 ? ' swiper-lazy' : ' lazy'}" data-src="${item.https}" src="${item.https}" alt="${productName}">
                         </div>
                     </div>
                 `;
 
                 htmlThumbs += `
                     <div class="swiper-slide gallery-thumb" data-gallery="image">
-                        <img class="gallery-img${slideIndex === 1 ? ' swiper-lazy' : ' lazyload'}" data-src="${item.thumbs[90].https
+                        <img class="gallery-img${slideIndex === 1 ? ' swiper-lazy' : ' lazy'}" data-src="${item.thumbs[90].https
                     }" src="${item.thumbs[90].https}" alt="${productName}" width="90px" height="90px">
                     </div>
                 `;
@@ -1381,7 +1361,7 @@
                     }
                 },
                 error: function (request, status, error) {
-                    console.log(`[Theme] An error occurred while retrieving product variant image. Details: ${error}`);
+                    //console.log(`[Theme] An error occurred while retrieving product variant image. Details: ${error}`);
                 },
             });
         },
@@ -1755,6 +1735,7 @@
                         });
                     }
 
+                    dataVariation.available = variation.available;
                     dataVariation.id = variationID;
                     dataVariation.productImage1 = variation.VariantImage && variation.VariantImage[0] && variation.VariantImage[0].https ? variation.VariantImage[0].https : null;
                     dataVariation.productImage2 = variation.VariantImage && variation.VariantImage[1] && variation.VariantImage[1].https ? variation.VariantImage[1].https : null;
@@ -1762,7 +1743,7 @@
                     resolve(dataVariation);
                 }).fail(function (jqXHR, status, errorThrown) {
                     var response = $.parseJSON(jqXHR.responseText);
-                    console.log(response);
+                    //console.log(response);
                     reject(errorThrown);
                 });
             });
@@ -1830,7 +1811,7 @@
 
                 await Promise.all(promises);
 
-                console.log("Cheguei aqui", list);
+                //console.log("Cheguei aqui", list);
 
                 if (
                     list.length > 0 &&
@@ -1845,6 +1826,7 @@
                         html += `
                             <li class="variation swiper-slide" 
                                 title="Selecionar cor: ${variation.color}" 
+                                available="${variation.available}"
                                 data-id="${variation.id}" 
                                 data-size="${variation.size}" 
                                 data-color="${variation.color}"
@@ -1873,6 +1855,7 @@
                         html += `
                             <li class="variation swiper-slide" 
                                 title="Selecionar tamanho: ${variation.size}" 
+                                available="${variation.available}"
                                 data-id="${variation.id}" 
                                 data-size="${variation.size}" 
                                 data-color="${variation.color}"
@@ -2012,7 +1995,7 @@
                         $productBuy.find('[data-type="sizes"]').closest(".swiper").remove();
                         return;
                     }
-                    console.log(response);
+                    //console.log(response);
                 }).fail(function (jqXHR, status, errorThrown) {
                     const response = $.parseJSON(jqXHR.responseText);
 
@@ -2020,7 +2003,7 @@
                         theme.alertClient(generalContainer, false, response.causes[0]);
                         return;
                     }
-                    console.log(response);
+                    //console.log(response);
                 });
             });
         },
@@ -2046,16 +2029,15 @@
                     `);
                 }
 
-
                 // Inicializar Swiper
                 new Swiper($product[0], {
-                    slidesPerView: 4,
-                    spaceBetween: 12,
+                    slidesPerView: 5,
+                    spaceBetween: 4,
                     loop: false,
                     breakpoints: {
-                        0: { slidesPerView: 2 },
-                        680: { slidesPerView: 3 },
-                        900: { slidesPerView: 4 },
+                        0: { slidesPerView: 4 },
+                        680: { slidesPerView: 4 },
+                        1100: { slidesPerView: 5 },
                     },
                     navigation: {
                         prevEl: `.swiper-button-prev.var.${carouselClass}`,
@@ -2225,10 +2207,7 @@
             $("section.differentials").addClass("swiper");
             $("section.differentials .content").addClass("swiper-wrapper");
             $("section.differentials .content .differential").addClass("swiper-slide");
-            $("section.differentials .content").after(`
-                <div class="swiper-pagination"></div>
-            `);
-
+            
             new Swiper('.differentials.swiper', {
                 slidesPerView: 2,
                 loop: true,
@@ -2247,11 +2226,6 @@
                     900: {
                         slidesPerView: 2,
                     },
-                },
-
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
                 },
             });
         },
@@ -2302,58 +2276,126 @@
         },
 
         seeEventsVideo: function (id) {
-            // Seleciona a div que ser&aacute; monitorada
             let divMonitorada = $('.gallery-images');
-
+        
             const iframe = `
                 <div class="swiper-slide video-frame" data-gallery="image">
-                    <iframe id="iframe-video" src="${$('#product-video').data("video")}" frameborder="0"></iframe>
+                    <iframe id="iframe-video" loading="lazy" src="${$('#product-video').data("video")}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>
             `;
-
+        
             const thumb = `
-                <div class="swiper-slide gallery-thumb" data-gallery="image" video-thumb="">
-                    <img class="gallery-img swiper-lazy" src="${$('#product-video').data("image")}" video-image="" alt="${$('.pageProduct-name').text()}" width="90px" height="90px" style="object-fit: contain !important; padding: 1em;"/>
+                <div class="swiper-slide gallery-thumb" data-gallery="image" video-thumb>
+                    <img class="gallery-img swiper-lazy" src="${$('#product-video').data("image")}" video-image alt="${$('.pageProduct-name').text()}" width="90px" height="90px" style="object-fit: contain !important; padding: 1em;"/>
                     <span class="icon-youtube-simple">
                         <span class="path1"></span>
                         <span class="path2"></span>
                     </span>
                 </div>
             `;
-
-            // Cria uma nova inst&acirc;ncia do MutationObserver
-            let observer = new MutationObserver(function (mutations) {
-                if (
-                    !$(".video-frame").length &&
-                    !$("[video-thumb]").length &&
-                    $("#product-video").length
-                ) {
-                    $('[data-gallery="box-images"]').append(iframe);
-                    $('[data-gallery="box-thumbs"]').append(thumb);
-                    theme.productVideo();
-                }
-            });
-
-            // Configura as op&ccedil;&otilde;es do MutationObserver
-            let options = {
-                childList: true, // Observar altera&ccedil;&otilde;es na lista de elementos filhos
-                subtree: true // Observar altera&ccedil;&otilde;es em todos os elementos descendentes
-            };
-
-            // Inicia a observa&ccedil;&atilde;o da div
-            observer.observe(divMonitorada[0], options);
-
-            if (window.screen.width < 768) {
-                $('[video-thumb]').on("click", function () {
-                    if ($(this).hasClass("clicked")) {
-                        return;
+        
+            // Evita múltiplas instâncias do observador
+            if (!window.videoObserver) {
+                window.videoObserver = new MutationObserver(function (mutations) {
+                    if (
+                        !$(".video-frame").length &&
+                        !$("[video-thumb]").length &&
+                        $("#product-video").length
+                    ) {
+                        $('[data-gallery="box-images"]').append(iframe);
+                        $('[data-gallery="box-thumbs"]').append(thumb);
+                        theme.productVideo("0");
                     }
-
-                    theme.productVideo();
-                    $(this).addClass("clicked");
+                });
+        
+                window.videoObserver.observe(divMonitorada[0], {
+                    childList: true,
+                    subtree: true
                 });
             }
+        
+            $('.pageProduct-main .gallery-thumb').off("click").on("click", function () {
+                // Verifica se a miniatura clicada é a do vídeo (thumb do vídeo)
+                if ($(this).is($("[video-thumb]"))) {
+                    // Limpa o iframe antes de carregar um novo vídeo
+                    $("#iframe-video").removeAttr("src");
+            
+                    // Verifica se a thumb já foi clicada anteriormente
+                    if (!$(this).hasClass("clicked")) {
+                        theme.productVideo("1");
+                        $(this).addClass("clicked");
+                    }
+                } else {
+                    // Se não for a thumb do vídeo, remove a classe "clicked" de todas as thumbs
+                    $('[video-thumb]').removeClass("clicked");
+                }
+            });  
+
+            $('.pageProduct-gallery .gallery-thumbs [role="button"]').off("click").on("click", function () {
+                setTimeout(function() {
+                    if($(".pageProduct-main .gallery-thumb.swiper-slide-thumb-active").is($("[video-thumb]"))) {
+                        $("#iframe-video").removeAttr("src");
+                
+                        if (!$(this).hasClass("clicked")) {
+                            theme.productVideo("1");
+                            $(this).addClass("clicked");
+                        }
+                    } else {
+                        $('[video-thumb]').removeClass("clicked");
+                    }
+                }, 200);
+            });
         },
+        
+        productVideo: async function (mute = "1") {
+            const videoTag = $("#product-video");
+        
+            if (videoTag.length) {
+                const url = videoTag.data("video");
+                let videoId = theme.getVideoId(url);
+                const iframe = $("#iframe-video");
+        
+                // Ajusta o tamanho do iframe de acordo com a galeria
+                iframe.attr({
+                    height: $(".gallery-images").css("height"),
+                    width: $(".gallery-images").css("width")
+                });
+        
+                if (videoId) {
+                    iframe.attr("src", `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1&loop=1&modestbranding=1&mute=${mute}`);
+        
+                    let youtubeThumb = `https://img.youtube.com/vi/${videoId}/0.jpg`;
+                    if ($("[video-image]").attr("src") !== youtubeThumb) {
+                        setTimeout(() => {
+                            $("[video-image]").attr("src", youtubeThumb).css({
+                                padding: "0 0.45em",
+                                objectFit: "cover"
+                            });
+                        }, 2000);
+                    }
+                } else {
+                    videoId = theme.extractVimeoVideoId(url);
+                    let thumbVimeo = await theme.getVimeoVideoThumbnail(videoId);
+        
+                    iframe.attr("src", `https://player.vimeo.com/video/${videoId}?autoplay=1&loop=1&title=0&byline=0&portrait=0`);
+        
+                    if ($("[video-image]").attr("src") !== thumbVimeo) {
+                        setTimeout(() => {
+                            $("[video-image]").attr("src", thumbVimeo).css({
+                                padding: "0 0.45em",
+                                objectFit: "cover"
+                            });
+                        }, 2000);
+                    }
+                }
+        
+                // Remover a classe 'clicked' de todos os thumbs
+                $('[video-thumb]').removeClass("clicked");
+        
+                // Chama a função novamente para garantir que o vídeo foi tratado corretamente
+                theme.seeEventsVideo(videoId);
+            }
+        },                
 
         clickSingleVariations: function () {
             $(window).on("load", function () {
@@ -2371,48 +2413,6 @@
                     variations.click();
                 })
             });
-        },
-
-        productVideo: async function () {
-            const videoTag = $("#product-video");
-
-            if (videoTag.length) {
-                const url = videoTag.data("video");
-                let videoId = theme.getVideoId(url);
-
-                //Ajustando iframe ÃÂ  largura:
-                $("#iframe-video").attr("height", $(".gallery-images").css("height"));
-                $("#iframe-video").attr("width", $(".gallery-images").css("width"));
-
-                if (videoId != null) {
-                    //definindo iframe:
-                    $("#iframe-video").attr("src", `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1&loop=1&modestbranding=1`);
-
-                    setTimeout(() => {
-                        //definindo imagem:
-                        $("[video-image]").attr("src", `
-                            https://img.youtube.com/vi/${videoId}/0.jpg
-                        `).css({
-                            padding: "0 0.45em",
-                            objectFit: "cover"
-                        });
-                    }, 2000);
-                } else {
-                    videoId = theme.extractVimeoVideoId(url);
-                    let thumbVimeo = await theme.getVimeoVideoThumbnail(videoId);
-
-                    $("#iframe-video").attr("src", `https://player.vimeo.com/video/${videoId}?autoplay=1&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0`);
-
-                    setTimeout(() => {
-                        $("[video-image]").attr("src", thumbVimeo).css({
-                            padding: "0 0.45em",
-                            objectFit: "cover"
-                        });
-                    }, 2000);
-                }
-
-                theme.seeEventsVideo(videoId);
-            }
         },
 
         popupImageView: function () {
@@ -2455,7 +2455,7 @@
                 return;
             }
 
-            const baseURI = 'https://app.melhorrastreio.com.br/app/';
+            const baseURI = 'https://www.sitecorreios.com.br/';
 
             $("form.rastrear").on("submit", function (e) {
                 e.preventDefault();
@@ -2465,23 +2465,131 @@
                 window.open(url, '_blank');
             });
         },
+
+        slidesReviews: function() {
+            if(!$(".reviews-container .swiper").length) {
+                return;
+            }
+
+            new Swiper(".reviews-container .swiper", {
+                slidesPerView: 3,
+                loop: true,
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1,
+                        spaceBetween: 7
+                    },
+                    680: {
+                        slidesPerView: 2,
+                    },
+                    900: {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                    },
+                },
+
+                navigation: {
+                    prevEl: `.swiper-button-prev.reviews`,
+                    nextEl: `.swiper-button-next.reviews`,
+                },
+            });
+        },
+
+        dropDownMenu: function() {
+            if(!$("#menu-mobile").length) {
+                return;
+            }
+
+            $("li.menu-firstLevel.subList").on("click", function() {
+                const $sub = $(this).find(".menu-secondLevel");
+                
+                if($sub.css("display") ==  "block") {
+                    $(this).find(".icon-arrow-simple").removeClass("active");
+                    $sub.slideUp("fast")
+                    return;
+                }
+
+                $(".icon-arrow-simple").removeClass("active");
+                $(".menu-secondLevel").slideUp("fast");
+
+                $(this).find(".icon-arrow-simple").addClass("active");
+                $sub.slideDown("fast");
+            });
+        },
+
+        resizeVideoCardProduct: function() {
+            if(!$(".product-image iframe").length) {
+                return;
+            }
+
+            const sizes = {w: $(".product-image").width(), h: $(".product-image").height()};
+            const $videoProducts = $(".product-image iframe");
+
+            $videoProducts.each(function(i, el) {
+                $(this).css({width: sizes.w, height: sizes.h});
+            });
+        },
+
+        buyfixed: function() {
+            $("#whatsapp-button").css({bottom: "10%"});
+
+            $(".botao-comprar-fixo").on("click", function () {
+                $(".pageProduct-buy #button-buy").click();
+
+                event.preventDefault(); // Evita comportamento padrão do link (caso seja um <a>)
+
+                const targetElement = document.querySelector(".pageProduct #menuVars");
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: "smooth", block: "center" });
+                }
+            });
+            
+            return;
+            const button = $(".botao-comprar-fixo");
+            const targetSection = $(".pageProduct-price + a");
+
+            if (targetSection.length && button.length) {
+                $(window).on("scroll", function () {
+                    const sectionOffset = targetSection.offset().top;
+                    const scrollPosition = $(window).scrollTop();
+                    const mobile = window.screen.width < 768;
+
+                    if (scrollPosition > sectionOffset) {
+                        button.fadeIn(); // Exibe o botão suavemente
+                        
+                        if(mobile) {
+                            $("#whatsapp-button").fadeOut();
+                        }
+                    } else {
+                        button.fadeOut(); // Oculta o botão suavemente
+                        
+                        if(mobile) {
+                            $("#whatsapp-button").fadeIn();
+                        }
+                    }
+                });
+            }
+        },
     };
 
     // Execution of Functions
     $(() => {
         const lazyLoadImages = new LazyLoad({
-            elements_selector: '.lazyload',
+            elements_selector: '.lazy',
         });
         theme.organizePagesTray();
         theme.getScroll();
         theme.cookiesInteracion();
 
         setTimeout(() => {
+            theme.dropDownMenu();
             theme.searchOrder();
             theme.addCartFast();
             theme.clickSingleVariations();
             theme.updatePriceShowCaseProducts();
             theme.videoPopup();
+            theme.resizeVideoCardProduct();
             theme.vipListPopup();
             theme.processRteVideoAndTable();
             theme.openApplyOverlayClose();
@@ -2496,6 +2604,7 @@
                 theme.bannerSlides();
                 theme.slideDifferentials();
                 theme.productsSlides();
+                theme.slidesReviews();
                 theme.slidesCategoryImages();
                 theme.productGridShowMore();
                 theme.loadNewsPageOnHome();
@@ -2504,13 +2613,16 @@
             theme.customerReviewsSlidesOnHome();
             theme.brandsSlides();
             //theme.colorDiferentials();
+        } if ($('html').hasClass('page-catalog')) {
+            theme.slidesCategoryImages();
         } else if ($('html').hasClass('page-product')) {
             theme.productsSlides();
             theme.gallerySlidesOnProductPage();
             //theme.quantityProducts();
             theme.getQuantityChangeOnProductPage();
             theme.initProductVariationImageChange();
-            theme.popupImageView();
+            theme.buyfixed();
+            //theme.popupImageView();
             theme.tabMedidas();
             theme.observePrice();
             theme.clickOneVariation();

@@ -121,7 +121,7 @@ async function addProduct(class_index) {
             })
         };
 
-    console.log(`ID: ${product_id} | Variant: ${product_variant}`);    
+    //console.log(`ID: ${product_id} | Variant: ${product_variant}`);    
 
     fetch(url, productData)
     .then((response) => response.json())
@@ -133,7 +133,7 @@ async function addProduct(class_index) {
             };
         })
     .catch((err) => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -174,12 +174,12 @@ async function removeProduct(class_index) {
                         }
                     })
                 .catch((err) => {
-                    console.log(err);
+                    //console.log(err);
                 });
             }
         })
         .catch((err) => {
-            console.log(err);
+            //console.log(err);
         });
     } else {
         deleteProduct(class_index);
@@ -208,7 +208,7 @@ async function deleteProduct(class_index) {
                 }
             })
         .catch((err) => {
-            console.log(err);
+            //console.log(err);
         });
 }
 

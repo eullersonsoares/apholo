@@ -14,6 +14,26 @@
         role="menubar"
         data-menuBarAcessible
     >
+        <li class="menu-firstLevel" role="none">
+            <a
+                class="menu-link"
+                href="{{ links.search_offer }}"
+                title="PROMOCIONAL"
+                role="menuitem"
+                {% if category.children %}
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                {% endif %}
+                tabindex="0"
+            >
+                <img src="{{ asset('img/approval.svg') }}" alt="Selo aprovado" width="17" height="17">                  
+
+                <span> 
+                    PROMOCIONAL
+                </span>
+            </a>
+        </li>
+        
         {% for category in show_categories %}
             <li class="menu-firstLevel {{ category.children ? 'subList' }}" role="none">
                 <a
@@ -27,15 +47,7 @@
                     {% endif %}
                     tabindex="0"
                 >
-                    {% if category.id == 7 %}
-                        <img src="{{ asset('img/approval.svg') }}" alt="Selo aprovado" width="17" height="17">                  
-
-                        <span> 
-                            {{ category.name }}
-                        </span>
-                    {% else %}
-                        {{ category.name }}
-                    {% endif %}
+                    {{ category.name }}
                 </a>
 
                 {% if category.children %}

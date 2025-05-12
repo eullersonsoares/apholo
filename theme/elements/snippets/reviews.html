@@ -1,0 +1,152 @@
+{% if settings.show_sections_reviews %}
+    {% set nReviews = 9 %}
+
+    <section class="reviews">
+        <div class="section">
+            <h2 class="section-title">Quem conhece, aprova!</h2>
+            <div class="reviews-container">
+                <div class="swiper">
+                    <ul class="reviews-list swiper-wrapper">
+                        {% for i in 1..nReviews %}
+                            {% if attribute(settings, 'name_review_' ~ i) or attribute(settings, 'message_review_' ~ i) %}
+                                <li class="custom-review swiper-slide">
+                                    <div class="message">
+                                        {{ attribute(settings, 'message_review_' ~ i) ? attribute(settings, 'message_review_' ~ i) : '' }}
+                                    </div>
+                                    <div class="stars">
+                                        {% set numberStars = attribute(settings, 'stars_review_' ~ i) %}
+                                        {% for rating in 1..5 %}
+                                            {% if numberStars >= rating %}
+                                                <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
+                                            {% else %}
+                                                <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="name">
+                                        {{ attribute(settings, 'name_review_' ~ i) ? attribute(settings, 'name_review_' ~ i) : '' }}
+                                    </div>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="swiper-button-prev reviews"></div>
+                <div class="swiper-button-next reviews"></div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+
+
+        /* Lista de avaliações 
+        .reviews-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }*/
+
+        /* Cada item de avaliação */
+        .custom-review {
+            background-color: #fff;
+            border-radius: 12px;
+            border: 1px solid #eaeaea;
+            padding: 25px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 320px;
+            transition: all 0.3s ease;
+        }
+
+        .custom-review:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo da mensagem do review */
+        .message {
+            font-size: 1rem;
+            color: #555;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Estilo das estrelas */
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin: auto 0 0 0;
+        }
+
+        .stars .rating-icon {
+            font-size: 22px;
+            color: #ffb400;
+        }
+
+        .stars .icon-star-empty {
+            color: #e0e0e0;
+        }
+
+        .stars .icon-star-filled {
+            color: #ffb400;
+        }
+
+        /* Estilo do nome do avaliador */
+        .name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-top: 15px;
+            text-transform: capitalize;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .reviews-list {
+                grid-template-columns: 1fr; /* Exibe um item por vez em telas menores */
+            }
+
+            .swiper-button-prev.reviews {
+                left: -15px;
+            } 
+            
+            .swiper-button-next.reviews {
+                right: -15px;
+            }
+
+            .name {
+                font-size: 1rem;
+            }
+        }
+
+        .reviews-container {
+            position: relative;
+        }
+
+        .swiper-button-prev.reviews, .swiper-button-next.reviews {
+            color: var(--c_footer_text);
+        }
+
+        .swiper-button-prev.reviews:after, .swiper-button-next.reviews:after {
+            font-size: 24px;
+        }
+
+        .swiper-button-prev.reviews {
+            left: -25px;
+        } 
+        
+        .swiper-button-next.reviews {
+            right: -25px;
+        }
+    </style>
+{% endif %}

@@ -47,6 +47,6 @@ function addCart(dataProductId){
         window.location.href = response.cart_url;
     }).fail(function( jqXHR, status, errorThrown ){
         var response = jQuery.parseJSON( jqXHR.responseText );
-        console.log(response);
+        //console.log(response);
     });
 }

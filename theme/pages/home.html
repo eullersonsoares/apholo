@@ -1,22 +1,3 @@
-<div class="" id="varejo">
-    <section class="section">
-        <div class="content">
-            <div class="stars">
-                <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
-                <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
-                <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
-            </div>
-            <div class="texto">Revendedor autorizado desde 2018</div>
-            <div class="stars">
-                <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
-                <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
-                <span class="rating-icon icon-star-empty" aria-hidden="true"></span>
-            </div>
-        </div>
-    </section>
-</div>
-{% element 'snippets/highlighted-categories' %}
-
 {% element 'snippets/banner-line' { 'banner_id': 'home', 'banner_type': 'slides' } %} 
 
 {% element 'snippets/grid-differentials' %}
@@ -34,14 +15,14 @@
 <section class="mini-banners section">
     <div class="content">
         <a href="{{ banners.extra7.link }}" class="banner" id="banner-7" title="{{ banners.extra7.alt }}" target="{{ banners.extra7.target }}">
-            <img src="{{ banners.extra7.src }}" alt="{{ banners.extra7.alt }}" >
+           <img class="lazy" data-src="{{ banners.extra7.src }}" alt="{{ banners.extra7.alt }}" >
         </a>
         <a href="{{ banners.extra8.link }}" class="banner" id="banner-8" title="{{ banners.extra8.alt }}" target="{{ banners.extra8.target }}">
-            <img src="{{ banners.extra8.src }}" alt="{{ banners.extra8.alt }}" >
+           <img class="lazy" data-src="{{ banners.extra8.src }}" alt="{{ banners.extra8.alt }}" >
         </a>
         <a href="{{ banners.extra9.link }}" class="banner" id="banner-9" title="{{ banners.extra9.alt }}" target="{{ banners.extra9.target }}">
-            <img src="{{ banners.extra9.src }}" alt="{{ banners.extra9.alt }}" >
-        </div>
+           <img class="lazy" data-src="{{ banners.extra9.src }}" alt="{{ banners.extra9.alt }}" >
+        </a>
     </div>
 </section>
 {% endif %}
@@ -75,33 +56,25 @@
     {% endif %} 
 {% endfor %} 
 
-{% for pages in pages.custom %} 
-    {% if pages.info == "depoimentos_de_clientes" and settings.show_reviews %}
-        <section class="section reviews" data-slides="reviews">
-            <h2 class="section-title">Depoimentos</h2>
-            <div class="reviews-container">
-                {% element 'CustomerReview.reviews' %}
-                <button class="reviews-button">
-                    <a class="button2" href="/depoimentos-de-clientes" title="Ver mais depoimentos" rel="next" target="_self">
-                        Ver mais depoimentos
-                    </a>
-                </button>
-            </div>
-        </section>
-    {% endif %} 
-{% endfor %} 
-
 {% element 'snippets/filter-sizes' %}
 
-{% if banner.extra1 %}
-    <section class="banner-mais-vendidos section">
-        <a href="{{ banners.extra1.link }}" class="banner" id="banner-1" title="{{ banners.extra1.alt }}" target="{{ banners.extra1.target }}">
-            <img src="{{ banners.extra1.src }}" alt="{{ banners.extra1.alt }}">
-
-            <div class="button2 button-banner" title="Ver agora">Ver agora</div>
+<section class="mini-banners section">
+    <div class="content-two">
+        <a href="{{ banners.extra10.link }}" class="banner" id="banner-10" title="{{ banners.extra10.alt }}" target="{{ banners.extra10.target }}">
+           <img class="lazy" data-src="{{ banners.extra10.src }}" alt="{{ banners.extra10.alt }}" >
         </a>
-    </section>
-{% endif %}
+        <a href="{{ banners.extra11.link }}" class="banner" id="banner-11" title="{{ banners.extra11.alt }}" target="{{ banners.extra11.target }}">
+           <img class="lazy" data-src="{{ banners.extra11.src }}" alt="{{ banners.extra11.alt }}" >
+        </a>
+        <a href="{{ banners.extra12.link }}" class="banner" id="banner-12" title="{{ banners.extra12.alt }}" target="{{ banners.extra12.target }}">
+           <img class="lazy" data-src="{{ banners.extra12.src }}" alt="{{ banners.extra12.alt }}" >
+        </a>
+    </div>
+</section>
+
+{% if settings.show_sections_reviews %}
+    {% element 'snippets/reviews' %}
+{% endif %} 
 
 {#{% element 'snippets/banner-line' { 'banner_id': 'bottom', 'banner_type': 'container' } %}#}
 

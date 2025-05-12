@@ -13,7 +13,7 @@
                             <li class="category swiper-slide">
                                 <a href="{{ category.link }}" title="{{ category.name }}">
                                     <div class="image">
-                                        <img src="{{ category.images[0] }}" alt="{{ category.name }}" width="{{ size }}" height="{{ size }}">
+                                       <img class="lazy" src="{{ category.images[0] }}" alt="{{ category.name }}" width="{{ size }}" height="{{ size }}">
                                     </div>
                                     <div class="category-title">{{ category.name }}</div>
                                 </a>
@@ -26,7 +26,7 @@
                                     <li class="category children-item swiper-slide">
                                         <a href="{{ children.link}}" title="{{ children.name }}">
                                             <div class="image">
-                                                <img src="{{ children.images[0] }}" alt="{{ children.name }}" width="{{ size }}" height="{{ size }}">
+                                               <img class="lazy" src="{{ children.images[0] }}" alt="{{ children.name }}" width="{{ size }}" height="{{ size }}">
                                             </div>
                                             <div class="category-title">{{ children.name }}</div>
                                         </a>

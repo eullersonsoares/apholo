@@ -45,10 +45,22 @@
 
                     <div class="listFilter">{% element 'snippets/filter' %}</div>
 
-                    <button class="filter-button u-mobile button4" data-toggle="closed" data-target="#category-filter">
-                        Filtro de Produtos
-                    </button>
-
+                    {% if utils.is_mobile %}
+                        <button class="filter-button u-mobile button5" data-toggle="closed" data-target="#category-filter">
+                            <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect x="45" y="45" width="45" height="45" transform="rotate(-180 45 45)" fill="url(#pattern0_2192_2458)"/>
+                            <defs>
+                            <pattern id="pattern0_2192_2458" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_2192_2458" transform="scale(0.0104167)"/>
+                            </pattern>
+                            <image id="image0_2192_2458" width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAByklEQVR4nO3czWrCQBSG4Y/qpr0Nd1Ip3mp/MHdRpCuh9JKSYI1QaEkR4qbY6TTonPl5HzgbRZ3JkQTjx5EAAAAAAACKNZU0sV5EiZaS3iR9SfqU9CrpznpRpZhJepfU/6jDY7fWiyvB+sTBP9aL9eJKsHM0YGu9uBjdSHqS1DoO3LEaSY+Srh3v12dQPvs8m2rEAqvMG9B77PMsriTtRyysG16bewM6xz5pgDJowNhT0Mrxfn1G5drn2RwuNA/DheevBdWS7gu4CNce+4xW69jYockw/CH2zNG/vPkvtyK2w3MIYCFpI+ljqM3wGAKbcDsaAAAAAAAAKMOUm4E2yKYaIptqjGyqseSyqf/JhlpXEyibGn021LqqCzfA53NMs6HW1QXKpkabDbWuLpcGpHoKWjn2E+pzTLKh1lUHyqYmnQ21RjbVGNlUY2RTI0A2NRJkUwEAAAAAAABPZDuNLJk7amfG3FFba8ef5cwdDWCXWrYzpWxok8jc0eyzoVXkDfBZZ9LRxC6RuaPZZkM7GmB7Clo5vhTW33rfdSaZDa0TmTtadDa0dRwY5o4GsHY0gLmjAcyZO2pvwdzROEwYNQAAAAAAAABAp3wDP7IVOxJe0XAAAAAASUVORK5CYII="/>
+                            </defs>
+                            </svg>
+                                
+                            Filtrar Produtos
+                        </button>
+                    {% endif %}
+                        
                     {% element 'snippets/filter-sizes' %}
 
                     {% if settings.compare %}

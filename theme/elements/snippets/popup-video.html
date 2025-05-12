@@ -1,28 +1,47 @@
+{% if pages.current == "home" %}
+
 {% set video_url = settings.iframe_video %}
+{% set video_id = "" %}
+{% set video_embed_link = "" %}
 
-{% set video_url_base = video_url | replace({'https://www.youtube.com/embed/': '', 'https://www.youtube.com/shorts/': '', 'https://vimeo.com/': ''}) %}
+{% if video_url %}
+    {% if 'youtube.com/watch?v=' in video_url %}
+        {% set video_id = video_url | replace({'https://www.youtube.com/watch?v=': ''}) | split('&')[0] %}
+    {% elseif 'youtu.be/' in video_url %}
+        {% set video_id = video_url | replace({'https://youtu.be/': ''}) | split('?')[0] %}
+    {% elseif 'youtube.com/embed/' in video_url %}
+        {% set video_id = video_url | replace({'https://www.youtube.com/embed/': ''}) | split('?')[0] %}
+    {% elseif 'www.youtube.com/shorts/' in video_url %}
+        {% set video_id = video_url | replace({'https://www.youtube.com/shorts/': ''}) | split('?')[0] %}   
+    {% elseif 'youtube.com/shorts/' in video_url %}
+        {% set video_id = video_url | replace({'https://youtube.com/shorts/': ''}) | split('?')[0] %}
+    {% elseif 'vimeo.com/' in video_url %}
+        {% set video_id = video_url | replace({'https://vimeo.com/': ''}) | split('?')[0] %}
+    {% endif %}
 
-{% if video_url starts with 'https://www.youtube.com/embed/' %}
-    {% set video_id = video_url_base | split('?')[0] %}
-    {% set embed_url = "https://www.youtube.com/embed/" ~ video_id ~ "?autoplay=1&loop=1&playlist=" ~ video_id ~ "&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3" %}
-
-{% elseif video_url starts with 'https://www.youtube.com/shorts/' %}
-    {% set video_id = video_url_base | split('?')[0] %}
-    {% set embed_url = "https://www.youtube.com/embed/" ~ video_id ~ "?autoplay=1&loop=1&playlist=" ~ video_id ~ "&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3" %}
-
-{% elseif video_url starts with 'https://vimeo.com/' %}
-    {% set video_id = video_url_base %}
-    {% set embed_url = "https://player.vimeo.com/video/" ~ video_id ~ "?autoplay=1&loop=1" %}
-
-{% else %}
-    {% set embed_url = "" %}
+    {% if video_id %}
+        {% if 'vimeo.com' in video_url %}
+            {% set video_embed_link = "https://player.vimeo.com/video/" ~ video_id ~ "?autoplay=1&loop=1&mute=1" %}
+        {% else %}
+            {% set video_embed_link = "https://www.youtube.com/embed/" ~ video_id ~ "?autoplay=1&loop=1&mute=1&controls=0&playlist=" ~ video_id ~ "&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3" %}
+        {% endif %}
+    {% endif %}
 {% endif %}
 
-{% if settings.show_popup_video and embed_url %}
+{% if settings.show_popup_video and video_embed_link %}
     <div class="video-button">
-        {% set thumbImage = settings.video_image %}
-
-        <img src="{{ asset(thumbImage) }}" alt="Vídeo Apholo" data-url='{{ thumImage ? thumImage : "null" }}'>
+        <img class="loading-image" src="{{ asset('img/loadig-new.gif') }}" alt="Carregando Vídeo Apholo">
+        
+        <iframe 
+            id="preview" 
+            src="{{ video_embed_link | replace({'&mute=1': '&mute=1', '&mute=0': '&mute=1'}) }}" 
+            width="100" 
+            height="180" 
+            frameborder="0" 
+            allow="autoplay; encrypted-media" 
+            allowfullscreen
+            style="pointer-events: none;"
+        ></iframe>
     </div>
 
     <div class="popup" id="popup-video">
@@ -30,19 +49,21 @@
             <div class="content-video" data-frame-sizes='{{ settings.video_view == "16x9" ? "16x9" : "9x16"}}'>
                 <button id="btn-close"></button>
 
-                {% if embed_url %}
+                {% if video_embed_link %}
                     <iframe 
                         id="videoPlayer" 
-                        data-src="{{ embed_url }}" 
+                        data-src="{{ video_embed_link }}" 
                         width="270" 
                         height="480" 
                         frameborder="0" 
                         allow="autoplay; encrypted-media" 
                         allowfullscreen
-                        >
-                    </iframe>
+                        style="pointer-events: none;"
+                        loading="lazy"
+                    ></iframe>
                 {% endif %}
             </div>
         </div>
     </div>
+{% endif %}
 {% endif %}
